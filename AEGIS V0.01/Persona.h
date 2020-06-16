@@ -9,10 +9,9 @@ protected:
     char Nombre[20];
     char Apellido[20];
     int Dia, Mes, Anio;
-    char Documento[10];
+    char Documento[8];
     char Mail[50];
     bool Estado;
-    char Ndoc[8];
     char nTelefono[10];
 public:
     void Cargar();
@@ -20,12 +19,9 @@ public:
     int ValidarMail(const char *Mail);
     int ValidarFecha(int Dia,int Mes,int Anio);
 
-
-
-
-    const char * getNdoc()
+    const char * getDocumento()
     {
-        return Ndoc;
+        return Documento;
     }
     const char * getNombre()
     {
@@ -57,7 +53,7 @@ public:
     }
     void setNdoc(char *n)
     {
-        strcpy(Ndoc,n);
+        strcpy(Documento,n);
     }
     void setNombre(char *n)
     {

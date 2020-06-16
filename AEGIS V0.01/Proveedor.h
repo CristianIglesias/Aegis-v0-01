@@ -4,9 +4,9 @@
 class Proveedor:public Persona
 {
 protected:
-    int NumeroProveedor;
     float PorcentajeRentabilidad;
     float EstadoCuenta;
+    char  CodigoProveedor[10];
 
 public:
     //metodos;

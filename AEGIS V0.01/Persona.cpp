@@ -13,7 +13,7 @@ void Persona::Cargar()
     if(Nombre);
     cout<<"Apellido :";
     cin.getline(Apellido,20);
-    cout<<" "<<endl;
+    cout<<""<<endl;
     for (i=0; i<3; i++)
     {
         cout<<"Fecha de nacimiento (d/m/a) "<<endl;
@@ -40,7 +40,7 @@ void Persona::Cargar()
     for(i=0; i<3; i++)
     {
         cout<<"Ingrese Numero de Documento : ";
-        cin.getline(Documento,10);
+        cin.getline(Documento,8);
 
         ///error=(ValidarDocumento(getndoc()
         if(error<0)
@@ -97,8 +97,10 @@ void Persona::Cargar()
 
 void Persona :: Mostrar()
 {
-
-
+cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<Dia<<" del "<<Mes<<endl;
+cout<<"Su Número de Documento es:" <<Documento<<endl;
+cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
+cout<<"Su Email es :"<<Mail<<endl;
 }
 
 
@@ -214,9 +216,8 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
 /*char Nombre[20];
   char Apellido[20];
   int Dia, Mes, Anio;
-  char Documento[10];
+  char Documento[8];
   char Mail[50];
   bool Estado;
-  char Ndoc[8];
   char nTelefono[10];*/
 
