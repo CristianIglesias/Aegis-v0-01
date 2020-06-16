@@ -1,7 +1,8 @@
 #ifndef PERSONA_H_INCLUDED
 #define PERSONA_H_INCLUDED
-#pragma once
 #include <cstring>
+
+#pragma once
 class Persona
 {
 protected:
@@ -16,6 +17,12 @@ protected:
 public:
     void Cargar();
     void Mostrar();
+    int ValidarMail(const char *Mail);
+    int ValidarFecha(int Dia,int Mes,int Anio);
+
+
+
+
     const char * getNdoc()
     {
         return Ndoc;

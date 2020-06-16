@@ -1,7 +1,6 @@
 #ifndef PRODUCTO_H_INCLUDED
 #define PRODUCTO_H_INCLUDED
 #pragma once
-#include <cstring>
 class Producto
 {
 private:

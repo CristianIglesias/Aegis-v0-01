@@ -15,17 +15,17 @@ void abmClientes();
 ///Menus Completos
 void menuPrincipal()
 {
-           setColor(WHITE);
-        cout<<"                           MENU PRINCIPAL"          <<endl;
-        cout<<"                  _________________________________"<<endl;
-        cout<<"                 |-1-->VENTAS                     -|"<<endl;
-        cout<<"                 |-2-->ABM                        -|"<<endl;
-        cout<<"                 |-3-->LISTADOS                   -|"<<endl;
-        cout<<"                 |-4-->COMPRAS                    -|"<<endl;
-        cout<<"                 |-5-->CONFIGURACION              -|"<<endl;
-        cout<<"                 |-0-->SALIR                      -|"<<endl;
-        cout<<"                 |_________________________________|"<<endl;
-        cout<<"                  -------Ingrese una opcion--------"<<endl;
+    setColor(WHITE);
+    cout<<"                           MENU PRINCIPAL"          <<endl;
+    cout<<"                  _________________________________"<<endl;
+    cout<<"                 |-1-->VENTAS                     -|"<<endl;
+    cout<<"                 |-2-->ABM                        -|"<<endl;
+    cout<<"                 |-3-->LISTADOS                   -|"<<endl;
+    cout<<"                 |-4-->COMPRAS                    -|"<<endl;
+    cout<<"                 |-5-->CONFIGURACION              -|"<<endl;
+    cout<<"                 |-0-->SALIR                      -|"<<endl;
+    cout<<"                 |_________________________________|"<<endl;
+    cout<<"                  -------Ingrese una opcion--------"<<endl;
 }
 void menuVentas()
 {
@@ -99,7 +99,7 @@ void menuVentas()
 }
 void menuABM()
 {
-         int op;
+    int op;
     bool salir=false;
 
     while(!salir)
@@ -140,8 +140,6 @@ void menuABM()
         {
             system("cls");
             cout<<"                 ~~               "<<endl;
-
-
         }
         break;
         case 4:
@@ -162,7 +160,6 @@ void menuABM()
         {
             system("cls");
             cout<<"                  ~~               "<<endl;
-
         }
         break;
         case 0:
@@ -170,14 +167,12 @@ void menuABM()
             system("cls");
             cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
             salir=true;
-
         }
         break;
         default:
         {
             system("cls");
             cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
-
         }
         break;
 
@@ -196,7 +191,7 @@ void abmClientes()
     while(!salir)
     {
         setColor(GREEN);
-        cls();
+        system("cls");
         cout<<"                             ABM Clientes          "<<endl;
         cout<<"                  _________________________________"<<endl;
         cout<<"                 |-1-->Nuevo Cliente.             -|"<<endl;
@@ -209,7 +204,7 @@ void abmClientes()
         cout<<"                 |_________________________________|"<<endl;
         cout<<"                  -------Ingrese una opcion--------"<<endl;
         cin>>op;
-        cls();
+        system("cls");
         switch(op)
         {
         case 1:
@@ -223,10 +218,15 @@ void abmClientes()
         break;
 
         case 2:
-            {
+        {
 
-            }
+        }
         break;
+
+        case 0:
+        {
+            salir=true;
+        }
         }///Cierra el switch
 
     }///Cierra el while

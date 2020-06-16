@@ -25,10 +25,22 @@ void  Cliente:: mostrar()
 {
     Persona::Mostrar();
 };
-int   Cliente:: GetidCliente(){return idCliente;};
-int   Cliente:: GetTipoPago() {return TipodePago;};
-int   Cliente:: GetTipoFactura() {return PrefFactura;};
-float Cliente:: GetDeuda() {return deuda;};
+int   Cliente:: GetidCliente()
+{
+    return idCliente;
+};
+int   Cliente:: GetTipoPago()
+{
+    return TipodePago;
+};
+int   Cliente:: GetTipoFactura()
+{
+    return PrefFactura;
+};
+float Cliente:: GetDeuda()
+{
+    return deuda;
+};
 void  Cliente:: SetTipoPago(int NuevoTipoP)
 {
 
@@ -49,7 +61,7 @@ void Cliente::Generarid()
     p=fopen(ArchivoClientes,"wb");
     if(p==NULL)
         idCliente=-1;
-        return;
+    return;
     while(fread(&aux,sizeof(Cliente),1,p)==1)
     {
         cantRegistros++;

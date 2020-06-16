@@ -13,19 +13,20 @@ using namespace rlutil;
 ///probando una cosa
 
 int main()
-{   setlocale(LC_ALL,"spanish");
+{
+    setlocale(LC_ALL,"spanish");
     int op=-1;
     while(op!=0)
 
     {
-        cls();
+        system("cls");
         cout<<"                            *********                        "<<endl;
         cout<<"                             *AEGIS*                         "<<endl;
         cout<<"                            *********                        "<<endl;
         cout<<"-->Presione la tecla enter para ingresar al menu de Principal"<<endl;
         cin.get();
         cls();
-            menuPrincipal();
+        menuPrincipal();
 
         cin>>op;
         cin.ignore();
@@ -41,7 +42,7 @@ int main()
 
         case 2:
         {
-                menuABM();
+            menuABM();
         }
         break;
 
@@ -79,7 +80,7 @@ int main()
 
 
         }///Termina el switch
-
+    cin.get();
     }///Termina el while
 
     return 0;

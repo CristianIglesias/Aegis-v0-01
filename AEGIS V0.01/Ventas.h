@@ -24,7 +24,7 @@ public:
     void cargar();
     void mostrar();
 
-    };
+};
 
 
 
