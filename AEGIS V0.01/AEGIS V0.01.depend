@@ -86,3 +86,90 @@
 	<cstring>
 	"PrototiposGlobales.h"
 
+1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\clientes.cpp
+	<iostream>
+	<cstdio>
+	"Clientes.h"
+	"PrototiposGlobales.h"
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\clientes.h
+	"Persona.h"
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\persona.h
+	<cstring>
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
+
+1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"PrototiposGlobales.h"
+
+1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<clocale>
+	"rlutil.h"
+	"PrototiposGlobales.h"
+	"Clientes.h"
+	"Menus.h"
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\menus.h
+
+1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\persona.cpp
+	<iostream>
+	<cstring>
+	"PrototiposGlobales.h"
+	"Persona.h"
+
+1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\producto.h
+	<cstring>
+
+1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\proveedor.cpp
+	<iostream>
+	"Proveedor.h"
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\proveedor.h
+	"Persona.h"
+
+1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\vendedor.cpp
+	<iostream>
+	"Vendedor.h"
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\vendedor.h
+	"Persona.h"
+
+1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\ventas.cpp
+	<iostream>
+	"FuncionesGlobales.h"
+	"Ventas.h"
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
+	<cstring>
+
+1592260961 c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\ventas.h
+	"Producto.h"
+	"PrototiposGlobales.h"
+
