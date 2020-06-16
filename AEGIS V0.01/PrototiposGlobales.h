@@ -5,11 +5,12 @@ struct Fecha
 {
     int dia,mes,anio;
 };
-const char *ArchivoClientes ="Clientes.dat";
-const char *ArchivoVendedor ="Vendedor.dat";
-const char *ArchivoProveedor ="Proveedor.dat";
-const char *ArchivoProducto ="Producto.dat";
-const char *ArchivoVenta ="Ventas.dat";
+
+extern const char *ArchivoClientes ="Clientes.dat";
+extern const char *ArchivoVendedor ="Vendedor.dat";
+extern const char *ArchivoProveedor ="Proveedor.dat";
+extern const char *ArchivoProducto ="Producto.dat";
+extern const char *ArchivoVenta ="Ventas.dat";
 
 
 

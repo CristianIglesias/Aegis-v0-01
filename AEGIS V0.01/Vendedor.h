@@ -1,6 +1,7 @@
 #ifndef VENDEDOR_H_INCLUDED
 #define VENDEDOR_H_INCLUDED
 #pragma once
+
 class Vendedor:public Persona
 {
 protected:
