@@ -18,6 +18,8 @@ public:
     void Mostrar();
     int ValidarMail(const char *Mail);
     int ValidarFecha(int Dia,int Mes,int Anio);
+    int ValidarDocumento(const char *Ndoc);
+    int ValidarTelefono(const char *Telefono);
 
     const char * getDocumento()
     {
@@ -87,6 +89,7 @@ public:
     {
         Estado=nuevoestado;
     };
+
 };
 
 #endif // PERSONA_H_INCLUDED

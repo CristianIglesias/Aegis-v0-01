@@ -5,8 +5,6 @@ using namespace std;
 #include "PrototiposGlobales.h"
 const char *ArchivoClientes ="Clientes.dat";
 
-const char *ArchivoClientes = "Clientes.dat";
-
 void  Cliente:: cargar()
 {
     Persona::Cargar();

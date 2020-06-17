@@ -42,17 +42,17 @@ void Persona::Cargar()
         cout<<"Ingrese Numero de Documento : ";
         cin.getline(Documento,8);
 
-        ///error=(ValidarDocumento(getndoc()
+//        error=ValidarDocumento(getDocumento());
         if(error<0)
-        {
-            cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i<<"/3"<<endl;
-            if(i==3)
+    {
+        cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
+        cout<<"Intento Numero "<<i<<"/3"<<endl;
+        if(i==3)
                 return;
         }
         else
             break;
-    }
+        }
     for (int i=0; i<3; i++)
     {
         cout<<"Ingrese Correo Electronico :"<<endl;
@@ -77,7 +77,7 @@ void Persona::Cargar()
         cout<<"Y Para completar la parte uno del ingreso de datos, Ingrese su Numero de Teléfono"<<endl;
         cout<<"Teléfono :";
         cin.getline(nTelefono,10);
-        ///error=ValidarTeléfono(getnTelefono);
+      //  ValidarTelefono(getTelefono);
         if(error<0)
         {
             cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
@@ -97,10 +97,10 @@ void Persona::Cargar()
 
 void Persona :: Mostrar()
 {
-cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<Dia<<" del "<<Mes<<endl;
-cout<<"Su Número de Documento es:" <<Documento<<endl;
-cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
-cout<<"Su Email es :"<<Mail<<endl;
+    cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<Dia<<" del "<<Mes<<endl;
+    cout<<"Su Número de Documento es:" <<Documento<<endl;
+    cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
+    cout<<"Su Email es :"<<Mail<<endl;
 }
 
 
@@ -213,11 +213,37 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
     return -1;
 };
 
-/*char Nombre[20];
-  char Apellido[20];
-  int Dia, Mes, Anio;
-  char Documento[8];
-  char Mail[50];
-  bool Estado;
-  char nTelefono[10];*/
+/*int Persona :: ValidarDocumento(char *Ndoc)
+{
+    int i;
+    bool flag=true;
+    for (i=0; i<8; i++)
+    {
+        if (Ndoc[i]<48&&Ndoc[i]>57)
+        {
+            flag=false;
+            return -1;
+        }
+    }///valida acepte solo numeros
 
+
+
+    return 1;
+};
+int Persona :: ValidarTelefono(char *Telefono)
+{
+    int i;
+    bool flag=true;
+    for (i=0; i<10; i++)
+    {
+        if (Telefono[i]<48&&Telefono[i]>57)
+        {
+            flag=false;
+            return -1;
+        }
+    }
+    return 1;
+
+};
+
+*/
