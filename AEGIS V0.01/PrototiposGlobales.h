@@ -9,5 +9,4 @@ struct Fecha
 
 
 
-
 #endif // PROTOTIPOSGLOBALES_H_INCLUDED
