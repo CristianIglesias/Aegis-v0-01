@@ -14,9 +14,10 @@ private:
     int StockActual;
     bool Estado;
 public:
-    //metodos;
+    ///metodos;
     void cargar();
     void mostrar();
+
     const char * getCodigoProducto()
     {
         return CodigoProducto;
@@ -82,7 +83,13 @@ public:
         StockActual=stocka;
     }
 
+
+
 };
+
+
+
+
 
 
 
