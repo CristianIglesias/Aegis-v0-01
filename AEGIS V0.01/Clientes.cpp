@@ -3,6 +3,7 @@
 using namespace std;
 #include "Clientes.h"
 #include "PrototiposGlobales.h"
+const char *ArchivoClientes ="Clientes.dat";
 
 void  Cliente:: cargar()
 {

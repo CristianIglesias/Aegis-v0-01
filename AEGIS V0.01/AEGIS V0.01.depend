@@ -38,12 +38,12 @@
 1592270272 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
 	<cstring>
 
-1592266794 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
+1592357757 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
 
 1592247705 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1592268695 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
+1592270227 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
 	<iostream>
 	<cstring>
 	"PrototiposGlobales.h"
