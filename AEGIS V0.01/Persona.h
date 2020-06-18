@@ -18,8 +18,8 @@ public:
     void Mostrar();
     int ValidarMail(const char *Mail);
     int ValidarFecha(int Dia,int Mes,int Anio);
-    int ValidarDocumento(const char *Ndoc);
-    int ValidarTelefono(const char *Telefono);
+    int ValidarDocumento(const char *);
+    int ValidarTelefono(const char *);
 
     const char * getDocumento()
     {

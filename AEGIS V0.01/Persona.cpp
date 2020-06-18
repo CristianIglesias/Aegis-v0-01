@@ -104,13 +104,6 @@ void Persona :: Mostrar()
 }
 
 
-
-
-
-
-
-
-
 int Persona:: ValidarMail(const char *Mail)
 {
     int tam=strlen(Mail), pos;
@@ -213,8 +206,7 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
     return -1;
 };
 
-/*int Persona :: ValidarDocumento(char *Ndoc)
-{
+int Persona :: ValidarDocumento(const char *Ndoc){
     int i;
     bool flag=true;
     for (i=0; i<8; i++)
@@ -224,13 +216,13 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
             flag=false;
             return -1;
         }
-    }///valida acepte solo numeros
-
+    }///valida que acepte solo numeros
+if(Ndoc[1]<)
 
 
     return 1;
 };
-int Persona :: ValidarTelefono(char *Telefono)
+int Persona :: ValidarTelefono(const char *Telefono)
 {
     int i;
     bool flag=true;
@@ -246,4 +238,3 @@ int Persona :: ValidarTelefono(char *Telefono)
 
 };
 
-*/
