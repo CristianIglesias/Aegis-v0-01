@@ -4,16 +4,17 @@ using namespace std;
 #include "Producto.h"
 #include <cstdio>
 
+
 /*int buscarcodigo(char *codigo)
 {
-    char aux[10]
+    Producto aux;
     FILE *p;
-    p=fopen("Productos.dat",wb)
+    p=fopen("Productos.dat",rb)
     if(p==NULL) return;
 
     while(fread((&aux,sizeof(Producto),1,p)==1))
     {
-        if(codigo==aux)
+        if(codigo==aux.CodigoProducto)
         {
             return -1;
         }
@@ -31,13 +32,13 @@ void Producto::cargar()
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
 
      cin.getline(CodigoProducto,10);
-/*  i=buscarcodigo(CodigoProducto)
+ /*i=buscarcodigo(CodigoProducto);
        if(i==-1)
        {
         cout<<"ERROR, CODIGO EXISTENTE"<<endl;
         return;
         }
-        else if(i==0)
+        if(i==0)
         {
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
         }

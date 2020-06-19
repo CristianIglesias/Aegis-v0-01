@@ -132,7 +132,7 @@ void menuABM()
         case 2:
         {
             system("cls");
-            cout<<"               ~~                "<<endl;
+            cout<<"               ~ABM PRODUCTOS~                "<<endl;
 
         }
         break;

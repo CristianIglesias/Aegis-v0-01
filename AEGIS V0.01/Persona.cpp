@@ -217,7 +217,7 @@ int Persona :: ValidarDocumento(const char *Ndoc){
             return -1;
         }
     }///valida que acepte solo numeros
-if(Ndoc[1]<)
+if(Ndoc[1]<0)
 
 
     return 1;
