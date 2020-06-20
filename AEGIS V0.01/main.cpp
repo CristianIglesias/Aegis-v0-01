@@ -8,6 +8,7 @@ using namespace std;
 using namespace rlutil;
 #include "PrototiposGlobales.h"
 #include "Clientes.h"
+#include "Producto.h"
 #include "Menus.h"
 
 ///fuck

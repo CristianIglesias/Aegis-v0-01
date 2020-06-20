@@ -27,10 +27,9 @@ void Producto::cargar()
 {
    int i;
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
-
      cin.getline(CodigoProducto,10);
             i=buscarcodigo(CodigoProducto);
-       if(i<0)
+       if(i<-1)
        {
         cout<<"ERROR, CODIGO EXISTENTE"<<endl;
         return;

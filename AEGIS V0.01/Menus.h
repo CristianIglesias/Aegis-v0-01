@@ -9,6 +9,7 @@ void menuVentas();
 void menuPrincipal();
 void menuABM();
 void abmClientes();
+void abmProducto();
 
 
 
@@ -133,7 +134,7 @@ void menuABM()
         {
             system("cls");
             cout<<"               ~ABM PRODUCTOS~                "<<endl;
-
+           abmProducto();
         }
         break;
         case 3:
@@ -214,6 +215,60 @@ void abmClientes()
             cout<<"            ~ Nuevo Cliente ~          "<<endl;
             Cliente cli;
             cli.cargar();
+            anykey();
+        }
+        break;
+
+        case 2:
+        {
+
+        }
+        break;
+
+        case 0:
+        {
+            salir=true;
+        }
+        }///Cierra el switch
+
+    }///Cierra el while
+};
+
+///abm producto:
+
+
+void abmProducto()
+{
+
+    int op;
+    bool salir=false;
+
+    while(!salir)
+    {
+        setColor(GREEN);
+        system("cls");
+        cout<<"                             ABM Producto          "<<endl;
+        cout<<"                  _________________________________"<<endl;
+        cout<<"                 |-1-->Nuevo Producto.             -|"<<endl;
+        cout<<"                 |-2-->Modificar Producto.         -|"<<endl;
+        cout<<"                 |-3-->Mostrar Producto.           -|"<<endl;
+        cout<<"                 |-4-->Mostrar Todos los Productos.-|"<<endl;
+        cout<<"                 |-5-->Eliminar Producto.          -|"<<endl;
+        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
+        cout<<"                 |-0-->VOLVER                     -|"<<endl;
+        cout<<"                 |_________________________________|"<<endl;
+        cout<<"                  -------Ingrese una opcion--------"<<endl;
+        cin>>op;
+        system("cls");
+        switch(op)
+        {
+        case 1:
+        {
+
+
+            cout<<"            ~ Nuevo Producto ~          "<<endl;
+            Producto pro;
+            pro.cargar();
             anykey();
         }
         break;
