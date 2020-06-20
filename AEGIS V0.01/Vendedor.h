@@ -10,7 +10,6 @@ protected:
     int legajo;
 
 public:
-    //metodos;
     void cargar();
     void mostrar();
 };
