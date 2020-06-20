@@ -9,10 +9,10 @@ protected:
     char Nombre[20];
     char Apellido[20];
     int Dia, Mes, Anio;
-    char Documento[8];
+    char Documento[9];
     char Mail[50];
     bool Estado;
-    char nTelefono[10];
+    char nTelefono[11];
 public:
     void Cargar();///CARGA PERSONA
     void Mostrar();///MUESTRA PERSONA

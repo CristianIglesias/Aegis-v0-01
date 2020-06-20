@@ -42,8 +42,8 @@ void Persona::Cargar()
     for(i=0; i<3; i++)
     {
         cout<<"Ingrese Numero de Documento : ";
-        cin.getline(Documento,8);
-        ///error=ValidarDocumento(getDocumento());
+        cin.getline(Documento,9);
+        error=ValidarDocumento(getDocumento());
        if(error<0)
         {
             cout<<"Error Validando Documento -Nro "<<error<<" Intente Nuevamente."<<endl;
