@@ -14,12 +14,12 @@ protected:
     bool Estado;
     char nTelefono[10];
 public:
-    void Cargar();
-    void Mostrar();
-    int ValidarMail(const char *Mail);
+    void Cargar();///CARGA PERSONA
+    void Mostrar();///MUESTRA PERSONA
+    int ValidarMail( char *Mail);
     int ValidarFecha(int Dia,int Mes,int Anio);
-    int ValidarDocumento(const char *);
-    int ValidarTelefono(const char *);
+    int ValidarDocumento(char *);
+    int ValidarTelefono(char *);
 
     const char * getDocumento()
     {

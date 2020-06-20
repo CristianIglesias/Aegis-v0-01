@@ -14,9 +14,12 @@ private:
     int StockActual;
     bool Estado;
 public:
-    ///metodos;
+
     void cargar();
     void mostrar();
+    int buscarcodigo(char *codigo);
+
+
 
     const char * getCodigoProducto()
     {

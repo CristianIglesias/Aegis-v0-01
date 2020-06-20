@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1592270296 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\main.cpp
+1592617203 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\main.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -24,9 +24,9 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1592267013 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1592617464 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 
-1592357967 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1592617359 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"Clientes.h"
@@ -35,7 +35,7 @@
 1592265595 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
-1592516275 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
+1592620462 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
 	<cstring>
 
 1592357967 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
@@ -43,7 +43,7 @@
 1592247705 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1592361664 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
+1592617417 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
 	<iostream>
 	<cstring>
 	"PrototiposGlobales.h"
@@ -65,13 +65,13 @@
 
 1592357890 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
 
-1592445431 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1592617203 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
-	"Producto.h"
 	<cstdio>
+	"Producto.h"
 
-1592445431 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
+1592616791 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 
 1592357772 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>

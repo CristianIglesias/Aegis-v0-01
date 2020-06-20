@@ -212,8 +212,9 @@ void abmClientes()
 
 
             cout<<"            ~ Nuevo Cliente ~          "<<endl;
-
-
+            Cliente cli;
+            cli.cargar();
+            anykey();
         }
         break;
 

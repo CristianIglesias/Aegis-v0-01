@@ -82,7 +82,7 @@ int main()
 
 
         }///Termina el switch
-    cin.get();
+        cin.get();
     }///Termina el while
 
     return 0;

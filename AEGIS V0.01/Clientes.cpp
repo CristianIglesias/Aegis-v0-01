@@ -5,10 +5,10 @@ using namespace std;
 #include "PrototiposGlobales.h"
 const char *ArchivoClientes ="Clientes.dat";
 
-void  Cliente:: cargar()
+void  Cliente:: cargar()///Carga Cliente.
 {
     Persona::Cargar();
-    this->Generarid();
+    Generarid();
     if(idCliente<0)
     {
         cout<<"Hubo un error en la generación de ID Cliente, Intente Nuevamente"<<endl;

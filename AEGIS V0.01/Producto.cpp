@@ -1,30 +1,27 @@
 #include <iostream>
 #include <cstring>
+#include <cstdio>
 using namespace std;
 #include "Producto.h"
-#include <cstdio>
+const char *ArchivoProducto ="Producto.dat";
 
 
-/*int buscarcodigo(char *codigo)
+int Producto:: buscarcodigo(char *codigo)
 {
     Producto aux;
     FILE *p;
-    p=fopen("Productos.dat",rb)
-    if(p==NULL) return;
+    p=fopen(ArchivoProducto,"rb");
+    if(p==NULL) return-1;
 
-    while(fread((&aux,sizeof(Producto),1,p)==1))
+    while(fread(&aux,sizeof(Producto),1,p)==1)
     {
-        if(codigo==aux.CodigoProducto)
+        if(getCodigoProducto()==aux.getCodigoProducto())
         {
             return -1;
         }
-
     }
     return 0;
 }
-*/
-
-const char *ArchivoProducto ="Producto.dat";
 
 void Producto::cargar()
 {
@@ -32,18 +29,16 @@ void Producto::cargar()
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
 
      cin.getline(CodigoProducto,10);
- /*i=buscarcodigo(CodigoProducto);
-       if(i==-1)
+            i=buscarcodigo(CodigoProducto);
+       if(i<0)
        {
         cout<<"ERROR, CODIGO EXISTENTE"<<endl;
         return;
         }
-        if(i==0)
-        {
+    if(i==0)
+    {
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
-        }
-*/
-
+    }
     cout<<"CODIGO DE PROVEEDOR:"<<endl;
     cin.getline(CodigoProveedor,10);
 

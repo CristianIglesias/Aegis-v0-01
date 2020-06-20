@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
+#include "rlutil.h"
+using namespace rlutil;
 #include "PrototiposGlobales.h"
 #include "Persona.h"
 
@@ -41,28 +43,27 @@ void Persona::Cargar()
     {
         cout<<"Ingrese Numero de Documento : ";
         cin.getline(Documento,8);
-
-//        error=ValidarDocumento(getDocumento());
-        if(error<0)
-    {
-        cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
-        cout<<"Intento Numero "<<i<<"/3"<<endl;
-        if(i==3)
-                return;
+        ///error=ValidarDocumento(getDocumento());
+       if(error<0)
+        {
+            cout<<"Error Validando Documento -Nro "<<error<<" Intente Nuevamente."<<endl;
+            cout<<"Intento Numero "<<i+1<<"/3"<<endl;
+            if(i==3)
+            return;
         }
         else
             break;
-        }
-    for (int i=0; i<3; i++)
+    }
+    for (i=0; i<3; i++)
     {
         cout<<"Ingrese Correo Electronico :"<<endl;
         cout<<"EMAIL :";
         cin.getline(Mail,50);
-        error=ValidarMail(getEmail());
+        error=ValidarMail(Mail);
         if(error<0)
         {
-            cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i<<"/3"<<endl;
+            cout<<"Error Validando Mail -Nro "<<error<<" Intente Nuevamente."<<endl;
+            cout<<"Intento Numero "<<i+1<<"/3"<<endl;
             if(i==3)
             {
                 return;
@@ -77,7 +78,7 @@ void Persona::Cargar()
         cout<<"Y Para completar la parte uno del ingreso de datos, Ingrese su Numero de Teléfono"<<endl;
         cout<<"Teléfono :";
         cin.getline(nTelefono,10);
-      //  ValidarTelefono(getTelefono);
+        ///ValidarTelefono(getTelefono);
         if(error<0)
         {
             cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
@@ -104,18 +105,49 @@ void Persona :: Mostrar()
 }
 
 
-int Persona:: ValidarMail(const char *Mail)
+int Persona :: ValidarDocumento( char *Ndoc)
+{
+    int i;
+    bool flag=true;
+    for (i=0; i<8; i++)
+    {
+        if (Ndoc[i]-48>=0&&Ndoc[i]-48<=9)
+        {
+            flag=false;
+            return -1;
+        }
+    }///valida que acepte solo numeros
+   return 1;
+};
+int Persona :: ValidarTelefono( char *Telefono)
+{
+    int i;
+    bool flag=true;
+    for (i=0; i<10; i++)
+    {
+        if (Telefono[i]-48>=0&&Telefono[i]-48<=9)
+        {
+            flag=false;
+            return -1;
+        }
+    }
+    return 1;
+
+};
+
+
+int Persona:: ValidarMail( char *Mail)
 {
     int tam=strlen(Mail), pos;
     char *poschar;
     if(Mail[0]=='@'||Mail[0]=='.')
     {
-        return -3;   ///Que no empiece ni con arroba ni con punto
+        return -1;   ///Que no empiece ni con arroba ni con punto
     }
     poschar=strchr(Mail,'@');
     if(poschar==NULL)
     {
-        return-3;   ///que tenga un arroba
+        return-2;   ///que tenga un arroba
     }
     if(strrchr(Mail,'@')!=poschar)
     {
@@ -124,22 +156,22 @@ int Persona:: ValidarMail(const char *Mail)
     pos=poschar-Mail;
     if((isalnum(Mail[pos+1]!=0))&&(isalnum(Mail[pos-1]!=0)))
     {
-        return-3;   ///Que tenga chares alfanumericos al rededor de arroba.
+        return-4;   ///Que tenga chares alfanumericos al rededor de arroba.
     }
     poschar=strchr(Mail,'.');          ///Que tenga un punto
     if(poschar==NULL)
     {
-        return -3;
+        return -5;
     }
     pos=Mail-poschar;
     if(Mail[pos+1]=='.')
     {
-        return-3;   ///Que no tenga dos seguidos
+        return-6;   ///Que no tenga dos seguidos
     }
 
     if(Mail[tam-1]=='.')
     {
-        return-3;   ///que no termine en punto.
+        return-7;   ///que no termine en punto.
     }
     return 1;
 }
@@ -177,7 +209,7 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
             else
                 return -1;
         case  2 :
-            if( Anio % 4 == 0 && Anio % 100 != 0 || Anio % 400 == 0 )
+            if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
                 if ( Dia >= 1 && Dia <= 29 )
                 {
 
@@ -205,36 +237,3 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
     }
     return -1;
 };
-
-int Persona :: ValidarDocumento(const char *Ndoc){
-    int i;
-    bool flag=true;
-    for (i=0; i<8; i++)
-    {
-        if (Ndoc[i]<48&&Ndoc[i]>57)
-        {
-            flag=false;
-            return -1;
-        }
-    }///valida que acepte solo numeros
-if(Ndoc[1]<0)
-
-
-    return 1;
-};
-int Persona :: ValidarTelefono(const char *Telefono)
-{
-    int i;
-    bool flag=true;
-    for (i=0; i<10; i++)
-    {
-        if (Telefono[i]<48&&Telefono[i]>57)
-        {
-            flag=false;
-            return -1;
-        }
-    }
-    return 1;
-
-};
-
