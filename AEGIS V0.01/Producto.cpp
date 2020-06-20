@@ -89,5 +89,22 @@ cin.ignore();
     Estado=true;
 }
 
+/*bool Producto::guardarProducto()
+{
+    Producto aux;
+    bool escribio;
+    FILE *p;
+    p=fopen("Producto.dat","ab");
+    if(p==NULL)
+    {
+        return false;
+    }
+    escribio=fwrite(&aux,sizeof(Producto),1,p);
+    fclose(p);
+    return escribio;
+}
+*/
+
+
 
 
