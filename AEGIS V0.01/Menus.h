@@ -10,7 +10,6 @@ void menuPrincipal();
 void menuABM();
 void abmClientes();
 void abmProducto();
-void abmProveedor();
 
 
 
@@ -141,8 +140,7 @@ void menuABM()
         case 3:
         {
             system("cls");
-            cout<<"                 ~ABM PROVEEDORES~               "<<endl;
-            abmProveedor();
+            cout<<"                 ~~               "<<endl;
         }
         break;
         case 4:
@@ -280,13 +278,6 @@ void abmProducto()
 
         }
         break;
-        case 3:
-        {
-             Producto pro;
-            pro.mostrar();
-            anykey();
-        }
-        break;
 
         case 0:
         {
@@ -297,56 +288,7 @@ void abmProducto()
     }///Cierra el while
 };
 
-void abmProveedor()
-{
 
-    int op;
-    bool salir=false;
-
-    while(!salir)
-    {
-        setColor(GREEN);
-        system("cls");
-        cout<<"                             ABM Proveedor          "<<endl;
-        cout<<"                  _________________________________"<<endl;
-        cout<<"                 |-1-->Nuevo Proveedor.             -|"<<endl;
-        cout<<"                 |-2-->Modificar Proveedor.         -|"<<endl;
-        cout<<"                 |-3-->Mostrar Proveedor.           -|"<<endl;
-        cout<<"                 |-4-->Mostrar Todos los Proveedores.-|"<<endl;
-        cout<<"                 |-5-->Eliminar Proveedor.          -|"<<endl;
-        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
-        cout<<"                 |-0-->VOLVER                     -|"<<endl;
-        cout<<"                 |_________________________________|"<<endl;
-        cout<<"                  -------Ingrese una opcion--------"<<endl;
-        cin>>op;
-        system("cls");
-        switch(op)
-        {
-        case 1:
-        {
-
-
-            cout<<"            ~ Nuevo Proveedor ~          "<<endl;
-             Proveedor prove;
-             prove.cargar();
-            anykey();
-        }
-        break;
-
-        case 2:
-        {
-
-        }
-        break;
-
-        case 0:
-        {
-            salir=true;
-        }
-        }
-
-    }
-};
 
 
 #endif // MENUS_H_INCLUDED

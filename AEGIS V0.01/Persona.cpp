@@ -13,7 +13,7 @@ void Persona::Cargar()
     cin.ignore();
     cin.getline(Nombre,20);
     if(Nombre);
-    cout<<"Apellido : ";
+    cout<<"Apellido :";
     cin.getline(Apellido,20);
     cout<<""<<endl;
     for (i=0; i<3; i++)
@@ -105,7 +105,7 @@ void Persona :: Mostrar()
 }
 
 
-int Persona :: ValidarDocumento(const char *Ndoc)
+int Persona :: ValidarDocumento( char *Ndoc)
 {
     int i;
     bool flag=true;

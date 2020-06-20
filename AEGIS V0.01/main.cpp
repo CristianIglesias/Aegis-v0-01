@@ -9,7 +9,6 @@ using namespace rlutil;
 #include "PrototiposGlobales.h"
 #include "Clientes.h"
 #include "Producto.h"
-#include "Proveedor.h"
 #include "Menus.h"
 
 ///fuck

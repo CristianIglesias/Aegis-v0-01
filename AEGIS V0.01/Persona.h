@@ -18,7 +18,7 @@ public:
     void Mostrar();///MUESTRA PERSONA
     int ValidarMail( char *Mail);
     int ValidarFecha(int Dia,int Mes,int Anio);
-    int ValidarDocumento(const char *);
+    int ValidarDocumento(char *);
     int ValidarTelefono(char *);
 
     const char * getDocumento()

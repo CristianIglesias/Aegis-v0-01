@@ -27,20 +27,16 @@ void Producto::cargar()
 {
    int i;
 
-///funcion buscar arreglar, para que me permita ingresar primero
-
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
-     cin.ignore();
+cin.ignore();
      cin.getline(CodigoProducto,10);
-    i=buscarcodigo(CodigoProducto);
+            i=buscarcodigo(CodigoProducto);
     if(i==0)
     {
-        cout<<i;
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
 
     }
      if(i==-1){
-            cout<<i;
        cout<<"ERROR, CODIGO EXISTENTE"<<endl;
         return;
         }
@@ -92,8 +88,8 @@ void Producto::cargar()
 
     Estado=true;
 }
-///¿como pasar el producto que cargue anteriormente?
-bool Producto::guardarProducto()
+
+/*bool Producto::guardarProducto()
 {
     Producto aux;
     bool escribio;
@@ -107,20 +103,7 @@ bool Producto::guardarProducto()
     fclose(p);
     return escribio;
 }
-
-void Producto::mostrar()
-{
-    cout<<"_________LISTADO DE PRODUCTOS____________"<<endl;
-    cout<<"---------------------------------------------"<<endl;
-    cout<<"CODIGO PROVEEDOR:"<<CodigoProducto<<endl;
-    cout<<"NOMBRE:"<<NombreItem<<endl;
-    cout<<"COSTO:"<<CostodeCompra<<endl;
-    cout<<"% RENTABILIDAD:"<<PorcentajeRentabilidad<<endl;
-    cout<<"PRECIO VENTA:"<<PreciodeVenta<<endl;
-    cout<<"STOCK MINIMO:"<<StockMin<<endl;
-    cout<<"STOCK ACTUAL:"<<StockActual<<endl;
-
-}
+*/
 
 
 
