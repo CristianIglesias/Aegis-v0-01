@@ -105,13 +105,13 @@ void Persona :: Mostrar()
 }
 
 
-int Persona :: ValidarDocumento( char *Ndoc)
+int Persona :: ValidarDocumento( const char *Ndoc)
 {
     int i;
     bool flag=true;
     for (i=0; i<8; i++)
     {
-        if (Ndoc[i]-48>=0&&Ndoc[i]-48<=9)
+        if (Ndoc[i]>48&&Ndoc[i]-48<=9)
         {
             flag=false;
             return -1;
@@ -119,7 +119,7 @@ int Persona :: ValidarDocumento( char *Ndoc)
     }///valida que acepte solo numeros
    return 1;
 };
-int Persona :: ValidarTelefono( char *Telefono)
+int Persona :: ValidarTelefono( const char *Telefono)
 {
     int i;
     bool flag=true;

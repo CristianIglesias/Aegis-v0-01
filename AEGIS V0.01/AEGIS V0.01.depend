@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1592617203 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\main.cpp
+1592683735 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\main.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -8,6 +8,7 @@
 	"rlutil.h"
 	"PrototiposGlobales.h"
 	"Clientes.h"
+	"Producto.h"
 	"Menus.h"
 
 1592064901 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\rlutil.h
@@ -24,7 +25,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1592617464 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1592683735 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 
 1592617359 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
@@ -35,7 +36,7 @@
 1592265595 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
-1592682896 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
+1592692341 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
 	<cstring>
 
 1592357967 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
@@ -56,23 +57,23 @@
 	"Persona.h"
 	"Proveedor.h"
 
-1592269527 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.h
+1592689260 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.h
 
-1592357976 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
+1592689260 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
 	<iostream>
 	"Persona.h"
 	"Vendedor.h"
 	"PrototiposGlobales.h"
 
-1592357890 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
+1592689260 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
 
-1592617203 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1592691630 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"Producto.h"
 
-1592616791 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
+1592691630 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 
 1592357772 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
