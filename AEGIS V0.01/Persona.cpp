@@ -28,7 +28,7 @@ void Persona::Cargar()
         error=ValidarFecha(getDia(),getMes(),getAnio());
         if(error<0)
         {
-            cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
+            cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
             cout<<"Intento Numero "<<i<<"/3"<<endl;
             if(i==3)
             {

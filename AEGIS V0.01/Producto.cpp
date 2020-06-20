@@ -66,7 +66,7 @@ cin.ignore();
     cin>>PreciodeVenta;
     if(PreciodeVenta<=0)
     {
-        cout<<"ERROR!, el precio de venta no puede ser menor a 0"<<endl;
+        cout<<"ERROR! el precio de venta no puede ser menor a 0"<<endl;
         return;
     }
 

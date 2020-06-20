@@ -9,7 +9,6 @@ protected:
     char  CodigoProveedor[10];
 
 public:
-    //metodos;
     void cargar();
     void mostrar();
 };
