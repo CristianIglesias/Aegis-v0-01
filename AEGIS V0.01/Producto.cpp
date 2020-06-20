@@ -26,18 +26,20 @@ int Producto:: buscarcodigo(char *codigo)
 void Producto::cargar()
 {
    int i;
+
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
+cin.ignore();
      cin.getline(CodigoProducto,10);
             i=buscarcodigo(CodigoProducto);
-       if(i<-1)
-       {
-        cout<<"ERROR, CODIGO EXISTENTE"<<endl;
-        return;
-        }
     if(i==0)
     {
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
+
     }
+     if(i==-1){
+       cout<<"ERROR, CODIGO EXISTENTE"<<endl;
+        return;
+        }
     cout<<"CODIGO DE PROVEEDOR:"<<endl;
     cin.getline(CodigoProveedor,10);
 
