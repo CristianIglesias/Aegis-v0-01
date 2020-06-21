@@ -8,40 +8,41 @@ const char *ArchivoProducto ="Producto.dat";
 
 int Producto:: buscarcodigo(char *codigo)
 {
+
     Producto aux;
     FILE *p;
     p=fopen(ArchivoProducto,"rb");
-    if(p==NULL) return-1;
+    if(p==NULL) return 1;
 
-    while(fread(&aux,sizeof(Producto),1,p)==1)
+    while(fread(&aux,sizeof(Producto),1,p))
     {
         if(getCodigoProducto()==aux.getCodigoProducto())
         {
             return -1;
         }
+
     }
-    return 0;
+         return 0;
 }
 
 void Producto::cargar()
 {
    int i;
 
-///funcion buscar arreglar, para que me permita ingresar primero
+///funcion buscarcodigo(), arreglar para que me permita ingresar primero
 
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
      cin.ignore();
      cin.getline(CodigoProducto,10);
     i=buscarcodigo(CodigoProducto);
-    if(i==0)
+    if(i==0&&CodigoProducto>=0)
     {
-        cout<<i;
+        cout<<i<<endl;
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
-
     }
-     if(i==-1){
-            cout<<i;
-       cout<<"ERROR, CODIGO EXISTENTE"<<endl;
+     else if(i==-1||CodigoProducto<=0){
+            cout<<i<<endl;
+       cout<<"ERROR!, INTENTE NUEVAMENTE"<<endl;
         return;
         }
     cout<<"CODIGO DE PROVEEDOR:"<<endl;
@@ -92,7 +93,8 @@ void Producto::cargar()
 
     Estado=true;
 }
-///¿como pasar el producto que cargue anteriormente?
+
+///¿como guardar en el archivo el producto que cargue anteriormente?
 bool Producto::guardarProducto()
 {
     Producto aux;
