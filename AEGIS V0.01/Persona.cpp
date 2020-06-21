@@ -5,6 +5,10 @@ using namespace std;
 using namespace rlutil;
 #include "PrototiposGlobales.h"
 #include "Persona.h"
+/// A SABER
+/// ERROR=0-TA TODO PIOLA, SIGUE ADELANTE
+/// ERROR=1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI
+/// ERROR<0-SIGUE INTENTANDO, TRANK PALANK
 
 void Persona::Cargar()
 {
@@ -21,7 +25,9 @@ void Persona::Cargar()
 
     error=setFecha();///TODO Salida voluntaria de usuario
     if(error==1)
-        {return;}
+    {
+        return;
+    }
 
     error=setnDoc();
     if(error==1)
@@ -33,6 +39,7 @@ void Persona::Cargar()
     {
         cout<<"Ingrese Correo Electronico :"<<endl;
         cout<<"EMAIL :";
+        ///TODO GETMAIL.
         cin.getline(Mail,50);
         error=ValidarMail(Mail);
         if(error<0)
@@ -79,7 +86,8 @@ void Persona :: Mostrar()
     cout<<"Su Email es :"<<Mail<<endl;
 }
 int Persona :: setFecha()
-{   int error=0,i=0;
+{
+    int error=0,i=0;
     while (error!=1)
     {
         cout<<"Ingrese la Fecha de Nacimiento"<<endl;
@@ -92,7 +100,8 @@ int Persona :: setFecha()
 
         error=ValidarFecha(getDia(),getMes(),getAnio());
         if (error<0)
-        {   i++;
+        {
+            i++;
             cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
             cout<<"Intento Numero "<<i<<"."<<endl;
             if(i>3)
@@ -116,7 +125,8 @@ int Persona :: setnDoc()
         cin.getline(Documento,9);
         error=ValidarDocumento(getDocumento());
         if(error<0)
-        {   i++;
+        {
+            i++;
             cout<<"Error Validando Documento -Nro "<<error<<" Intente Nuevamente."<<endl;
             cout<<"Intento Numero "<<i<<"/3"<<endl;
             if(i==3)
@@ -125,11 +135,11 @@ int Persona :: setnDoc()
             }
         }
         else
-                        break;
+            break;
     }
 }
-int Persona :: setTelefono(){};
-int Persona :: setEmail(){};
+int Persona :: setTelefono() {};
+int Persona :: setEmail() {};
 
 
 
@@ -142,17 +152,21 @@ int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo nume
         if (Ndoc[i-1]>47&&Ndoc[i-1]-48<=9)
         {
             flag=false;
-            return -1;
+            return -1;///valida que sean solo numeros
         }
     }
-    for (i=1;i<9;i++)
+    for (i=1; i<9; i++)
     {
         if(Ndoc[i-1]=='0')
         {
-
+            cont++;
         }
     }
-    return 1;
+    if(cont>8)
+        return 1;///chequea la salida voluntaria
+
+    if(flag)
+        return 0;
 };
 int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo numeros
 {
@@ -173,8 +187,21 @@ int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo n
 };
 int Persona:: ValidarMail( char *Mail)///valida una banda de cosas.
 {
-    int tam=strlen(Mail), pos;
+    int tam=strlen(Mail), pos=0,i=1;
     char *poschar;
+
+    for (i=0; i<3; i++)
+    {
+        if(Mail[i-1]=='0')
+        {
+            pos++;
+            if(pos=3)
+            {
+                return 1;
+            }
+        }
+    }///validación de salida usuario
+
     if(Mail[0]=='@'||Mail[0]=='.')
     {
         return -1;   ///Que no empiece ni con arroba ni con punto
@@ -193,10 +220,10 @@ int Persona:: ValidarMail( char *Mail)///valida una banda de cosas.
     {
         return-4;   ///Que tenga chares alfanumericos al rededor de arroba.
     }
-    poschar=strchr(Mail,'.');          ///Que tenga un punto
+    poschar=strchr(Mail,'.');
     if(poschar==NULL)
     {
-        return -5;
+        return -5;  ///Que tenga un punto
     }
     pos=Mail-poschar;
     if(Mail[pos+1]=='.')
@@ -210,7 +237,6 @@ int Persona:: ValidarMail( char *Mail)///valida una banda de cosas.
     }
     return 1;
 }
-
 int Persona :: ValidarFecha(int Dia,int Mes, int Anio)///todo lo que una vez no quise hacer y copie de internet xD
 {
     if(Mes==0&&Dia==0&&Anio==0)
@@ -246,32 +272,32 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)///todo lo que una vez no 
             else
                 return -1;
         case  2 :
-                if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
-                    if ( Dia >= 1 && Dia <= 29 )
-                    {
-
-                        return 1 ;
-                    }
-                    else
-                    {
-                        return -1;
-                    }
-                else if ( Dia >= 1 && Dia <= 28 )
+            if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
+                if ( Dia >= 1 && Dia <= 29 )
                 {
-                    return 1;
+
+                    return 1 ;
                 }
                 else
                 {
                     return -1;
                 }
-
+            else if ( Dia >= 1 && Dia <= 28 )
+            {
+                return 1;
             }
-        }
-        else
-        {
+            else
+            {
+                return -1;
+            }
 
-            return -1;
         }
+    }
+    else
+    {
+
         return -1;
-    };
+    }
+    return -1;
+};
 

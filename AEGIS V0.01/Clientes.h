@@ -8,14 +8,17 @@ public:
 
     void cargar();
     void mostrar();
+    void Generarid();
+
     int GetidCliente();
     int GetTipoPago();
     int GetTipoFactura();
     float GetDeuda();
-    void SetTipoPago(int);
-    void SetPrefFact(int);
-    void SetDeuda(float);
-    void Generarid();
+    int SetTipoPago();
+    int ValidarTipoPago();
+    int SetPrefFact();
+    int ValidarPrefFact();
+    void SetDeuda();
 
 
 protected:

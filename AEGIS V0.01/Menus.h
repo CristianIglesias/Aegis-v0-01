@@ -135,7 +135,7 @@ void menuABM()
         {
             system("cls");
             cout<<"               ~ABM PRODUCTOS~                "<<endl;
-           abmProducto();
+            abmProducto();
         }
         break;
         case 3:
@@ -282,7 +282,7 @@ void abmProducto()
         break;
         case 3:
         {
-             Producto pro;
+            Producto pro;
             pro.mostrar();
             anykey();
         }
@@ -327,8 +327,8 @@ void abmProveedor()
 
 
             cout<<"            ~ Nuevo Proveedor ~          "<<endl;
-             Proveedor prove;
-             prove.cargar();
+            Proveedor prove;
+            prove.cargar();
             anykey();
         }
         break;

@@ -22,8 +22,8 @@ void  Proveedor:: cargar()///Carga Proveedor.
         return;
     }
 
-     cout<<"INGRESE ESTADO DE CUENTA:"<<endl;
-     cin>>EstadoCuenta;
+    cout<<"INGRESE ESTADO DE CUENTA:"<<endl;
+    cin>>EstadoCuenta;
 
 
 };

@@ -11,7 +11,8 @@ int Producto:: buscarcodigo(char *codigo)
     Producto aux;
     FILE *p;
     p=fopen(ArchivoProducto,"rb");
-    if(p==NULL) return-1;
+    if(p==NULL)
+        return-1;
 
     while(fread(&aux,sizeof(Producto),1,p)==1)
     {
@@ -25,13 +26,13 @@ int Producto:: buscarcodigo(char *codigo)
 
 void Producto::cargar()
 {
-   int i;
+    int i;
 
 ///funcion buscar arreglar, para que me permita ingresar primero
 
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
-     cin.ignore();
-     cin.getline(CodigoProducto,10);
+    cin.ignore();
+    cin.getline(CodigoProducto,10);
     i=buscarcodigo(CodigoProducto);
     if(i==0)
     {
@@ -39,11 +40,12 @@ void Producto::cargar()
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
 
     }
-     if(i==-1){
-            cout<<i;
-       cout<<"ERROR, CODIGO EXISTENTE"<<endl;
+    if(i==-1)
+    {
+        cout<<i;
+        cout<<"ERROR, CODIGO EXISTENTE"<<endl;
         return;
-        }
+    }
     cout<<"CODIGO DE PROVEEDOR:"<<endl;
     cin.getline(CodigoProveedor,10);
 
@@ -60,7 +62,7 @@ void Producto::cargar()
 
     cout<<"% RENTABILIDAD:"<<endl;
     cin>>PorcentajeRentabilidad;
-     if(PorcentajeRentabilidad<=0)
+    if(PorcentajeRentabilidad<=0)
     {
         cout<<"ERROR!, el porcentaje de retabilidad no puede ser menor a 0"<<endl;
         return;
