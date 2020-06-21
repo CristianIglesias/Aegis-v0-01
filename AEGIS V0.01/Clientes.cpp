@@ -8,7 +8,7 @@ const char *ArchivoClientes ="Clientes.dat";
 void  Cliente:: cargar()///Carga Cliente.
 {
     Persona::Cargar();
-    Generarid();
+    idCliente=Generarid();
     if(idCliente<0)
     {
         cout<<"Hubo un error en la generación de ID Cliente, Intente Nuevamente"<<endl;
@@ -16,6 +16,8 @@ void  Cliente:: cargar()///Carga Cliente.
     }
     cout<<"ID Cliente: "<<idCliente;
     cout<<"Tipo De Pago Preferido: ";
+    SetTipoPago();
+
 
 
     ///sacando que faltan cosas
@@ -59,7 +61,7 @@ void Cliente::Generarid()
     int id,cantRegistros=0;
     FILE *p;
     Cliente aux;
-    p=fopen(ArchivoClientes,"wb");
+    p=fopen(ArchivoClientes,"ab");
     if(p==NULL)
         idCliente=-1;
     return;

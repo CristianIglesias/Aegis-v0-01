@@ -2,7 +2,7 @@
 #define CLIENTES_H_INCLUDED
 #pragma once
 #include "Persona.h"
-class Cliente:public Persona
+class Cliente: public Persona
 {
 public:
 

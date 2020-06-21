@@ -8,6 +8,8 @@ using namespace rlutil;
 
 void Persona::Cargar()
 {
+
+
     int error,i=0;
     cout<<"Nombre  : ";
     cin.ignore();
@@ -16,44 +18,17 @@ void Persona::Cargar()
     cout<<"Apellido :";
     cin.getline(Apellido,20);
     cout<<""<<endl;
-    for (i=0; i<3; i++)
-    {
-        cout<<"Fecha de nacimiento (d/m/a) "<<endl;
-        cin>>Dia;
-        cout<<"/";
-        cin>>Mes;
-        cout<<"/";
-        cin>>Anio;
 
-        error=ValidarFecha(getDia(),getMes(),getAnio());
-        if(error<0)
-        {
-            cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i<<"/3"<<endl;
-            if(i==3)
-            {
-                return;
-            }
-        }
-        else
-            break;
-    }
-    cin.ignore();
-    for(i=0; i<3; i++)
+    error=setFecha();///TODO Salida voluntaria de usuario
+    if(error==1)
+        {return;}
+
+    error=setnDoc();
+    if(error==1)
     {
-        cout<<"Ingrese Numero de Documento : ";
-        cin.getline(Documento,9);
-        error=ValidarDocumento(getDocumento());
-       if(error<0)
-        {
-            cout<<"Error Validando Documento -Nro "<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i+1<<"/3"<<endl;
-            if(i==3)
-            return;
-        }
-        else
-            break;
+        return;
     }
+
     for (i=0; i<3; i++)
     {
         cout<<"Ingrese Correo Electronico :"<<endl;
@@ -78,7 +53,7 @@ void Persona::Cargar()
         cout<<"Y Para completar la parte uno del ingreso de datos, Ingrese su Numero de Teléfono"<<endl;
         cout<<"Teléfono :";
         cin.getline(nTelefono,10);
-        ///ValidarTelefono(getTelefono);
+///TODO        ValidarTelefono(getTelefono);
         if(error<0)
         {
             cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
@@ -103,27 +78,88 @@ void Persona :: Mostrar()
     cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
     cout<<"Su Email es :"<<Mail<<endl;
 }
-
-
-int Persona :: ValidarDocumento( const char *Ndoc)
-{
-    int i;
-    bool flag=true;
-    for (i=0; i<8; i++)
+int Persona :: setFecha()
+{   int error=0,i=0;
+    while (error!=1)
     {
-        if (Ndoc[i]>48&&Ndoc[i]-48<=9)
+        cout<<"Ingrese la Fecha de Nacimiento"<<endl;
+        cout<<"Fecha de nacimiento (d/m/a):"<<endl;
+        cin>>Dia;
+        cout<<"/";
+        cin>>Mes;
+        cout<<"/";
+        cin>>Anio;
+
+        error=ValidarFecha(getDia(),getMes(),getAnio());
+        if (error<0)
+        {   i++;
+            cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
+            cout<<"Intento Numero "<<i<<"."<<endl;
+            if(i>3)
+            {
+                cout<<"Si no podés y querés salir, ingresá 0-0-0"<<endl;
+            }
+            anykey();
+            cls();
+        }
+        else
+            break;
+    }
+    return error;
+}
+int Persona :: setnDoc()
+{
+    int error=0,i=0;
+    while(error!=1)
+    {
+        cout<<"Ingrese Numero de Documento : ";
+        cin.getline(Documento,9);
+        error=ValidarDocumento(getDocumento());
+        if(error<0)
+        {   i++;
+            cout<<"Error Validando Documento -Nro "<<error<<" Intente Nuevamente."<<endl;
+            cout<<"Intento Numero "<<i<<"/3"<<endl;
+            if(i==3)
+            {
+                cout<<"Si no podés y querés salir, ingresá 0"<<endl;
+            }
+        }
+        else
+                        break;
+    }
+}
+int Persona :: setTelefono(){};
+int Persona :: setEmail(){};
+
+
+
+int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo numeros
+{
+    int i,cont=0;
+    bool flag=true;
+    for (i=1; i<9 ; i++)
+    {
+        if (Ndoc[i-1]>47&&Ndoc[i-1]-48<=9)
         {
             flag=false;
             return -1;
         }
-    }///valida que acepte solo numeros
-   return 1;
+    }
+    for (i=1;i<9;i++)
+    {
+        if(Ndoc[i-1]=='0')
+        {
+
+        }
+    }
+    return 1;
 };
-int Persona :: ValidarTelefono( const char *Telefono)
+int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo numeros
 {
     int i;
     bool flag=true;
     for (i=0; i<10; i++)
+
     {
         if (Telefono[i]-48>=0&&Telefono[i]-48<=9)
         {
@@ -131,12 +167,11 @@ int Persona :: ValidarTelefono( const char *Telefono)
             return -1;
         }
     }
+
     return 1;
 
 };
-
-
-int Persona:: ValidarMail( char *Mail)
+int Persona:: ValidarMail( char *Mail)///valida una banda de cosas.
 {
     int tam=strlen(Mail), pos;
     char *poschar;
@@ -176,8 +211,10 @@ int Persona:: ValidarMail( char *Mail)
     return 1;
 }
 
-int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
+int Persona :: ValidarFecha(int Dia,int Mes, int Anio)///todo lo que una vez no quise hacer y copie de internet xD
 {
+    if(Mes==0&&Dia==0&&Anio==0)
+        return 1;
     if((Mes>0&&Mes<13)&&(Anio>1920&&Anio<=2020))
     {
         switch(Mes)
@@ -209,31 +246,32 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
             else
                 return -1;
         case  2 :
-            if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
-                if ( Dia >= 1 && Dia <= 29 )
-                {
+                if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
+                    if ( Dia >= 1 && Dia <= 29 )
+                    {
 
-                    return 1 ;
+                        return 1 ;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                else if ( Dia >= 1 && Dia <= 28 )
+                {
+                    return 1;
                 }
                 else
                 {
                     return -1;
                 }
-            else if ( Dia >= 1 && Dia <= 28 )
-            {
-                return 1;
-            }
-            else
-            {
-                return -1;
-            }
 
+            }
         }
-    }
-    else
-    {
+        else
+        {
 
+            return -1;
+        }
         return -1;
-    }
-    return -1;
-};
+    };
+

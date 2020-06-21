@@ -16,10 +16,17 @@ protected:
 public:
     void Cargar();///CARGA PERSONA
     void Mostrar();///MUESTRA PERSONA
-    int ValidarMail( char *Mail);
+    int setFecha();
+    int setTelefono();
+    int setEmail();
+    int setnDoc();
     int ValidarFecha(int Dia,int Mes,int Anio);
-    int ValidarDocumento(const char *);
     int ValidarTelefono(const char *);
+    int ValidarMail( char *Mail);
+    int ValidarDocumento(const char *);
+
+
+
 
     const char * getDocumento()
     {
@@ -33,6 +40,7 @@ public:
     {
         return Apellido;
     }
+
     int getDia()
     {
         return Dia;
@@ -53,10 +61,6 @@ public:
     {
         return Mail;
     }
-    void setNdoc(char *n)
-    {
-        strcpy(Documento,n);
-    }
     void setNombre(char *n)
     {
         strcpy(Nombre,n);
@@ -65,31 +69,10 @@ public:
     {
         strcpy(Apellido,a);
     }
-    void setDia(int d)
-    {
-        Dia=d;
-    }
-    void setMes(int m)
-    {
-        Mes=m;
-    }
-    void setAnio(int a)
-    {
-        Anio=a;
-    }
-    void setTelefono(char *tel)
-    {
-        strcpy(nTelefono,tel);
-    }
-    void setEmail(char *e)
-    {
-        strcpy(Mail,e);
-    }
+
     void setEstado(bool nuevoestado )
     {
         Estado=nuevoestado;
     };
-
 };
-
 #endif // PERSONA_H_INCLUDED

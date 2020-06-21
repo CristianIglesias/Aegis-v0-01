@@ -12,10 +12,6 @@ using namespace rlutil;
 #include "Proveedor.h"
 #include "Menus.h"
 
-///fuck
-
-///probando una cosa
-
 int main()
 {
     setlocale(LC_ALL,"spanish");
