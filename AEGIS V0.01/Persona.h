@@ -27,7 +27,6 @@ public:
 
 
 
-
     const char * getDocumento()
     {
         return Documento;

@@ -27,7 +27,6 @@ void  Cliente:: mostrar()
 {
     Persona::Mostrar();
 
-
 };
 
 int  Cliente:: SetTipoPago()
@@ -96,7 +95,7 @@ void Cliente::Generarid()
     int id=0,cantRegistros=0;
     FILE *p;
     Cliente aux;
-    p=fopen(ArchivoClientes,"wb");
+    p=fopen(ArchivoClientes,"rb");
     if(p==NULL)
         idCliente=-1;
     return;

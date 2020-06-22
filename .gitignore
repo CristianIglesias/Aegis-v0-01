@@ -2,3 +2,4 @@
 *.layout
 *.o
 *.depend
+*.exe
