@@ -12,7 +12,7 @@ int Producto:: buscarcodigo(char *codigo)
     FILE *p;
     p=fopen(ArchivoProducto,"rb");
     if(p==NULL)
-        return-1;
+        return 1;
 
     while(fread(&aux,sizeof(Producto),1,p)==1)
     {
@@ -26,9 +26,9 @@ int Producto:: buscarcodigo(char *codigo)
 
 void Producto::cargar()
 {
-    int i;
 
-///funcion buscar arreglar, para que me permita ingresar primero
+    int i;
+///funcion buscar: arreglar, para que me permita ingresar primero
 
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
     cin.ignore();
@@ -36,16 +36,17 @@ void Producto::cargar()
     i=buscarcodigo(CodigoProducto);
     if(i==0)
     {
-        cout<<i;
+        cout<<i<<endl;
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
 
     }
     if(i==-1)
     {
-        cout<<i;
+        cout<<i<<endl;
         cout<<"ERROR, CODIGO EXISTENTE"<<endl;
         return;
     }
+
     cout<<"CODIGO DE PROVEEDOR:"<<endl;
     cin.getline(CodigoProveedor,10);
 
@@ -93,11 +94,14 @@ void Producto::cargar()
     }
 
     Estado=true;
+
+
 }
+
 ///¿como pasar el producto que cargue anteriormente?
 bool Producto::guardarProducto()
 {
-    Producto aux;
+   ///Producto aux=this;
     bool escribio;
     FILE *p;
     p=fopen("Producto.dat","ab");
@@ -105,17 +109,42 @@ bool Producto::guardarProducto()
     {
         return false;
     }
-    escribio=fwrite(&aux,sizeof(Producto),1,p);
+    escribio=fwrite(this,sizeof(Producto),1,p);
     fclose(p);
     return escribio;
 }
 
+///leer lee en el archivo para luego mostrar todos los productos.
+///TERMINAR.
+/*void leerProductos();{
+ Productos pro;
+    FILE *p;
+    p=fopen("Productos.dat","rb");
+    if(p==NULL)
+    {
+
+        return ;
+    }
+    fseek(p,pos*sizeof(Productos),SEEK_SET);
+    fread(&this,sizeof(Productos),1,p);
+    fclose(p);
+    return ;
+
+}
+*/
+
+
+///listarProductos(llama a mostrar)
+
+
 void Producto::mostrar()
 {
+
     cout<<"_________LISTADO DE PRODUCTOS____________"<<endl;
-    cout<<"---------------------------------------------"<<endl;
-    cout<<"CODIGO PROVEEDOR:"<<CodigoProducto<<endl;
+    cout<<""<<endl;
+    cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
     cout<<"NOMBRE:"<<NombreItem<<endl;
+    cout<<"CODIGO PROVEEDOR:"<<CodigoProveedor<<endl;
     cout<<"COSTO:"<<CostodeCompra<<endl;
     cout<<"% RENTABILIDAD:"<<PorcentajeRentabilidad<<endl;
     cout<<"PRECIO VENTA:"<<PreciodeVenta<<endl;

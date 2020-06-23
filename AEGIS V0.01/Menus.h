@@ -237,11 +237,9 @@ void abmClientes()
 };
 
 ///abm producto:
-
-
 void abmProducto()
 {
-
+    Producto pro;
     int op;
     bool salir=false;
 
@@ -269,9 +267,11 @@ void abmProducto()
 
 
             cout<<"            ~ Nuevo Producto ~          "<<endl;
-            Producto pro;
-            pro.cargar();
-            anykey();
+
+        pro.cargar();
+        pro.guardarProducto();
+        anykey();
+
         }
         break;
 
@@ -282,7 +282,7 @@ void abmProducto()
         break;
         case 3:
         {
-            Producto pro;
+
             pro.mostrar();
             anykey();
         }

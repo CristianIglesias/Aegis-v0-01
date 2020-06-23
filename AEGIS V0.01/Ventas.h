@@ -26,6 +26,16 @@ public:
 
 };
 
+///CALCULO DE LA VENTA:  TOTAL=Producto item * cantidad
+///POSIBLE FORMATO:
+///                               NUMEOR DE LA VENTA(XXX)                           FECHA(XX/XX/XXXX)
+///                               LEGAJOVENDEDOR
+///                               IDCLIENTE
+///                               TIPO DE PAGO / TIPO DE FACTURA / TIPO DE ENTREGA
+///                                ITEM(SUS DATOS//CODIGOPORDUCTO) + IMPORTEUNIDAD
+///                                                                     IMPORTE TOTTAL
+///                                                                     %DESCUENTO
+///                                                                     TOTAL $:
 
 
 #endif // VENTAS_H_INCLUDED
