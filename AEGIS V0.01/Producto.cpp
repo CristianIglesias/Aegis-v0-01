@@ -101,7 +101,7 @@ void Producto::cargar()
 ///¿como pasar el producto que cargue anteriormente?
 bool Producto::guardarProducto()
 {
-   ///Producto aux=this;
+    ///Producto aux=this;
     bool escribio;
     FILE *p;
     p=fopen("Producto.dat","ab");

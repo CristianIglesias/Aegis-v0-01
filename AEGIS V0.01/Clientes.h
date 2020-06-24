@@ -20,12 +20,11 @@ public:
     int ValidarPrefFact();
     void SetDeuda();
 
-
 protected:
     int idCliente;
     int TipodePago;
     int PrefFactura;
-    float deuda;
+    float Deuda;
 
 
 
