@@ -35,7 +35,7 @@
 	"Clientes.h"
 	"PrototiposGlobales.h"
 
-1592961030 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
+1593039142 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
 1592962649 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
@@ -46,7 +46,7 @@
 1592247705 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1592702636 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
+1592966952 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"

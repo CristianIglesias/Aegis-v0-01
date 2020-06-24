@@ -9,16 +9,20 @@ public:
     void cargar();
     void mostrar();
     void Generarid();
+    int  GuardarClienteEnDisco();
 
-    int GetidCliente();
-    int GetTipoPago();
-    int GetTipoFactura();
+
+
     float GetDeuda();
     int SetTipoPago();
     int ValidarTipoPago();
     int SetPrefFact();
     int ValidarPrefFact();
     void SetDeuda();
+    int GetidCliente();
+    int GetTipoPago();
+    int GetTipoFactura();
+
 
 protected:
     int idCliente;

@@ -37,24 +37,78 @@ void  Cliente:: cargar()///Carga Cliente.
         cout<<"Ingrese cualquier tecla para continuar"<<endl;
         anykey();
     }
-
-
     Deuda=0;
+
+    error=GuardarClienteEnDisco();
+    if(error!=0)
+    {
+        cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+        cout<<"Ingrese cualquier tecla para continuar"<<endl;
+        anykey();
+    }
+
+
 };
 
 void  Cliente:: mostrar()
-{
+{   cout <<"El Cliente "<<endl;
     Persona::Mostrar();
+    cout<<"Prefiere Pago con ";
+    cout<<"Y Tipo de Factura ";
+
+    if(GetDeuda()<0)
+    {   setColor(RED);
+        cout<<"El Cliente Posee una deuda de "<<GetDeuda()<<endl;
+        setColor(WHITE);
+    }
 
 };
+void Cliente::Generarid()
+{
+    int cantRegistros=0;
+    FILE *p;
+    p=fopen(ArchivoClientes,"rb");
+    if(p==NULL)
+    {
+        idCliente=-1;
+        return;
+    }
+    fseek(p,SEEK_SET,SEEK_END);
+    cantRegistros=ftell(p)/sizeof(Cliente);
+
+    idCliente=cantRegistros+1;
+    fclose(p);
+    return;
+}
+
+
+int Cliente :: GuardarClienteEnDisco()
+{   FILE *p;
+    p=fopen(ArchivoClientes,"ab");
+    if(p==NULL)
+    {
+            return -1;
+    }
+    if(fwrite(this,sizeof(Cliente),1, p)!=1)
+    {fclose(p);
+        return -1;
+    }
+    fclose (p);
+    return 0;
+    };
+
+
+
+
 
 int Cliente:: SetTipoPago()
 {
     cout<<"Tipo De Pago Preferido: ";
     int error=0,i=0;
     while(error<0)
-    {
-
+    {   cout<<"Recuerde: 1=Efectivo."<<endl;
+        cout<<"           2=Tarjeta Débito."<<endl;
+        cout<<"           3=Tarjeta Crédito."<<endl;
         cin>>TipodePago;
         error=ValidarTipoPago();
         if(error==1)
@@ -68,7 +122,7 @@ int Cliente:: SetTipoPago()
             cout<<"Intento Numero "<<i<<"/3"<<endl;
             if(i>=3)
             {
-                cout<<"Si querés salir, ingresá 99"<<endl;
+                cout<<"Si querés salir, cancelando la carga ingresá 99"<<endl;
             }
         }
     }///Cierra el While
@@ -77,19 +131,19 @@ return error;
 
 int Cliente :: ValidarTipoPago()
 {
-    int error;
-    if(TipodePago>1&&TipodePago%1!=0)
+    int error=0;
+    if(TipodePago>1&&TipodePago%1!=0)///Valida entero y positivo.
     {
         error=0;
         return error;
     }
-    if(TipodePago==99)
+    if(TipodePago==99)///Salida Voluntaria
     {
         error=1;
         return error;
     }
 
-    else
+    if(TipodePago<1||TipodePago>3)///Valida Tipos permitidos
     {
         error=-1;
         return error;
@@ -117,7 +171,7 @@ int Cliente :: SetPrefFact()
         cout<<"Intento Numero "<<i<<"/3"<<endl;
         if(i>=3)
         {
-            cout<<"Si querés salir, ingresá 99"<<endl;
+            cout<<"Si querés salir, cancelando la carga ingresá 99"<<endl;
         }
     }
 return error;
@@ -152,23 +206,7 @@ void Cliente :: SetDeuda()
 {
 ///TODO INGRESO Y VALIDACIÓN, CON SALIDA A VOLUNTAD(SetDeuda).
 };
-void Cliente::Generarid()
-{
-    int cantRegistros=0;
-    FILE *p;
-    p=fopen(ArchivoClientes,"rb");
-    if(p==NULL)
-    {
-        idCliente=-1;
-        return;
-    }
-    fseek(p,SEEK_SET,SEEK_END);
-    cantRegistros=ftell(p)/sizeof(Cliente);
 
-    idCliente=cantRegistros+1;
-    fclose(p);
-    return;
-}
 int   Cliente:: GetidCliente()
 {
     return idCliente;
