@@ -19,6 +19,9 @@ public:
     void mostrar();
     int buscarcodigo(char *codigo);
     bool guardarProducto();
+    void leerProductos();
+   void listarProductos();
+   int cantidad_productos();
 
 
     const char * getCodigoProducto()
