@@ -20,8 +20,7 @@ void  Cliente:: cargar()///Carga Cliente.
         cout<<"Hubo un error en la generación de ID Cliente, Intente Nuevamente"<<endl;
         return;
     }
-    ///TODO Validar ID Cliente(Que no se repita.)
-    cout<<"ID Cliente: "<<idCliente;
+    cout<<"ID Cliente: "<<idCliente<<endl;
     error = SetTipoPago();
 
     if(error>0)
@@ -151,7 +150,7 @@ int Cliente :: ValidarPrefFact()
 
 void Cliente :: SetDeuda()
 {
-///TODO INGRESO Y VALIDACIÓN, CON SALIDA A VOLUNTAD.
+///TODO INGRESO Y VALIDACIÓN, CON SALIDA A VOLUNTAD(SetDeuda).
 };
 void Cliente::Generarid()
 {

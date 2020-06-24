@@ -14,65 +14,27 @@ void Persona::Cargar()
 {
 
 
-    int error,i=0;
+    int error;
     cout<<"Nombre  : ";
     cin.ignore();
     cin.getline(Nombre,20);
-    if(Nombre);
+    ///TODO Sets Nombre - Apellido & ValidarTexto.
     cout<<"Apellido :";
     cin.getline(Apellido,20);
     cout<<""<<endl;
 
-    error=setFecha();///TODO Salida voluntaria de usuario
+    error=setFecha();
     if(error==1)
-    {
         return;
-    }
 
     error=setnDoc();
     if(error==1)
-    {
         return;
-    }
+    error=setEmail();
+    if (error==1)
+        return;
 
-    for (i=0; i<3; i++)
-    {
-        cout<<"Ingrese Correo Electronico :"<<endl;
-        cout<<"EMAIL :";
-        ///TODO GETMAIL.
-        cin.getline(Mail,50);
-        error=ValidarMail(Mail);
-        if(error<0)
-        {
-            cout<<"Error Validando Mail -Nro "<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i+1<<"/3"<<endl;
-            if(i==3)
-            {
-                return;
-            }
-        }
 
-        else
-            break;
-    }
-    for(i=0; i<3; i++)
-    {
-        cout<<"Y Para completar la parte uno del ingreso de datos, Ingrese su Numero de Teléfono"<<endl;
-        cout<<"Teléfono :";
-        cin.getline(nTelefono,10);
-///TODO        ValidarTelefono(getTelefono);
-        if(error<0)
-        {
-            cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i<<"/3"<<endl;
-            if(i==3)
-                return;
-        }
-
-        else
-            break;
-
-    }
     Estado=true;
 
 }
@@ -88,7 +50,7 @@ void Persona :: Mostrar()
 int Persona :: setFecha()
 {
     int error=0,i=0;
-    while (error!=1)
+    while (error!=0||error!=1)
     {
         cout<<"Ingrese la Fecha de Nacimiento"<<endl;
         cout<<"Fecha de nacimiento (d/m/a):"<<endl;
@@ -99,7 +61,7 @@ int Persona :: setFecha()
         cin>>Anio;
 
         error=ValidarFecha(getDia(),getMes(),getAnio());
-        if (error<0)
+        if (error==-1)
         {
             i++;
             cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
@@ -111,8 +73,7 @@ int Persona :: setFecha()
             anykey();
             cls();
         }
-        else
-            break;
+        else break;
     }
     return error;
 }
@@ -129,17 +90,60 @@ int Persona :: setnDoc()
             i++;
             cout<<"Error Validando Documento -Nro "<<error<<" Intente Nuevamente."<<endl;
             cout<<"Intento Numero "<<i<<"/3"<<endl;
-            if(i==3)
+            if(i>3)
             {
                 cout<<"Si no podés y querés salir, ingresá 0"<<endl;
             }
         }
-        else
-            break;
     }
+    return error;
 }
-int Persona :: setTelefono() {};
-int Persona :: setEmail() {};
+
+int Persona :: setTelefono()
+{
+    int error=-1,i=0;
+    while (error!=0||error!=1)
+    {
+        cout<<"Ingrese su Numero de Teléfono."<<endl;
+        cout<<"Teléfono :";
+        cin.getline(nTelefono,10);
+        error = ValidarTelefono(getTelefono());
+        if(error<0)
+        {
+            cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
+            cout<<"Intento Numero "<<i<<endl;
+            if(i>3)
+            {
+                cout<<"Si no podés y querés salir, ingresá 0."<<endl;
+            }
+        }
+    }///salida while
+    return error;
+};
+
+int Persona :: setEmail()
+{
+    int error=-1,i=0;
+    while(error!=0||error!=1)
+    {
+        cout<<"Ingrese Correo Electronico :"<<endl;
+        cout<<"EMAIL :";
+        ///TODO SetMail (con validación y salida a voluntad.
+        cin.getline(Mail,50);
+        error=ValidarMail(Mail);
+        if(error<0)
+        {
+            cout<<"Error Validando Mail -Nro "<<error<<" Intente Nuevamente."<<endl;
+            cout<<"Intento Numero "<<i+1<<"/3"<<endl;
+            if(i>3)
+            {
+                cout<<"Si no podés y querés salir, ingresá 0."<<endl;
+            }
+
+        }
+    }///salida while
+    return error;
+};
 
 
 
@@ -185,7 +189,7 @@ int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo n
     return 1;
 
 };
-int Persona:: ValidarMail( char *Mail)///valida una banda de cosas.
+int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas abajo.
 {
     int tam=strlen(Mail), pos=0,i=1;
     char *poschar;
@@ -237,67 +241,66 @@ int Persona:: ValidarMail( char *Mail)///valida una banda de cosas.
     }
     return 1;
 }
-int Persona :: ValidarFecha(int Dia,int Mes, int Anio)///todo lo que una vez no quise hacer y copie de internet xD
+int Persona :: ValidarFecha(int Dia,int Mes, int Anio){
+if(Mes==0&&Dia==0&&Anio==0)
+    return 1;
+if((Mes>0&&Mes<13)&&(Anio>1910&&Anio<=2020))
 {
-    if(Mes==0&&Dia==0&&Anio==0)
-        return 1;
-    if((Mes>0&&Mes<13)&&(Anio>1920&&Anio<=2020))
+    switch(Mes)
     {
-        switch(Mes)
+    case  1 :
+    case  3 :
+    case  5 :
+    case  7 :
+    case  8 :
+    case 10 :
+    case 12 :
+        if ( Dia >= 1 && Dia <= 31 )
         {
-        case  1 :
-        case  3 :
-        case  5 :
-        case  7 :
-        case  8 :
-        case 10 :
-        case 12 :
-            if ( Dia >= 1 && Dia <= 31 )
-            {
-                return 1;
-            }
-            else
-            {
-                return -1;
-            }
-        case  4 :
-        case  6 :
-        case  9 :
-        case 11 :
-            if ( (Dia >= 1) && (Dia <= 30) )
-            {
-
-                return 1;
-            }
-            else
-                return -1;
-        case  2 :
-            if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
-                if ( Dia >= 1 && Dia <= 29 )
-                {
-
-                    return 1 ;
-                }
-                else
-                {
-                    return -1;
-                }
-            else if ( Dia >= 1 && Dia <= 28 )
-            {
-                return 1;
-            }
-            else
-            {
-                return -1;
-            }
-
+            return 0;
         }
-    }
-    else
-    {
+        else
+        {
+            return -1;
+        }
+    case  4 :
+    case  6 :
+    case  9 :
+    case 11 :
+        if ( (Dia >= 1) && (Dia <= 30) )
+        {
 
-        return -1;
+            return 0;
+        }
+        else
+            return -1;
+    case  2 :
+        if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
+            if ( Dia >= 1 && Dia <= 29 )
+            {
+
+                return 0 ;
+            }
+            else
+            {
+                return -1;
+            }
+        else if ( Dia >= 1 && Dia <= 28 )
+        {
+            return 0;
+        }
+        else
+        {
+            return -1;
+        }
+
     }
+}
+else
+{
+
     return -1;
+}
+return -1;
 };
 
