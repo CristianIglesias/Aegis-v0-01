@@ -147,7 +147,7 @@ int Persona :: setEmail()
 
 
 
-int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo numeros
+int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo numeros///TODO VALIDAR DOCUMENTO NO FUNCA
 {
     int i,cont=0;
     bool flag=true;
@@ -172,7 +172,7 @@ int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo nume
     if(flag)
         return 0;
 };
-int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo numeros
+int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo numeros///TODO VALIDAR TELEFONO NO FUNCA
 {
     int i;
     bool flag=true;
