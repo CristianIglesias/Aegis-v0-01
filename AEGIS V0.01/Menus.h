@@ -282,8 +282,7 @@ void abmProducto()
         break;
         case 3:
         {
-
-            pro.mostrar();
+         pro.listarProductos();
             anykey();
         }
         break;

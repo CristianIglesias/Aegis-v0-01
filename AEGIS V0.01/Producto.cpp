@@ -116,8 +116,9 @@ bool Producto::guardarProducto()
 
 ///leer lee en el archivo para luego mostrar todos los productos.
 ///TERMINAR.
-/*void leerProductos();{
- Productos pro;
+void Producto::leerProductos()
+{
+
     FILE *p;
     p=fopen("Productos.dat","rb");
     if(p==NULL)
@@ -125,22 +126,14 @@ bool Producto::guardarProducto()
 
         return ;
     }
-    fseek(p,pos*sizeof(Productos),SEEK_SET);
-    fread(&this,sizeof(Productos),1,p);
+    fread(this,sizeof(Producto),1,p);
     fclose(p);
     return ;
 
 }
-*/
-
-
-///listarProductos(llama a mostrar)
-
 
 void Producto::mostrar()
 {
-
-    cout<<"_________LISTADO DE PRODUCTOS____________"<<endl;
     cout<<""<<endl;
     cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
     cout<<"NOMBRE:"<<NombreItem<<endl;
@@ -153,6 +146,33 @@ void Producto::mostrar()
 
 }
 
+void Producto::listarProductos()
+{
+    int cant=cantidad_productos();
+    cout<<"_________LISTADO DE PRODUCTOS____________"<<endl;
+    for(int i=0; i<cant; i++)
+    {
+        leerProductos();
+        mostrar();
+        cout<<endl;
+    }
 
+}
+
+int Producto::cantidad_productos()//Cuenta la cantidad de productos para luego listarlos.
+{
+    int bytes,cr;
+    FILE *p;
+    p=fopen("Producto.dat","rb");
+    if(p==NULL)
+    {
+        return 0;
+    }
+    fseek(p,0,SEEK_END);
+    bytes=ftell(p);
+    cr=bytes/sizeof(this);
+    fclose(p);
+    return cr;
+}
 
 
