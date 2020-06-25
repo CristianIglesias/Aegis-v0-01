@@ -31,7 +31,7 @@ int Producto:: buscarcodigo(char *codigo)
 void Producto::cargar()
 {
 
-    int i;
+    int i,total;
 ///funcion buscar: arreglar, para que me permita ingresar primero
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
     cout<<i<<endl;
@@ -72,14 +72,11 @@ void Producto::cargar()
         cout<<"ERROR!, el porcentaje de retabilidad no puede ser menor a 0"<<endl;
         return;
     }
+total=CostodeCompra*(PorcentajeRentabilidad/100)+CostodeCompra;
+PreciodeVenta=total;
+    cout<<"PRECIO DE VENTA:"<<PreciodeVenta<<endl;
 
-    cout<<"PRECIO DE VENTA:"<<endl;
-    cin>>PreciodeVenta;
-    if(PreciodeVenta<=0)
-    {
-        cout<<"ERROR! el precio de venta no puede ser menor a 0"<<endl;
-        return;
-    }
+
 
     cout<<"STOCK MINIMO:"<<endl;
     cin>>StockMin;
@@ -133,7 +130,7 @@ bool Producto::guardarProducto()
 ///LEER EN DISCO
 bool Producto::leerProductos(int pos)
 {
-    cout<<"Leyó uno"<<endl;
+
     bool leyo;
     FILE *p;
     p=fopen("Productos.dat","rb");
@@ -149,19 +146,7 @@ bool Producto::leerProductos(int pos)
 
 }
 
-void Producto::listarProductos()
-{
-    Producto reg;
-    int i=0;
-    cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
-    while(reg.leerProductos(i))
-    {
-        cout<<"entró al while"<<endl;
-        reg.mostrar();
-        cout<<endl;
-        i++;
-    }
-}
+
 
 
 

@@ -58,10 +58,11 @@ void  Cliente:: cargar()///Carga Cliente.
 
 void  Cliente:: mostrar()
 {
-    cout <<"El Cliente Numero "<<idCliente<<"se llama "<<endl;
+    cout <<"El Cliente Numero "<<idCliente<<" se llama "<<endl;
     Persona::Mostrar();
     cout<<"Prefiere Pago con ";
     cout<<"Y Tipo de Factura ";
+    cout<<endl;
 
     if(GetDeuda()<0)
     {

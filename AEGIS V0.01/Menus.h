@@ -296,11 +296,12 @@ void abmProducto()
         {
             ///MOSTRAR POR ID /HACER
             pro.mostrar();
+            anykey();
         }
         break;
         case 4:
         {
-            pro.listarProductos();
+            listarProductos();
             anykey();
         }
         break;
