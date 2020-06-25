@@ -96,8 +96,6 @@ bool Cliente:: LeerDeDisco(int i)///TODO (LEERCLIENTEDISCO) LOGRAR QUE ESTA WEA 
     return leyo;
 }
 
-
-
 void Cliente::Generarid()
 {
     int cantRegistros=0;
@@ -141,7 +139,7 @@ int Cliente :: GuardarClienteEnDisco()
 int Cliente:: SetTipoPago()
 {
     cout<<"Tipo De Pago Preferido: ";
-    int error=0,i=0;
+    int error=-1, i=0;
     while(error<0)
     {
         cout<<"Recuerde:  1=Efectivo."<<endl;

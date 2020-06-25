@@ -75,6 +75,7 @@ int Persona :: setFecha()
 }
 int Persona :: setnDoc()
 {
+    cin.ignore();
     int error=0,i=0;
     while(error!=1)
     {
@@ -101,6 +102,7 @@ int Persona :: setnDoc()
 
 int Persona :: setTelefono()
 {
+    cin.ignore();
     int error=-1,i=0;
     while (error!=0||error!=1)
     {
@@ -160,10 +162,11 @@ int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo nume
     bool flag=true;
     for (i=1; i<9 ; i++)
     {
-        if (Ndoc[i-1]>47&&Ndoc[i-1]-48<=9)
+        if (Ndoc[i-1]<'0'||Ndoc[i-1]>'9')
         {
             flag=false;
-            return -1;///valida que sean solo numeros
+            break;
+        ///valida que sean solo numeros
         }
     }
 
@@ -174,6 +177,7 @@ int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo nume
 
     if(flag)
         return 0;
+        else return -1;
 };
 int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo numeros///TODO VALIDAR TELEFONO NO FUNCA
 {
@@ -305,6 +309,5 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
 
         return -1;
     }
-    return -1;
 };
 

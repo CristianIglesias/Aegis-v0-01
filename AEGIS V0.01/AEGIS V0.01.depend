@@ -26,10 +26,10 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1593052729 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1593118989 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	"PrototiposGlobales.h"
 
-1593052729 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1593120975 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
@@ -42,12 +42,12 @@
 1592962649 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
 	<cstring>
 
-1593051137 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
+1593118989 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
 
 1592247705 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1593049789 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
+1593120606 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"
@@ -70,13 +70,13 @@
 
 1592689260 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
 
-1593052729 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1593118989 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
 	"Producto.h"
 
-1593048402 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
+1593118989 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 
 1592357772 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
@@ -87,13 +87,14 @@
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1593052780 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
+1593118989 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"rlutil.h"
 	"PrototiposGlobales.h"
 	"Clientes.h"
+	"Producto.h"
 
 1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
