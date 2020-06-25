@@ -26,27 +26,28 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1593048402 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1593052729 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+	"PrototiposGlobales.h"
 
-1593039162 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1593052729 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
 	"Clientes.h"
 	"PrototiposGlobales.h"
 
-1593039142 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
+1593051895 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
 1592962649 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
 	<cstring>
 
-1592357967 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
+1593051137 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
 
 1592247705 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1593048497 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
+1593049789 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"
@@ -69,7 +70,7 @@
 
 1592689260 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
 
-1593048742 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1593052729 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -86,11 +87,13 @@
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1592266629 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
+1593052780 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
+	"rlutil.h"
 	"PrototiposGlobales.h"
+	"Clientes.h"
 
 1592260961 source:c:\users\domin\onedrive\documentos\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>

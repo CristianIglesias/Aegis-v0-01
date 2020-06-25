@@ -10,6 +10,9 @@ const char *ArchivoClientes ="Clientes.dat";
 /// ERROR==0-TA TODO PIOLA, SIGUE ADELANTE
 /// ERROR==1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI
 /// ERROR<=0-SIGUE INTENTANDO, TRANK PALANK
+
+
+
 void  Cliente:: cargar()///Carga Cliente.
 {
     int error=0;
@@ -22,23 +25,26 @@ void  Cliente:: cargar()///Carga Cliente.
     }
     cout<<"ID Cliente: "<<idCliente<<endl;
     error = SetTipoPago();
-
-    if(error>0)
+    if(error!=0)
     {
-        cout<<"Operación Cancelada."<<endl;
-        cout<<"Ingrese cualquier tecla para continuar"<<endl;
-        anykey();
+        if(error==1)
+        {
+            cout<<"Operación Cancelada."<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
     }
-
     error=SetPrefFact();
-    if(error>0)
+    if (error!=0)
     {
-        cout<<"Operación Cancelada."<<endl;
-        cout<<"Ingrese cualquier tecla para continuar"<<endl;
-        anykey();
+        if(error==1)
+        {
+            cout<<"Operación Cancelada."<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
     }
     Deuda=0;
-
     error=GuardarClienteEnDisco();
     if(error!=0)
     {
@@ -51,18 +57,46 @@ void  Cliente:: cargar()///Carga Cliente.
 };
 
 void  Cliente:: mostrar()
-{   cout <<"El Cliente "<<endl;
+{
+    cout <<"El Cliente Numero "<<idCliente<<"se llama "<<endl;
     Persona::Mostrar();
     cout<<"Prefiere Pago con ";
     cout<<"Y Tipo de Factura ";
 
     if(GetDeuda()<0)
-    {   setColor(RED);
+    {
+        setColor(RED);
         cout<<"El Cliente Posee una deuda de "<<GetDeuda()<<endl;
         setColor(WHITE);
     }
 
 };
+
+void Cliente:: mostrar(int pos)
+{
+///Veremos si hace falta
+}
+bool Cliente:: LeerDeDisco(int i)///TODO (LEERCLIENTEDISCO) LOGRAR QUE ESTA WEA FUNQUE
+{
+    bool leyo=false;
+    FILE *P;
+    P=fopen(ArchivoClientes,"rb");
+    if(P==NULL)
+    {
+        return false;
+    }
+    if(i>0)
+    {
+        fseek(P,sizeof(Cliente)*i,0);
+        leyo= fread(this,sizeof(Cliente),1,P);
+    }
+    else{leyo=fread(this,sizeof(Cliente),1,P);}
+    fclose (P);
+    return leyo;
+}
+
+
+
 void Cliente::Generarid()
 {
     int cantRegistros=0;
@@ -83,19 +117,21 @@ void Cliente::Generarid()
 
 
 int Cliente :: GuardarClienteEnDisco()
-{   FILE *p;
+{
+    FILE *p;
     p=fopen(ArchivoClientes,"ab");
     if(p==NULL)
     {
-            return -1;
+        return -1;
     }
     if(fwrite(this,sizeof(Cliente),1, p)!=1)
-    {fclose(p);
+    {
+        fclose(p);
         return -1;
     }
     fclose (p);
     return 0;
-    };
+};
 
 
 
@@ -106,7 +142,8 @@ int Cliente:: SetTipoPago()
     cout<<"Tipo De Pago Preferido: ";
     int error=0,i=0;
     while(error<0)
-    {   cout<<"Recuerde: 1=Efectivo."<<endl;
+    {
+        cout<<"Recuerde:  1=Efectivo."<<endl;
         cout<<"           2=Tarjeta Débito."<<endl;
         cout<<"           3=Tarjeta Crédito."<<endl;
         cin>>TipodePago;
@@ -126,7 +163,7 @@ int Cliente:: SetTipoPago()
             }
         }
     }///Cierra el While
-return error;
+    return error;
 };
 
 int Cliente :: ValidarTipoPago()
@@ -148,7 +185,7 @@ int Cliente :: ValidarTipoPago()
         error=-1;
         return error;
     }
-return error;
+    return error;
 }
 
 int Cliente :: SetPrefFact()
@@ -160,9 +197,11 @@ int Cliente :: SetPrefFact()
     cout<<"          2=Factura A."<<endl;
     cin>>PrefFactura;
     error=ValidarPrefFact();
+    if (error=0)
+        return error;
     if(error==1)
     {
-        return error ;
+        return error;
     }
     if(error<0)
     {
@@ -174,31 +213,31 @@ int Cliente :: SetPrefFact()
             cout<<"Si querés salir, cancelando la carga ingresá 99"<<endl;
         }
     }
-return error;
 };
 
 int Cliente :: ValidarPrefFact()
 {
-    int error=0;
     if(PrefFactura<1&&PrefFactura%1!=0)
     {
-        error=-1;
+
         cout<<"Ingrese un Numero entero y Positivo."<<endl;
-        return error;
+        return -1;
+    }
+    if(PrefFactura==1||PrefFactura==2)
+    {
+        return 0;
     }
     if(PrefFactura==99)
     {
-        error=1;
-        return error;
+
+        return 1;
     }
 
     if(PrefFactura>2||PrefFactura<1)
     {
-        error=-2;
 
-        return error;
+        return -2;
     }
-    return error;
 };
 
 

@@ -1,7 +1,7 @@
 #ifndef MENUS_H_INCLUDED
 #define MENUS_H_INCLUDED
 #pragma once
-
+#include "PrototiposGlobales.h"
 ///Prototipos de los Menus.
 
 
@@ -108,8 +108,8 @@ void menuABM()
     {
         setColor(GREEN);
         system("cls");
-        cout<<"                                ABM                "<<endl;
-        cout<<"                  _________________________________"<<endl;
+        cout<<"                                ABM                 "<<endl;
+        cout<<"                  _________________________________ "<<endl;
         cout<<"                 |-1-->Clientes                   -|"<<endl;
         cout<<"                 |-2-->Productos                  -|"<<endl;
         cout<<"                 |-3-->Proveedores                -|"<<endl;
@@ -117,7 +117,7 @@ void menuABM()
         cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
         cout<<"                 |-0-->VOLVER                     -|"<<endl;
         cout<<"                 |_________________________________|"<<endl;
-        cout<<"                  -------Ingrese una opcion--------"<<endl;
+        cout<<"                  -------Ingrese una opcion-------- "<<endl;
         cin>>op;
 
         switch(op)
@@ -223,7 +223,18 @@ void abmClientes()
 
         case 2:
         {
+            cout<<"            ~ Mostrar Cliente ~          "<<endl;
 
+            anykey();
+        }
+        break;
+
+        case 3:
+        {
+            cout<<"            ~ Mostrar Clientes ~          "<<endl;
+
+            ListarClientes();
+            anykey();
         }
         break;
 
@@ -276,19 +287,21 @@ void abmProducto()
         break;
 
         case 2:
-        {///MODIFICAR POR ID /HACER
+        {
+            ///MODIFICAR POR ID /HACER
 
         }
         break;
         case 3:
-        {///MOSTRAR POR ID /HACER
-          pro.mostrar();
+        {
+            ///MOSTRAR POR ID /HACER
+            pro.mostrar();
         }
         break;
-         case 4:
+        case 4:
         {
-           pro.listarProductos();
-           anykey();
+            pro.listarProductos();
+            anykey();
         }
         break;
 

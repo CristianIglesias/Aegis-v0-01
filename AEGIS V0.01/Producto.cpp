@@ -25,6 +25,7 @@ int Producto:: buscarcodigo(char *codigo)
     }
 
     fclose(p);
+
 }
 
 void Producto::cargar()
@@ -133,7 +134,7 @@ bool Producto::guardarProducto()
 bool Producto::leerProductos(int pos)
 {
     cout<<"Leyó uno"<<endl;
-bool leyo;
+    bool leyo;
     FILE *p;
     p=fopen("Productos.dat","rb");
     if(p==NULL)
@@ -154,7 +155,8 @@ void Producto::listarProductos()
     int i=0;
     cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
     while(reg.leerProductos(i))
-    {   cout<<"entró al while"<<endl;
+    {
+        cout<<"entró al while"<<endl;
         reg.mostrar();
         cout<<endl;
         i++;

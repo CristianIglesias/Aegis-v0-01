@@ -6,8 +6,10 @@ class Cliente: public Persona
 {
 public:
 
-    void cargar();
-    void mostrar();
+    void cargar();///carga
+    void mostrar();///Muestra el que la llama
+    bool LeerDeDisco(int i);///Lee La pos que se le manda.
+    void mostrar(int pos);///Muestra por Posición de ID
     void Generarid();
     int  GuardarClienteEnDisco();
 

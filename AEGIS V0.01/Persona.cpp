@@ -132,7 +132,6 @@ int Persona :: setEmail()
     {
         cout<<"Ingrese Correo Electronico :"<<endl;
         cout<<"EMAIL :";
-        ///TODO SetMail (con validación y salida a voluntad.
         cin.getline(Mail,50);
         error=ValidarMail(Mail);
         if(error==0)

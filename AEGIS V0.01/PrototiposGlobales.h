@@ -5,7 +5,7 @@ struct Fecha
 {
     int dia,mes,anio;
 };
-
+void ListarClientes();
 
 
 
