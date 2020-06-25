@@ -20,7 +20,7 @@ public:
     int buscarcodigo(char *codigo);///funcion para validar ingreso de id igual, arreglar
     bool guardarProducto();///guardar en disco
     bool leerProductos(int);///leer en disco
-
+    void listarProductos();
 
 
     const char * getCodigoProducto()

@@ -301,7 +301,7 @@ void abmProducto()
         break;
         case 4:
         {
-            listarProductos();
+            pro.listarProductos();
             anykey();
         }
         break;

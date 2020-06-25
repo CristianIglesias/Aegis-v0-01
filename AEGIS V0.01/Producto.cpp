@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <cstdio>
+#include <cstring>
 using namespace std;
 #include "Producto.h"
 const char *ArchivoProducto ="Producto.dat";
@@ -12,18 +13,21 @@ int Producto:: buscarcodigo(char *codigo)
     FILE *p;
     p=fopen(ArchivoProducto,"rb");
     if(p==NULL)
+        cout<<"ERROR; EN EL ARCHIVO"<<endl;
         return 1;
 
     while(fread(&aux,sizeof(Producto),1,p))
     {
-        if(getCodigoProducto()==aux.getCodigoProducto())
+        if(strcmp(CodigoProducto,codigo))
         {
+            cout<<"ERROR; CODIGO EXISTENTE"<<endl;
             return -1;
             fclose(p);
         }
 
     }
-
+    cout<<"TODO BIEN"<<endl;
+    return 0;
     fclose(p);
 
 }
@@ -31,10 +35,9 @@ int Producto:: buscarcodigo(char *codigo)
 void Producto::cargar()
 {
 
-    int i,total;
-///funcion buscar: arreglar, para que me permita ingresar primero
+     int i,total;
+     ///funcion buscar: arreglar, para que me permita validar.
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
-    cout<<i<<endl;
     cin.ignore();
     cin.getline(CodigoProducto,10);
     i=buscarcodigo(CodigoProducto);
@@ -44,7 +47,8 @@ void Producto::cargar()
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
 
     }
-    else if(i<0)
+
+    if(i==-1)
     {
         cout<<i<<endl;
         cout<<"ERROR, CODIGO EXISTENTE"<<endl;
@@ -72,8 +76,8 @@ void Producto::cargar()
         cout<<"ERROR!, el porcentaje de retabilidad no puede ser menor a 0"<<endl;
         return;
     }
-total=CostodeCompra*(PorcentajeRentabilidad/100)+CostodeCompra;
-PreciodeVenta=total;
+              total=CostodeCompra*(PorcentajeRentabilidad/100)+CostodeCompra;
+              PreciodeVenta=total;
     cout<<"PRECIO DE VENTA:"<<PreciodeVenta<<endl;
 
 
@@ -146,7 +150,19 @@ bool Producto::leerProductos(int pos)
 
 }
 
+void Producto::listarProductos()
+{
+    Producto reg;
+    int i=0;
 
+    cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
+    while(reg.leerProductos(i))
+    {
+        reg.mostrar();
+        cout<<endl;
+        i++;
+    }
+}
 
 
 
