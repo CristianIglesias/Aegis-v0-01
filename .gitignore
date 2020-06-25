@@ -7,3 +7,5 @@
 *.o
 *.layout
 *.o
+*.o
+*.depend

@@ -12,8 +12,6 @@ using namespace rlutil;
 
 void Persona::Cargar()
 {
-
-
     int error;
     cout<<"Nombre  : ";
     cin.ignore();
@@ -26,15 +24,12 @@ void Persona::Cargar()
     error=setFecha();
     if(error==1)
         return;
-
     error=setnDoc();
     if(error==1)
         return;
     error=setEmail();
     if (error==1)
         return;
-
-
     Estado=true;
 
 }
@@ -73,7 +68,8 @@ int Persona :: setFecha()
             anykey();
             cls();
         }
-        else break;
+        else
+            break;
     }
     return error;
 }
@@ -85,6 +81,10 @@ int Persona :: setnDoc()
         cout<<"Ingrese Numero de Documento : ";
         cin.getline(Documento,9);
         error=ValidarDocumento(getDocumento());
+        if(error==0)
+            return error;
+        if (error==1)
+            return error;
         if(error<0)
         {
             i++;
@@ -108,6 +108,10 @@ int Persona :: setTelefono()
         cout<<"Teléfono :";
         cin.getline(nTelefono,10);
         error = ValidarTelefono(getTelefono());
+        if(error==0)
+            return error;
+        if (error==1)
+            return error;
         if(error<0)
         {
             cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
@@ -131,6 +135,10 @@ int Persona :: setEmail()
         ///TODO SetMail (con validación y salida a voluntad.
         cin.getline(Mail,50);
         error=ValidarMail(Mail);
+        if(error==0)
+            return error;
+        if (error==1)
+            return error;
         if(error<0)
         {
             cout<<"Error Validando Mail -Nro "<<error<<" Intente Nuevamente."<<endl;
@@ -159,15 +167,11 @@ int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo nume
             return -1;///valida que sean solo numeros
         }
     }
-    for (i=1; i<9; i++)
+
+    if(Ndoc[0]=='0')
     {
-        if(Ndoc[i-1]=='0')
-        {
-            cont++;
-        }
+        return 1;///Valida Salida Voluntaria.
     }
-    if(cont>8)
-        return 1;///chequea la salida voluntaria
 
     if(flag)
         return 0;
@@ -241,66 +245,67 @@ int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas aba
     }
     return 1;
 }
-int Persona :: ValidarFecha(int Dia,int Mes, int Anio){
-if(Mes==0&&Dia==0&&Anio==0)
-    return 1;
-if((Mes>0&&Mes<13)&&(Anio>1910&&Anio<=2020))
+int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
 {
-    switch(Mes)
+    if(Mes==0&&Dia==0&&Anio==0)
+        return 1;
+    if((Mes>0&&Mes<13)&&(Anio>1910&&Anio<=2020))
     {
-    case  1 :
-    case  3 :
-    case  5 :
-    case  7 :
-    case  8 :
-    case 10 :
-    case 12 :
-        if ( Dia >= 1 && Dia <= 31 )
+        switch(Mes)
         {
-            return 0;
-        }
-        else
-        {
-            return -1;
-        }
-    case  4 :
-    case  6 :
-    case  9 :
-    case 11 :
-        if ( (Dia >= 1) && (Dia <= 30) )
-        {
-
-            return 0;
-        }
-        else
-            return -1;
-    case  2 :
-        if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
-            if ( Dia >= 1 && Dia <= 29 )
+        case  1 :
+        case  3 :
+        case  5 :
+        case  7 :
+        case  8 :
+        case 10 :
+        case 12 :
+            if ( Dia >= 1 && Dia <= 31 )
             {
-
-                return 0 ;
+                return 0;
             }
             else
             {
                 return -1;
             }
-        else if ( Dia >= 1 && Dia <= 28 )
-        {
-            return 0;
-        }
-        else
-        {
-            return -1;
-        }
+        case  4 :
+        case  6 :
+        case  9 :
+        case 11 :
+            if ( (Dia >= 1) && (Dia <= 30) )
+            {
 
+                return 0;
+            }
+            else
+                return -1;
+        case  2 :
+            if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
+                if ( Dia >= 1 && Dia <= 29 )
+                {
+
+                    return 0 ;
+                }
+                else
+                {
+                    return -1;
+                }
+            else if ( Dia >= 1 && Dia <= 28 )
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
     }
-}
-else
-{
+    else
+    {
 
+        return -1;
+    }
     return -1;
-}
-return -1;
 };
 

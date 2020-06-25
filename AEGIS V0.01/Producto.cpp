@@ -98,6 +98,7 @@ void Producto::cargar()
 
     Estado=true;
 
+    guardarProducto();
 
 }
 
@@ -131,6 +132,7 @@ bool Producto::guardarProducto()
 ///LEER EN DISCO
 bool Producto::leerProductos(int pos)
 {
+    cout<<"Leyó uno"<<endl;
 bool leyo;
     FILE *p;
     p=fopen("Productos.dat","rb");
@@ -152,7 +154,7 @@ void Producto::listarProductos()
     int i=0;
     cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
     while(reg.leerProductos(i))
-    {
+    {   cout<<"entró al while"<<endl;
         reg.mostrar();
         cout<<endl;
         i++;

@@ -269,7 +269,7 @@ void abmProducto()
             cout<<"            ~ Nuevo Producto ~          "<<endl;
 
             pro.cargar();
-            pro.guardarProducto();
+
             anykey();
 
         }
