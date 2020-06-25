@@ -37,7 +37,7 @@ void Producto::cargar()
 {
 
      int i,total;
-     ///funcion buscar: arreglar, para que me permita validar.
+     ///funcion buscar: arreglar detalles.
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
     cin.ignore();
     cin.getline(CodigoProducto,10);
@@ -143,15 +143,12 @@ int Producto::guardarProducto()
 
 }
 
-
-
 ///LEER EN DISCO
 bool Producto::leerProductos(int pos)
 {
-
     bool leyo=false;
     FILE *p;
-    p=fopen("Productos.dat","rb");
+    p=fopen(ArchivoProducto,"rb");
     if(p==NULL)
     {
 
