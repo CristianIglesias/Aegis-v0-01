@@ -6,6 +6,8 @@ using namespace std;
 #include "Producto.h"
 const char *ArchivoProducto ="Producto.dat";
 
+///juan.agustin.gonzalez99@gmail.com
+
 
 int Producto:: buscarcodigo(char *codigo)
 {
@@ -13,22 +15,21 @@ int Producto:: buscarcodigo(char *codigo)
     FILE *p;
     p=fopen(ArchivoProducto,"rb");
     if(p==NULL)
-        cout<<"ERROR; EN EL ARCHIVO"<<endl;
+
         return 1;
 
     while(fread(&aux,sizeof(Producto),1,p))
     {
-        if(strcmp(CodigoProducto,codigo))
+        if(strcmp(getCodigoProducto(),aux.getCodigoProducto())==0)
         {
-            cout<<"ERROR; CODIGO EXISTENTE"<<endl;
-            return -1;
             fclose(p);
+            return -1;
         }
 
     }
-    cout<<"TODO BIEN"<<endl;
-    return 0;
     fclose(p);
+    return 0;
+
 
 }
 
@@ -40,18 +41,24 @@ void Producto::cargar()
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
     cin.ignore();
     cin.getline(CodigoProducto,10);
+
     i=buscarcodigo(CodigoProducto);
+
     if(i==0)
     {
         cout<<i<<endl;
-        cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
+        cout<<"CODIGO DE PRODUCTO CARGADO CON EXITO!"<<endl;
 
     }
 
     if(i==-1)
     {
         cout<<i<<endl;
-        cout<<"ERROR, CODIGO EXISTENTE"<<endl;
+        cout<<"ERROR!, CODIGO EXISTENTE"<<endl;
+        return;
+    }
+    if(i==1){
+        cout<<"ERROR EN LA APERTURA DEL ARCHIVO"<<endl;
         return;
     }
 
@@ -117,25 +124,32 @@ void Producto::mostrar()
 }
 
 ///GUARDAR EN DISCO
-bool Producto::guardarProducto()
+int Producto::guardarProducto()
 {
-    bool escribio;
+
     FILE *p;
-    p=fopen("Producto.dat","ab");
+    p=fopen(ArchivoProducto,"ab");
     if(p==NULL)
     {
-        return false;
+        return -1;
     }
-    escribio=fwrite(this,sizeof(Producto),1,p);
+    if(fwrite(this,sizeof(Producto),1,p)!=1);
+    {
+         fclose(p);
+         return -1;
+    }
     fclose(p);
-    return escribio;
+    return 0;
+
 }
+
+
 
 ///LEER EN DISCO
 bool Producto::leerProductos(int pos)
 {
 
-    bool leyo;
+    bool leyo=false;
     FILE *p;
     p=fopen("Productos.dat","rb");
     if(p==NULL)
@@ -143,25 +157,15 @@ bool Producto::leerProductos(int pos)
 
         return false;
     }
+    if(pos>0)
+        {
     fseek(p,pos * sizeof(Producto),0);
     leyo=fread(this,sizeof(Producto),1,p);
+        }
+    else{leyo=fread(this,sizeof(Producto),1,p);}
     fclose(p);
     return leyo;
 
-}
-
-void Producto::listarProductos()
-{
-    Producto reg;
-    int i=0;
-
-    cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
-    while(reg.leerProductos(i))
-    {
-        reg.mostrar();
-        cout<<endl;
-        i++;
-    }
 }
 
 

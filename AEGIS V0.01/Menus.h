@@ -280,7 +280,7 @@ void abmProducto()
             cout<<"            ~ Nuevo Producto ~          "<<endl;
 
             pro.cargar();
-
+            pro.guardarProducto();
             anykey();
 
         }
@@ -295,13 +295,13 @@ void abmProducto()
         case 3:
         {
             ///MOSTRAR POR ID /HACER
-            pro.mostrar();
+
             anykey();
         }
         break;
         case 4:
         {
-            pro.listarProductos();
+            listarProductos();
             anykey();
         }
         break;

@@ -33,10 +33,13 @@ void listarProductos()
     int i=0;
     cls();
     cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
+    cout<<endl;
     while(reg.leerProductos(i))
     {
         reg.mostrar();
         cout<<endl;
         i++;
     }
+    cin.ignore();
+    anykey();
 }

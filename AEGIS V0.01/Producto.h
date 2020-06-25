@@ -18,9 +18,9 @@ public:
     void cargar();
     void mostrar();
     int buscarcodigo(char *codigo);///funcion para validar ingreso de id igual, arreglar
-    bool guardarProducto();///guardar en disco
-    bool leerProductos(int);///leer en disco
-    void listarProductos();
+    int guardarProducto();///guardar en disco
+    bool leerProductos(int pos);///leer en disco
+
 
 
     const char * getCodigoProducto()
