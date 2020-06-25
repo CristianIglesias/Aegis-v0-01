@@ -18,8 +18,8 @@ void abmProveedor();
 void menuPrincipal()
 {
     setColor(WHITE);
-    cout<<"                           MENU PRINCIPAL"          <<endl;
-    cout<<"                  _________________________________"<<endl;
+    cout<<"                           MENU PRINCIPAL           "<<endl;
+    cout<<"                  _________________________________ "<<endl;
     cout<<"                 |-1-->VENTAS                     -|"<<endl;
     cout<<"                 |-2-->ABM                        -|"<<endl;
     cout<<"                 |-3-->LISTADOS                   -|"<<endl;
@@ -40,15 +40,15 @@ void menuVentas()
     {
         setColor(YELLOW);
         system("cls");
-        cout<<"                           VENTAS"          <<endl;
-        cout<<"                  _________________________________"<<endl;
-        cout<<"                 |-1-->Nueva Venta                -|"<<endl;
-        cout<<"                 |-2-->Nota de Crédito            -|"<<endl;
-        cout<<"                 |-3-->Presupuestos               -|"<<endl;
+        cout<<"                           VENTAS                   "<<endl;
+        cout<<"                  _________________________________ "<<endl;
+        cout<<"                 |-1 -->Nueva Venta.               -|"<<endl;
+        cout<<"                 |-2 -->Nota de Crédito.           -|"<<endl;
+        cout<<"                 |-3 -->Presupuestos.              -|"<<endl;
         cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
         cout<<"                 |-0-->VOLVER                     -|"<<endl;
         cout<<"                 |_________________________________|"<<endl;
-        cout<<"                  -------Ingrese una opcion--------"<<endl;
+        cout<<"                  -------Ingrese una opcion-------- "<<endl;
         cin>>op;
 
         switch(op)

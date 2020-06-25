@@ -5,6 +5,7 @@ using namespace std;
 using namespace rlutil;
 #include "PrototiposGlobales.h"
 #include "Persona.h"
+///IOMANIP ///setw();
 /// A SABER
 /// ERROR=0-TA TODO PIOLA, SIGUE ADELANTE
 /// ERROR=1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI
@@ -153,8 +154,6 @@ int Persona :: setEmail()
     }///salida while
     return error;
 };
-
-
 
 int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo numeros///TODO VALIDAR DOCUMENTO NO FUNCA
 {
