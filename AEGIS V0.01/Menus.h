@@ -276,14 +276,19 @@ void abmProducto()
         break;
 
         case 2:
-        {
+        {///MODIFICAR POR ID /HACER
 
         }
         break;
         case 3:
+        {///MOSTRAR POR ID /HACER
+          pro.mostrar();
+        }
+        break;
+         case 4:
         {
-         pro.listarProductos();
-            anykey();
+           pro.listarProductos();
+           anykey();
         }
         break;
 

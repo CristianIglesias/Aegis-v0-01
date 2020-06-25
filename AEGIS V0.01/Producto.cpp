@@ -14,14 +14,17 @@ int Producto:: buscarcodigo(char *codigo)
     if(p==NULL)
         return 1;
 
-    while(fread(&aux,sizeof(Producto),1,p)==1)
+    while(fread(&aux,sizeof(Producto),1,p))
     {
         if(getCodigoProducto()==aux.getCodigoProducto())
         {
             return -1;
+            fclose(p);
         }
+
     }
-    return 0;
+
+    fclose(p);
 }
 
 void Producto::cargar()
@@ -29,8 +32,8 @@ void Producto::cargar()
 
     int i;
 ///funcion buscar: arreglar, para que me permita ingresar primero
-
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
+    cout<<i<<endl;
     cin.ignore();
     cin.getline(CodigoProducto,10);
     i=buscarcodigo(CodigoProducto);
@@ -40,7 +43,7 @@ void Producto::cargar()
         cout<<"PRODUCTO CARGADO CON EXITO!"<<endl;
 
     }
-    if(i==-1)
+    else if(i<0)
     {
         cout<<i<<endl;
         cout<<"ERROR, CODIGO EXISTENTE"<<endl;
@@ -98,10 +101,21 @@ void Producto::cargar()
 
 }
 
-///¿como pasar el producto que cargue anteriormente?
+void Producto::mostrar()
+{
+    cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
+    cout<<"NOMBRE:"<<NombreItem<<endl;
+    cout<<"CODIGO PROVEEDOR:"<<CodigoProveedor<<endl;
+    cout<<"COSTO:"<<CostodeCompra<<endl;
+    cout<<"% RENTABILIDAD:"<<PorcentajeRentabilidad<<endl;
+    cout<<"PRECIO VENTA:"<<PreciodeVenta<<endl;
+    cout<<"STOCK MINIMO:"<<StockMin<<endl;
+    cout<<"STOCK ACTUAL:"<<StockActual<<endl;
+}
+
+///GUARDAR EN DISCO
 bool Producto::guardarProducto()
 {
-    ///Producto aux=this;
     bool escribio;
     FILE *p;
     p=fopen("Producto.dat","ab");
@@ -114,65 +128,39 @@ bool Producto::guardarProducto()
     return escribio;
 }
 
-///leer lee en el archivo para luego mostrar todos los productos.
-///TERMINAR.
-void Producto::leerProductos()
+///LEER EN DISCO
+bool Producto::leerProductos(int pos)
 {
-
+bool leyo;
     FILE *p;
     p=fopen("Productos.dat","rb");
     if(p==NULL)
     {
 
-        return ;
+        return false;
     }
-    fread(this,sizeof(Producto),1,p);
+    fseek(p,pos * sizeof(Producto),0);
+    leyo=fread(this,sizeof(Producto),1,p);
     fclose(p);
-    return ;
-
-}
-
-void Producto::mostrar()
-{
-    cout<<""<<endl;
-    cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
-    cout<<"NOMBRE:"<<NombreItem<<endl;
-    cout<<"CODIGO PROVEEDOR:"<<CodigoProveedor<<endl;
-    cout<<"COSTO:"<<CostodeCompra<<endl;
-    cout<<"% RENTABILIDAD:"<<PorcentajeRentabilidad<<endl;
-    cout<<"PRECIO VENTA:"<<PreciodeVenta<<endl;
-    cout<<"STOCK MINIMO:"<<StockMin<<endl;
-    cout<<"STOCK ACTUAL:"<<StockActual<<endl;
+    return leyo;
 
 }
 
 void Producto::listarProductos()
 {
-    int cant=cantidad_productos();
-    cout<<"_________LISTADO DE PRODUCTOS____________"<<endl;
-    for(int i=0; i<cant; i++)
+    Producto reg;
+    int i=0;
+    cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
+    while(reg.leerProductos(i))
     {
-        leerProductos();
-        mostrar();
+        reg.mostrar();
         cout<<endl;
+        i++;
     }
-
 }
 
-int Producto::cantidad_productos()//Cuenta la cantidad de productos para luego listarlos.
-{
-    int bytes,cr;
-    FILE *p;
-    p=fopen("Producto.dat","rb");
-    if(p==NULL)
-    {
-        return 0;
-    }
-    fseek(p,0,SEEK_END);
-    bytes=ftell(p);
-    cr=bytes/sizeof(this);
-    fclose(p);
-    return cr;
-}
+
+
+
 
 

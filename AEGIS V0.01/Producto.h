@@ -17,11 +17,10 @@ public:
 
     void cargar();
     void mostrar();
-    int buscarcodigo(char *codigo);
-    bool guardarProducto();
-    void leerProductos();
-   void listarProductos();
-   int cantidad_productos();
+    int buscarcodigo(char *codigo);///funcion para validar ingreso de id igual, arreglar
+    bool guardarProducto();///guardar en disco
+    bool leerProductos(int);///leer en disco
+    void listarProductos();///listado de productos
 
 
     const char * getCodigoProducto()
