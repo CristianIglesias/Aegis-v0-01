@@ -26,6 +26,27 @@ void ListarClientes()///TODO CHEQUEAR QUE FUNCA LEER
     cin.ignore();
     anykey();
 }
+int ValidarTexto(const char *cad)
+{
+    int tam,i=0;
+    bool flag=true;
+    tam=strlen(cad);
+    if(cad[i]=='\0')
+    {
+        return -1;
+    }
+
+    for (i=1; i<tam; i++)
+    {
+        if(cad[i-1]<=97&&cad[i-1]>=122||cad[i-1]<=65&&cad[i-1]>=90)
+        {
+            flag=false;
+        }
+
+    }
+    if(flag)
+        return 0;
+    };
 
 void listarProductos()
 {

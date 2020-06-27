@@ -26,10 +26,12 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1593118989 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1593291269 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+	"Producto.h"
+	"Proveedor.h"
 	"PrototiposGlobales.h"
 
-1593120975 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1593292470 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
@@ -39,15 +41,15 @@
 1593051895 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
-1592962649 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
+1593291460 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
 	<cstring>
 
-1593118989 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
+1593289376 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
 
 1592247705 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1593120606 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
+1593292568 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"
@@ -70,13 +72,14 @@
 
 1592689260 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
 
-1593118989 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1593289376 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
+	<cstring>
 	"Producto.h"
 
-1593118989 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
+1593132244 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 
 1592357772 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
@@ -87,7 +90,7 @@
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1593118989 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
+1593293124 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>

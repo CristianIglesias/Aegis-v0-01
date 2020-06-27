@@ -6,11 +6,11 @@
 class Persona
 {
 protected:
-    char Nombre[20];
-    char Apellido[20];
+    char Nombre[50];
+    char Apellido[50];
     int Dia, Mes, Anio;
     char Documento[9];
-    char Mail[50];
+    char Mail[75];
     bool Estado;
     char nTelefono[11];
 public:
@@ -18,7 +18,7 @@ public:
     void Mostrar();///MUESTRA PERSONA
     int setNombre();///TODO Sets Nombre-Apellido y Validación de texto en ambas!
     int setApellido();
-    int ValidarTexto();
+
     int setFecha();
     int ValidarFecha(int Dia,int Mes,int Anio);
     int setTelefono();

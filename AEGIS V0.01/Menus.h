@@ -1,6 +1,8 @@
 #ifndef MENUS_H_INCLUDED
 #define MENUS_H_INCLUDED
 #pragma once
+#include "Producto.h"
+#include "Proveedor.h"
 #include "PrototiposGlobales.h"
 ///Prototipos de los Menus.
 
@@ -28,7 +30,7 @@ void menuPrincipal()
     cout<<"                 |-0-->SALIR                      -|"<<endl;
     cout<<"                 |_________________________________|"<<endl;
     cout<<"                  -------Ingrese una opcion--------"<<endl;
-}
+};
 void menuVentas()
 {
 
@@ -195,8 +197,8 @@ void abmClientes()
     {
         setColor(GREEN);
         system("cls");
-        cout<<"                             ABM Clientes          "<<endl;
-        cout<<"                  _________________________________"<<endl;
+        cout<<"                             ABM Clientes           "<<endl;
+        cout<<"                  _________________________________ "<<endl;
         cout<<"                 |-1-->Nuevo Cliente.             -|"<<endl;
         cout<<"                 |-2-->Modificar Cliente.         -|"<<endl;
         cout<<"                 |-3-->Mostrar Cliente.           -|"<<endl;
@@ -205,7 +207,7 @@ void abmClientes()
         cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
         cout<<"                 |-0-->VOLVER                     -|"<<endl;
         cout<<"                 |_________________________________|"<<endl;
-        cout<<"                  -------Ingrese una opcion--------"<<endl;
+        cout<<"                  -------Ingrese una opcion-------- "<<endl;
         cin>>op;
         system("cls");
         switch(op)
@@ -237,7 +239,16 @@ void abmClientes()
             anykey();
         }
         break;
+        case 5:
+        {
+            cout<<"            ~ Eliminar Clientes ~          "<<endl;
 
+            FILE *p;
+           p=fopen("Clientes.dat","wb");
+            fclose(p);
+
+        }
+        break;
         case 0:
         {
             salir=true;
@@ -345,8 +356,8 @@ void abmProveedor()
 
 
             cout<<"            ~ Nuevo Proveedor ~          "<<endl;
-            Proveedor prove;
-            prove.cargar();
+//            Proveedor prove;
+//            prove.cargar();
             anykey();
         }
         break;

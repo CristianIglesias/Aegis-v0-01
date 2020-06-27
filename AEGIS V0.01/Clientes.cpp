@@ -17,6 +17,9 @@ void  Cliente:: cargar()///Carga Cliente.
 {
     int error=0;
     Persona::Cargar();
+
+    if(Estado==false)
+        return;
     Generarid();
     if(idCliente<0)
     {
@@ -91,7 +94,10 @@ bool Cliente:: LeerDeDisco(int i)///TODO (LEERCLIENTEDISCO) LOGRAR QUE ESTA WEA 
         fseek(P,sizeof(Cliente)*i,0);
         leyo= fread(this,sizeof(Cliente),1,P);
     }
-    else{leyo=fread(this,sizeof(Cliente),1,P);}
+    else
+    {
+        leyo=fread(this,sizeof(Cliente),1,P);
+    }
     fclose (P);
     return leyo;
 }

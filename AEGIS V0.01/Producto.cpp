@@ -36,8 +36,8 @@ int Producto:: buscarcodigo(char *codigo)
 void Producto::cargar()
 {
 
-     int i,total;
-     ///funcion buscar: arreglar detalles.
+    int i,total;
+    ///funcion buscar: arreglar detalles.
     cout<<"CODIGO DEL PRODUCTO:"<<endl;
     cin.ignore();
     cin.getline(CodigoProducto,10);
@@ -57,7 +57,8 @@ void Producto::cargar()
         cout<<"ERROR!, CODIGO EXISTENTE"<<endl;
         return;
     }
-    if(i==1){
+    if(i==1)
+    {
         cout<<"ERROR EN LA APERTURA DEL ARCHIVO"<<endl;
         return;
     }
@@ -83,8 +84,8 @@ void Producto::cargar()
         cout<<"ERROR!, el porcentaje de retabilidad no puede ser menor a 0"<<endl;
         return;
     }
-              total=CostodeCompra*(PorcentajeRentabilidad/100)+CostodeCompra;
-              PreciodeVenta=total;
+    total=CostodeCompra*(PorcentajeRentabilidad/100)+CostodeCompra;
+    PreciodeVenta=total;
     cout<<"PRECIO DE VENTA:"<<PreciodeVenta<<endl;
 
 
@@ -135,8 +136,8 @@ int Producto::guardarProducto()
     }
     if(fwrite(this,sizeof(Producto),1,p)!=1);
     {
-         fclose(p);
-         return -1;
+        fclose(p);
+        return -1;
     }
     fclose(p);
     return 0;
@@ -155,11 +156,14 @@ bool Producto::leerProductos(int pos)
         return false;
     }
     if(pos>0)
-        {
-    fseek(p,pos * sizeof(Producto),0);
-    leyo=fread(this,sizeof(Producto),1,p);
-        }
-    else{leyo=fread(this,sizeof(Producto),1,p);}
+    {
+        fseek(p,pos * sizeof(Producto),0);
+        leyo=fread(this,sizeof(Producto),1,p);
+    }
+    else
+    {
+        leyo=fread(this,sizeof(Producto),1,p);
+    }
     fclose(p);
     return leyo;
 

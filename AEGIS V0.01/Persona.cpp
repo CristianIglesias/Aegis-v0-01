@@ -13,15 +13,15 @@ using namespace rlutil;
 
 void Persona::Cargar()
 {
+    Estado=false;
     int error;
-    cout<<"Nombre  : ";
-    cin.ignore();
-    cin.getline(Nombre,20);
-    ///TODO Sets Nombre - Apellido & ValidarTexto.
-    cout<<"Apellido :";
-    cin.getline(Apellido,20);
-    cout<<""<<endl;
 
+    error=setApellido();
+    if(error==1)
+        return;
+    error= setNombre();
+    if(error==1)
+        return;
     error=setFecha();
     if(error==1)
         return;
@@ -32,6 +32,7 @@ void Persona::Cargar()
     if (error==1)
         return;
     Estado=true;
+    return;
 
 }
 
@@ -43,6 +44,81 @@ void Persona :: Mostrar()
     cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
     cout<<"Su Email es :"<<Mail<<endl;
 }
+
+
+int Persona :: setApellido()
+{
+    cin.ignore();
+
+    int i=0, error=-1;
+    while (error<0)
+    {
+
+        cout<<"Ingrese Apellido: ";
+        cin.getline(Apellido,50);
+        error=ValidarTexto(this->getApellido());
+        if (error==!0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
+                cout<<"Intento Numero "<<i<<"."<<endl;
+                if(i>3)
+                {
+                    cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
+                }
+                anykey();
+                cls();
+            }
+        }
+        return error;
+    }///cierra while
+
+};
+
+int Persona :: setNombre()
+{
+        ///acá no tiene el cin.ignore porque creo que lo rompe, pero puede necesitarse.
+    int i=0, error=-1;
+    while (error<0)
+    {
+
+        cout<<"Ingrese Nombre: ";
+        cin.getline(Nombre,50);
+        error=ValidarTexto(this->getNombre());
+        if (error==!0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
+                cout<<"Intento Numero "<<i<<"."<<endl;
+                if(i>3)
+                {
+                    cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
+                }
+                anykey();
+                cls();
+            }
+        }
+        return error;
+    }///cierra while
+};
+
+
+
+
+
+
+
+
+
+
 int Persona :: setFecha()
 {
     int error=0,i=0;
@@ -165,7 +241,7 @@ int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo nume
         {
             flag=false;
             break;
-        ///valida que sean solo numeros
+            ///valida que sean solo numeros
         }
     }
 
@@ -176,7 +252,8 @@ int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo nume
 
     if(flag)
         return 0;
-        else return -1;
+    else
+        return -1;
 };
 int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo numeros///TODO VALIDAR TELEFONO NO FUNCA
 {
