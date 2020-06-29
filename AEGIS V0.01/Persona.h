@@ -16,6 +16,8 @@ protected:
 public:
     void Cargar();///CARGA PERSONA
     void Mostrar();///MUESTRA PERSONA
+
+
     int setNombre();///TODO Sets Nombre-Apellido y Validación de texto en ambas!
     int setApellido();
 

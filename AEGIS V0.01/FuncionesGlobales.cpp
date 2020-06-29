@@ -9,6 +9,31 @@ using namespace rlutil;
 #include "Producto.h"
 
 
+void error_msj(int cod, int i)
+{
+    switch(cod)
+    {
+    case -1:
+        cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
+        cout<<"Intento Numero "<<i<<"."<<endl;
+        if(i>3)
+        {
+            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
+        }
+        break;
+    case -2:
+        break;
+    case -3:
+        break;
+    case -4:
+        break;
+    case -5:
+        break;
+    case -6:
+        break;
+    }
+}
+
 
 void ListarClientes()///TODO CHEQUEAR QUE FUNCA LEER
 {
@@ -46,8 +71,7 @@ int ValidarTexto(const char *cad)
     }
     if(flag)
         return 0;
-    };
-
+};
 void listarProductos()
 {
     Producto reg;

@@ -38,6 +38,7 @@ public:
 
 };
 
+void error_msj(int cod,int i);
 
 int ValidarTexto(const char *cad );
 

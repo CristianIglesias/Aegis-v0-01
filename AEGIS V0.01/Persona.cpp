@@ -96,12 +96,7 @@ int Persona :: setNombre()
             if(error<0)
             {
                 i++;
-                cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
-                cout<<"Intento Numero "<<i<<"."<<endl;
-                if(i>3)
-                {
-                    cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
-                }
+                error_msj(-1,i)
                 anykey();
                 cls();
             }
