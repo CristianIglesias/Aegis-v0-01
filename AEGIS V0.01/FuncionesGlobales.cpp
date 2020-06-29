@@ -7,6 +7,7 @@ using namespace rlutil;
 #include "PrototiposGlobales.h"
 #include "Clientes.h"
 #include "Producto.h"
+#include "Proveedor.h"
 
 
 void error_msj(int cod, int i)
@@ -14,7 +15,7 @@ void error_msj(int cod, int i)
     switch(cod)
     {
     case -1:
-        cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
+       /// cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -81,7 +82,26 @@ void listarProductos()
     cout<<endl;
     while(reg.leerProductos(i))
     {
+
         reg.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+}
+
+void listarProveedores()
+{
+    Proveedor prov;
+    int i=0;
+    cls();
+    cout<<"________LISTADO DE PROVEEDORES__________"<<endl;
+    cout<<endl;
+    while(prov.leerProveedor(i))
+    {
+
+        prov.mostrar();
         cout<<endl;
         i++;
     }

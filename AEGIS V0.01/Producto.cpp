@@ -169,8 +169,52 @@ bool Producto::leerProductos(int pos)
 
 }
 
+bool Producto::sobrescribir(int pos)///Funcion que abre el archivo para escribir los nuevos datos modificados;
+{
+
+    bool escribio;
+    FILE *p;
+    p = fopen(ArchivoProducto, "rb+");
+    if (p == NULL){
+        return false;
+    }
+    fseek(p, pos * sizeof(Producto), SEEK_SET);
+    escribio = fwrite(this, sizeof(Producto), 1, p);
+    fclose(p);
+    return escribio;
+}
 
 
+void Producto::modificar_producto()///arreglar solo modifica el primer producto;
+{
+    cout<<"ENTRO"<<endl;
+    char id_buscado[20];
+    int pos;
+    cout << "ID a modificar: ";
+    cin.ignore();
+    cin.getline(id_buscado,20);
+    pos =buscarcodigo(id_buscado);
+    if (pos >= 0){
+
+        pos=leerProductos(pos);
+        cout << endl;
+        Producto::mostrar();
+        cout << endl << "Ingrese el nuevo costo: ";
+        cin >> CostodeCompra;
+        cout<<"Ingrese el stock actual: ";
+        cin>>StockActual;
+
+        if (sobrescribir(pos)){
+            cout << "Producto modificado."<<endl;
+        }
+        else{
+            cout << "No se modificó el producto.";
+        }
+    }
+    else{
+        cout << "No existe el producto.";
+    }
+}
 
 
 

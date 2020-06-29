@@ -96,7 +96,7 @@ int Persona :: setNombre()
             if(error<0)
             {
                 i++;
-                error_msj(-1,i)
+                error_msj(-1,i);
                 anykey();
                 cls();
             }

@@ -20,6 +20,8 @@ public:
     int buscarcodigo(char *codigo);///funcion para validar ingreso de id igual, arreglar
     int guardarProducto();///guardar en disco
     bool leerProductos(int pos);///leer en disco
+    bool sobrescribir(int);
+    void modificar_producto();
 
 
 

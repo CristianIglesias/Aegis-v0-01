@@ -291,7 +291,7 @@ void abmProducto()
             cout<<"            ~ Nuevo Producto ~          "<<endl;
 
             pro.cargar();
-            pro.guardarProducto();
+
             anykey();
 
         }
@@ -299,12 +299,16 @@ void abmProducto()
 
         case 2:
         {
+            cout<<"                      ~MODIFICAR PRODUCTOS~               "<<endl;
             ///MODIFICAR POR ID /HACER
 
+            pro.modificar_producto() ;
+            anykey();
         }
         break;
         case 3:
         {
+            cout<<"                      ~LISTAR PRODUCTOS X ID~               "<<endl;
             ///MOSTRAR POR ID /HACER
 
             anykey();
@@ -312,7 +316,14 @@ void abmProducto()
         break;
         case 4:
         {
+            cout<<"                      ~LISTAR PRODUCTOS~               "<<endl;
             listarProductos();
+            anykey();
+        }
+        break;
+        case 5:
+        { cout<<"                      ~ELIMINAR PRODUCTOS~               "<<endl;
+
             anykey();
         }
         break;
@@ -331,7 +342,7 @@ void abmProveedor()
 
     int op;
     bool salir=false;
-
+Proveedor prove;
     while(!salir)
     {
         setColor(GREEN);
@@ -356,8 +367,8 @@ void abmProveedor()
 
 
             cout<<"            ~ Nuevo Proveedor ~          "<<endl;
-//            Proveedor prove;
-//            prove.cargar();
+
+           prove.cargar();
             anykey();
         }
         break;
@@ -365,6 +376,18 @@ void abmProveedor()
         case 2:
         {
 
+        }
+        break;
+
+        case 3:
+        {
+
+        }
+        break;
+
+        case 4:
+        {
+          listarProveedores();
         }
         break;
 
