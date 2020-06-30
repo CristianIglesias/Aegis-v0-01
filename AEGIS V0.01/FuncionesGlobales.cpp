@@ -9,27 +9,58 @@ using namespace rlutil;
 #include "Producto.h"
 
 
-void error_msj(int cod, int i)
+void error_msj(int cod, int i)  /// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECESITE, SOLO SERÍA AGREGAR CASES AL SWITCH.
+                                /// ES UTIL PARA SIMPLIFICAR EL CÓDIGO.
 {
     switch(cod)
     {
     case -1:
-        cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
+        cout<<"Error Validando, Solo se permiten Letras. Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""0""."<<endl;
         }
         break;
     case -2:
+        cout<<"Error Validando, Fecha Invalida. Intente Nuevamente."<<endl;
+        cout<<"Intento Numero "<<i<<"."<<endl;
+        if(i>3)
+        {
+            cout<<"Si no podés y querés salir, ingresá ""0""."<<endl;
+        }
         break;
     case -3:
+        cout<<"Error Validando, . Intente Nuevamente."<<endl;
+        cout<<"Intento Numero "<<i<<"."<<endl;
+        if(i>3)
+        {
+            cout<<"Si no podés y querés salir, ingresá ""0""."<<endl;
+        }
         break;
     case -4:
+        cout<<"Error Validando, . Intente Nuevamente."<<endl;
+        cout<<"Intento Numero "<<i<<"."<<endl;
+        if(i>3)
+        {
+            cout<<"Si no podés y querés salir, ingresá ""0""."<<endl;
+        }
         break;
     case -5:
+        cout<<"Error Validando, ID INEXISTENTE. Intente Nuevamente."<<endl;
+        cout<<"Intento Numero "<<i<<"."<<endl;
+        if(i>3)
+        {
+            cout<<"Si no podés y querés salir, ingresá ""0""."<<endl;
+        }
         break;
     case -6:
+        cout<<"Error Validando, . Intente Nuevamente."<<endl;
+        cout<<"Intento Numero "<<i<<"."<<endl;
+        if(i>3)
+        {
+            cout<<"Si no podés y querés salir, ingresá ""0""."<<endl;
+        }
         break;
     }
 }

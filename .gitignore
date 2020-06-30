@@ -13,3 +13,5 @@
 *.depend
 *.layout
 *.exe
+*.o
+*.depend

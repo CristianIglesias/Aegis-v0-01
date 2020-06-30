@@ -28,12 +28,13 @@ void Persona::Cargar()
     error=setnDoc();
     if(error==1)
         return;
+    error=setTelefono();
+    if(error==1)
+        return;
     error=setEmail();
     if (error==1)
         return;
     Estado=true;
-    return;
-
 }
 
 
@@ -64,12 +65,7 @@ int Persona :: setApellido()
             if(error<0)
             {
                 i++;
-                cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
-                cout<<"Intento Numero "<<i<<"."<<endl;
-                if(i>3)
-                {
-                    cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
-                }
+                error_msj(-1,i);
                 anykey();
                 cls();
             }
@@ -81,7 +77,7 @@ int Persona :: setApellido()
 
 int Persona :: setNombre()
 {
-        ///acá no tiene el cin.ignore porque creo que lo rompe, pero puede necesitarse.
+    ///acá no tiene el cin.ignore porque creo que lo rompe, pero puede necesitarse.
     int i=0, error=-1;
     while (error<0)
     {
@@ -96,7 +92,7 @@ int Persona :: setNombre()
             if(error<0)
             {
                 i++;
-                error_msj(-1,i)
+                error_msj(-1,i);
                 anykey();
                 cls();
             }
@@ -131,12 +127,7 @@ int Persona :: setFecha()
         if (error==-1)
         {
             i++;
-            cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i<<"."<<endl;
-            if(i>3)
-            {
-                cout<<"Si no podés y querés salir, ingresá 0-0-0"<<endl;
-            }
+            error_msj(-2,i);
             anykey();
             cls();
         }
@@ -175,12 +166,12 @@ int Persona :: setnDoc()
 int Persona :: setTelefono()
 {
     cin.ignore();
-    int error=-1,i=0;
+    int error=-1,i=1;
     while (error!=0||error!=1)
     {
         cout<<"Ingrese su Numero de Teléfono."<<endl;
         cout<<"Teléfono :";
-        cin.getline(nTelefono,10);
+        cin.getline(nTelefono,11);
         error = ValidarTelefono(getTelefono());
         if(error==0)
             return error;
@@ -189,7 +180,7 @@ int Persona :: setTelefono()
         if(error<0)
         {
             cout<<"Error Nro "<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i<<endl;
+            cout<<"Intento Numero "<<i++<<endl;
             if(i>3)
             {
                 cout<<"Si no podés y querés salir, ingresá 0."<<endl;
@@ -254,7 +245,7 @@ int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo n
 {
     int i;
     bool flag=true;
-    for (i=0; i<10; i++)
+    for (i=0; i<11; i++)
 
     {
         if (Telefono[i]-48>=0&&Telefono[i]-48<=9)

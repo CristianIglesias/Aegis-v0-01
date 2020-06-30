@@ -76,6 +76,45 @@ void  Cliente:: mostrar()
 
 };
 
+void Cliente:: mostrarxID ()///Muestra Por ID -
+{   bool funco=false;
+    int aux,i=1;
+    while(!funco)
+    {
+
+    cout<<"Ingrese el ID Del cliente que quiere que se muestre por pantalla."<<endl;
+    cin>>aux;
+    funco=LeerxID(aux);
+    if(funco)
+    {
+        mostrar();
+    }
+    else
+    {
+        error_msj(-5,i++ );
+    }
+    }
+}
+
+
+bool Cliente:: LeerxID(int id)
+{
+    FILE *P;
+    P=fopen(ArchivoClientes,"rb");
+    if(P==NULL)
+    {
+        return false;
+    }
+    while(fread(this,sizeof(Cliente),1,P)==1)
+    {
+        if(this->idCliente==id&&this->Estado==true)
+            fclose(P);
+        return true;
+    }
+    fclose (P);
+    return false;
+};
+
 void Cliente:: mostrar(int pos)
 {
 ///Veremos si hace falta

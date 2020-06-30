@@ -9,7 +9,9 @@ public:
     void cargar();///carga
     void mostrar();///Muestra el que la llama
     bool LeerDeDisco(int i);///Lee La pos que se le manda.
+    bool LeerxID(int id);
     void mostrar(int pos);///Muestra por Posición de ID
+    void mostrarxID ();///Muestra Por ID -
     void Generarid();
     int  GuardarClienteEnDisco();
 

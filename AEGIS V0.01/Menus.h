@@ -215,7 +215,6 @@ void abmClientes()
         case 1:
         {
 
-
             cout<<"            ~ Nuevo Cliente ~          "<<endl;
             Cliente cli;
             cli.cargar();
@@ -226,6 +225,8 @@ void abmClientes()
         case 2:
         {
             cout<<"            ~ Mostrar Cliente ~          "<<endl;
+            Cliente Cli;
+            Cli.mostrarxID();
 
             anykey();
         }
