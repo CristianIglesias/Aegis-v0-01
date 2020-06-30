@@ -55,7 +55,10 @@ void  Cliente:: cargar()///Carga Cliente.
         cout<<"Ingrese cualquier tecla para continuar"<<endl;
         anykey();
     }
-
+    else
+        {
+        cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+        }
 
 };
 

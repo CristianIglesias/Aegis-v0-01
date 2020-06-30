@@ -28,7 +28,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no pod�s y quer�s salir, ingres� ""0""."<<endl;
+            cout<<"Si no podés y quer�s salir, ingres� ""0""."<<endl;
         }
         break;
     case -3:

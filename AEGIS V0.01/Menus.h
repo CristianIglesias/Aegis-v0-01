@@ -227,7 +227,6 @@ void abmClientes()
             cout<<"            ~ Mostrar Cliente ~          "<<endl;
             Cliente Cli;
             Cli.mostrarxID();
-
             anykey();
         }
         break;

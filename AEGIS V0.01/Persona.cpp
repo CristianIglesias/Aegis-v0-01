@@ -102,14 +102,6 @@ int Persona :: setNombre()
 };
 
 
-
-
-
-
-
-
-
-
 int Persona :: setFecha()
 {
     int error=0,i=0;
@@ -248,16 +240,20 @@ int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo n
     for (i=0; i<11; i++)
 
     {
-        if (Telefono[i]-48>=0&&Telefono[i]-48<=9)
+        if (Telefono[i-1]<'0'&&Telefono[i-1]>'9')
         {
             flag=false;
-            return -1;
+            break;
         }
+        if(Telefono[0]=='0')
+    {
+        return 1;///Valida Salida Voluntaria.
     }
-
-    return 1;
-
-};
+    }
+    if(flag)
+        return 0;
+    else return -1;
+    };
 int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas abajo.
 {
     int tam=strlen(Mail), pos=0,i=1;
@@ -308,7 +304,7 @@ int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas aba
     {
         return-7;   ///que no termine en punto.
     }
-    return 1;
+    return 0;
 }
 int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
 {
