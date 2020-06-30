@@ -48,7 +48,7 @@ int ValidarTexto(const char *cad );
 
 void ListarClientes();
 void listarProductos();
-
+void listarProveedores();
 
 
 #endif // PROTOTIPOSGLOBALES_H_INCLUDED

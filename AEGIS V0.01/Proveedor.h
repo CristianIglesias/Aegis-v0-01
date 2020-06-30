@@ -11,6 +11,8 @@ protected:
 public:
     void cargar();
     void mostrar();
+    int guardarProveedor();
+    bool leerProveedor(int pos);
 };
 
 
