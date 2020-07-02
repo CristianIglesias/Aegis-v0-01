@@ -11,24 +11,24 @@ using namespace rlutil;
 
 
 void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECESITE, SOLO SER�A AGREGAR CASES AL SWITCH.
-                                /// ES UTIL PARA SIMPLIFICAR EL C�DIGO.
+/// ES UTIL PARA SIMPLIFICAR EL C�DIGO.
 {
     switch(cod)
     {
     case -1:
-       /// cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
+        /// cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
             cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
         }
         break;
-        case -2:
+    case -2:
         cout<<"Error Validando, Fecha Invalida. Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no podés y quer�s salir, ingres� ""0""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
         }
         break;
     case -3:
@@ -36,7 +36,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no pod�s y quer�s salir, ingres� ""0""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
         }
         break;
     case -4:
@@ -44,7 +44,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no pod�s y quer�s salir, ingres� ""0""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
         }
         break;
     case -5:
@@ -52,7 +52,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no pod�s y quer�s salir, ingres� ""0""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
         }
         break;
     case -6:
@@ -60,7 +60,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no pod�s y quer�s salir, ingres� ""0""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
         }
         break;
     }

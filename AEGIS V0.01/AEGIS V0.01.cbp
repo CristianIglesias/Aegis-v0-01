@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Clientes.cpp" />
 		<Unit filename="Clientes.h" />
+		<Unit filename="DetalleVenta.cpp" />
+		<Unit filename="DetalleVenta.h" />
 		<Unit filename="FuncionesGlobales.cpp" />
 		<Unit filename="Menus.h" />
 		<Unit filename="Persona.cpp" />

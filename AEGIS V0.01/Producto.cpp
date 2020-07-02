@@ -175,7 +175,8 @@ bool Producto::sobrescribir(int pos)///Funcion que abre el archivo para escribir
     bool escribio;
     FILE *p;
     p = fopen(ArchivoProducto, "rb+");
-    if (p == NULL){
+    if (p == NULL)
+    {
         return false;
     }
     fseek(p, pos * sizeof(Producto), SEEK_SET);
@@ -194,7 +195,8 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
     cin.ignore();
     cin.getline(id_buscado,20);
     pos =buscarcodigo(id_buscado);
-    if (pos >= 0){
+    if (pos >= 0)
+    {
 
         pos=leerProductos(pos);
         cout << endl;
@@ -204,14 +206,17 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
         cout<<"Ingrese el stock actual: ";
         cin>>StockActual;
 
-        if (sobrescribir(pos)){
+        if (sobrescribir(pos))
+        {
             cout << "Producto modificado."<<endl;
         }
-        else{
+        else
+        {
             cout << "No se modificó el producto.";
         }
     }
-    else{
+    else
+    {
         cout << "No existe el producto.";
     }
 }

@@ -224,6 +224,15 @@ void abmClientes()
 
         case 2:
         {
+            cout<<"            ~Modificar Cliente ~          "<<endl;
+        }
+        break;
+
+
+
+
+        case 3:
+        {
             cout<<"            ~ Mostrar Cliente ~          "<<endl;
             Cliente Cli;
             Cli.mostrarxID();
@@ -231,7 +240,7 @@ void abmClientes()
         }
         break;
 
-        case 3:
+        case 4:
         {
             cout<<"            ~ Mostrar Clientes ~          "<<endl;
 
@@ -244,7 +253,7 @@ void abmClientes()
             cout<<"            ~ Eliminar Clientes ~          "<<endl;
 
             FILE *p;
-           p=fopen("Clientes.dat","wb");
+            p=fopen("Clientes.dat","wb");
             fclose(p);
 
         }
@@ -322,7 +331,8 @@ void abmProducto()
         }
         break;
         case 5:
-        { cout<<"                      ~ELIMINAR PRODUCTOS~               "<<endl;
+        {
+            cout<<"                      ~ELIMINAR PRODUCTOS~               "<<endl;
 
             anykey();
         }
@@ -342,7 +352,7 @@ void abmProveedor()
 
     int op;
     bool salir=false;
-Proveedor prove;
+    Proveedor prove;
     while(!salir)
     {
         setColor(GREEN);
@@ -368,7 +378,7 @@ Proveedor prove;
 
             cout<<"            ~ Nuevo Proveedor ~          "<<endl;
 
-           prove.cargar();
+            prove.cargar();
             anykey();
         }
         break;
@@ -387,7 +397,7 @@ Proveedor prove;
 
         case 4:
         {
-          listarProveedores();
+            listarProveedores();
         }
         break;
 

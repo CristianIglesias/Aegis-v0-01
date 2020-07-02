@@ -211,7 +211,7 @@ int Persona :: setEmail()
 
 int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo numeros///TODO VALIDAR DOCUMENTO NO FUNCA
 {
-    int i,cont=0;
+    int i;
     bool flag=true;
     for (i=1; i<9 ; i++)
     {
@@ -246,14 +246,15 @@ int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo n
             break;
         }
         if(Telefono[0]=='0')
-    {
-        return 1;///Valida Salida Voluntaria.
-    }
+        {
+            return 1;///Valida Salida Voluntaria.
+        }
     }
     if(flag)
         return 0;
-    else return -1;
-    };
+    else
+        return -1;
+};
 int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas abajo.
 {
     int tam=strlen(Mail), pos=0,i=1;
@@ -264,7 +265,7 @@ int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas aba
         if(Mail[i-1]=='0')
         {
             pos++;
-            if(pos=3)
+            if(pos==3)
             {
                 return 1;
             }
@@ -367,5 +368,6 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
 
         return -1;
     }
+return-1;
 };
 

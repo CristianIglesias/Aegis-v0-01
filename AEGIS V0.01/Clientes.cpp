@@ -94,7 +94,7 @@ void Cliente:: mostrarxID ()///Muestra Por ID -
     }
     else
     {
-        error_msj(-5,i++ );
+        error_msj(-5,i++);
     }
     }
 }

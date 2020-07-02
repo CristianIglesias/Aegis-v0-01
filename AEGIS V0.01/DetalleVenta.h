@@ -1,0 +1,6 @@
+#ifndef DETALLEVENTA_H_INCLUDED
+#define DETALLEVENTA_H_INCLUDED
+#pragma once
+
+
+#endif // DETALLEVENTA_H_INCLUDED
