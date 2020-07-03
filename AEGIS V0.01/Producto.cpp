@@ -23,7 +23,7 @@ void Producto::cargar()
         return;
 
 
-    ///error=setCodigoProveedor();
+    error=setCodigoProveedor();
     if(error==1)
         return;
 
@@ -37,9 +37,51 @@ void Producto::cargar()
     if(error==1)
         return;
 
+
+
+           error=setPorcentajeRentabilidad();
+    if(error==1)
+        return;
+
+
+        setPrecioVenta(CostodeCompra,PorcentajeRentabilidad);
+        return;
+
+
+        error=setStockMin();
+    if(error==1)
+        return;
+
+
+            error=setStockActual();
+    if(error==1)
+        return;
+
     Estado=true;
 }
 
+int Producto::buscarproveedor(const char *codigo)
+{
+    Producto aux;
+    FILE *p;
+    p=fopen(ArchivoProducto,"rb");
+    if(p==NULL)
+
+        return 1;
+
+    while(fread(&aux,sizeof(Producto),1,p))
+    {
+        if(strcmp(getCodigoProveedor(),aux.getCodigoProveedor())==0)
+        {
+            fclose(p);
+            return -1;
+        }
+
+    }
+    fclose(p);
+    return 0;
+
+}
 
 int Producto:: buscarcodigo(const char *codigo)
 {
@@ -68,7 +110,7 @@ float Producto::validarEntero(float c)
 {
     if(c<=0)
     {
-        return 2;
+        return 1;
     }
 }
 
@@ -100,7 +142,7 @@ int Producto::setCodigoproducto()
 
 
 
-/*int Producto::setCodigoProveedor()
+int Producto::setCodigoProveedor()
 {
     cin.ignore();
 
@@ -109,7 +151,7 @@ int Producto::setCodigoproducto()
     {
         cout<<"Ingrese codigo de proveedor: ";
         cin.getline(CodigoProveedor,10);
-        error=getCodigoProveedor();
+        error=buscarproveedor(this->getCodigoProveedor());
         if (error!=0)
         {
             if (error==1)
@@ -125,7 +167,7 @@ int Producto::setCodigoproducto()
     }///cierra while
     return error;
 };
-*/
+
 
 /*int Producto::setNombreItem()
 {
@@ -162,8 +204,34 @@ int Producto::setCostoCompra()
     while (error<0)
     {
         cout<<"Ingrese el costo de compra: ";
-        cin.getline(CodigoProducto,10);
-        error=validarEntero(this->getCostodeCompra());
+        cin>>CostodeCompra;
+        error=validarEntero(getCostodeCompra());
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-6,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
+
+int Producto::setPorcentajeRentabilidad()
+{
+    cin.ignore();
+
+    int i=0, error=-6;
+    while (error<0)
+    {
+        cout<<"Ingrese el porcentaje de rentabilidad: ";
+        cin>>PorcentajeRentabilidad;
+        error=validarEntero(getPorcentajeRentabilidad());
         if (error!=0)
         {
             if (error==1)
@@ -181,87 +249,70 @@ int Producto::setCostoCompra()
 };
 
 
-
-
-/*void Producto::cargar()
+int Producto::setPrecioVenta(float costo, int porcentaje)
 {
+    float venta;
+        cin.ignore();
+        cout<<"PRECIO DE VENTA: ";
+        venta=porcentaje/100*costo;
+        cout<<venta<<endl;
 
-    int i,total;
-    ///funcion buscar: arreglar detalles.
-    cout<<"CODIGO DEL PRODUCTO:"<<endl;
+};
+
+
+
+int Producto::setStockMin()
+{
     cin.ignore();
-    cin.getline(CodigoProducto,10);
 
-    i=buscarcodigo(CodigoProducto);
-
-    if(i==0)
+    int i=0, error=-6;
+    while (error<0)
     {
-        cout<<i<<endl;
-        cout<<"CODIGO DE PRODUCTO CARGADO CON EXITO!"<<endl;
+        cout<<"Ingrese el stock minimo: ";
+        cin>>StockMin;
+        error=validarEntero(getStockMin());
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-6,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
 
-    }
+int Producto::setStockActual()
+{
+    cin.ignore();
 
-    if(i==-1)
+    int i=0, error=-6;
+    while (error<0)
     {
-        cout<<i<<endl;
-        cout<<"ERROR!, CODIGO EXISTENTE"<<endl;
-        return;
-    }
-    if(i==1)
-    {
-        cout<<"ERROR EN LA APERTURA DEL ARCHIVO"<<endl;
-        return;
-    }
+        cout<<"Ingrese el stock actual: ";
+        cin>>CostodeCompra;
+        error=validarEntero(getStockActual());
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-6,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
 
-    cout<<"CODIGO DE PROVEEDOR:"<<endl;
-    cin.getline(CodigoProveedor,10);
-
-    cout<<"NOMBRE DEL PRODUCTO:"<<endl;
-    cin.getline(NombreItem,30);
-
-    cout<<"COSTO DE COMPRA:"<<endl;
-    cin>>CostodeCompra;
-    if(CostodeCompra<=0)
-    {
-        cout<<"ERROR!, el costo no puede ser menor a 0"<<endl;
-        return;
-    }
-
-    cout<<"% RENTABILIDAD:"<<endl;
-    cin>>PorcentajeRentabilidad;
-    if(PorcentajeRentabilidad<=0)
-    {
-        cout<<"ERROR!, el porcentaje de retabilidad no puede ser menor a 0"<<endl;
-        return;
-    }
-    total=CostodeCompra*(PorcentajeRentabilidad/100)+CostodeCompra;
-    PreciodeVenta=total;
-    cout<<"PRECIO DE VENTA:"<<PreciodeVenta<<endl;
-
-
-
-    cout<<"STOCK MINIMO:"<<endl;
-    cin>>StockMin;
-    if(StockMin<=0)
-    {
-        cout<<"ERROR!, el stock minimo no puede ser menor a 0"<<endl;
-        return;
-    }
-
-    cout<<"STOCK ACTUAL:"<<endl;
-    cin>>StockActual;
-    if(StockActual<=0)
-    {
-        cout<<"ERROR!, el stock actual no puede ser menor a 0"<<endl;
-        return;
-    }
-
-    Estado=true;
-
-    guardarProducto();
-
-}
-*/
 
 void Producto::mostrar()
 {
