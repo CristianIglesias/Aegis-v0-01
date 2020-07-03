@@ -18,7 +18,7 @@ public:
     void Mostrar();///MUESTRA PERSONA
     void MenuModificarPersona();///eso, te permite modificar a la persona.
 
-    int setNombre();///TODO Sets Nombre-Apellido y Validación de texto en ambas!
+    int setNombre();
     int setApellido();
 
     int setFecha();

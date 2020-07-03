@@ -2,6 +2,7 @@
 using namespace std;
 #include <cstdlib>
 #include <cstring>
+#include <ctype.h>
 #include "rlutil.h"
 using namespace rlutil;
 #include "PrototiposGlobales.h"
@@ -98,7 +99,7 @@ int ValidarTexto(const char *cad)
     }
     for (i=1; i<tam; i++)
     {
-        if(cad[i-1]<='a'||cad[i-1]>='z'||cad[i-1]<='A'||cad[i-1]>='Z')///TODO REPLANTEAR EL IF.
+        if(isalpha(cad[i])==0)///TODO REPLANTEAR EL IF.
         {
             flag=false;
             return -1;
@@ -107,7 +108,6 @@ int ValidarTexto(const char *cad)
     }
     if(flag)
         return 0;
-    else return -1;
 };
 
 void listarProductos()

@@ -250,7 +250,7 @@ void abmClientes()
             cout<<"            ~ Eliminar Clientes ~          "<<endl;
 
             FILE *p;
-            p=fopen("Clientes.dat","wb");
+            p=fopen("Clientes.dat","wb");///TODO ELIMINAR CLIENTE
             fclose(p);
 
         }

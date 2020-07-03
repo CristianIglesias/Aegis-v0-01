@@ -121,6 +121,7 @@ bool Cliente:: LeerxID(int id)
 void Cliente::Modificar()
 {
     mostrarxID();
+    anykey();
     menuModificarCliente();
 
 };
@@ -129,7 +130,7 @@ void Cliente:: mostrar(int pos)
 {
 ///Veremos si hace falta
 }
-bool Cliente:: LeerDeDisco(int i)///TODO (LEERCLIENTEDISCO) LOGRAR QUE ESTA WEA FUNQUE
+bool Cliente:: LeerDeDisco(int i)///TODO LEERCLIENTEDISCO LOGRAR QUE ESTA WEA FUNQUE
 {
     bool leyo=false;
     FILE *P;
@@ -213,6 +214,7 @@ void Cliente :: menuModificarCliente()
         case 1:
         {
             Persona::MenuModificarPersona();
+
         }
         break;
 
@@ -350,7 +352,6 @@ int Cliente :: ValidarPrefFact()
 
 void Cliente :: SetDeuda()
 {
-///TODO INGRESO Y VALIDACIÓN, CON SALIDA A VOLUNTAD(SetDeuda).
 };
 
 int   Cliente:: GetidCliente()
