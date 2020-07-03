@@ -10,8 +10,8 @@ using namespace rlutil;
 #include "Proveedor.h"
 
 
-void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECESITE, SOLO SER�A AGREGAR CASES AL SWITCH.
-/// ES UTIL PARA SIMPLIFICAR EL C�DIGO.
+void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECESITE, SOLO SER A AGREGAR CASES AL SWITCH.
+/// ES UTIL PARA SIMPLIFICAR EL C DIGO.
 {
     switch(cod)
     {
@@ -32,29 +32,19 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -3:
-<<<<<<< HEAD
-        cout<<"Error Validando, . Codigo existente."<<endl;
-        cout<<"Intente nuevamente :"<<endl;
-=======
         cout<<"Error Validando, /// . Intente Nuevamente."<<endl;
->>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no podas y queras salir, ingresa ""000""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
         }
         break;
     case -4:
-<<<<<<< HEAD
-        cout<<"Error Validando, .Codigo de Proveedor no existente."<<endl;
-         cout<<"Intente nuevamente :"<<endl;
-=======
         cout<<"Error Validando,///. Intente Nuevamente."<<endl;
->>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no podas y queras salir, ingresa ""000""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
         }
         break;
     case -5:
@@ -66,11 +56,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -6:
-<<<<<<< HEAD
-        cout<<"Error Validando, .No puede ser menor ni igual a 0. Intente Nuevamente."<<endl;
-=======
         cout<<"Error Validando,///. Intente Nuevamente."<<endl;
->>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {

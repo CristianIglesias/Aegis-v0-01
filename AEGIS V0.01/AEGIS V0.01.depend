@@ -26,7 +26,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1593741045 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1593742407 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	"Producto.h"
 	"Proveedor.h"
 	"PrototiposGlobales.h"
@@ -63,7 +63,8 @@
 	"Persona.h"
 	"Proveedor.h"
 
-1593480349 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.h
+1593742407 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.h
+	"Persona.h"
 
 1592689260 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
 	<iostream>
@@ -80,7 +81,7 @@
 	<cstring>
 	"Producto.h"
 
-1593480349 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
+1593742407 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 
 1593729110 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
