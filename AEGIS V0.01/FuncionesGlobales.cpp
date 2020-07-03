@@ -16,7 +16,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
     switch(cod)
     {
     case -1:
-        /// cout<<"Error Nro:"<<error<<" Intente Nuevamente."<<endl;
+        cout<<"Error Nro:"<<cod<<" Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -67,7 +67,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
 }
 
 
-void ListarClientes()///TODO CHEQUEAR QUE FUNCA LEER
+void ListarClientes()
 {
     Cliente Cli;
     int i=0;
@@ -88,21 +88,26 @@ int ValidarTexto(const char *cad)
     int tam,i=0;
     bool flag=true;
     tam=strlen(cad);
-    if(cad[i]=='\0')
+    if(cad[0]=='\0')
     {
         return -1;
     }
-
-    for (i=1; i<tam; i++)
+    if(cad[0]=='0')
     {
-        if(cad[i-1]<=97&&cad[i-1]>=122||cad[i-1]<=65&&cad[i-1]>=90)
+        return 1;
+    }
+    for (i=1; i<tam; i++)
+    {:
+        if(cad[i-1]<='a'||cad[i-1]>='z'||cad[i-1]<='A'||cad[i-1]>='Z')///TODO REPLANTEAR EL IF.
         {
             flag=false;
+            return -1;
         }
 
     }
     if(flag)
         return 0;
+    else return -1;
 };
 void listarProductos()
 {

@@ -54,11 +54,10 @@ int Persona :: setApellido()
     int i=0, error=-1;
     while (error<0)
     {
-
         cout<<"Ingrese Apellido: ";
         cin.getline(Apellido,50);
         error=ValidarTexto(this->getApellido());
-        if (error==!0)
+        if (error!=0)
         {
             if (error==1)
                 return error;
@@ -70,9 +69,8 @@ int Persona :: setApellido()
                 cls();
             }
         }
-        return error;
     }///cierra while
-
+    return error;
 };
 
 int Persona :: setNombre()
@@ -85,7 +83,7 @@ int Persona :: setNombre()
         cout<<"Ingrese Nombre: ";
         cin.getline(Nombre,50);
         error=ValidarTexto(this->getNombre());
-        if (error==!0)
+        if (error!=0)
         {
             if (error==1)
                 return error;
@@ -97,8 +95,9 @@ int Persona :: setNombre()
                 cls();
             }
         }
-        return error;
     }///cierra while
+    return error;
+
 };
 
 
@@ -368,6 +367,6 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
 
         return -1;
     }
-return-1;
+    return-1;
 };
 

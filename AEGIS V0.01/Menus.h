@@ -225,6 +225,8 @@ void abmClientes()
         case 2:
         {
             cout<<"            ~Modificar Cliente ~          "<<endl;
+            Cliente Cli;
+            Cli.mostrarxID();
         }
         break;
 

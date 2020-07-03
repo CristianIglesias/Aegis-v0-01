@@ -12,7 +12,6 @@ const char *ArchivoClientes ="Clientes.dat";
 /// ERROR<=0-SIGUE INTENTANDO, TRANK PALANK
 
 
-
 void  Cliente:: cargar()///Carga Cliente.
 {
     int error=0;
