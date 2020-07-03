@@ -18,6 +18,7 @@ public:
     void cargar();
     void mostrar();
     int buscarcodigo(const char *codigo);///funcion para validar ingreso de id igual, arreglar
+    int buscarproveedor(const char *codigo);
     int guardarProducto();///guardar en disco
     bool leerProductos(int pos);///leer en disco
     bool sobrescribir(int);
@@ -75,27 +76,16 @@ public:
     int setCostoCompra();
 
 
-    void setPorcentajeRentabilidad(float porcentaje)
-    {
-        PorcentajeRentabilidad=porcentaje;
-    }
-
-    void setPrecioVenta(float venta)
-    {
-        PreciodeVenta=venta;
-    }
-
-    void setStockMin(int stockm)
-    {
-        StockMin=stockm;
-    }
-
-    void setStockActual(int stocka)
-    {
-        StockActual=stocka;
-    }
+    int setPorcentajeRentabilidad();
 
 
+    int setPrecioVenta(float costo, int porcentaje);
+
+
+    int setStockMin();
+
+
+    int setStockActual();
 
 };
 
