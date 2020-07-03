@@ -16,7 +16,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
     switch(cod)
     {
     case -1:
-        cout<<"Error Nro:"<<cod<<" Intente Nuevamente."<<endl;
+        cout<<"Error Validando, Este Campo SOLO permite Letras, Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -32,7 +32,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -3:
-        cout<<"Error Validando, . Intente Nuevamente."<<endl;
+        cout<<"Error Validando, /// . Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -40,7 +40,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -4:
-        cout<<"Error Validando, . Intente Nuevamente."<<endl;
+        cout<<"Error Validando,///. Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -56,7 +56,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -6:
-        cout<<"Error Validando, . Intente Nuevamente."<<endl;
+        cout<<"Error Validando,///. Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {

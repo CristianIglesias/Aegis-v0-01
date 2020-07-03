@@ -55,9 +55,9 @@ void  Cliente:: cargar()///Carga Cliente.
         anykey();
     }
     else
-        {
+    {
         cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
-        }
+    }
 
 };
 
@@ -79,22 +79,24 @@ void  Cliente:: mostrar()
 };
 
 void Cliente:: mostrarxID ()///Muestra Por ID -
-{   bool funco=false;
+{
+    bool funco=false;
     int aux,i=1;
     while(!funco)
     {
 
-    cout<<"Ingrese el ID Del cliente que quiere que se muestre por pantalla."<<endl;
-    cin>>aux;
-    funco=LeerxID(aux);
-    if(funco)
-    {
-        mostrar();
-    }
-    else
-    {
-        error_msj(-5,i++);
-    }
+        cout<<"Ingrese el ID Del cliente Con el que quiere trabajar,"<<endl;
+        cout<<"para que se muestre por pantalla."<<endl;
+        cin>>aux;
+        funco=LeerxID(aux);
+        if(funco)
+        {
+            mostrar();
+        }
+        else
+        {
+            error_msj(-5,i++);
+        }
     }
 }
 
@@ -115,6 +117,11 @@ bool Cliente:: LeerxID(int id)
     }
     fclose (P);
     return false;
+};
+void Cliente::Modificar()
+{
+    mostrarxID();
+    menuModificarCliente();
 };
 
 void Cliente:: mostrar(int pos)
@@ -180,6 +187,59 @@ int Cliente :: GuardarClienteEnDisco()
 };
 
 
+void Cliente :: menuModificarCliente()
+{
+    int op;
+    bool salir=false;
+
+    while(!salir)
+    {
+        setColor(GREEN);
+        system("cls");
+        cout<<"                Qué Campo desea Modificar del Cliente?"<<endl;
+        cout<<"                  _________________________________ "<<endl;
+        cout<<"                 |-1-->Campos Persona.            -|"<<endl;
+        cout<<"                 |-2-->Tipo De Pago.              -|"<<endl;
+        cout<<"                 |-3-->Preferencia de Factura.    -|"<<endl;
+        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
+        cout<<"                 |-0-->VOLVER                     -|"<<endl;
+        cout<<"                  -------Ingrese una opcion-------- "<<endl;
+        cin>>op;
+        system("cls");
+
+        switch(op)
+        {
+        case 1:
+            {
+                Persona::MenuModificarPersona();
+            }
+            break;
+
+        case 2:
+        {
+            SetTipoPago();
+        }
+        break;
+        case 3:
+        {
+            SetPrefFact();
+        }
+        break;
+        system("cls");
+        cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+        salir=true;
+        }
+        break;
+    default:
+        {
+            system("cls");
+            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
+        }
+        break;
+
+    }
+
+}
 
 
 
@@ -285,7 +345,6 @@ int Cliente :: ValidarPrefFact()
         return -2;
     }
 };
-
 
 void Cliente :: SetDeuda()
 {

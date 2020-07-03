@@ -16,7 +16,7 @@ protected:
 public:
     void Cargar();///CARGA PERSONA
     void Mostrar();///MUESTRA PERSONA
-
+    void MenuModificarPersona();///eso, te permite modificar a la persona.
 
     int setNombre();///TODO Sets Nombre-Apellido y Validación de texto en ambas!
     int setApellido();
@@ -79,4 +79,10 @@ public:
         Estado=nuevoestado;
     };
 };
+
+
+
+
+
+
 #endif // PERSONA_H_INCLUDED

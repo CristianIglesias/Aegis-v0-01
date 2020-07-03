@@ -14,8 +14,8 @@ public:
     void mostrarxID ();///Muestra Por ID -
     void Generarid();
     int  GuardarClienteEnDisco();
-
-
+    void Modificar();
+    void menuModificarCliente();
 
     float GetDeuda();
     int SetTipoPago();
@@ -37,5 +37,6 @@ protected:
 
 
 };
+
 
 #endif // CLIENTES_H_INCLUDED

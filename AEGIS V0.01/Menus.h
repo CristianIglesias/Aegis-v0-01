@@ -226,7 +226,7 @@ void abmClientes()
         {
             cout<<"            ~Modificar Cliente ~          "<<endl;
             Cliente Cli;
-            Cli.mostrarxID();
+            Cli.Modificar();
         }
         break;
 
