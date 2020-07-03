@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstring>
 #include <cstdio>
-#include <cstring>
 using namespace std;
 #include "Producto.h"
 #include "PrototiposGlobales.h"
@@ -423,6 +422,7 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
         cout << "No existe el producto.";
     }
 }
+
 
 
 

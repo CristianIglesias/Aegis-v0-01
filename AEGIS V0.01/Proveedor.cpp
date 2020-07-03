@@ -4,6 +4,9 @@
 using namespace std;
 #include "Persona.h"
 #include "Proveedor.h"
+#include "PrototiposGlobales.h"
+#include "rlutil.h"
+using namespace rlutil;
 const char *ArchivoProveedor ="Proveedor.dat";
 
 /*
@@ -31,29 +34,104 @@ int Producto:: buscarcodigoproveedor(const char *codigo)
 }
 */
 
-
-///falta agregar validaciones de id.
-void  Proveedor:: cargar()///Carga Proveedor.
+void  Proveedor:: cargar()
 {
     Persona::Cargar();
 
-    cout<<"INGRESE EL ID DE PROVEEDOR:"<<endl;
-    cin.getline(CodigoProveedor,10);
-
-    cout<<"INGRESE % RENTABILIDAD:"<<endl;
-    cin>>PorcentajeRentabilidad;
-    if(PorcentajeRentabilidad<0)
-    {
-        cout<<"ERROR! el porcentaje no puede ser menor a 0"<<endl;
+    error=setPorcentajeRentabiliad();
+    if(error==1)
         return;
-    }
 
-    cout<<"INGRESE ESTADO DE CUENTA:"<<endl;
-    cin>>EstadoCuenta;
+    error= setEstadoCuenta();
+    if(error==1)
+        return;
 
-    guardarProveedor();
+    error=setCodigoProveedor();
+    if(error==1)
+        return;
 
 };
+
+int Proveedor::setPorcentajeRentabiliad()
+{
+    cin.ignore();
+
+    int i=0, error=-6;
+    while (error<0)
+    {
+        cout<<"Ingrese el porcentaje de rentabilidad del proveedor: ";
+        cin>>PorcentajeRentabilidad;
+        ///error=validarFloat();
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-6,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
+
+int Proveedor::setEstadoCuenta()
+{
+    cin.ignore();
+
+    int i=0, error=-6;
+    while (error<0)
+    {
+        cout<<"Ingrese el estado de cuenta del proveedor: ";
+        cin>>EstadoCuenta;
+        ///error=validarFloat();
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-6,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
+
+int Proveedor::setCodigoProveedor()
+{
+    cin.ignore();
+
+    int i=0, error=-5;
+    while (error<0)
+    {
+        cout<<"Ingrese el codigo de proveedor: ";
+        cin.getline(CodigoProveedor,10);
+        ///error=buscarcodigoproveedor(this->getCodigoProveedor());
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-5,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
+
+
+
 
 int Proveedor::guardarProveedor()
 {

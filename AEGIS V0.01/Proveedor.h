@@ -7,7 +7,7 @@ class Proveedor:public Persona
 protected:
     float PorcentajeRentabilidad;
     float EstadoCuenta;
-    char  CodigoProveedor[10];
+    const char  *CodigoProveedor[10];
 
 public:
     void cargar();
@@ -15,8 +15,30 @@ public:
     int guardarProveedor();
     bool leerProveedor(int pos);
     /// int buscarcodigoproveedor(const char *codigo);///busca en el archivo si el codigo de proveedor existe
-};
 
+
+
+
+     float getPorcentajeRentabiliad()
+    {
+        return PorcentajeRentabilidad;
+    }
+    float getEstadoCuenta()
+    {
+        return EstadoCuenta;
+    }
+     const char *getCodigoProveedor()
+    {
+        return *CodigoProveedor;
+    }
+
+    int  setPorcentajeRentabiliad();
+
+    int setEstadoCuenta();
+
+    int setCodigoProveedor();
+
+};
 
 
 

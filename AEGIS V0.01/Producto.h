@@ -24,6 +24,9 @@ public:
     bool sobrescribir(int);
     void modificar_producto();
     int validarEntero(float c);
+    ///bool LeerproductoxID(int id);
+    ///void mostrarproductoxID();
+
 
 
 

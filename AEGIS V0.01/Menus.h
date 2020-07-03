@@ -376,6 +376,7 @@ void abmProveedor()
             cout<<"            ~ Nuevo Proveedor ~          "<<endl;
 
             prove.cargar();
+            prove.guardarProveedor();
             anykey();
         }
         break;
