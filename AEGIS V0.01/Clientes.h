@@ -13,7 +13,8 @@ public:
     void mostrar(int pos);///Muestra por Posición de ID
     void mostrarxID ();///Muestra Por ID -
     void Generarid();
-    int  GuardarClienteEnDisco();
+    int  GuardarClienteEnDisco();///Agrega Clientes al final del archivo.
+    int  GuardarClienteEnDisco(int ID);///Sobreescribe Clientes X id
     void Modificar();
     void menuModificarCliente();
 

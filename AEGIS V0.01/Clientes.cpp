@@ -65,8 +65,8 @@ void  Cliente:: mostrar()
 {
     cout <<"El Cliente Numero "<<idCliente<<" se llama "<<endl;
     Persona::Mostrar();
-    cout<<"Prefiere Pago con ";
-    cout<<"Y Tipo de Factura ";
+    cout<<"Prefiere Tipo de Pago "<<TipodePago;
+    cout<<"Y Tipo de Factura "<<PrefFactura;
     cout<<endl;
 
     if(GetDeuda()<0)
@@ -187,15 +187,32 @@ int Cliente :: GuardarClienteEnDisco()
     fclose (p);
     return 0;
 };
-
+int Cliente ::  GuardarClienteEnDisco(int ID)
+{
+    FILE *P;
+    P=fopen(ArchivoClientes,"rb");
+    if(P==NULL)
+    {
+        return -1;
+    }
+    fseek(P,sizeof(Cliente)*ID,0);
+    if(fwrite(this,sizeof(Cliente),1,P)!=1)///TODO Arreglar Guardar Clietnes xID No termina de funcar :(
+    {
+        fclose (P);
+        return -1;
+    }
+    fclose(P);
+    return 0;
+}
 
 void Cliente :: menuModificarCliente()
 {
-    int op;
+    int op,error=-1;
     bool salir=false;
 
     while(!salir)
     {
+        int error;
         setColor(GREEN);
         system("cls");
         cout<<"                Qué Campo desea Modificar del Cliente?"<<endl;
@@ -214,18 +231,57 @@ void Cliente :: menuModificarCliente()
         case 1:
         {
             Persona::MenuModificarPersona();
+            error=Cliente::GuardarClienteEnDisco(GetidCliente());
+            if(error!=0)
+            {
+                cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+            else
+            {
+                cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+            }
 
         }
         break;
 
         case 2:
         {
-            SetTipoPago();
+            error=SetTipoPago();
+            if(error==1)
+                return;
+            else
+                error=GuardarClienteEnDisco(GetidCliente());
+            if(error!=0)
+            {
+                cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+            else
+            {
+                cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+            }
         }
         break;
         case 3:
         {
-            SetPrefFact();
+            error=SetPrefFact();
+            if(error==1)
+                return;
+            else
+                error =GuardarClienteEnDisco(GetidCliente());
+            if(error!=0)
+            {
+                cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+            else
+            {
+                cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+            }
         }
         break;
         case 0:
@@ -243,7 +299,8 @@ void Cliente :: menuModificarCliente()
 
         }
 
-    }
+    }///Cierre de while
+    anykey();
 
 }
 

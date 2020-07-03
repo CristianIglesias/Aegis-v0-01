@@ -33,7 +33,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -3:
-        cout<<"Error Validando, /// . Ese codigo ya existe. Intente Nuevamente."<<endl;
+        cout<<"Error Validando, Ese codigo ya existe. Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -99,7 +99,7 @@ int ValidarTexto(const char *cad)
     }
     for (i=1; i<tam; i++)
     {
-        if(isalpha(cad[i])==0)///TODO REPLANTEAR EL IF.
+        if(isalpha(cad[i])==0)
         {
             flag=false;
             return -1;
