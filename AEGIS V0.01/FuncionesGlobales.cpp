@@ -9,6 +9,7 @@ using namespace rlutil;
 #include "Clientes.h"
 #include "Producto.h"
 #include "Proveedor.h"
+#include "Vendedor.h"
 
 
 void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECESITE, SOLO SER A AGREGAR CASES AL SWITCH.

@@ -36,6 +36,7 @@ int Producto:: buscarcodigoproveedor(const char *codigo)
 
 void  Proveedor:: cargar()
 {
+    int error=0;
     Persona::Cargar();
 
     error=setPorcentajeRentabiliad();
@@ -112,7 +113,7 @@ int Proveedor::setCodigoProveedor()
     while (error<0)
     {
         cout<<"Ingrese el codigo de proveedor: ";
-        cin.getline(CodigoProveedor,10);
+        ///cin.getline(CodigoProveedor,10);
         ///error=buscarcodigoproveedor(this->getCodigoProveedor());
         if (error!=0)
         {

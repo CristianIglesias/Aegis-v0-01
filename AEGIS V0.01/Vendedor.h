@@ -12,6 +12,31 @@ protected:
 public:
     void cargar();
     void mostrar();
+    int guardar();
+
+
+
+
+     float getPorcentajeComision()
+    {
+        return PorcentajeComision;
+    }
+    float getVentaDiaria()
+    {
+        return VentaDiaria;
+    }
+     int getlegajo()
+    {
+        return  legajo;
+    }
+
+    int  setPorcentajeComision();
+
+    int setVentaDiaria();
+
+    int setLegajo();
+
+
 };
 
 

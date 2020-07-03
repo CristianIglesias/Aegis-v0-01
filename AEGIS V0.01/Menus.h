@@ -3,7 +3,10 @@
 #pragma once
 #include "Producto.h"
 #include "Proveedor.h"
+#include "Vendedor.h"
 #include "PrototiposGlobales.h"
+
+
 ///Prototipos de los Menus.
 
 
@@ -13,6 +16,7 @@ void menuABM();
 void abmClientes();
 void abmProducto();
 void abmProveedor();
+void abmVendedor();
 
 
 
@@ -150,7 +154,8 @@ void menuABM()
         case 4:
         {
             system("cls");
-            cout<<"                 ~~               "<<endl;
+            cout<<"                 ~ABM VENDEDORES~               "<<endl;
+            abmVendedor();
         }
         break;
 
@@ -396,6 +401,71 @@ void abmProveedor()
         case 4:
         {
             listarProveedores();
+        }
+        break;
+
+        case 0:
+        {
+            salir=true;
+        }
+        }
+
+    }
+};
+
+
+void abmVendedor()
+{
+
+    int op;
+    bool salir=false;
+    Vendedor ven;
+    while(!salir)
+    {
+        setColor(GREEN);
+        system("cls");
+        cout<<"                             ABM Vendedor          "<<endl;
+        cout<<"                  _________________________________"<<endl;
+        cout<<"                 |-1-->Nuevo Vendedor.             -|"<<endl;
+        cout<<"                 |-2-->Modificar Vendedor.         -|"<<endl;
+        cout<<"                 |-3-->Mostrar Vendedor.           -|"<<endl;
+        cout<<"                 |-4-->Mostrar Todos los Vendedores.-|"<<endl;
+        cout<<"                 |-5-->Eliminar Vendedor.          -|"<<endl;
+        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
+        cout<<"                 |-0-->VOLVER                     -|"<<endl;
+        cout<<"                 |_________________________________|"<<endl;
+        cout<<"                  -------Ingrese una opcion--------"<<endl;
+        cin>>op;
+        system("cls");
+        switch(op)
+        {
+        case 1:
+        {
+
+
+            cout<<"            ~ Nuevo Vendedor ~          "<<endl;
+
+            ven.cargar();
+            ven.guardar();
+            anykey();
+        }
+        break;
+
+        case 2:
+        {
+
+        }
+        break;
+
+        case 3:
+        {
+
+        }
+        break;
+
+        case 4:
+        {
+
         }
         break;
 
