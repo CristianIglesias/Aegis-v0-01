@@ -28,7 +28,7 @@ void Producto::cargar()
         return;
 
 
-    ///error=setNombreItem();
+    error=setNombreItem();
     if(error==1)
         return;
 
@@ -105,11 +105,12 @@ int Producto:: buscarcodigo(const char *codigo)
     return 0;
 
 }
-
-float Producto::validarEntero(float c)
+int Producto::validarEntero(float c)
 {
+
     if(c<=0)
     {
+
         return 1;
     }
 }
@@ -169,7 +170,7 @@ int Producto::setCodigoProveedor()
 };
 
 
-/*int Producto::setNombreItem()
+int Producto::setNombreItem()
 {
     cin.ignore();
 
@@ -178,7 +179,7 @@ int Producto::setCodigoProveedor()
     {
         cout<<"Ingrese nombre del producto: ";
         cin.getline(NombreItem,30);
-        error=ValidarTexto(this->getCodigoProducto());
+        error=ValidarTexto(this->getNombreItem());
         if (error!=0)
         {
             if (error==1)
@@ -194,7 +195,7 @@ int Producto::setCodigoProveedor()
     }///cierra while
     return error;
 };
-*/
+
 
 int Producto::setCostoCompra()
 {
@@ -205,7 +206,7 @@ int Producto::setCostoCompra()
     {
         cout<<"Ingrese el costo de compra: ";
         cin>>CostodeCompra;
-        error=validarEntero(getCostodeCompra());
+       error=validarEntero(getCostodeCompra());
         if (error!=0)
         {
             if (error==1)
@@ -231,7 +232,7 @@ int Producto::setPorcentajeRentabilidad()
     {
         cout<<"Ingrese el porcentaje de rentabilidad: ";
         cin>>PorcentajeRentabilidad;
-        error=validarEntero(getPorcentajeRentabilidad());
+       error=validarEntero(getPorcentajeRentabilidad());
         if (error!=0)
         {
             if (error==1)

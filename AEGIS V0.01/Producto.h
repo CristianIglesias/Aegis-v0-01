@@ -23,7 +23,7 @@ public:
     bool leerProductos(int pos);///leer en disco
     bool sobrescribir(int);
     void modificar_producto();
-    float validarEntero(float c);
+    int validarEntero(float c);
 
 
 
