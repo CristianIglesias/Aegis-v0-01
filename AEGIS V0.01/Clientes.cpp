@@ -122,6 +122,7 @@ void Cliente::Modificar()
 {
     mostrarxID();
     menuModificarCliente();
+
 };
 
 void Cliente:: mostrar(int pos)
@@ -210,10 +211,10 @@ void Cliente :: menuModificarCliente()
         switch(op)
         {
         case 1:
-            {
-                Persona::MenuModificarPersona();
-            }
-            break;
+        {
+            Persona::MenuModificarPersona();
+        }
+        break;
 
         case 2:
         {
@@ -225,23 +226,24 @@ void Cliente :: menuModificarCliente()
             SetPrefFact();
         }
         break;
-        system("cls");
-        cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
-        salir=true;
-        }
-        break;
-    default:
+        case 0:
+            system("cls");
+            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+            salir=true;
+
+            break;
+        default:
         {
             system("cls");
             cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
         }
         break;
 
+        }
+
     }
 
 }
-
-
 
 int Cliente:: SetTipoPago()
 {

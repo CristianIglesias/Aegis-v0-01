@@ -221,7 +221,6 @@ void abmClientes()
             anykey();
         }
         break;
-
         case 2:
         {
             cout<<"            ~Modificar Cliente ~          "<<endl;
@@ -229,10 +228,6 @@ void abmClientes()
             Cli.Modificar();
         }
         break;
-
-
-
-
         case 3:
         {
             cout<<"            ~ Mostrar Cliente ~          "<<endl;

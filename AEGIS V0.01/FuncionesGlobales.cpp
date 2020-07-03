@@ -96,9 +96,9 @@ int ValidarTexto(const char *cad)
     {
         return 1;
     }
-    for (i=1; i<tam; i++)
-    {:
-        if(cad[i-1]<='a'||cad[i-1]>='z'||cad[i-1]<='A'||cad[i-1]>='Z')///TODO REPLANTEAR EL IF.
+    for (i=0; i<tam; i++)
+    {
+        if(cad[i]<'a'||cad[i]>'z'||cad[i]<'A'||cad[i]>'Z')///TODO REPLANTEAR EL IF.
         {
             flag=false;
             return -1;
