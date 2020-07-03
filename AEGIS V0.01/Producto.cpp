@@ -4,12 +4,44 @@
 #include <cstring>
 using namespace std;
 #include "Producto.h"
+#include "PrototiposGlobales.h"
+#include "rlutil.h"
+using namespace rlutil;
 const char *ArchivoProducto ="Producto.dat";
+
 
 ///juan.agustin.gonzalez99@gmail.com
 
 
-int Producto:: buscarcodigo(char *codigo)
+void Producto::cargar()
+{
+    Estado=false;
+    int error;
+
+    error=setCodigoproducto();
+    if(error==1)
+        return;
+
+
+    ///error=setCodigoProveedor();
+    if(error==1)
+        return;
+
+
+    ///error=setNombreItem();
+    if(error==1)
+        return;
+
+
+           error=setCostoCompra();
+    if(error==1)
+        return;
+
+    Estado=true;
+}
+
+
+int Producto:: buscarcodigo(const char *codigo)
 {
     Producto aux;
     FILE *p;
@@ -30,10 +62,128 @@ int Producto:: buscarcodigo(char *codigo)
     fclose(p);
     return 0;
 
-
 }
 
-void Producto::cargar()
+float Producto::validarEntero(float c)
+{
+    if(c<=0)
+    {
+        return 2;
+    }
+}
+
+int Producto::setCodigoproducto()
+{
+    cin.ignore();
+
+    int i=0, error=-3;
+    while (error<0)
+    {
+        cout<<"Ingrese codigo de producto: ";
+        cin.getline(CodigoProducto,10);
+        error=buscarcodigo(this->getCodigoProducto());
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-3,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
+
+
+
+/*int Producto::setCodigoProveedor()
+{
+    cin.ignore();
+
+    int i=0, error=-3;
+    while (error<0)
+    {
+        cout<<"Ingrese codigo de proveedor: ";
+        cin.getline(CodigoProveedor,10);
+        error=getCodigoProveedor();
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-4,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
+*/
+
+/*int Producto::setNombreItem()
+{
+    cin.ignore();
+
+    int i=0, error=-1;
+    while (error<0)
+    {
+        cout<<"Ingrese nombre del producto: ";
+        cin.getline(NombreItem,30);
+        error=ValidarTexto(this->getCodigoProducto());
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-1,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
+*/
+
+int Producto::setCostoCompra()
+{
+    cin.ignore();
+
+    int i=0, error=-6;
+    while (error<0)
+    {
+        cout<<"Ingrese el costo de compra: ";
+        cin.getline(CodigoProducto,10);
+        error=validarEntero(this->getCostodeCompra());
+        if (error!=0)
+        {
+            if (error==1)
+                return error;
+            if(error<0)
+            {
+                i++;
+                error_msj(-6,i);
+                anykey();
+                cls();
+            }
+        }
+    }///cierra while
+    return error;
+};
+
+
+
+
+/*void Producto::cargar()
 {
 
     int i,total;
@@ -111,6 +261,7 @@ void Producto::cargar()
     guardarProducto();
 
 }
+*/
 
 void Producto::mostrar()
 {

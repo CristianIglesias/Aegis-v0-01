@@ -2,10 +2,35 @@
 #include <cstring>
 #include <cstdio>
 using namespace std;
-
 #include "Persona.h"
 #include "Proveedor.h"
 const char *ArchivoProveedor ="Proveedor.dat";
+
+/*
+int Producto:: buscarcodigoproveedor(const char *codigo)
+{
+    Producto aux;
+    FILE *p;
+    p=fopen(ArchivoProveedor,"rb");
+    if(p==NULL)
+
+        return 1;
+
+    while(fread(&aux,sizeof(Proveedor),1,p))
+    {
+        if(strcmp(getCodigoProveedor(),aux.getCodigoProveedor())==1)
+        {
+            fclose(p);
+            return -1;
+        }
+
+    }
+    fclose(p);
+    return 0;
+
+}
+*/
+
 
 ///falta agregar validaciones de id.
 void  Proveedor:: cargar()///Carga Proveedor.
