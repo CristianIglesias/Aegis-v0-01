@@ -45,6 +45,59 @@ void Persona :: Mostrar()
     cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
     cout<<"Su Email es :"<<Mail<<endl;
 }
+void Persona :: MenuModificarPersona()
+{
+    int op;
+    bool salir=false;
+
+    while(!salir)
+    {
+        setColor(GREEN);
+        system("cls");
+        cout<<"              Qué Campo desea Modificar de la Persona?"<<endl;
+        cout<<"                  _________________________________ "<<endl;
+        cout<<"                 |-1-->Nombre.                    -|"<<endl;
+        cout<<"                 |-2-->Apellido.                  -|"<<endl;
+        cout<<"                 |-3-->Preferencia de Factura.    -|"<<endl;
+        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
+        cout<<"                 |-0-->VOLVER                     -|"<<endl;
+        cout<<"                  -------Ingrese una opcion-------- "<<endl;
+        cin>>op;
+        system("cls");
+
+        switch(op)
+        {
+        case 1:
+            {
+                Persona::MenuModificarPersona();
+            }
+            break;
+
+        case 2:
+        {
+            SetTipoPago();
+        }
+        break;
+        case 3:
+        {
+            SetPrefFact();
+        }
+        break;
+        system("cls");
+        cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+        salir=true;
+        }
+        break;
+    default:
+        {
+            system("cls");
+            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
+        }
+        break;
+
+    }
+
+}
 
 
 int Persona :: setApellido()

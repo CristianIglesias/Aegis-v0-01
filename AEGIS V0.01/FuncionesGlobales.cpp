@@ -16,7 +16,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
     switch(cod)
     {
     case -1:
-        cout<<"Error Nro:"<<cod<<" Intente Nuevamente."<<endl;
+        cout<<"Error Validando, Este Campo SOLO permite Letras, Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -32,8 +32,12 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -3:
+<<<<<<< HEAD
         cout<<"Error Validando, . Codigo existente."<<endl;
         cout<<"Intente nuevamente :"<<endl;
+=======
+        cout<<"Error Validando, /// . Intente Nuevamente."<<endl;
+>>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -41,8 +45,12 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -4:
+<<<<<<< HEAD
         cout<<"Error Validando, .Codigo de Proveedor no existente."<<endl;
          cout<<"Intente nuevamente :"<<endl;
+=======
+        cout<<"Error Validando,///. Intente Nuevamente."<<endl;
+>>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -58,7 +66,11 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -6:
+<<<<<<< HEAD
         cout<<"Error Validando, .No puede ser menor ni igual a 0. Intente Nuevamente."<<endl;
+=======
+        cout<<"Error Validando,///. Intente Nuevamente."<<endl;
+>>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
