@@ -38,7 +38,7 @@
 	"Clientes.h"
 	"PrototiposGlobales.h"
 
-1593740058 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
+1593744525 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
 1593743208 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
@@ -74,7 +74,7 @@
 
 1592689260 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
 
-1593742407 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1593744371 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -83,7 +83,7 @@
 	"PrototiposGlobales.h"
 	"rlutil.h"
 
-1593742407 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
+1593744371 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 
 1593729110 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
@@ -94,7 +94,7 @@
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1593743966 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
+1593745129 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
