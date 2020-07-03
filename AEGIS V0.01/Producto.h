@@ -17,11 +17,12 @@ public:
 
     void cargar();
     void mostrar();
-    int buscarcodigo(char *codigo);///funcion para validar ingreso de id igual, arreglar
+    int buscarcodigo(const char *codigo);///funcion para validar ingreso de id igual, arreglar
     int guardarProducto();///guardar en disco
     bool leerProductos(int pos);///leer en disco
     bool sobrescribir(int);
     void modificar_producto();
+    float validarEntero(float c);
 
 
 
@@ -57,34 +58,38 @@ public:
     {
         return StockActual;
     }
-    void setCodigoproducto(char *cod)
-    {
-        strcpy(CodigoProducto,cod);
-    }
-    void setCodigoProveedor(char *cpro)
-    {
-        strcpy(CodigoProveedor,cpro);
-    }
-    void setNombreItem(char *item)
-    {
-        strcpy(NombreItem,item);
-    }
-    void setCostoCompra(float costo)
-    {
-        CostodeCompra=costo;
-    }
+
+
+    ///sets de producto;
+
+
+
+    int setCodigoproducto();
+
+    int setCodigoProveedor();
+
+
+    int setNombreItem();
+
+
+    int setCostoCompra();
+
+
     void setPorcentajeRentabilidad(float porcentaje)
     {
         PorcentajeRentabilidad=porcentaje;
     }
+
     void setPrecioVenta(float venta)
     {
         PreciodeVenta=venta;
     }
+
     void setStockMin(int stockm)
     {
         StockMin=stockm;
     }
+
     void setStockActual(int stocka)
     {
         StockActual=stocka;

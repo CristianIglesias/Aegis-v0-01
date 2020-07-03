@@ -32,19 +32,29 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -3:
+<<<<<<< HEAD
+        cout<<"Error Validando, . Codigo existente."<<endl;
+        cout<<"Intente nuevamente :"<<endl;
+=======
         cout<<"Error Validando, /// . Intente Nuevamente."<<endl;
+>>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
+            cout<<"Si no podas y queras salir, ingresa ""000""."<<endl;
         }
         break;
     case -4:
+<<<<<<< HEAD
+        cout<<"Error Validando, .Codigo de Proveedor no existente."<<endl;
+         cout<<"Intente nuevamente :"<<endl;
+=======
         cout<<"Error Validando,///. Intente Nuevamente."<<endl;
+>>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
+            cout<<"Si no podas y queras salir, ingresa ""000""."<<endl;
         }
         break;
     case -5:
@@ -56,7 +66,11 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -6:
+<<<<<<< HEAD
+        cout<<"Error Validando, .No puede ser menor ni igual a 0. Intente Nuevamente."<<endl;
+=======
         cout<<"Error Validando,///. Intente Nuevamente."<<endl;
+>>>>>>> 8d316c1ec657b628d2f88a088f615e85bf19bb38
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -96,9 +110,9 @@ int ValidarTexto(const char *cad)
     {
         return 1;
     }
-    for (i=0; i<tam; i++)
+    for (i=1; i<tam; i++)
     {
-        if(cad[i]<'a'||cad[i]>'z'||cad[i]<'A'||cad[i]>'Z')///TODO REPLANTEAR EL IF.
+        if(cad[i-1]<='a'||cad[i-1]>='z'||cad[i-1]<='A'||cad[i-1]>='Z')///TODO REPLANTEAR EL IF.
         {
             flag=false;
             return -1;
@@ -109,6 +123,7 @@ int ValidarTexto(const char *cad)
         return 0;
     else return -1;
 };
+
 void listarProductos()
 {
     Producto reg;

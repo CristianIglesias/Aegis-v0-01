@@ -1,6 +1,7 @@
 #ifndef PROVEEDOR_H_INCLUDED
 #define PROVEEDOR_H_INCLUDED
 #pragma once
+#include "Persona.h"
 class Proveedor:public Persona
 {
 protected:
@@ -13,6 +14,7 @@ public:
     void mostrar();
     int guardarProveedor();
     bool leerProveedor(int pos);
+    /// int buscarcodigoproveedor(const char *codigo);///busca en el archivo si el codigo de proveedor existe
 };
 
 
