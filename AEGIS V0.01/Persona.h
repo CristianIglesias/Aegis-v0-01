@@ -24,11 +24,9 @@ public:
     int setFecha();
     int ValidarFecha(int Dia,int Mes,int Anio);
     int setTelefono();
-    int ValidarTelefono(const char *);
     int setEmail();
     int ValidarMail( char *Mail);
     int setnDoc();
-    int ValidarDocumento(const char *);
 
 
 

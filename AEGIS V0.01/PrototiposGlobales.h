@@ -42,7 +42,7 @@ void error_msj(int cod,int i);
 
 int ValidarTexto(const char *cad );
 
-
+int ValidarEnteros( const char *Telefono);
 
 
 

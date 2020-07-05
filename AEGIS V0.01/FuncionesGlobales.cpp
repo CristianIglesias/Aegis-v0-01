@@ -85,6 +85,35 @@ void ListarClientes()
     cin.ignore();
     anykey();
 }
+
+int ValidarEnteros( const char *Telefono)///valida que acepte solo numeros
+{
+    int i, TAM;
+    bool flag=true;
+    TAM =strlen(Telefono);
+    for (i=0; i<TAM; i++)
+
+    {
+        if (Telefono[i-1]<'0'&&Telefono[i-1]>'9')
+        {
+            flag=false;
+            break;
+        }
+        if(Telefono[0]=='0')
+        {
+            return 1;///Valida Salida Voluntaria.
+        }
+    }
+    if(flag)
+        return 0;
+    else
+        return -1;
+};
+
+
+
+
+
 int ValidarTexto(const char *cad)
 {
     int tam,i=0;

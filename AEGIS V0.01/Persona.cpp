@@ -220,7 +220,7 @@ int Persona :: setnDoc()
     {
         cout<<"Ingrese Numero de Documento : ";
         cin.getline(Documento,9);
-        error=ValidarDocumento(getDocumento());
+        error=ValidarEnteros(getDocumento());
         if(error==0)
             return error;
         if (error==1)
@@ -248,7 +248,7 @@ int Persona :: setTelefono()
         cout<<"Ingrese su Numero de Teléfono."<<endl;
         cout<<"Teléfono :";
         cin.getline(nTelefono,11);
-        error = ValidarTelefono(getTelefono());
+        error = ValidarEnteros(getTelefono());
         if(error==0)
             return error;
         if (error==1)
@@ -293,52 +293,7 @@ int Persona :: setEmail()
     return error;
 };
 
-int Persona :: ValidarDocumento( const char *Ndoc)///valida que acepte solo numeros///TODO VALIDAR DOCUMENTO NO FUNCA
-{
-    int i;
-    bool flag=true;
-    for (i=1; i<9 ; i++)
-    {
-        if (Ndoc[i-1]<'0'||Ndoc[i-1]>'9')
-        {
-            flag=false;
-            break;
-            ///valida que sean solo numeros
-        }
-    }
 
-    if(Ndoc[0]=='0')
-    {
-        return 1;///Valida Salida Voluntaria.
-    }
-
-    if(flag)
-        return 0;
-    else
-        return -1;
-};
-int Persona :: ValidarTelefono( const char *Telefono)///valida que acepte solo numeros///TODO VALIDAR TELEFONO NO FUNCA
-{
-    int i;
-    bool flag=true;
-    for (i=0; i<11; i++)
-
-    {
-        if (Telefono[i-1]<'0'&&Telefono[i-1]>'9')
-        {
-            flag=false;
-            break;
-        }
-        if(Telefono[0]=='0')
-        {
-            return 1;///Valida Salida Voluntaria.
-        }
-    }
-    if(flag)
-        return 0;
-    else
-        return -1;
-};
 int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas abajo.
 {
     int tam=strlen(Mail), pos=0,i=1;
