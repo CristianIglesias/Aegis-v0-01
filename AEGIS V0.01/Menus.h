@@ -252,11 +252,10 @@ void abmClientes()
         break;
         case 5:
         {
-            cout<<"            ~ Eliminar Clientes ~          "<<endl;
+            cout<<"            ~ Eliminar Cliente ~          "<<endl;
+            Cliente Reg;
+            Reg.EliminarCliente();
 
-            FILE *p;
-            p=fopen("Clientes.dat","wb");///TODO ELIMINAR CLIENTE
-            fclose(p);
 
         }
         break;
@@ -264,6 +263,15 @@ void abmClientes()
         {
             salir=true;
         }
+        break;
+        case 99:
+        {
+            FILE *p;
+            p=fopen("Clientes.dat","wb");
+            fclose(p);
+        }
+        break;
+
         }///Cierra el switch
 
     }///Cierra el while

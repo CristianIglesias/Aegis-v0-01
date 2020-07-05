@@ -17,7 +17,7 @@ public:
 
 
 
-     float getPorcentajeComision()
+    float getPorcentajeComision()
     {
         return PorcentajeComision;
     }
@@ -25,7 +25,7 @@ public:
     {
         return VentaDiaria;
     }
-     int getlegajo()
+    int getlegajo()
     {
         return  legajo;
     }

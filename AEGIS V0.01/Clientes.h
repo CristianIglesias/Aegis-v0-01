@@ -8,17 +8,15 @@ public:
 
     void cargar();///carga
     void mostrar();///Muestra el que la llama
-    bool LeerDeDisco(int i);///Lee La pos que se le manda.
     bool LeerxID(int id);
-    void mostrar(int pos);///Muestra por Posición de ID
     void mostrarxID ();///Muestra Por ID -
     void Generarid();
     int  GuardarClienteEnDisco();///Agrega Clientes al final del archivo.
     int  GuardarClienteEnDisco(int ID);///Sobreescribe Clientes X id
     void Modificar();
     void menuModificarCliente();
+    void EliminarCliente();
 
-    float GetDeuda();
     int SetTipoPago();
     int ValidarTipoPago();
     int SetPrefFact();
@@ -27,6 +25,7 @@ public:
     int GetidCliente();
     int GetTipoPago();
     int GetTipoFactura();
+    float GetDeuda();
 
 
 protected:
@@ -34,9 +33,6 @@ protected:
     int TipodePago;
     int PrefFactura;
     float Deuda;
-
-
-
 };
 
 

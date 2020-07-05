@@ -32,27 +32,27 @@ void Producto::cargar()
         return;
 
 
-           error=setCostoCompra();
+    error=setCostoCompra();
     if(error==1)
         return;
 
 
 
-           error=setPorcentajeRentabilidad();
+    error=setPorcentajeRentabilidad();
     if(error==1)
         return;
 
 
-        setPrecioVenta(CostodeCompra,PorcentajeRentabilidad);
-        return;
+    setPrecioVenta(CostodeCompra,PorcentajeRentabilidad);
+    return;
 
 
-        error=setStockMin();
+    error=setStockMin();
     if(error==1)
         return;
 
 
-            error=setStockActual();
+    error=setStockActual();
     if(error==1)
         return;
 
@@ -205,7 +205,7 @@ int Producto::setCostoCompra()
     {
         cout<<"Ingrese el costo de compra: ";
         cin>>CostodeCompra;
-       error=validarEntero(getCostodeCompra());
+        error=validarEntero(getCostodeCompra());
         if (error!=0)
         {
             if (error==1)
@@ -231,7 +231,7 @@ int Producto::setPorcentajeRentabilidad()
     {
         cout<<"Ingrese el porcentaje de rentabilidad: ";
         cin>>PorcentajeRentabilidad;
-       error=validarEntero(getPorcentajeRentabilidad());
+        error=validarEntero(getPorcentajeRentabilidad());
         if (error!=0)
         {
             if (error==1)
@@ -252,10 +252,10 @@ int Producto::setPorcentajeRentabilidad()
 int Producto::setPrecioVenta(float costo, int porcentaje)
 {
     float venta;
-        cin.ignore();
-        cout<<"PRECIO DE VENTA: ";
-        venta=porcentaje/100*costo;
-        cout<<venta<<endl;
+    cin.ignore();
+    cout<<"PRECIO DE VENTA: ";
+    venta=porcentaje/100*costo;
+    cout<<venta<<endl;
 
 };
 

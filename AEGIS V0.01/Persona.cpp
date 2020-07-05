@@ -40,10 +40,18 @@ void Persona::Cargar()
 
 void Persona :: Mostrar()
 {
-    cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<Dia<<" del "<<Mes<<endl;
-    cout<<"Su Número de Documento es:" <<Documento<<endl;
-    cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
-    cout<<"Su Email es :"<<Mail<<endl;
+    if(Estado==true)
+    {
+        cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<Dia<<" del "<<Mes<<endl;
+        cout<<"Su Número de Documento es:" <<Documento<<endl;
+        cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
+        cout<<"Su Email es :"<<Mail<<endl;
+    }
+    else
+    {
+        cout<<"El Registro no está activo."<<endl;
+    }
+
 }
 void Persona :: MenuModificarPersona()
 {
@@ -51,7 +59,8 @@ void Persona :: MenuModificarPersona()
     bool salir=false;
 
     while(!salir)
-    {   int error=-1;
+    {
+        int error=-1;
         setColor(GREEN);
         system("cls");
         cout<<"              Qué Campo desea Modificar de la Persona?"<<endl;
@@ -113,22 +122,23 @@ void Persona :: MenuModificarPersona()
                 return;
         }
         break;
-        case 0:{
-        system("cls");
-        cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
-        salir=true;
+        case 0:
+        {
+            system("cls");
+            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+            salir=true;
         }
         break;
-    default:
+        default:
         {
             system("cls");
             cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
         }
         break;
 
-    }
+        }
 
-}///cierre de while
+    }///cierre de while
 }
 
 

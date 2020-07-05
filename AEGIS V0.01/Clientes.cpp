@@ -63,20 +63,46 @@ void  Cliente:: cargar()///Carga Cliente.
 
 void  Cliente:: mostrar()
 {
-    cout <<"El Cliente Numero "<<idCliente<<" se llama "<<endl;
-    Persona::Mostrar();
-    cout<<"Prefiere Tipo de Pago "<<TipodePago;
-    cout<<"Y Tipo de Factura "<<PrefFactura;
-    cout<<endl;
-
-    if(GetDeuda()<0)
+    if(Estado==true)
     {
-        setColor(RED);
-        cout<<"El Cliente Posee una deuda de "<<GetDeuda()<<endl;
-        setColor(WHITE);
-    }
 
+        cout <<"El Cliente Numero "<<idCliente<<" se llama "<<endl;
+        Persona::Mostrar();
+        cout<<"Prefiere Tipo de Pago "<<TipodePago;
+        cout<<"Y Tipo de Factura "<<PrefFactura;
+        cout<<endl;
+
+        if(GetDeuda()<0)
+        {
+            setColor(RED);
+            cout<<"El Cliente Posee una deuda de "<<GetDeuda()<<endl;
+            setColor(WHITE);
+        }
+    }
+    else
+    {
+        cout<<"El Registro no está activo."<<endl;
+    }
 };
+
+bool Cliente:: LeerxID(int id)
+{
+    if(id>=1)
+    {
+        id--;
+    }
+    bool leyo=false;
+    FILE *P;
+    P=fopen(ArchivoClientes,"rb");
+    if(P==NULL)
+    {
+        return false;
+    }
+    fseek(P,sizeof(Cliente)*id,0);
+    leyo=fread(this,sizeof(Cliente),1,P)==1;
+    fclose (P);
+    return leyo;
+}
 
 void Cliente:: mostrarxID ()///Muestra Por ID -
 {
@@ -100,58 +126,6 @@ void Cliente:: mostrarxID ()///Muestra Por ID -
     }
 }
 
-
-bool Cliente:: LeerxID(int id)
-{
-    FILE *P;
-    P=fopen(ArchivoClientes,"rb");
-    if(P==NULL)
-    {
-        return false;
-    }
-    while(fread(this,sizeof(Cliente),1,P)==1)
-    {
-        if(this->idCliente==id&&this->Estado==true)
-            fclose(P);
-        return true;
-    }
-    fclose (P);
-    return false;
-};
-void Cliente::Modificar()
-{
-    mostrarxID();
-    anykey();
-    menuModificarCliente();
-
-};
-
-void Cliente:: mostrar(int pos)
-{
-///Veremos si hace falta
-}
-bool Cliente:: LeerDeDisco(int i)///TODO LEERCLIENTEDISCO LOGRAR QUE ESTA WEA FUNQUE
-{
-    bool leyo=false;
-    FILE *P;
-    P=fopen(ArchivoClientes,"rb");
-    if(P==NULL)
-    {
-        return false;
-    }
-    if(i>0)
-    {
-        fseek(P,sizeof(Cliente)*i,0);
-        leyo= fread(this,sizeof(Cliente),1,P);
-    }
-    else
-    {
-        leyo=fread(this,sizeof(Cliente),1,P);
-    }
-    fclose (P);
-    return leyo;
-}
-
 void Cliente::Generarid()
 {
     int cantRegistros=0;
@@ -170,8 +144,7 @@ void Cliente::Generarid()
     return;
 }
 
-
-int Cliente :: GuardarClienteEnDisco()
+int Cliente :: GuardarClienteEnDisco()///al final, tranqui para agregar clientes
 {
     FILE *p;
     p=fopen(ArchivoClientes,"ab");
@@ -187,23 +160,37 @@ int Cliente :: GuardarClienteEnDisco()
     fclose (p);
     return 0;
 };
-int Cliente ::  GuardarClienteEnDisco(int ID)
+int Cliente :: GuardarClienteEnDisco(int ID)///Buscar posición y sobreescribir.
 {
     FILE *P;
-    P=fopen(ArchivoClientes,"rb");
+    if(ID>1)
+    {
+        ID--;
+    }
+    P=fopen(ArchivoClientes,"rb+");
     if(P==NULL)
     {
         return -1;
     }
-    fseek(P,sizeof(Cliente)*ID,0);
-    if(fwrite(this,sizeof(Cliente),1,P)!=1)///TODO Arreglar Guardar Clietnes xID No termina de funcar :(
+    fseek(P,sizeof(Cliente)*ID,SEEK_SET);
+    if(fwrite(this,sizeof(Cliente),1,P)==1)
     {
         fclose (P);
-        return -1;
+        return 0;
     }
     fclose(P);
-    return 0;
+    return -1;
 }
+
+
+void Cliente::Modificar()
+{
+    mostrarxID();
+    anykey();
+    menuModificarCliente();
+
+};
+
 
 void Cliente :: menuModificarCliente()
 {
@@ -217,7 +204,7 @@ void Cliente :: menuModificarCliente()
         system("cls");
         cout<<"                Qué Campo desea Modificar del Cliente?"<<endl;
         cout<<"                  _________________________________ "<<endl;
-        cout<<"                 |-1-->Campos Persona.            -|"<<endl;
+        cout<<"                 |-1-->Campos Base.               -|"<<endl;
         cout<<"                 |-2-->Tipo De Pago.              -|"<<endl;
         cout<<"                 |-3-->Preferencia de Factura.    -|"<<endl;
         cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
@@ -231,7 +218,7 @@ void Cliente :: menuModificarCliente()
         case 1:
         {
             Persona::MenuModificarPersona();
-            error=Cliente::GuardarClienteEnDisco(GetidCliente());
+            error=GuardarClienteEnDisco(GetidCliente());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
@@ -241,6 +228,8 @@ void Cliente :: menuModificarCliente()
             else
             {
                 cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
             }
 
         }
@@ -262,6 +251,8 @@ void Cliente :: menuModificarCliente()
             else
             {
                 cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
             }
         }
         break;
@@ -281,6 +272,8 @@ void Cliente :: menuModificarCliente()
             else
             {
                 cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
             }
         }
         break;
@@ -294,6 +287,7 @@ void Cliente :: menuModificarCliente()
         {
             system("cls");
             cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
+
         }
         break;
 
@@ -303,6 +297,32 @@ void Cliente :: menuModificarCliente()
     anykey();
 
 }
+void Cliente :: EliminarCliente()
+{
+    int Confirmacion, error;
+    mostrarxID();
+    cout<<"Está Seguro que querés eliminar el registro?"<<endl;
+    cout<<"Si está Seguro, Ingrese 1111"<<endl;
+    cin>>Confirmacion;
+    if(Confirmacion==1111)
+    {
+        cout<<"Eliminando..."<<endl;
+        this->Estado=false;
+        error=GuardarClienteEnDisco(GetidCliente());
+        if(error!=0)
+        {
+            cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+        else
+        {
+            cout<<"Cliente Eliminado del Archivo con Exito!"<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+    }
+};
 
 int Cliente:: SetTipoPago()
 {
@@ -427,3 +447,4 @@ float Cliente:: GetDeuda()
 {
     return Deuda;
 };
+

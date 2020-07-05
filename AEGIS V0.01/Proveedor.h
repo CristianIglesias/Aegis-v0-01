@@ -19,7 +19,7 @@ public:
 
 
 
-     float getPorcentajeRentabiliad()
+    float getPorcentajeRentabiliad()
     {
         return PorcentajeRentabilidad;
     }
@@ -27,7 +27,7 @@ public:
     {
         return EstadoCuenta;
     }
-     const char *getCodigoProveedor()
+    const char *getCodigoProveedor()
     {
         return *CodigoProveedor;
     }

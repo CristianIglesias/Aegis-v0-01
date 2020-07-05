@@ -33,7 +33,7 @@ void Vendedor::cargar()
 
 int Vendedor::setPorcentajeComision()
 {
- cin.ignore();
+    cin.ignore();
 
     int i=0, error=-1;
     while (error<0)
@@ -59,7 +59,7 @@ int Vendedor::setPorcentajeComision()
 
 int Vendedor::setVentaDiaria()
 {
- cin.ignore();
+    cin.ignore();
 
     int i=0, error=-1;
     while (error<0)
@@ -85,7 +85,7 @@ int Vendedor::setVentaDiaria()
 
 int Vendedor::setLegajo()
 {
- cin.ignore();
+    cin.ignore();
 
     int i=0, error=-5;
     while (error<0)
@@ -93,7 +93,7 @@ int Vendedor::setLegajo()
         cout<<"Ingrese el legajo del vendedor : ";
         cin>>legajo;
         ///error=ValidarEnteros();
-            if (error!=0)
+        if (error!=0)
         {
             if (error==1)
                 return error;
@@ -111,7 +111,7 @@ int Vendedor::setLegajo()
 
 int Vendedor::guardar()
 {
-     FILE *p;
+    FILE *p;
     p=fopen(ArchivoVendedor,"ab");
     if(p==NULL)
     {
