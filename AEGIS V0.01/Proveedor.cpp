@@ -9,19 +9,18 @@ using namespace std;
 using namespace rlutil;
 const char *ArchivoProveedor ="Proveedor.dat";
 
-/*
-int Producto:: buscarcodigoproveedor(const char *codigo)
+int Proveedor::buscarproveedor(const char *codigo)
 {
-    Producto aux;
+    Proveedor aux;
     FILE *p;
     p=fopen(ArchivoProveedor,"rb");
     if(p==NULL)
-
-        return 1;
-
+    {
+    return 1;
+    }
     while(fread(&aux,sizeof(Proveedor),1,p))
     {
-        if(strcmp(getCodigoProveedor(),aux.getCodigoProveedor())==1)
+        if(strcmp(getCodigoProveedor(),aux.getCodigoProveedor())==0)
         {
             fclose(p);
             return -1;
@@ -32,7 +31,6 @@ int Producto:: buscarcodigoproveedor(const char *codigo)
     return 0;
 
 }
-*/
 
 void  Proveedor:: cargar()
 {
@@ -183,3 +181,5 @@ bool Proveedor::leerProveedor(int pos)
     return leyo;
 
 }
+
+

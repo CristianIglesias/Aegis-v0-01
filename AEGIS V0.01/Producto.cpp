@@ -1,16 +1,17 @@
 #include <iostream>
 #include <cstring>
 #include <cstdio>
+#include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 #include "Producto.h"
+#include "Proveedor.h"
 #include "PrototiposGlobales.h"
 #include "rlutil.h"
 using namespace rlutil;
 const char *ArchivoProducto ="Producto.dat";
 
-
 ///juan.agustin.gonzalez99@gmail.com
-
 
 void Producto::cargar()
 {
@@ -44,6 +45,7 @@ void Producto::cargar()
 
 
     setPrecioVenta(CostodeCompra,PorcentajeRentabilidad);
+    if(error==1)
     return;
 
 
@@ -57,29 +59,6 @@ void Producto::cargar()
         return;
 
     Estado=true;
-}
-
-int Producto::buscarproveedor(const char *codigo)
-{
-    Producto aux;
-    FILE *p;
-    p=fopen(ArchivoProducto,"rb");
-    if(p==NULL)
-
-        return 1;
-
-    while(fread(&aux,sizeof(Producto),1,p))
-    {
-        if(strcmp(getCodigoProveedor(),aux.getCodigoProveedor())==0)
-        {
-            fclose(p);
-            return -1;
-        }
-
-    }
-    fclose(p);
-    return 0;
-
 }
 
 int Producto:: buscarcodigo(const char *codigo)
@@ -104,7 +83,7 @@ int Producto:: buscarcodigo(const char *codigo)
     return 0;
 
 }
-int Producto::validarEntero(float c)
+int Producto::validarEntero(int c)
 {
 
     if(c<=0)
@@ -140,18 +119,16 @@ int Producto::setCodigoproducto()
     return error;
 };
 
-
-
 int Producto::setCodigoProveedor()
 {
     cin.ignore();
-
     int i=0, error=-3;
+    Proveedor p;
     while (error<0)
     {
         cout<<"Ingrese codigo de proveedor: ";
         cin.getline(CodigoProveedor,10);
-        error=buscarproveedor(this->getCodigoProveedor());
+        error=p.buscarproveedor(this->getCodigoProveedor());
         if (error!=0)
         {
             if (error==1)
@@ -159,7 +136,7 @@ int Producto::setCodigoProveedor()
             if(error<0)
             {
                 i++;
-                error_msj(-4,i);
+                error_msj(-3,i);
                 anykey();
                 cls();
             }
@@ -254,12 +231,10 @@ int Producto::setPrecioVenta(float costo, int porcentaje)
     float venta;
     cin.ignore();
     cout<<"PRECIO DE VENTA: ";
-    venta=porcentaje/100*costo;
+    venta=(costo*porcentaje/100)+costo;
     cout<<venta<<endl;
 
 };
-
-
 
 int Producto::setStockMin()
 {
@@ -390,19 +365,20 @@ bool Producto::sobrescribir(int pos)///Funcion que abre el archivo para escribir
 
 void Producto::modificar_producto()///arreglar solo modifica el primer producto;
 {
+    Producto p;
     cout<<"ENTRO"<<endl;
     char id_buscado[20];
     int pos;
     cout << "ID a modificar: ";
     cin.ignore();
-    cin.getline(id_buscado,20);
-    pos =buscarcodigo(id_buscado);
+    gets(id_buscado);
+    pos=buscarcodigo(id_buscado);
     if (pos >= 0)
     {
 
         pos=leerProductos(pos);
         cout << endl;
-        Producto::mostrar();
+        p.mostrar();
         cout << endl << "Ingrese el nuevo costo: ";
         cin >> CostodeCompra;
         cout<<"Ingrese el stock actual: ";
@@ -423,6 +399,83 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
     }
 }
 
+bool Producto:: LeerxID(char* id)
+{
+    ///bool leyo=false;
+    FILE *P;
+    P=fopen(ArchivoProducto,"rb");
+    if(P==NULL)
+    {
+        return false;
+    }
+
+    while(fread(this,sizeof(Producto),1,P)==1)
+    {
+        if(strcmp(id,CodigoProducto)==0)
+        {
+            fclose (P);
+            return true;
+        }
+
+    }
+
+     fclose (P);
+    return false;
+    ///fseek(P,sizeof(Producto),0);
+   /// leyo=fread(this,sizeof(Producto),1,P)==1;
+  ///return leyo;
+}
 
 
 
+void Producto:: mostrarxID()///Muestra Por ID -
+{
+    bool funco=false;
+    char aux[20];
+    int i=1;
+    gets(aux);
+    while(!funco)
+    {
+
+        cout<<"Ingrese el ID Del producto Con el que quiere trabajar,"<<endl;
+        cout<<"para que se muestre por pantalla."<<endl;
+        gets (aux);
+        funco=LeerxID(aux);
+        if(funco)
+        {
+            mostrar();
+        }
+        else
+        {
+            error_msj(-5,i++);
+        }
+    }
+}
+
+
+void Producto :: Eliminar()
+{
+    int Confirmacion, error;
+    mostrarxID();
+    cout<<"Está Seguro que querés eliminar el registro?"<<endl;
+    cout<<"Si está Seguro, Ingrese 1111"<<endl;
+    cin>>Confirmacion;
+    if(Confirmacion==1111)
+    {
+        cout<<"Eliminando..."<<endl;
+        this->Estado=false;
+        ///error=Producto::guardarProducto(getCodigoProducto());
+        if(error!=0)
+        {
+            cout<<"Hubo un error Guardando el producto en el Archivo."<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+        else
+        {
+            cout<<"Producto Eliminado del Archivo con Exito!"<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+    }
+};
