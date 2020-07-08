@@ -310,7 +310,7 @@ void abmProducto()
             cout<<"            ~ Nuevo Producto ~          "<<endl;
 
             pro.cargar();
-            pro.guardarProducto();
+            pro.guardarNuevoProducto();
             anykey();
 
         }
@@ -327,7 +327,7 @@ void abmProducto()
         case 3:
         {
             cout<<"                      ~LISTAR PRODUCTOS X ID~               "<<endl;
-            ///MOSTRAR POR ID /HACER
+
             pro.mostrarxID();
             anykey();
         }
@@ -343,7 +343,7 @@ void abmProducto()
         {
             cout<<"                      ~ELIMINAR PRODUCTOS~               "<<endl;
 
-            pro.Eliminar();
+           /// pro.Eliminar();
             anykey();
         }
         break;

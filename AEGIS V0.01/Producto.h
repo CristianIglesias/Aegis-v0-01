@@ -18,8 +18,10 @@ public:
     void cargar();
     void mostrar();
     int buscarcodigo(const char *codigo);///funcion para validar ingreso de id igual, arreglar
-    int guardarProducto();///guardar en disco
-    int guardarProducto(const char *Codigo);
+
+    int guardarNuevoProducto();///guardar en disco
+    int guardarProducto();
+    int ObtenerPosicionProducto(char *codigo);
     bool leerProductos(int pos);///leer en disco
     bool sobrescribir(int);
     void modificar_producto();

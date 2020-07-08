@@ -128,7 +128,7 @@ int Producto::setCodigoProveedor()
     {
         cout<<"Ingrese codigo de proveedor: ";
         cin.getline(CodigoProveedor,10);
-        error=p.buscarproveedor(this->getCodigoProveedor());
+        ///error=p.buscarproveedor(this->getCodigoProveedor());
         if (error!=0)
         {
             if (error==1)
@@ -291,6 +291,7 @@ int Producto::setStockActual()
 
 void Producto::mostrar()
 {
+    cout<<"-------------------------------"<<endl;
     cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
     cout<<"NOMBRE:"<<NombreItem<<endl;
     cout<<"CODIGO PROVEEDOR:"<<CodigoProveedor<<endl;
@@ -299,10 +300,11 @@ void Producto::mostrar()
     cout<<"PRECIO VENTA:"<<PreciodeVenta<<endl;
     cout<<"STOCK MINIMO:"<<StockMin<<endl;
     cout<<"STOCK ACTUAL:"<<StockActual<<endl;
+    cout<<"-------------------------------"<<endl;
 }
 
 ///GUARDAR EN DISCO
-int Producto::guardarProducto()
+int Producto::guardarNuevoProducto()
 {
 
     FILE *p;
@@ -316,6 +318,51 @@ int Producto::guardarProducto()
         fclose(p);
         return -1;
     }
+    fclose(p);
+    return 0;
+
+}
+
+int Producto::ObtenerPosicionProducto(char *codigo)
+{
+    int c=0;
+    Producto aux;
+    FILE *p;
+    p=fopen(ArchivoProducto,"rb+");
+    if(p==NULL)
+    {
+        return -1;
+    }
+    while(fread(&aux,sizeof(Producto),1,p))
+    {
+        if(strcmp(aux.CodigoProducto,codigo)==0)
+        {
+            fclose(p);
+            return c;
+        }
+        c++;
+    }
+    fclose(p);
+    return -1;
+}
+
+
+int Producto::guardarProducto()
+{
+    int pos=0;
+    pos=ObtenerPosicionProducto(this->CodigoProducto);
+    if(pos<0)
+    {
+        return -1;
+    }
+    FILE *p;
+    p=fopen(ArchivoProducto,"rb+");
+    if(p==NULL)
+    {
+        return -1;
+    }
+    fseek(p,sizeof(Producto)*pos,SEEK_SET);
+    fwrite(this,sizeof(Producto),1,p);
     fclose(p);
     return 0;
 
@@ -346,62 +393,62 @@ bool Producto::leerProductos(int pos)
 
 }
 
-bool Producto::sobrescribir(int pos)///Funcion que abre el archivo para escribir los nuevos datos modificados;
-{
-
-    bool escribio;
-    FILE *p;
-    p = fopen(ArchivoProducto, "rb+");
-    if (p == NULL)
-    {
-        return false;
-    }
-    fseek(p, pos * sizeof(Producto), SEEK_SET);
-    escribio = fwrite(this, sizeof(Producto), 1, p);
-    fclose(p);
-    return escribio;
-}
-
-
 void Producto::modificar_producto()///arreglar solo modifica el primer producto;
 {
+    char op;
+    int error=-1;
     Producto p;
-    cout<<"ENTRO"<<endl;
-    char id_buscado[20];
-    int pos;
-    cout << "ID a modificar: ";
-    cin.ignore();
-    gets(id_buscado);
-    pos=buscarcodigo(id_buscado);
-    if (pos >= 0)
+    p.mostrarxID();
+    anykey();
+    cout<<"¿Desea modificar este producto?"<<endl;
+    cout<<"S--> SI"<<endl;
+    cout<<"N--> NO"<<endl;
+    cin>>op;
+    switch(op)
     {
-
-        pos=leerProductos(pos);
-        cout << endl;
-        p.mostrar();
-        cout << endl << "Ingrese el nuevo costo: ";
-        cin >> CostodeCompra;
-        cout<<"Ingrese el stock actual: ";
-        cin>>StockActual;
-
-        if (sobrescribir(pos))
+    case 'S':
+    case 's':
         {
-            cout << "Producto modificado."<<endl;
-        }
-        else
+              error=setCostoCompra();
+              if(error==1)
+              {
+                   return;
+              }
+
+              else
+
+              {
+                cout<<"entro"<<endl;
+                error=guardarProducto();
+              }
+
+                 if(error==0)
+              {
+                cout<<"Hubo un error Guardando el Producto en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+              }
+            else
+            {
+                cout<<"Producto Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+
+
+        }break;
+    case 'N':
+        case 'n':
         {
-            cout << "No se modificó el producto.";
-        }
+            return;
+        }break;
     }
-    else
-    {
-        cout << "No existe el producto.";
-    }
+
 }
 
 bool Producto:: LeerxID(char* id)
 {
-    ///bool leyo=false;
+
     FILE *P;
     P=fopen(ArchivoProducto,"rb");
     if(P==NULL)
@@ -421,12 +468,8 @@ bool Producto:: LeerxID(char* id)
 
      fclose (P);
     return false;
-    ///fseek(P,sizeof(Producto),0);
-   /// leyo=fread(this,sizeof(Producto),1,P)==1;
-  ///return leyo;
+
 }
-
-
 
 void Producto:: mostrarxID()///Muestra Por ID -
 {
@@ -453,29 +496,3 @@ void Producto:: mostrarxID()///Muestra Por ID -
 }
 
 
-void Producto :: Eliminar()
-{
-    int Confirmacion, error;
-    mostrarxID();
-    cout<<"Está Seguro que querés eliminar el registro?"<<endl;
-    cout<<"Si está Seguro, Ingrese 1111"<<endl;
-    cin>>Confirmacion;
-    if(Confirmacion==1111)
-    {
-        cout<<"Eliminando..."<<endl;
-        this->Estado=false;
-        ///error=Producto::guardarProducto(getCodigoProducto());
-        if(error!=0)
-        {
-            cout<<"Hubo un error Guardando el producto en el Archivo."<<endl;
-            cout<<"Ingrese cualquier tecla para continuar"<<endl;
-            anykey();
-        }
-        else
-        {
-            cout<<"Producto Eliminado del Archivo con Exito!"<<endl;
-            cout<<"Ingrese cualquier tecla para continuar"<<endl;
-            anykey();
-        }
-    }
-};
