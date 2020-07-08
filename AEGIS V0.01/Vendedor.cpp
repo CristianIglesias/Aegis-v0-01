@@ -2,13 +2,12 @@
 #include <cstdio>
 #include <cstring>
 using namespace std;
+#include "rlutil.h"
+using namespace rlutil;
 #include "Persona.h"
 #include "Vendedor.h"
-#include "rlutil.h"
-const char *ArchivoVendedor ="Vendedor.dat";
-using namespace rlutil;
 #include "PrototiposGlobales.h"
-
+const char *ArchivoVendedor ="Vendedor.dat";
 
 void Vendedor::cargar()
 {
@@ -40,7 +39,7 @@ int Vendedor::setPorcentajeComision()
     {
         cout<<"Ingrese el % de comision del vendedor: ";
         cin>>PorcentajeComision;
-        ///error=validarfloat();
+        error=validarfloat();
         if (error!=0)
         {
             if (error==1)
@@ -48,7 +47,7 @@ int Vendedor::setPorcentajeComision()
             if(error<0)
             {
                 i++;
-                error_msj(-1,i);
+                error_msj(error,i);
                 anykey();
                 cls();
             }
@@ -66,7 +65,7 @@ int Vendedor::setVentaDiaria()
     {
         cout<<"Ingrese el monto de la venta diaria : ";
         cin>>VentaDiaria;
-        ///error=validarfloat();
+        error=validarfloat();
         if (error!=0)
         {
             if (error==1)
@@ -74,7 +73,7 @@ int Vendedor::setVentaDiaria()
             if(error<0)
             {
                 i++;
-                error_msj(-1,i);
+                error_msj(-4,i);
                 anykey();
                 cls();
             }
@@ -100,7 +99,7 @@ int Vendedor::setLegajo()
             if(error<0)
             {
                 i++;
-                error_msj(-5,i);
+                error_msj(-4,i);
                 anykey();
                 cls();
             }

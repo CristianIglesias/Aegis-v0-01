@@ -5,7 +5,12 @@
 #include "PrototiposGlobales.h"
 class Venta
 {
-private:
+public:
+    void cargar();
+    void mostrar();
+
+protected:
+
     int numeroventa;
     Fecha fechaVenta;
     int TipoPago;
@@ -19,10 +24,6 @@ private:
     int PorcentajeDesc;
     float ImporteTotal;
     float ImporteUnidad;
-public:
-
-    void cargar();
-    void mostrar();
 
 };
 

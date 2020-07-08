@@ -42,7 +42,7 @@ void Persona :: Mostrar()
 {
     if(Estado==true)
     {
-        cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<Dia<<" del "<<Mes<<endl;
+        cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<GetFechaNac().getDia()<<" del "<<GetFechaNac().getMes()<<endl;
         cout<<"Su Número de Documento es:" <<Documento<<endl;
         cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
         cout<<"Su Email es :"<<Mail<<endl;
@@ -198,18 +198,20 @@ int Persona :: setNombre()
 
 int Persona :: setFecha()
 {
-    int error=0,i=0;
+    int error=0,i=0,aux;
     while (error!=0||error!=1)
     {
         cout<<"Ingrese la Fecha de Nacimiento"<<endl;
         cout<<"Fecha de nacimiento (d/m/a):"<<endl;
-        cin>>Dia;
+        cin>>aux;
+        FechaNacimiento.setDia(aux);
         cout<<"/";
-        cin>>Mes;
+        cin>>aux;
+        FechaNacimiento.setMes(aux);
         cout<<"/";
-        cin>>Anio;
-
-        error=ValidarFecha(getDia(),getMes(),getAnio());
+        cin>>aux;
+        FechaNacimiento.setAnio(aux);
+        error=ValidarFecha(GetFechaNac());
         if (error==-1)
         {
             i++;
@@ -356,13 +358,13 @@ int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas aba
     }
     return 0;
 }
-int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
+int Persona :: ValidarFecha(Fecha FechaNac)
 {
-    if(Mes==0&&Dia==0&&Anio==0)
+    if(FechaNac.getMes()==0&&FechaNac.getDia()==0&&FechaNac.getAnio()==0)
         return 1;
-    if((Mes>0&&Mes<13)&&(Anio>1910&&Anio<=2020))
+    if((FechaNac.getMes()>0&&FechaNac.getMes()<13)&&(FechaNac.getAnio()>1910&&FechaNac.getAnio()<=2020))
     {
-        switch(Mes)
+        switch(FechaNac.getMes())
         {
         case  1 :
         case  3 :
@@ -371,7 +373,7 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
         case  8 :
         case 10 :
         case 12 :
-            if ( Dia >= 1 && Dia <= 31 )
+            if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 31 )
             {
                 return 0;
             }
@@ -383,7 +385,7 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
         case  6 :
         case  9 :
         case 11 :
-            if ( (Dia >= 1) && (Dia <= 30) )
+            if ( (FechaNac.getDia() >= 1) && (FechaNac.getDia() <= 30) )
             {
 
                 return 0;
@@ -391,8 +393,8 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
             else
                 return -1;
         case  2 :
-            if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
-                if ( Dia >= 1 && Dia <= 29 )
+            if( (FechaNac.getAnio() % 4 == 0 && FechaNac.getAnio() % 100 != 0 )|| (FechaNac.getAnio() % 400 == 0 ))
+                if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 29 )
                 {
 
                     return 0 ;
@@ -401,7 +403,7 @@ int Persona :: ValidarFecha(int Dia,int Mes, int Anio)
                 {
                     return -1;
                 }
-            else if ( Dia >= 1 && Dia <= 28 )
+            else if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 28 )
             {
                 return 0;
             }

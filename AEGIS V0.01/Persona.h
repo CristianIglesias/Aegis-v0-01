@@ -1,14 +1,13 @@
 #ifndef PERSONA_H_INCLUDED
 #define PERSONA_H_INCLUDED
-#include <cstring>
-
+#include "PrototiposGlobales.h"
 #pragma once
 class Persona
 {
 protected:
     char Nombre[50];
     char Apellido[50];
-    int Dia, Mes, Anio;
+    Fecha FechaNacimiento;
     char Documento[9];
     char Mail[75];
     bool Estado;
@@ -22,7 +21,7 @@ public:
     int setApellido();
 
     int setFecha();
-    int ValidarFecha(int Dia,int Mes,int Anio);
+    int ValidarFecha(Fecha FechaNacimiento);
     int setTelefono();
     int setEmail();
     int ValidarMail( char *Mail);
@@ -43,18 +42,6 @@ public:
         return Apellido;
     }
 
-    int getDia()
-    {
-        return Dia;
-    }
-    int getMes()
-    {
-        return Mes;
-    }
-    int getAnio()
-    {
-        return Anio;
-    }
     const char * getTelefono()
     {
         return nTelefono;
@@ -62,6 +49,10 @@ public:
     const char * getEmail()
     {
         return Mail;
+    }
+    Fecha GetFechaNac()
+    {
+        return FechaNacimiento;
     }
     void setNombre(char *n)
     {

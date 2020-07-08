@@ -42,7 +42,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -4:
-        cout<<"Error Validando,///. Intente Nuevamente."<<endl;
+        cout<<"Error Validando, Este campo solo permite Números. Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
@@ -139,6 +139,16 @@ int ValidarTexto(const char *cad)
     if(flag)
         return 0;
 };
+
+int ValidarFloats(float var)
+{
+    if(var>0)
+        return 0;
+    else return -4;
+}
+
+
+
 
 void listarProductos()
 {
