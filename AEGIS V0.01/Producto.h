@@ -23,7 +23,6 @@ public:
     int guardarProducto();
     int ObtenerPosicionProducto(char *codigo);
     bool leerProductos(int pos);///leer en disco
-    bool sobrescribir(int);
     void modificar_producto();
     int validarEntero(int c);
     bool  LeerxID(char *id);

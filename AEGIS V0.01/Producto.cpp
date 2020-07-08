@@ -395,20 +395,23 @@ bool Producto::leerProductos(int pos)
 
 void Producto::modificar_producto()///arreglar solo modifica el primer producto;
 {
-    char op;
+    int op;
     int error=-1;
     Producto p;
     p.mostrarxID();
     anykey();
-    cout<<"¿Desea modificar este producto?"<<endl;
-    cout<<"S--> SI"<<endl;
-    cout<<"N--> NO"<<endl;
+    cout<<"¿Que desea modificar:?"<<endl;
+    cout<<"1--> Costo de compra"<<endl;
+    cout<<"2--> Stock actual"<<endl;
+    cout<<"3--> % de rentabilidad"<<endl;
+    cout<<"9--> VOLVER"<<endl;
     cin>>op;
     switch(op)
     {
-    case 'S':
-    case 's':
+    case 1:
+
         {
+            cls();
               error=setCostoCompra();
               if(error==1)
               {
@@ -419,8 +422,9 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
 
               {
                 cout<<"entro"<<endl;
-                error=guardarProducto();
+                guardarProducto();
               }
+
 
                  if(error==0)
               {
@@ -437,8 +441,72 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
 
 
         }break;
-    case 'N':
-        case 'n':
+         case 2:
+
+        {
+            cls();
+              error=setStockActual();
+              if(error==1)
+              {
+                   return;
+              }
+               else
+              {
+                cout<<"entro"<<endl;
+                error=guardarProducto();
+              }
+
+
+                 if(error==0)
+              {
+                cout<<"Hubo un error Guardando el Producto en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+              }
+            else
+            {
+                cout<<"Producto Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+
+
+        }break;
+         case 3:
+
+        {
+            cls();
+              error=setPorcentajeRentabilidad();
+              if(error==1)
+              {
+                   return;
+              }
+
+              else
+
+              {
+                cout<<"entro"<<endl;
+                error=guardarProducto();
+              }
+
+
+                 if(error==0)
+              {
+                cout<<"Hubo un error Guardando el Producto en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+              }
+            else
+            {
+                cout<<"Producto Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+
+
+        }break;
+        case 9:
+
         {
             return;
         }break;

@@ -39,7 +39,7 @@ int Vendedor::setPorcentajeComision()
     {
         cout<<"Ingrese el % de comision del vendedor: ";
         cin>>PorcentajeComision;
-        error=validarfloat();
+        error=ValidarFloats(PorcentajeComision);
         if (error!=0)
         {
             if (error==1)
@@ -65,7 +65,7 @@ int Vendedor::setVentaDiaria()
     {
         cout<<"Ingrese el monto de la venta diaria : ";
         cin>>VentaDiaria;
-        error=validarfloat();
+        error=ValidarFloats(VentaDiaria);
         if (error!=0)
         {
             if (error==1)
