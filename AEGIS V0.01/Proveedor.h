@@ -8,14 +8,20 @@ class Proveedor:public Persona
 protected:
     float PorcentajeRentabilidad;
     float EstadoCuenta;
-    const char *CodigoProveedor[10];
+    char CodigoProveedor[10];
 
 public:
     void cargar();
     void mostrar();
     int guardarProveedor();
     bool leerProveedor(int pos);
-    int buscarproveedor(const char *codigo);
+    int buscarcodigoproveedor(const char *codigo);
+    int validarFloat(float c);
+     bool LeerxID(char *id);
+    void mostrarxID ();
+     void Modificar();
+    void menuModificarProveedor();
+    void EliminarProveedor();
 
     float getPorcentajeRentabiliad()
     {
@@ -27,7 +33,7 @@ public:
     }
     const char *getCodigoProveedor()
     {
-        return *CodigoProveedor;
+        return CodigoProveedor;
     }
 
     int  setPorcentajeRentabiliad();

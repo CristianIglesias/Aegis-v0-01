@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <cstdio>
+#include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 #include "Persona.h"
 #include "Proveedor.h"
@@ -9,7 +11,7 @@ using namespace std;
 using namespace rlutil;
 const char *ArchivoProveedor ="Proveedor.dat";
 
-int Proveedor::buscarproveedor(const char *codigo)
+int Proveedor::buscarcodigoproveedor(const char *codigo)
 {
     Proveedor aux;
     FILE *p;
@@ -51,6 +53,18 @@ void  Proveedor:: cargar()
 
 };
 
+int Proveedor::validarFloat(float c)
+{
+
+    if(c<=0)
+    {
+
+        return 1;
+    }
+}
+
+
+
 int Proveedor::setPorcentajeRentabiliad()
 {
     cin.ignore();
@@ -60,7 +74,7 @@ int Proveedor::setPorcentajeRentabiliad()
     {
         cout<<"Ingrese el porcentaje de rentabilidad del proveedor: ";
         cin>>PorcentajeRentabilidad;
-        ///error=validarFloat();
+        error=validarFloat(PorcentajeRentabilidad);
         if (error!=0)
         {
             if (error==1)
@@ -86,7 +100,7 @@ int Proveedor::setEstadoCuenta()
     {
         cout<<"Ingrese el estado de cuenta del proveedor: ";
         cin>>EstadoCuenta;
-        ///error=validarFloat();
+        error=validarFloat(EstadoCuenta);
         if (error!=0)
         {
             if (error==1)
@@ -111,8 +125,8 @@ int Proveedor::setCodigoProveedor()
     while (error<0)
     {
         cout<<"Ingrese el codigo de proveedor: ";
-        ///cin.getline(CodigoProveedor,10);
-        ///error=buscarcodigoproveedor(this->getCodigoProveedor());
+        gets(CodigoProveedor);
+        error=buscarcodigoproveedor(this->getCodigoProveedor());
         if (error!=0)
         {
             if (error==1)
@@ -152,7 +166,7 @@ int Proveedor::guardarProveedor()
 }
 void Proveedor::mostrar()
 {
-    Persona::Mostrar();///como pongo lo que me falta? :(;
+    Persona::Mostrar();
     cout<<"CODIGO: " <<CodigoProveedor<<endl;
     cout<<"ESTADO DE CUENTA: "<<EstadoCuenta<<endl;
     cout<<"% RENTABILIDAD: "<< PorcentajeRentabilidad<<endl;
@@ -182,4 +196,193 @@ bool Proveedor::leerProveedor(int pos)
 
 }
 
+bool Proveedor:: LeerxID(char *id)
+{
+
+
+    FILE *P;
+    P=fopen(ArchivoProveedor,"rb");
+    if(P==NULL)
+    {
+        return false;
+    }
+
+    while(fread(this,sizeof(Proveedor),1,P)==1)
+    {
+        if(strcmp(id,CodigoProveedor)==0)
+        {
+            fclose (P);
+            return true;
+        }
+
+    }
+
+     fclose (P);
+    return false;
+}
+
+
+void Proveedor:: mostrarxID ()///Muestra Por ID -
+{
+     bool funco=false;
+    char aux[20];
+    int i=1;
+    gets(aux);
+    while(!funco)
+    {
+
+        cout<<"Ingrese el ID Del proveedor Con el que quiere trabajar,"<<endl;
+        cout<<"para que se muestre por pantalla."<<endl;
+        gets (aux);
+        funco=LeerxID(aux);
+        if(funco)
+        {
+            mostrar();
+        }
+        else
+        {
+            error_msj(-5,i++);
+        }
+    }
+}
+
+void Proveedor::Modificar()
+{
+    mostrarxID();
+    anykey();
+    menuModificarProveedor();
+
+};
+
+void Proveedor :: menuModificarProveedor()
+{
+    int op,error=-1;
+    bool salir=false;
+
+    while(!salir)
+    {
+        int error;
+        setColor(GREEN);
+        system("cls");
+        cout<<"                Qué Campo desea Modificar del Proveedor?"<<endl;
+        cout<<"                  _________________________________ "<<endl;
+        cout<<"                 |-1-->Campos Base.               -|"<<endl;
+        cout<<"                 |-2-->Tipo De Pago.              -|"<<endl;
+        cout<<"                 |-3-->Preferencia de Factura.    -|"<<endl;
+        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
+        cout<<"                 |-0-->VOLVER                     -|"<<endl;
+        cout<<"                  -------Ingrese una opcion-------- "<<endl;
+        cin>>op;
+        system("cls");
+
+        switch(op)
+        {
+        case 1:
+        {
+            Persona::MenuModificarPersona();
+            error=guardarProveedor();
+            if(error!=0)
+            {
+                cout<<"Hubo un error Guardando el Proveedor en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+            else
+            {
+                cout<<"Proveedor Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+
+        }
+        break;
+
+        case 2:
+        {
+            error=setPorcentajeRentabiliad();
+            if(error==1)
+                return;
+            else
+                error=guardarProveedor();
+            if(error!=0)
+            {
+                cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+            else
+            {
+                cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+        }
+        break;
+        case 3:
+        {
+            error=setEstadoCuenta();
+            if(error==1)
+                return;
+            else
+                error=guardarProveedor();
+            if(error!=0)
+            {
+                cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+            else
+            {
+                cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Ingrese cualquier tecla para continuar"<<endl;
+                anykey();
+            }
+        }
+        break;
+        case 0:
+            system("cls");
+            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+            salir=true;
+
+            break;
+        default:
+        {
+            system("cls");
+            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
+
+        }
+        break;
+
+        }
+
+    }///Cierre de while
+    anykey();
+
+}
+void Proveedor :: EliminarProveedor()
+{
+    int Confirmacion, error;
+    mostrarxID();
+    cout<<"Está Seguro que querés eliminar el registro?"<<endl;
+    cout<<"Si está Seguro, Ingrese 1111"<<endl;
+    cin>>Confirmacion;
+    if(Confirmacion==1111)
+    {
+        cout<<"Eliminando..."<<endl;
+        this->Estado=false;
+        error=guardarProveedor();
+        if(error!=0)
+        {
+            cout<<"Hubo un error Guardando el Proveedor en el Archivo."<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+        else
+        {
+            cout<<"Proveedor Eliminado del Archivo con Exito!"<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+    }
+};
 

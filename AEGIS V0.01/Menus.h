@@ -396,20 +396,34 @@ void abmProveedor()
 
         case 2:
         {
+              cout<<"            ~ Modificar Proveedor ~          "<<endl;
+prove.Modificar();
+anykey();
 
         }
         break;
 
         case 3:
         {
-
+            cout<<"            ~ Mostrar Proveedor ~          "<<endl;
+            prove.mostrarxID();
+            anykey();
         }
         break;
 
         case 4:
         {
-            listarProveedores();
-        }
+            cout<<"            ~ Mostrar todos los Proveedores ~          "<<endl;
+            listarProveedores() ;
+            anykey();
+                   }
+        break;
+         case 5:
+        {
+            cout<<"            ~ ELIMINAR ~          "<<endl;
+            prove.EliminarProveedor();
+                        anykey();
+                   }
         break;
 
         case 0:
