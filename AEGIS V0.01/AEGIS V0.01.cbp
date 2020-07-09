@@ -40,6 +40,8 @@
 		<Unit filename="DetalleVenta.h" />
 		<Unit filename="FuncionesGlobales.cpp" />
 		<Unit filename="Menus.h" />
+		<Unit filename="Operacion.cpp" />
+		<Unit filename="Operacion.h" />
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
 		<Unit filename="Producto.cpp" />

@@ -42,20 +42,23 @@ int main()
 
         case 2:
         {
-            menuABM();
+            cout<<"~~~~~COMPRAS~~~~~"<<endl;
+
         }
         break;
 
         case 3:
         {
-            cout<<"~~~~~LISTADOS~~~~~"<<endl;
+            menuABM();
+
 
         }
         break;
 
         case 4:
         {
-            cout<<"~~~~~COMPRAS~~~~~"<<endl;
+            cout<<"~~~~~LISTADOS~~~~~"<<endl;
+
         }
         break;
 

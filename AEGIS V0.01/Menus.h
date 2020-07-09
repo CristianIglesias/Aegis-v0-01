@@ -1,11 +1,11 @@
 #ifndef MENUS_H_INCLUDED
 #define MENUS_H_INCLUDED
 #pragma once
+#include "Ventas.h"
 #include "Producto.h"
 #include "Proveedor.h"
 #include "Vendedor.h"
 #include "PrototiposGlobales.h"
-#include "Ventas.h"
 
 
 ///Prototipos de los Menus.
@@ -25,21 +25,20 @@ void abmVendedor();
 void menuPrincipal()
 {
     setColor(WHITE);
-    cout<<"                           MENU PRINCIPAL           "<<endl;
-    cout<<"                  _________________________________ "<<endl;
-    cout<<"                 |-1-->VENTAS                     -|"<<endl;
-    cout<<"                 |-2-->ABM                        -|"<<endl;
-    cout<<"                 |-3-->LISTADOS                   -|"<<endl;
-    cout<<"                 |-4-->COMPRAS                    -|"<<endl;
-    cout<<"                 |-5-->CONFIGURACION              -|"<<endl;
-    cout<<"                 |-0-->SALIR                      -|"<<endl;
-    cout<<"                 |_________________________________|"<<endl;
-    cout<<"                  -------Ingrese una opcion--------"<<endl;
+    cout<<"                           MENU PRINCIPAL             "<<endl;
+    cout<<"                  ___________________________________ "<<endl;
+    cout<<"                 |-1-->     VENTAS- HACERLO.        -|"<<endl;
+    cout<<"                 |-2-->     COMPRAS                 -|"<<endl;
+    cout<<"                 |-3-->ABM                          -|"<<endl;
+    cout<<"                 |-4-->LISTADOS -ARMAR REPORTE VENTA-|"<<endl;
+    cout<<"                 |-5-->CONFIGURACION                -|"<<endl;
+    cout<<"                 |-0-->SALIR                        -|"<<endl;
+    cout<<"                 |___________________________________|"<<endl;
+    cout<<"                  -------Ingrese una opcion--------   "<<endl;
 };
 void menuVentas()
 {
-  Venta v;
-    int op;
+    int op, Tipo=1;
     bool salir=false;
     system("cls");
 
@@ -52,9 +51,9 @@ void menuVentas()
         cout<<"                 |-1 -->Nueva Venta.               -|"<<endl;
         cout<<"                 |-2 -->Nota de Crédito.           -|"<<endl;
         cout<<"                 |-3 -->Presupuestos.              -|"<<endl;
-        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
-        cout<<"                 |-0-->VOLVER                     -|"<<endl;
-        cout<<"                 |_________________________________|"<<endl;
+        cout<<"                 |.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
+        cout<<"                 |-0-->VOLVER                      -|"<<endl;
+        cout<<"                 |__________________________________|"<<endl;
         cout<<"                  -------Ingrese una opcion-------- "<<endl;
         cin>>op;
 
@@ -62,25 +61,24 @@ void menuVentas()
         {
         case 1:
         {
-
+            Operacion Venta(Tipo);
             system("cls");
             cout<<"                   ~NUEVA VENTA~        "<<endl;
-                     v.cargar();
-
+            ///cargar venta- detalles y eso.
         }
         break;
         case 2:
         {
             system("cls");
             cout<<"                 ~Nota de Crédito~                "<<endl;
-
+            Tipo=3;
+            ///
         }
         break;
         case 3:
         {
             system("cls");
             cout<<"                 ~Nuevo Presupuesto~               "<<endl;
-
 
         }
         break;
@@ -344,7 +342,7 @@ void abmProducto()
         {
             cout<<"                      ~ELIMINAR PRODUCTOS~               "<<endl;
 
-           /// pro.Eliminar();
+            /// pro.Eliminar();
             anykey();
         }
         break;
@@ -397,9 +395,9 @@ void abmProveedor()
 
         case 2:
         {
-              cout<<"            ~ Modificar Proveedor ~          "<<endl;
-prove.Modificar();
-anykey();
+            cout<<"            ~ Modificar Proveedor ~          "<<endl;
+            prove.Modificar();
+            anykey();
 
         }
         break;
@@ -417,14 +415,14 @@ anykey();
             cout<<"            ~ Mostrar todos los Proveedores ~          "<<endl;
             listarProveedores() ;
             anykey();
-                   }
+        }
         break;
-         case 5:
+        case 5:
         {
             cout<<"            ~ ELIMINAR ~          "<<endl;
             prove.EliminarProveedor();
-                        anykey();
-                   }
+            anykey();
+        }
         break;
 
         case 0:
@@ -476,32 +474,32 @@ void abmVendedor()
 
         case 2:
         {
-                           cout<<"            ~Modificar Vendedor.  ~          "<<endl;
-                           ven.Modificar();
-                           anykey();
+            cout<<"            ~Modificar Vendedor.  ~          "<<endl;
+            ven.Modificar();
+            anykey();
         }
         break;
 
         case 3:
         {
-  cout<<"            ~ Mostrar Vendedor.  ~          "<<endl;
-  ven.mostrarxID();
-  anykey();
+            cout<<"            ~ Mostrar Vendedor.  ~          "<<endl;
+            ven.mostrarxID();
+            anykey();
         }
         break;
 
         case 4:
         {
-  cout<<"            ~ Mostrar Todos los Vendedores ~          "<<endl;
-           ListarVendedores();
-           anykey();
+            cout<<"            ~ Mostrar Todos los Vendedores ~          "<<endl;
+            ListarVendedores();
+            anykey();
         }
         break;
         case 5:
         {
-  cout<<"            ~ Eliminar Vendedor ~          "<<endl;
-  ven.EliminarVendedor();
-  anykey();
+            cout<<"            ~ Eliminar Vendedor ~          "<<endl;
+            ven.EliminarVendedor();
+            anykey();
         }
         break;
 

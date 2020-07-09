@@ -11,7 +11,7 @@ const char *ArchivoClientes ="Clientes.dat";
 /// ERROR==1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI
 /// ERROR<=0-SIGUE INTENTANDO, TRANK PALANK
 
-
+///TODO EMBELLEZER FUNCIONES CLIENTE.
 void  Cliente:: cargar()///Carga Cliente.
 {
     int error=0;
@@ -19,6 +19,7 @@ void  Cliente:: cargar()///Carga Cliente.
 
     if(Estado==false)
         return;
+
     Generarid();
     if(idCliente<0)
     {
@@ -81,7 +82,7 @@ void  Cliente:: mostrar()
     }
     else
     {
-        cout<<"El Registro no está activo."<<endl;
+        cout<<"El Registro no está disponible."<<endl;
     }
 };
 
@@ -126,7 +127,7 @@ void Cliente:: mostrarxID ()///Muestra Por ID -
     }
 }
 
-void Cliente::Generarid()
+void Cliente::Generarid()///
 {
     int cantRegistros=0;
     FILE *p;

@@ -18,7 +18,7 @@ int Proveedor::buscarcodigoproveedor(const char *codigo)
     p=fopen(ArchivoProveedor,"rb");
     if(p==NULL)
     {
-    return 1;
+        return 1;
     }
     while(fread(&aux,sizeof(Proveedor),1,p))
     {
@@ -217,14 +217,14 @@ bool Proveedor:: LeerxID(char *id)
 
     }
 
-     fclose (P);
+    fclose (P);
     return false;
 }
 
 
 void Proveedor:: mostrarxID ()///Muestra Por ID -
 {
-     bool funco=false;
+    bool funco=false;
     char aux[20];
     int i=1;
     gets(aux);

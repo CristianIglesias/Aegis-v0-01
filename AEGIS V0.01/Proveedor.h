@@ -17,9 +17,9 @@ public:
     bool leerProveedor(int pos);
     int buscarcodigoproveedor(const char *codigo);
     int validarFloat(float c);
-     bool LeerxID(char *id);
+    bool LeerxID(char *id);
     void mostrarxID ();
-     void Modificar();
+    void Modificar();
     void menuModificarProveedor();
     void EliminarProveedor();
 

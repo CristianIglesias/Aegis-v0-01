@@ -88,7 +88,7 @@ void ListarClientes()
 
 void ListarVendedores()
 {
-  Vendedor ven;
+    Vendedor ven;
     int i=0;
     cls();
     cout<<"Listado De Vendedores "<<endl;
@@ -161,7 +161,8 @@ int ValidarFloats(float var)
 {
     if(var>0)
         return 0;
-    else return -4;
+    else
+        return -4;
 }
 
 

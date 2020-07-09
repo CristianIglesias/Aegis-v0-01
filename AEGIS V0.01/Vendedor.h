@@ -14,12 +14,12 @@ public:
     void mostrar();
     int guardar();
     bool leerVendedor(int pos);
-   bool  LeerxID(int id);
-   void  mostrarxID ();
-   void Modificar();
+    bool  LeerxID(int id);
+    void  mostrarxID ();
+    void Modificar();
     void menuModificarVendedor();
-     int  GuardarVendedorEnDisco(int ID);
-      void EliminarVendedor();
+    int  GuardarVendedorEnDisco(int ID);
+    void EliminarVendedor();
 
 
 
