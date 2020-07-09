@@ -5,6 +5,7 @@
 #include "Proveedor.h"
 #include "Vendedor.h"
 #include "PrototiposGlobales.h"
+#include "Ventas.h"
 
 
 ///Prototipos de los Menus.
@@ -37,7 +38,7 @@ void menuPrincipal()
 };
 void menuVentas()
 {
-
+  Venta v;
     int op;
     bool salir=false;
     system("cls");
@@ -64,7 +65,7 @@ void menuVentas()
 
             system("cls");
             cout<<"                   ~NUEVA VENTA~        "<<endl;
-
+                     v.cargar();
 
         }
         break;
@@ -475,19 +476,32 @@ void abmVendedor()
 
         case 2:
         {
-
+                           cout<<"            ~Modificar Vendedor.  ~          "<<endl;
+                           ven.Modificar();
+                           anykey();
         }
         break;
 
         case 3:
         {
-
+  cout<<"            ~ Mostrar Vendedor.  ~          "<<endl;
+  ven.mostrarxID();
+  anykey();
         }
         break;
 
         case 4:
         {
-
+  cout<<"            ~ Mostrar Todos los Vendedores ~          "<<endl;
+           ListarVendedores();
+           anykey();
+        }
+        break;
+        case 5:
+        {
+  cout<<"            ~ Eliminar Vendedor ~          "<<endl;
+  ven.EliminarVendedor();
+  anykey();
         }
         break;
 

@@ -86,6 +86,23 @@ void ListarClientes()
     anykey();
 }
 
+void ListarVendedores()
+{
+  Vendedor ven;
+    int i=0;
+    cls();
+    cout<<"Listado De Vendedores "<<endl;
+    cout<<"--------------------"<<endl;
+    while(ven.LeerxID(i))
+    {
+        ven.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+}
+
 int ValidarEnteros( const char *Telefono)///valida que acepte solo numeros
 {
     int i, TAM;

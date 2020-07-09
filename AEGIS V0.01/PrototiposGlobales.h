@@ -21,7 +21,7 @@ int ValidarTexto(const char *cad );
 
 int ValidarEnteros( const char *Telefono);
 
-int ValidarFloats(float );
+int ValidarFloats(float);
 
 
 
@@ -29,6 +29,7 @@ int ValidarFloats(float );
 void ListarClientes();
 void listarProductos();
 void listarProveedores();
+void ListarVendedores();
 
 
 #endif // PROTOTIPOSGLOBALES_H_INCLUDED

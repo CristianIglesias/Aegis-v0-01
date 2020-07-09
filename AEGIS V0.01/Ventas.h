@@ -11,7 +11,7 @@ public:
 
 protected:
 
-    int numeroventa;
+    int numeroventa;///se genera solo?
     Fecha fechaVenta;
     int TipoPago;
     int TipoFactura;
