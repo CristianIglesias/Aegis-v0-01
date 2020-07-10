@@ -96,14 +96,15 @@
 
 1594314330 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 
-1594329712 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
+1594340471 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
-	"FuncionesGlobales.h"
-	"Ventas.h"
+	"rlutil.h"
+	"PrototiposGlobales.h"
 	"Producto.h"
 	"Proveedor.h"
 	"Vendedor.h"
 	"Clientes.h"
+	"Ventas.h"
 
 1594340471 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
 	"Operacion.h"

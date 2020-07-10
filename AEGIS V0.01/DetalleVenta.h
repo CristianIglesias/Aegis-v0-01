@@ -10,7 +10,7 @@ protected:
     int idventa;
     int idProducto;
     float PrecioUnidad;
-    int Cantidad
+    int   Cantidad;
 };
 ///si queda igual el detalle venta como el detalle compra usar detalle operación
 

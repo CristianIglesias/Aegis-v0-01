@@ -8,9 +8,11 @@ class Venta :public Operacion
 {
 
 public:
-
-
-
+    int SetIdVendedor();
+    int SetIdCliente();
+    int GetIdVendedor();
+    int GetIdCliente();
+    void GenerarVenta();
 protected:
 
     int IdVendedor;

@@ -8,8 +8,38 @@ using namespace rlutil;
 #include "Vendedor.h"
 #include "Clientes.h"
 #include "Ventas.h"
-
+#include "DetalleVenta.h"
 const char *ArchivoVentas ="Ventas.dat";
+
+void Venta:: GenerarVenta()
+{
+        GenerarIdVenta();
+        SetIdVendedor();
+        SetIdCliente();
+        DetalleVenta  Det;
+
+};
+
+int Venta:: SetIdVendedor()
+{
+
+};
+
+int Venta:: SetIdCliente()
+{
+
+};
+
+int Venta:: GetIdVendedor()
+{
+
+};
+
+int Venta:: GetIdCliente()
+
+
+{};
+
 
 
 int GenerarIdVenta()

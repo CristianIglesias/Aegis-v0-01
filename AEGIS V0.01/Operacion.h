@@ -17,7 +17,7 @@ public:
     }
     float setImporteTotal();
 protected:
-    int ID;                  ///se genera solo. Buscando en base a Tipo Operacion
+    int ID;
     Fecha fechaOperacion;
     float ImporteTotal;
     int setFechaActual();
