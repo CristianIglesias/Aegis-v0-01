@@ -4,19 +4,17 @@
 #include "Operacion.h"
 #include "Producto.h"
 #include "PrototiposGlobales.h"
-class venta :public Operacion
+class Venta :public Operacion
 {
 
 public:
 
 
 
-
-
-
 protected:
 
-
+    int IdVendedor;
+    int IdCliente;
 
 
 };

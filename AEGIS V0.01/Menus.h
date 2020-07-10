@@ -61,7 +61,6 @@ void menuVentas()
         {
         case 1:
         {
-            Operacion Venta(Tipo);
             system("cls");
             cout<<"                   ~NUEVA VENTA~        "<<endl;
             ///cargar venta- detalles y eso.

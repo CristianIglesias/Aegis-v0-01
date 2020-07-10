@@ -12,8 +12,8 @@ using namespace rlutil;
 
 Operacion::Operacion()
 {
-    setFechaOp();
-
+    setFechaActual();
+    ImporteTotal=0;
 }
 
 int Operacion:: setFechaActual()
@@ -28,27 +28,5 @@ int Operacion:: setFechaActual()
 
 };
 
-int Operacion:: setLegajoVend()
-{
 
-};
 
-int Operacion:: setIdCliente()
-{
-
-};
-
-int Operacion:: setNumeroOp()
-{
-    switch(TipoOperacion)
-    {
-
-    case 1:GenerarIdVenta();
-        break;
-    case 2:GenerarIdCompra();
-        break;
-    case 3:GenerarIdNotaCred();
-        break;
-    default: cout<<"Error Valor de constante no reconocido. Retornando..."<<endl; return-1;
-    }
-}

@@ -15,7 +15,7 @@ public:
     int  GuardarClienteEnDisco(int POS); ///                ///Sobreescribe Clientes X id
     void Modificar();                  ///  NO ES METODO.
     void menuModificarCliente();       ///  NO ES METODO.
-    void EliminarCliente();            ///  NO ES METODO. ONDA SI, PERO NO ESTÁ BIEN ARMADO. (set estado false, guardar por pos
+    void EliminarCliente();            ///  NO ES METODO. ONDA SI, PERO NO ESTÁ BIEN ARMADO. (set estado false, guardar por pos)
 
     int SetTipoPago();                 ///
     int ValidarTipoPago();             ///

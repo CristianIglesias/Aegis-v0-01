@@ -2,72 +2,32 @@
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
-#include <ctime>
 #include "PrototiposGlobales.h"
-#include "Ventas.h"
 #include "Producto.h"
 #include "Proveedor.h"
 #include "Vendedor.h"
 #include "Clientes.h"
+#include "Ventas.h"
 
 const char *ArchivoVentas ="Ventas.dat";
-const char *ArchivoCompras ="Compras.dat";
-const char *ArchivoNotasCred ="NotasCred.dat";
 
 
-void Operacion ::GenerarIdVenta()
+int GenerarIdVenta()
 {
-    int cantRegistros=0;
+    int id, cantRegistros=0;
     FILE *p;
     p=fopen(ArchivoVentas,"rb");
     if(p==NULL)
     {
-        numeroOperacion=-1;
-        return;
+        return-1;
     }
     fseek(p,SEEK_SET,SEEK_END);
-    cantRegistros=ftell(p)/sizeof(Operacion);
+    cantRegistros=ftell(p)/sizeof(Venta);
 
-    numeroOperacion=cantRegistros+1;
+    id=cantRegistros+1;
     fclose(p);
-    return;
+    return 0;
 };
-
-void Operacion ::GenerarIdCompra()
-{
-    int cantRegistros=0;
-    FILE *p;
-    p=fopen(ArchivoCompras,"rb");
-    if(p==NULL)
-    {
-        numeroOperacion=-1;
-        return;
-    }
-    fseek(p,SEEK_SET,SEEK_END);
-    cantRegistros=ftell(p)/sizeof(Operacion);
-
-    numeroOperacion=cantRegistros+1;
-    fclose(p);
-    return;};
-
-void Operacion ::GenerarIdNotaCred()
-{
-    int cantRegistros=0;
-    FILE *p;
-    p=fopen(ArchivoNotasCred,"rb");
-    if(p==NULL)
-    {
-        numeroOperacion=-1;
-        return;
-    }
-    fseek(p,SEEK_SET,SEEK_END);
-    cantRegistros=ftell(p)/sizeof(Operacion);
-
-    numeroOperacion=cantRegistros+1;
-    fclose(p);
-    return;};
-
-
 
 
 

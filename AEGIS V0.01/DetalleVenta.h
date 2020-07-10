@@ -7,10 +7,10 @@ class DetalleVenta
 public:
 
 protected:
-int idventa;
-int idProducto;
-float PrecioUnidad;
-
+    int idventa;
+    int idProducto;
+    float PrecioUnidad;
+    int Cantidad
 };
 ///si queda igual el detalle venta como el detalle compra usar detalle operación
 

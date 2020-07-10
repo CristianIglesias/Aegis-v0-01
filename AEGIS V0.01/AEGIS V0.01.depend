@@ -26,7 +26,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1594337612 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1594339993 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	"Ventas.h"
 	"Producto.h"
 	"Proveedor.h"
@@ -40,7 +40,7 @@
 	"Clientes.h"
 	"PrototiposGlobales.h"
 
-1594337612 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
+1594340181 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
 1594172746 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
@@ -105,7 +105,7 @@
 	"Vendedor.h"
 	"Clientes.h"
 
-1594339032 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
+1594340471 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
 	"Operacion.h"
 	"Producto.h"
 	"PrototiposGlobales.h"
@@ -300,7 +300,33 @@
 
 1593650762 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
 
-1594338472 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\operacion.h
+1594340154 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\operacion.h
+	"Producto.h"
+	"PrototiposGlobales.h"
+
+1594339847 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\operacion.cpp
+	<iostream>
+	"rlutil.h"
+	<ctime>
+	"PrototiposGlobales.h"
+	"Ventas.h"
+	"Producto.h"
+	"Proveedor.h"
+	"Vendedor.h"
+	"Clientes.h"
+
+1594340154 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\compras.cpp
+	<iostream>
+	"rlutil.h"
+	"PrototiposGlobales.h"
+	"Producto.h"
+	"Proveedor.h"
+	"Vendedor.h"
+	"Operacion.h"
+	"Compras.h"
+
+1594340295 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\compras.h
+	"Operacion.h"
 	"Producto.h"
 	"PrototiposGlobales.h"
 

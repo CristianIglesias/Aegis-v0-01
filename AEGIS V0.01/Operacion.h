@@ -7,15 +7,20 @@ class Operacion
 {
 public:
     Operacion();
-    int setFechaActual();
-   /// void get
-   /// void get
-
+    Fecha getFechaOperacion()
+    {
+        return fechaOperacion;
+    }
+    float getImporteTotal()
+    {
+        return ImporteTotal;
+    }
+    float setImporteTotal();
 protected:
     int ID;                  ///se genera solo. Buscando en base a Tipo Operacion
     Fecha fechaOperacion;
     float ImporteTotal;
-
+    int setFechaActual();
 };
 
 
