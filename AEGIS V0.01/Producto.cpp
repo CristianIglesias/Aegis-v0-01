@@ -83,15 +83,6 @@ int Producto:: buscarcodigo(const char *codigo)
     return 0;
 
 }
-int Producto::validarEntero(int c)
-{
-
-    if(c<=0)
-    {
-
-        return 1;
-    }
-}
 
 int Producto::setCodigoproducto()
 {
@@ -123,7 +114,6 @@ int Producto::setCodigoProveedor()
 {
     cin.ignore();
     int i=0, error=-3;
-    Proveedor p;
     while (error<0)
     {
         cout<<"Ingrese codigo de proveedor: ";
