@@ -55,17 +55,17 @@ void Persona :: Mostrar()
 }
 void Persona :: SetPersona(int *Cambios, Persona Per)///TODO CHEQUEAR SetPersona(Persona Per);
 {
-    if(Cambios[0!=0])
+    if(Cambios[0]!=0)
         this-> setNombre  (Per.getNombre());
-    if(Cambios[1!=0])
+    if(Cambios[1]!=0)
         this-> setApellido(Per.getApellido());
-    if(Cambios[2!=0])
+    if(Cambios[2]!=0)
         this-> setFecha   (Per.GetFechaNac());
-    if(Cambios[3!=0])
+    if(Cambios[3]!=0)
         this-> setTelefono(Per.getTelefono());
-    if(Cambios[4!=0])
+    if(Cambios[4]!=0)
         this-> setEmail   (Per.getEmail());
-    if(Cambios[5!=0])
+    if(Cambios[5]!=0)
         this-> setnDoc    (Per.getDocumento());
 }
 
