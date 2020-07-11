@@ -53,6 +53,16 @@ void Persona :: Mostrar()
     }
 
 }
+void Persona :: SetPersona()///TODO CHEQUEAR SetPersona(Persona Per);
+{
+    this-> setNombre  (Per.getNombre());
+    this-> setApellido(Per.getApellido());
+    this-> setFecha   (Per.GetFechaNac());
+    this-> setTelefono(Per.getTelefono());
+    this-> setEmail   (Per.getEmail());
+    this-> setnDoc    (Per.getDocumento());
+}
+
 
 
 int Persona :: setApellido()
@@ -337,7 +347,7 @@ int Persona :: ValidarFecha(Fecha FechaNac)
 
 Persona MenuModificarPersona()
 {   Persona Per;
-    int op, vec[5]={0} ;
+    int op;
     bool salir=false;
 
     while(!salir)

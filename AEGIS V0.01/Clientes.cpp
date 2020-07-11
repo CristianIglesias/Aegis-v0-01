@@ -70,7 +70,7 @@ void  Cliente:: mostrar()
         cout <<"El Cliente Numero "<<idCliente<<" se llama "<<endl;
         Persona::Mostrar();
         cout<<"Prefiere Tipo de Pago "<<TipodePago;
-        cout<<"Y Tipo de Factura "<<PrefFactura;
+        cout<<" Y Tipo de Factura "<<PrefFactura;
         cout<<endl;
 
         if(GetDeuda()<0)
@@ -449,12 +449,3 @@ float Cliente:: GetDeuda()
 {
     return Deuda;
 };
-void Cliente:: SetPersona(Persona Per)///TODO CHEQUEAR SetPersona(Persona Per);
-{
-    this-> setNombre  (Per.getNombre());
-    this-> setApellido(Per.getApellido());
-    this-> setFecha   (Per.GetFechaNac());
-    this-> setTelefono(Per.getTelefono());
-    this-> setEmail   (Per.getEmail());
-    this-> setnDoc    (Per.getDocumento());
-}
