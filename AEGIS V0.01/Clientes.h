@@ -27,9 +27,9 @@ public:
     int GetTipoFactura();              ///
     float GetDeuda();                  ///
     void SetIdCliente(int id)
-{
-    idCliente=id;
-}
+    {
+        idCliente=id;
+    }
 
 protected:
     int idCliente;
@@ -37,8 +37,8 @@ protected:
     int PrefFactura;
     float Deuda;
 };
-    void ModificarCliente();
-    void menuModificarCliente(Cliente *Cli, int pos);
-    int Generarid();
+void ModificarCliente();
+void menuModificarCliente(Cliente *Cli, int pos);
+int GenerarIdCliente();
 
 #endif // CLIENTES_H_INCLUDED

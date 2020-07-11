@@ -42,11 +42,11 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -4:
-        cout<<"Error Validando, Este campo solo permite Números. Intente Nuevamente."<<endl;
+        cout<<"Error Validando, Este campo solo permite Números Enteros.. Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""-999""."<<endl;
         }
         break;
     case -5:
@@ -54,7 +54,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {
-            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
+            cout<<"Si no podés y querés salir, ingresá ""-999""."<<endl;
         }
         break;
     case -6:
@@ -127,10 +127,6 @@ int ValidarEnteros( const char *Telefono)///valida que acepte solo numeros
         return -1;
 };
 
-
-
-
-
 int ValidarTexto(const char *cad)
 {
     int tam,i=0;
@@ -164,7 +160,15 @@ int ValidarFloats(float var)
     else
         return -4;
 }
-
+int ValidarEntero(int c)
+{
+    if(c==-999)
+        return 1;
+    if(c>0&&c%1==0)
+        return 0;
+    else
+        return -4;
+}
 
 
 

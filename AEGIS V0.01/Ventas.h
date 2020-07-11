@@ -8,11 +8,19 @@ class Venta :public Operacion
 {
 
 public:
+    void Mostrar();
+    void GenerarVenta();
     int SetIdVendedor();
     int SetIdCliente();
-    int GetIdVendedor();
-    int GetIdCliente();
-    void GenerarVenta();
+    int GetIdVendedor()
+    {
+        return IdVendedor;
+    };
+    int GetIdCliente()
+    {
+        return IdCliente;
+    };
+
 protected:
 
     int IdVendedor;

@@ -29,3 +29,6 @@
 *.o
 *.exe
 *.o
+*.exe
+*.depend
+*.o

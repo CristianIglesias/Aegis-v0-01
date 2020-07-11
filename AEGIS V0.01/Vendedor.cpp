@@ -11,19 +11,15 @@ const char *ArchivoVendedor ="Vendedor.dat";
 
 void Vendedor::cargar()
 {
-
-    int error=0;
+    int error=0,Leg;
+    Leg=GenerarIdVendedor();
+    setLegajo(Leg);
+    cout<<"Legajo Vendedor: "<<Leg<<endl;
     Persona::Cargar();
-
     error=setPorcentajeComision();
     if(error==1)
         return;
-
-    error= setVentaDiaria();
-    if(error==1)
-        return;
-
-    error=setLegajo();
+    error= setVentaDiaria();///TODO CHEQUEAR VENTADIARIA.
     if(error==1)
         return;
 
@@ -82,41 +78,12 @@ int Vendedor::setVentaDiaria()
     return error;
 }
 
-int Vendedor::setLegajo()
+int Vendedor::setLegajo(int Leg)///TODO CHEQUEAR SI HACE FALTA BORRAR.
 {
-    cin.ignore();
-
-    int i=0, error=-5;
-    while (error<0)
-    {
-        cout<<"Ingrese el legajo del vendedor : ";
-        cin>>legajo;
-        ///error=ValidarEnteros();
-        if (error!=0)
-        {
-            if (error==1)
-                return error;
-            if(error<0)
-            {
-                i++;
-                error_msj(-4,i);
-                anykey();
-                cls();
-            }
-        }
-    }///cierra while
-    return error;
+    legajo=Leg;
 }
 
-void Vendedor::SetPersona(Persona Per)
-{
-    this-> setNombre  (Per.getNombre());
-    this-> setApellido(Per.getApellido());
-    this-> setFecha   (Per.GetFechaNac());
-    this-> setTelefono(Per.getTelefono());
-    this-> setEmail   (Per.getEmail());
-    this-> setnDoc    (Per.getDocumento());
-}
+
 
 
 int Vendedor::guardar()
@@ -190,22 +157,27 @@ bool Vendedor::leerVendedor(int pos)
 
 }
 
-bool Vendedor:: LeerxID(int id)
+int Vendedor:: LeerxID(int id)
 {
+    if(id==-999)
+        return 1;
     if(id>=1)
     {
         id--;
     }
-    bool leyo=false;
+    int leyo=-1;
     FILE *P;
     P=fopen(ArchivoVendedor,"rb");
     if(P==NULL)
     {
-        return false;
+        return -1;
     }
     fseek(P,sizeof(Vendedor)*id,0);
-    leyo=fread(this,sizeof(Vendedor),1,P)==1;
-    fclose (P);
+    if(fread(this,sizeof(Vendedor),1,P)==1)
+    {
+        leyo=0;
+        fclose (P);
+    }
     return leyo;
 }
 
@@ -241,7 +213,7 @@ void ModificarVendedor()
 
 };
 
-/*void menuModificarVendedor(Vendedor *ven, int pos)
+void menuModificarVendedor(Vendedor *ven, int pos)
 {
     int op,error=-1;
     bool salir=false;
@@ -348,7 +320,7 @@ void ModificarVendedor()
     anykey();
 
 }
-*/
+
 void Vendedor :: EliminarVendedor()
 {
     int Confirmacion, error;
@@ -375,3 +347,17 @@ void Vendedor :: EliminarVendedor()
         }
     }
 };
+int GenerarIdVendedor()
+{
+    int cantRegistros=0;
+    FILE *p;
+    p=fopen(ArchivoVendedor,"rb");
+    if(p==NULL)
+    {
+        return-1;
+    }
+    fseek(p,SEEK_SET,SEEK_END);
+    cantRegistros=ftell(p)/sizeof(Vendedor);
+    fclose(p);
+    return cantRegistros+1;
+}

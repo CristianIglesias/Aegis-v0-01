@@ -38,6 +38,7 @@ void menuPrincipal()
 };
 void menuVentas()
 {
+    Venta V;
     int op;
     bool salir=false;
     system("cls");
@@ -63,7 +64,8 @@ void menuVentas()
         {
             system("cls");
             cout<<"                   ~NUEVA VENTA~        "<<endl;
-            ///cargar venta- detalles y eso.
+            V.GenerarVenta();
+            V.Mostrar();
         }
         break;
         case 2:

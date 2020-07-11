@@ -15,7 +15,10 @@ Operacion::Operacion()
     setFechaActual();
     ImporteTotal=0;
 }
-
+void Operacion::SetID(int id)
+{
+    ID=id;
+}
 int Operacion:: setFechaActual()
 {
     time_t t;
@@ -25,7 +28,6 @@ int Operacion:: setFechaActual()
     fechaOperacion.setAnio (fecha->tm_year+1900);
     fechaOperacion.setDia  (fecha->tm_mday);
     fechaOperacion.setMes  (fecha->tm_mon+1);
-
 };
 
 

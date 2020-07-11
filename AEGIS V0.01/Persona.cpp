@@ -56,17 +56,17 @@ void Persona :: Mostrar()
 void Persona :: SetPersona(int *Cambios, Persona Per)///TODO CHEQUEAR SetPersona(Persona Per);
 {
     if(Cambios[0!=0])
-    this-> setNombre  (Per.getNombre());
+        this-> setNombre  (Per.getNombre());
     if(Cambios[1!=0])
-    this-> setApellido(Per.getApellido());
+        this-> setApellido(Per.getApellido());
     if(Cambios[2!=0])
-    this-> setFecha   (Per.GetFechaNac());
+        this-> setFecha   (Per.GetFechaNac());
     if(Cambios[3!=0])
-    this-> setTelefono(Per.getTelefono());
+        this-> setTelefono(Per.getTelefono());
     if(Cambios[4!=0])
-    this-> setEmail   (Per.getEmail());
+        this-> setEmail   (Per.getEmail());
     if(Cambios[5!=0])
-    this-> setnDoc    (Per.getDocumento());
+        this-> setnDoc    (Per.getDocumento());
 }
 
 
@@ -352,7 +352,8 @@ int Persona :: ValidarFecha(Fecha FechaNac)
 };
 
 Persona MenuModificarPersona(int *Cambios)
-{   Persona Per;
+{
+    Persona Per;
     int op;
     bool salir=false;
 

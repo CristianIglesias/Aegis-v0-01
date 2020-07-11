@@ -42,7 +42,7 @@ int ValidarEnteros( const char *Telefono);
 
 int ValidarFloats(float);
 
-int validarEntero(int c);
+int ValidarEntero(int c);
 
 
 void ListarClientes();

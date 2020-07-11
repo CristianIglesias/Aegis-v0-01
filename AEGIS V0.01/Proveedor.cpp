@@ -279,7 +279,7 @@ void Proveedor :: menuModificarProveedor()
         {
         case 1:
         {
-       ///     MenuModificarPersona();
+            ///     MenuModificarPersona();
             error=guardarProveedor();
             if(error!=0)
             {

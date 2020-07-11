@@ -7,6 +7,7 @@ class Operacion
 {
 public:
     Operacion();
+    void SetID(int id);
     Fecha getFechaOperacion()
     {
         return fechaOperacion;
@@ -16,11 +17,13 @@ public:
         return ImporteTotal;
     }
     float setImporteTotal();
+    int setFechaActual();
+
 protected:
     int ID;
     Fecha fechaOperacion;
     float ImporteTotal;
-    int setFechaActual();
+
 };
 
 

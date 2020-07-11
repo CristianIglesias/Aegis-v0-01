@@ -29,7 +29,7 @@ public:
     void Eliminar();
 
 
-   ///gets;
+    ///gets;
     const char * getCodigoProducto()
     {
         return CodigoProducto;

@@ -14,13 +14,10 @@ public:
     void mostrar();
     int guardar();
     bool leerVendedor(int pos);
-    bool  LeerxID(int id);
+    int  LeerxID(int id);
     void  mostrarxID ();
     int  GuardarVendedorEnDisco(int ID);
     void EliminarVendedor();
-
-
-    void SetPersona(Persona Per);
     float getPorcentajeComision()
     {
         return PorcentajeComision;
@@ -40,8 +37,9 @@ public:
 
 };
 
-  void ModificarVendedor();
-  void menuModificarVendedor(Vendedor *ven,int pos);
+void ModificarVendedor();
+void menuModificarVendedor(Vendedor *ven,int pos);
+int GenerarIdVendedor()
 
 
 #endif // VENDEDOR_H_INCLUDED

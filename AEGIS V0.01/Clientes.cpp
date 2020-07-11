@@ -20,7 +20,7 @@ void  Cliente:: cargar()///Carga Cliente.
     if(Estado==false)
         return;
 
-    idCliente=Generarid();
+    idCliente=GenerarIdCliente();
     if(idCliente<0)
     {
         cout<<"Hubo un error en la generación de ID Cliente, Intente Nuevamente"<<endl;
@@ -87,7 +87,8 @@ void  Cliente:: mostrar()
 };
 
 int Cliente:: LeerxPos(int id)
-{
+{   if(id==-999)
+return 1;
     if(id>=1)
     {
         id--;
@@ -128,7 +129,7 @@ int Cliente:: mostrarxID ()///Muestra Por ID -
     return funco;///Pos.
 }
 
-int Generarid()///
+int GenerarIdCliente()///
 {
     int cantRegistros=0;
     FILE *p;

@@ -10,35 +10,76 @@ using namespace rlutil;
 #include "Ventas.h"
 #include "DetalleVenta.h"
 const char *ArchivoVentas ="Ventas.dat";
+/// A SABER
+/// ERROR=0-TA TODO PIOLA, SIGUE ADELANTE
+/// ERROR=1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI
+/// ERROR<0-SIGUE INTENTANDO, TRANK PALANK
 
 void Venta:: GenerarVenta()
 {
-    GenerarIdVenta();
-    SetIdVendedor();
-    SetIdCliente();
-    DetalleVenta  Det;
+    int error=-1;
+    SetID(GenerarIdVenta());
 
+    error=SetIdVendedor();
+    if(error==1)
+        return;
+    error=SetIdCliente();
+    if(error==1)
+        return;
+    ///error=DetalleVenta  Det;
+    if(error=1)
+        return;
 };
+void Venta:: Mostrar()
+{
+    cout<<"Venta nro : "<<ID<<"."<<endl;
+    cout<<"Fecha de venta : "<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<endl;
+    cout<<"Realizada por el Vendedor nro: "<<IdVendedor;
+    cout<<" al Cliente "<<IdCliente<<endl;
 
+}
 int Venta:: SetIdVendedor()
 {
-
+    Vendedor Vend;
+    int error=-1,i=0;
+    while(error<0)
+    {
+        cout<<"Ingrese el ID del vendedor a cargo de esta venta:"<<endl;
+        cout<<"ID VENDEDOR: ";
+        cin>>IdVendedor;
+        error=Vend.LeerxID(IdVendedor);
+        if(error==1)
+            return 1;
+        if(error==0)
+            return 0;
+        if(error<0)
+            i++;
+        error_msj(-5,i);
+    }///Cierra while;
+    return error;
 };
 
 int Venta:: SetIdCliente()
 {
+    Cliente Cli;
+    int error=-1,i=0;
+    while(error<0)
+    {
+        cout<<"Ingrese el ID del Cliente  que quiere comprar:"<<endl;
+        cout<<"ID Cliente: ";
+        cin>>IdCliente;
 
+        error=Cli.LeerxPos(IdCliente);
+        if(error==1)
+            return 1;
+        if(error==0)
+            return 0;
+        if(error<0)
+            i++;
+        error_msj(-5,i);
+    }///Cierra while;
+    return error;
 };
-
-int Venta:: GetIdVendedor()
-{
-
-};
-
-int Venta:: GetIdCliente()
-
-
-{};
 
 
 

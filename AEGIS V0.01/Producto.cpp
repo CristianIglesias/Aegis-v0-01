@@ -172,7 +172,7 @@ int Producto::setCostoCompra()
     {
         cout<<"Ingrese el costo de compra: ";
         cin>>CostodeCompra;
-        error=validarEntero(getCostodeCompra());
+        error=ValidarFloats(getCostodeCompra());
         if (error!=0)
         {
             if (error==1)
@@ -198,7 +198,7 @@ int Producto::setPorcentajeRentabilidad()
     {
         cout<<"Ingrese el porcentaje de rentabilidad: ";
         cin>>PorcentajeRentabilidad;
-        error=validarEntero(getPorcentajeRentabilidad());
+        error=ValidarFloats(getPorcentajeRentabilidad());
         if (error!=0)
         {
             if (error==1)
@@ -235,7 +235,7 @@ int Producto::setStockMin()
     {
         cout<<"Ingrese el stock minimo: ";
         cin>>StockMin;
-        error=validarEntero(getStockMin());
+        error=ValidarEntero(getStockMin());
         if (error!=0)
         {
             if (error==1)
@@ -261,7 +261,7 @@ int Producto::setStockActual()
     {
         cout<<"Ingrese el stock actual: ";
         cin>>CostodeCompra;
-        error=validarEntero(getStockActual());
+        error=ValidarEntero(getStockActual());
         if (error!=0)
         {
             if (error==1)
