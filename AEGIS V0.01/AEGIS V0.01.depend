@@ -26,7 +26,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1594339993 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1594486158 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	"Ventas.h"
 	"Producto.h"
 	"Proveedor.h"
@@ -40,10 +40,10 @@
 	"Clientes.h"
 	"PrototiposGlobales.h"
 
-1594340181 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
+1594486529 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
-1594172746 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
+1594486195 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
 	"PrototiposGlobales.h"
 
 1594336248 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
@@ -96,7 +96,7 @@
 
 1594314330 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 
-1594340471 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
+1594486529 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
 	"rlutil.h"
 	"PrototiposGlobales.h"
@@ -105,13 +105,14 @@
 	"Vendedor.h"
 	"Clientes.h"
 	"Ventas.h"
+	"DetalleVenta.h"
 
-1594340471 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
+1594344514 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
 	"Operacion.h"
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1594332850 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
+1594486158 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -299,9 +300,18 @@
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1593650762 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
+1594343273 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
+	<iostream>
+	"rlutil.h"
+	"PrototiposGlobales.h"
+	"Producto.h"
+	"Proveedor.h"
+	"Vendedor.h"
+	"Clientes.h"
+	"Ventas.h"
+	"DetalleVenta.h"
 
-1594340154 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\operacion.h
+1594344346 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\operacion.h
 	"Producto.h"
 	"PrototiposGlobales.h"
 
@@ -330,4 +340,6 @@
 	"Operacion.h"
 	"Producto.h"
 	"PrototiposGlobales.h"
+
+1594343256 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.h
 

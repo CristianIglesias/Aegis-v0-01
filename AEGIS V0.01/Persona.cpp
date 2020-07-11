@@ -53,93 +53,6 @@ void Persona :: Mostrar()
     }
 
 }
-void Persona :: MenuModificarPersona()
-{
-    int op;
-    bool salir=false;
-
-    while(!salir)
-    {
-        int error=-1;
-        setColor(GREEN);
-        system("cls");
-        cout<<"              Qué Campo desea Modificar de la Persona?"<<endl;
-        cout<<"                  _________________________________   "<<endl;
-        cout<<"                 |-1-->Nombre.                    -|  "<<endl;
-        cout<<"                 |-2-->Apellido.                  -|  "<<endl;
-        cout<<"                 |-3-->Fecha Nacimiento.          -|  "<<endl;
-        cout<<"                 |-4-->Número Documento.          -|  "<<endl;
-        cout<<"                 |-5-->Número Teléfono.           -|  "<<endl;
-        cout<<"                 |-6-->Email.                     -|  "<<endl;
-        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|  "<<endl;
-        cout<<"                 |-0-->VOLVER                     -|  "<<endl;
-        cout<<"                  -------Ingrese una opcion--------   "<<endl;
-        cin>>op;
-        system("cls");
-
-        switch(op)
-        {
-        case 1:
-        {
-            error= setNombre();
-            if(error==1)
-                return;
-        }
-        break;
-
-        case 2:
-        {
-            error=setApellido();
-            if(error==1)
-                return;
-        }
-        break;
-        case 3:
-        {
-            error=setFecha();
-            if(error==1)
-                return;
-        }
-        break;
-        case 4:
-        {
-            error=setnDoc();
-            if(error==1)
-                return;
-        }
-        break;
-        case 5:
-        {
-            error=setTelefono();
-            if(error==1)
-                return;
-        }
-        break;
-        case 6:
-        {
-            error=setEmail();
-            if (error==1)
-                return;
-        }
-        break;
-        case 0:
-        {
-            system("cls");
-            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
-            salir=true;
-        }
-        break;
-        default:
-        {
-            system("cls");
-            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
-        }
-        break;
-
-        }
-
-    }///cierre de while
-}
 
 
 int Persona :: setApellido()
@@ -422,3 +335,90 @@ int Persona :: ValidarFecha(Fecha FechaNac)
     return-1;
 };
 
+void MenuModificarPersona()
+{
+    int op;
+    bool salir=false;
+
+    while(!salir)
+    {
+        int error=-1;
+        setColor(GREEN);
+        system("cls");
+        cout<<"              Qué Campo desea Modificar de la Persona?"<<endl;
+        cout<<"                  _________________________________   "<<endl;
+        cout<<"                 |-1-->Nombre.                    -|  "<<endl;
+        cout<<"                 |-2-->Apellido.                  -|  "<<endl;
+        cout<<"                 |-3-->Fecha Nacimiento.          -|  "<<endl;
+        cout<<"                 |-4-->Número Documento.          -|  "<<endl;
+        cout<<"                 |-5-->Número Teléfono.           -|  "<<endl;
+        cout<<"                 |-6-->Email.                     -|  "<<endl;
+        cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|  "<<endl;
+        cout<<"                 |-0-->VOLVER                     -|  "<<endl;
+        cout<<"                  -------Ingrese una opcion--------   "<<endl;
+        cin>>op;
+        system("cls");
+
+        switch(op)
+        {
+        case 1:
+        {
+            error= setNombre();
+            if(error==1)
+                return;
+        }
+        break;
+
+        case 2:
+        {
+            error=setApellido();
+            if(error==1)
+                return;
+        }
+        break;
+        case 3:
+        {
+            error=setFecha();
+            if(error==1)
+                return;
+        }
+        break;
+        case 4:
+        {
+            error=setnDoc();
+            if(error==1)
+                return;
+        }
+        break;
+        case 5:
+        {
+            error=setTelefono();
+            if(error==1)
+                return;
+        }
+        break;
+        case 6:
+        {
+            error=setEmail();
+            if (error==1)
+                return;
+        }
+        break;
+        case 0:
+        {
+            system("cls");
+            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+            salir=true;
+        }
+        break;
+        default:
+        {
+            system("cls");
+            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
+        }
+        break;
+
+        }
+
+    }///cierre de while
+}

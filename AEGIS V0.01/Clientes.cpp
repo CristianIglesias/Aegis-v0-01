@@ -86,7 +86,7 @@ void  Cliente:: mostrar()
     }
 };
 
-bool Cliente:: LeerxID(int id)
+int Cliente:: LeerxPos(int id)
 {
     if(id>=1)
     {
@@ -105,9 +105,9 @@ bool Cliente:: LeerxID(int id)
     return leyo;
 }
 
-void Cliente:: mostrarxID ()///Muestra Por ID -
+int Cliente:: mostrarxID ()///Muestra Por ID -
 {
-    bool funco=false;
+    int funco=-1;
     int aux,i=1;
     while(!funco)
     {
@@ -115,8 +115,8 @@ void Cliente:: mostrarxID ()///Muestra Por ID -
         cout<<"Ingrese el ID Del cliente Con el que quiere trabajar,"<<endl;
         cout<<"para que se muestre por pantalla."<<endl;
         cin>>aux;
-        funco=LeerxID(aux);
-        if(funco)
+        funco=LeerxPos(aux);
+        if(funco!=-1)
         {
             mostrar();
         }
@@ -125,22 +125,24 @@ void Cliente:: mostrarxID ()///Muestra Por ID -
             error_msj(-5,i++);
         }
     }
+    return funco;///Pos.
 }
 
-void Cliente::Generarid()///
+void Generarid()///
 {
+    Cliente Cli;
     int cantRegistros=0;
     FILE *p;
     p=fopen(ArchivoClientes,"rb");
     if(p==NULL)
     {
-        idCliente=-1;
+        Cli.SetIdCliente(-1);
         return;
     }
     fseek(p,SEEK_SET,SEEK_END);
     cantRegistros=ftell(p)/sizeof(Cliente);
 
-    idCliente=cantRegistros+1;
+Cli.SetIdCliente(cantRegistros+1);
     fclose(p);
     return;
 }
@@ -184,16 +186,18 @@ int Cliente :: GuardarClienteEnDisco(int ID)///Buscar posición y sobreescribir.
 }
 
 
-void Cliente::Modificar()
+void Modificar()
 {
-    mostrarxID();
+    int pos;
+    Cliente Cli;
+    pos=Cli.mostrarxID();
     anykey();
-    menuModificarCliente();
+    menuModificarCliente(&Cli,pos);
 
 };
 
 
-void Cliente :: menuModificarCliente()
+void menuModificarCliente(Cliente *Cli, int pos)
 {
     int op,error=-1;
     bool salir=false;
@@ -218,8 +222,8 @@ void Cliente :: menuModificarCliente()
         {
         case 1:
         {
-            Persona::MenuModificarPersona();
-            error=GuardarClienteEnDisco(GetidCliente());
+            MenuModificarPersona();
+            error=Cli->GuardarClienteEnDisco(Cli->GetidCliente());///TODO SEGUIR CHEQUEANDO, ESTO ESTÁ HEAVY.
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;

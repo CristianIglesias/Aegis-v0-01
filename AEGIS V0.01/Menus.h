@@ -227,8 +227,7 @@ void abmClientes()
         case 2:
         {
             cout<<"            ~Modificar Cliente ~          "<<endl;
-            Cliente Cli;
-            Cli.Modificar();
+            Modificar();
         }
         break;
         case 3:

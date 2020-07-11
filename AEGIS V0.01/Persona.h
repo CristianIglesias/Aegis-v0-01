@@ -15,7 +15,7 @@ protected:
 public:
     void Cargar();///CARGA PERSONA
     void Mostrar();///MUESTRA PERSONA
-    void MenuModificarPersona();///eso, te permite modificar a la persona.
+
 
     int setNombre();
     int setApellido();
@@ -69,7 +69,7 @@ public:
     };
 };
 
-
+void MenuModificarPersona();///eso, te permite modificar a la persona.
 
 
 

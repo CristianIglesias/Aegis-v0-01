@@ -8,25 +8,28 @@ public:
 
     void cargar();                     ///                ///carga
     void mostrar();                    ///                ///Muestra el que la llama
-    bool LeerxID(int id);              ///   Leer por posición-(solo cambiart nombre)
-    void mostrarxID ();                ///                ///Muestra Por posicion-
-    void Generarid();                  ///  NO ES METODO.
+    int LeerxPos(int id);              ///   Leer por posición-(solo cambiart nombre)
+    int mostrarxID ();                ///                ///Muestra Por posicion-
     int  GuardarClienteEnDisco();      ///                ///Agrega Clientes al final del archivo.
     int  GuardarClienteEnDisco(int POS); ///                ///Sobreescribe Clientes X id
-    void Modificar();                  ///  NO ES METODO.
-    void menuModificarCliente();       ///  NO ES METODO.
+
     void EliminarCliente();            ///  NO ES METODO. ONDA SI, PERO NO ESTÁ BIEN ARMADO. (set estado false, guardar por pos)
 
     int SetTipoPago();                 ///
     int ValidarTipoPago();             ///
     int SetPrefFact();                 ///
     int ValidarPrefFact();             ///
+
+
     void SetDeuda();///
     int GetidCliente();                ///
     int GetTipoPago();                 ///
     int GetTipoFactura();              ///
     float GetDeuda();                  ///
-
+  void SetIdCliente(int id)
+{
+    idCliente=id;
+}
 
 protected:
     int idCliente;
@@ -34,6 +37,8 @@ protected:
     int PrefFactura;
     float Deuda;
 };
-
+    void Modificar();                  ///  NO ES METODO.
+    void menuModificarCliente(Cliente *Cli, int pos);///  NO ES METODO.
+    void Generarid();                  ///  NO ES METODO.
 
 #endif // CLIENTES_H_INCLUDED

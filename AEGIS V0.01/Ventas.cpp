@@ -13,10 +13,10 @@ const char *ArchivoVentas ="Ventas.dat";
 
 void Venta:: GenerarVenta()
 {
-        GenerarIdVenta();
-        SetIdVendedor();
-        SetIdCliente();
-        DetalleVenta  Det;
+    GenerarIdVenta();
+    SetIdVendedor();
+    SetIdCliente();
+    DetalleVenta  Det;
 
 };
 

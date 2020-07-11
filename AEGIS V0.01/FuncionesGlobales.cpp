@@ -76,7 +76,7 @@ void ListarClientes()
     cls();
     cout<<"Listado De Clientes "<<endl;
     cout<<"--------------------"<<endl;
-    while(Cli.LeerxID(i))
+    while(Cli.LeerxPos(i))
     {
         Cli.mostrar();
         cout<<endl;
