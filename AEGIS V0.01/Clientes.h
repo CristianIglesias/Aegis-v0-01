@@ -26,7 +26,7 @@ public:
     int GetTipoPago();                 ///
     int GetTipoFactura();              ///
     float GetDeuda();                  ///
-  void SetIdCliente(int id)
+    void SetIdCliente(int id)
 {
     idCliente=id;
 }

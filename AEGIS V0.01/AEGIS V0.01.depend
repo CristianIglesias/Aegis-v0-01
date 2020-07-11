@@ -26,24 +26,24 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1594494080 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1594499123 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	"Ventas.h"
 	"Producto.h"
 	"Proveedor.h"
 	"Vendedor.h"
 	"PrototiposGlobales.h"
 
-1594494580 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1594500572 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
 	"Clientes.h"
 	"PrototiposGlobales.h"
 
-1594494080 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
+1594500236 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
-1594491302 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
+1594499967 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.h
 	"PrototiposGlobales.h"
 
 1594336248 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
@@ -51,14 +51,14 @@
 1592247705 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1594492242 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
+1594500436 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"
 	"PrototiposGlobales.h"
 	"Persona.h"
 
-1594486656 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.cpp
+1594500597 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -72,7 +72,7 @@
 1594330343 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.h
 	"Persona.h"
 
-1594489431 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
+1594500782 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
 	<iostream>
 	<cstdio>
 	<cstring>
@@ -81,7 +81,8 @@
 	"Vendedor.h"
 	"PrototiposGlobales.h"
 
-1594330343 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
+1594499123 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
+	"Persona.h"
 
 1594336539 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>

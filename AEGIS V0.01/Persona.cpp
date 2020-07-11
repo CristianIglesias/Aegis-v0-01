@@ -53,13 +53,19 @@ void Persona :: Mostrar()
     }
 
 }
-void Persona :: SetPersona()///TODO CHEQUEAR SetPersona(Persona Per);
+void Persona :: SetPersona(int *Cambios, Persona Per)///TODO CHEQUEAR SetPersona(Persona Per);
 {
+    if(Cambios[0!=0])
     this-> setNombre  (Per.getNombre());
+    if(Cambios[1!=0])
     this-> setApellido(Per.getApellido());
+    if(Cambios[2!=0])
     this-> setFecha   (Per.GetFechaNac());
+    if(Cambios[3!=0])
     this-> setTelefono(Per.getTelefono());
+    if(Cambios[4!=0])
     this-> setEmail   (Per.getEmail());
+    if(Cambios[5!=0])
     this-> setnDoc    (Per.getDocumento());
 }
 
@@ -345,7 +351,7 @@ int Persona :: ValidarFecha(Fecha FechaNac)
     return-1;
 };
 
-Persona MenuModificarPersona()
+Persona MenuModificarPersona(int *Cambios)
 {   Persona Per;
     int op;
     bool salir=false;
@@ -376,6 +382,7 @@ Persona MenuModificarPersona()
             error= Per.setNombre();
             if(error==1)
                 return Per;
+            Cambios[op-1]=1;
         }
         break;
 
@@ -384,6 +391,8 @@ Persona MenuModificarPersona()
             error=Per.setApellido();
             if(error==1)
                 return Per;
+            Cambios[op-1]=1;
+
         }
         break;
         case 3:
@@ -391,6 +400,7 @@ Persona MenuModificarPersona()
             error=Per.setFecha();
             if(error==1)
                 return Per;
+            Cambios[op-1]=1;
         }
         break;
         case 4:
@@ -398,6 +408,7 @@ Persona MenuModificarPersona()
             error=Per.setnDoc();
             if(error==1)
                 return Per;
+            Cambios[op-1]=1;
         }
         break;
         case 5:
@@ -405,6 +416,7 @@ Persona MenuModificarPersona()
             error=Per.setTelefono();
             if(error==1)
                 return Per;
+            Cambios[op-1]=1;
         }
         break;
         case 6:
@@ -412,6 +424,7 @@ Persona MenuModificarPersona()
             error=Per.setEmail();
             if (error==1)
                 return Per;
+            Cambios[op-1]=1;
         }
         break;
         case 0:

@@ -15,7 +15,7 @@ protected:
 public:
     void Cargar();///CARGA PERSONA
     void Mostrar();///MUESTRA PERSONA
-    void SetPersona();
+    void SetPersona(int *Cambios, Persona Per);
 
     int setNombre();
     int setApellido();
@@ -85,7 +85,7 @@ public:
     };
 };
 
-Persona MenuModificarPersona();///eso, te permite modificar a la persona.
+Persona MenuModificarPersona(int *Cambios);///eso, te permite modificar a la persona.
 
 
 

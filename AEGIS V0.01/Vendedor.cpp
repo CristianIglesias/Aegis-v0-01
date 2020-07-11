@@ -127,7 +127,7 @@ int Vendedor::guardar()
     {
         return -1;
     }
-    if(fwrite(this,sizeof(Vendedor),1,p)!=1);
+    if(fwrite(this,sizeof(Vendedor),1,p)!=1)
     {
         fclose(p);
         return -1;
@@ -237,11 +237,11 @@ void ModificarVendedor()
     Vendedor ven;
     ven.mostrarxID();
     anykey();
-    menuModificarVendedor(&ven,pos);
+///    menuModificarVendedor(&ven,pos);
 
 };
 
-void menuModificarVendedor(Vendedor *ven, int pos)
+/*void menuModificarVendedor(Vendedor *ven, int pos)
 {
     int op,error=-1;
     bool salir=false;
@@ -267,7 +267,7 @@ void menuModificarVendedor(Vendedor *ven, int pos)
         {
         case 1:
         {
-            aux.MenuModificarPersona();///NO ME TOMA EL MODIFICAR PERSONA.
+            MenuModificarPersona();///NO ME TOMA EL MODIFICAR PERSONA.
             ven->SetPersona(aux);
             error=ven->GuardarVendedorEnDisco(ven->getlegajo());
             if(error!=0)
@@ -348,7 +348,7 @@ void menuModificarVendedor(Vendedor *ven, int pos)
     anykey();
 
 }
-
+*/
 void Vendedor :: EliminarVendedor()
 {
     int Confirmacion, error;

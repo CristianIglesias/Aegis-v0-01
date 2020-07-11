@@ -217,9 +217,9 @@ void menuModificarCliente(Cliente *Cli, int pos)
         switch(op)
         {
         case 1:
-        {
-            aux=MenuModificarPersona();
-            Cli->SetPersona(aux);
+        {   int Cambios[5]={0};
+            aux=MenuModificarPersona(Cambios);
+            Cli->SetPersona(Cambios, aux);
             error=Cli->GuardarClienteEnDisco(Cli->GetidCliente());
             if(error!=0)
             {
