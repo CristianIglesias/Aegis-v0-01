@@ -15,7 +15,7 @@ protected:
 public:
     void Cargar();///CARGA PERSONA
     void Mostrar();///MUESTRA PERSONA
-
+    void SetPersona();
 
     int setNombre();
     int setApellido();

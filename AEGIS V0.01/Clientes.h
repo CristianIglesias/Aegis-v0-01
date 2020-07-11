@@ -14,7 +14,7 @@ public:
     int  GuardarClienteEnDisco(int POS); ///                ///Sobreescribe Clientes X id
 
     void EliminarCliente();            ///  NO ES METODO. ONDA SI, PERO NO ESTÁ BIEN ARMADO. (set estado false, guardar por pos)
-    void SetPersona(Persona Per);
+
     int SetTipoPago();                 ///
     int ValidarTipoPago();             ///
     int SetPrefFact();                 ///
@@ -37,8 +37,8 @@ protected:
     int PrefFactura;
     float Deuda;
 };
-    void ModificarCliente();                  ///  NO ES METODO.
-    void menuModificarCliente(Cliente *Cli, int pos);///  NO ES METODO.
-    int Generarid();                  ///  NO ES METODO.
+    void ModificarCliente();
+    void menuModificarCliente(Cliente *Cli, int pos);
+    int Generarid();
 
 #endif // CLIENTES_H_INCLUDED
