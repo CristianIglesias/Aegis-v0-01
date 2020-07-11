@@ -108,6 +108,17 @@ int Vendedor::setLegajo()
     return error;
 }
 
+void Vendedor::SetPersona(Persona Per)
+{
+    this-> setNombre  (Per.getNombre());
+    this-> setApellido(Per.getApellido());
+    this-> setFecha   (Per.GetFechaNac());
+    this-> setTelefono(Per.getTelefono());
+    this-> setEmail   (Per.getEmail());
+    this-> setnDoc    (Per.getDocumento());
+}
+
+
 int Vendedor::guardar()
 {
     FILE *p;
@@ -220,21 +231,24 @@ void Vendedor:: mostrarxID ()///Muestra Por ID -
     }
 }
 
-void Vendedor::Modificar()
+void ModificarVendedor()
 {
-    mostrarxID();
+    int pos;
+    Vendedor ven;
+    ven.mostrarxID();
     anykey();
-    menuModificarVendedor();
+    menuModificarVendedor(&ven,pos);
 
 };
 
-void Vendedor:: menuModificarVendedor()
+void menuModificarVendedor(Vendedor *ven, int pos)
 {
     int op,error=-1;
     bool salir=false;
 
     while(!salir)
     {
+        Persona aux;
         int error;
         setColor(GREEN);
         system("cls");
@@ -253,8 +267,9 @@ void Vendedor:: menuModificarVendedor()
         {
         case 1:
         {
-            MenuModificarPersona();
-            error=GuardarVendedorEnDisco(getlegajo());
+            aux.MenuModificarPersona();///NO ME TOMA EL MODIFICAR PERSONA.
+            ven->SetPersona(aux);
+            error=ven->GuardarVendedorEnDisco(ven->getlegajo());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
@@ -273,11 +288,11 @@ void Vendedor:: menuModificarVendedor()
 
         case 2:
         {
-            error=setPorcentajeComision();
+            error=ven->setPorcentajeComision();
             if(error==1)
                 return;
             else
-                error=GuardarVendedorEnDisco(getPorcentajeComision());
+                error=ven->GuardarVendedorEnDisco(ven->getPorcentajeComision());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
@@ -294,11 +309,11 @@ void Vendedor:: menuModificarVendedor()
         break;
         case 3:
         {
-            error=setVentaDiaria();
+            error=ven->setVentaDiaria();
             if(error==1)
                 return;
             else
-                error =GuardarVendedorEnDisco(getVentaDiaria());
+                error =ven->GuardarVendedorEnDisco(ven->getVentaDiaria());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;

@@ -473,7 +473,7 @@ void abmVendedor()
         case 2:
         {
             cout<<"            ~Modificar Vendedor.  ~          "<<endl;
-            ven.Modificar();
+            ModificarVendedor();
             anykey();
         }
         break;

@@ -1,7 +1,7 @@
 #ifndef VENDEDOR_H_INCLUDED
 #define VENDEDOR_H_INCLUDED
 #pragma once
-
+#include "Persona.h"
 class Vendedor:public Persona
 {
 protected:
@@ -16,13 +16,11 @@ public:
     bool leerVendedor(int pos);
     bool  LeerxID(int id);
     void  mostrarxID ();
-    void Modificar();
-    void menuModificarVendedor();
     int  GuardarVendedorEnDisco(int ID);
     void EliminarVendedor();
 
 
-
+    void SetPersona(Persona Per);
     float getPorcentajeComision()
     {
         return PorcentajeComision;
@@ -35,16 +33,15 @@ public:
     {
         return  legajo;
     }
-
     int  setPorcentajeComision();
-
     int setVentaDiaria();
-
     int setLegajo();
 
 
 };
 
+  void ModificarVendedor();
+  void menuModificarVendedor(Vendedor *ven,int pos);
 
 
 #endif // VENDEDOR_H_INCLUDED
