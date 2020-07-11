@@ -241,8 +241,8 @@ void Vendedor:: menuModificarVendedor()
         cout<<"                Qué Campo desea Modificar del Vendedor?"<<endl;
         cout<<"                  _________________________________ "<<endl;
         cout<<"                 |-1-->Campos Base.               -|"<<endl;
-        cout<<"                 |-2-->.% Comision            -|"<<endl;
-        cout<<"                 |-3-->.Venta diaria    -|"<<endl;
+        cout<<"                 |-2-->.% Comision                -|"<<endl;
+        cout<<"                 |-3-->.Venta diaria              -|"<<endl;
         cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
         cout<<"                 |-0-->VOLVER                     -|"<<endl;
         cout<<"                  -------Ingrese una opcion-------- "<<endl;
@@ -253,7 +253,7 @@ void Vendedor:: menuModificarVendedor()
         {
         case 1:
         {
-            Persona::MenuModificarPersona();
+            MenuModificarPersona();
             error=GuardarVendedorEnDisco(getlegajo());
             if(error!=0)
             {

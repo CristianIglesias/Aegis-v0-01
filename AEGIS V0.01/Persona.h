@@ -54,13 +54,29 @@ public:
     {
         return FechaNacimiento;
     }
-    void setNombre(char *n)
+    void setNombre(const char *n)
     {
         strcpy(Nombre,n);
     }
-    void setApellido(char *a)
+    void setApellido(const char *a)
     {
         strcpy(Apellido,a);
+    }
+    void  setFecha(Fecha aux)
+    {
+        FechaNacimiento=aux;
+    }
+    void setTelefono(const char * tel)
+    {
+        strcpy(nTelefono,tel);
+    }
+    void setEmail   (const char * email)
+    {
+        strcpy(Mail,email);
+    }
+    void setnDoc    (const char * ndoc)
+    {
+        strcpy(Documento,ndoc);
     }
 
     void setEstado(bool nuevoestado )
@@ -69,7 +85,7 @@ public:
     };
 };
 
-void MenuModificarPersona();///eso, te permite modificar a la persona.
+Persona MenuModificarPersona();///eso, te permite modificar a la persona.
 
 
 

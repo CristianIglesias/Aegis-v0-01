@@ -20,7 +20,7 @@ void  Cliente:: cargar()///Carga Cliente.
     if(Estado==false)
         return;
 
-    Generarid();
+    idCliente=Generarid();
     if(idCliente<0)
     {
         cout<<"Hubo un error en la generación de ID Cliente, Intente Nuevamente"<<endl;
@@ -109,7 +109,7 @@ int Cliente:: mostrarxID ()///Muestra Por ID -
 {
     int funco=-1;
     int aux,i=1;
-    while(!funco)
+    while(funco<0)
     {
 
         cout<<"Ingrese el ID Del cliente Con el que quiere trabajar,"<<endl;
@@ -128,23 +128,19 @@ int Cliente:: mostrarxID ()///Muestra Por ID -
     return funco;///Pos.
 }
 
-void Generarid()///
+int Generarid()///
 {
-    Cliente Cli;
     int cantRegistros=0;
     FILE *p;
     p=fopen(ArchivoClientes,"rb");
     if(p==NULL)
     {
-        Cli.SetIdCliente(-1);
-        return;
+        return-1;
     }
     fseek(p,SEEK_SET,SEEK_END);
     cantRegistros=ftell(p)/sizeof(Cliente);
-
-Cli.SetIdCliente(cantRegistros+1);
     fclose(p);
-    return;
+    return cantRegistros+1;
 }
 
 int Cliente :: GuardarClienteEnDisco()///al final, tranqui para agregar clientes
@@ -186,11 +182,11 @@ int Cliente :: GuardarClienteEnDisco(int ID)///Buscar posición y sobreescribir.
 }
 
 
-void Modificar()
+void ModificarCliente()
 {
     int pos;
     Cliente Cli;
-    pos=Cli.mostrarxID();
+    Cli.mostrarxID();
     anykey();
     menuModificarCliente(&Cli,pos);
 
@@ -203,7 +199,7 @@ void menuModificarCliente(Cliente *Cli, int pos)
     bool salir=false;
 
     while(!salir)
-    {
+    {   Persona aux;
         int error;
         setColor(GREEN);
         system("cls");
@@ -222,8 +218,9 @@ void menuModificarCliente(Cliente *Cli, int pos)
         {
         case 1:
         {
-            MenuModificarPersona();
-            error=Cli->GuardarClienteEnDisco(Cli->GetidCliente());///TODO SEGUIR CHEQUEANDO, ESTO ESTÁ HEAVY.
+            aux=MenuModificarPersona();
+            Cli->SetPersona(aux);
+            error=Cli->GuardarClienteEnDisco(Cli->GetidCliente());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
@@ -242,11 +239,11 @@ void menuModificarCliente(Cliente *Cli, int pos)
 
         case 2:
         {
-            error=SetTipoPago();
+            error=Cli->SetTipoPago();
             if(error==1)
                 return;
             else
-                error=GuardarClienteEnDisco(GetidCliente());
+                error=Cli->GuardarClienteEnDisco(Cli->GetidCliente());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
@@ -263,11 +260,11 @@ void menuModificarCliente(Cliente *Cli, int pos)
         break;
         case 3:
         {
-            error=SetPrefFact();
+            error=Cli->SetPrefFact();
             if(error==1)
                 return;
             else
-                error =GuardarClienteEnDisco(GetidCliente());
+                error =Cli->GuardarClienteEnDisco(Cli->GetidCliente());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
@@ -452,4 +449,12 @@ float Cliente:: GetDeuda()
 {
     return Deuda;
 };
-
+void Cliente:: SetPersona(Persona Per)///TODO CHEQUEAR SetPersona(Persona Per);
+{
+    this-> setNombre  (Per.getNombre());
+    this-> setApellido(Per.getApellido());
+    this-> setFecha   (Per.GetFechaNac());
+    this-> setTelefono(Per.getTelefono());
+    this-> setEmail   (Per.getEmail());
+    this-> setnDoc    (Per.getDocumento());
+}

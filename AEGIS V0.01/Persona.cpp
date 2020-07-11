@@ -108,7 +108,6 @@ int Persona :: setNombre()
 
 };
 
-
 int Persona :: setFecha()
 {
     int error=0,i=0,aux;
@@ -198,6 +197,7 @@ int Persona :: setEmail()
     {
         cout<<"Ingrese Correo Electronico :"<<endl;
         cout<<"EMAIL :";
+        cin.ignore();
         cin.getline(Mail,50);
         error=ValidarMail(Mail);
         if(error==0)
@@ -335,9 +335,9 @@ int Persona :: ValidarFecha(Fecha FechaNac)
     return-1;
 };
 
-void MenuModificarPersona()
-{
-    int op;
+Persona MenuModificarPersona()
+{   Persona Per;
+    int op, vec[5]={0} ;
     bool salir=false;
 
     while(!salir)
@@ -363,45 +363,45 @@ void MenuModificarPersona()
         {
         case 1:
         {
-            error= setNombre();
+            error= Per.setNombre();
             if(error==1)
-                return;
+                return Per;
         }
         break;
 
         case 2:
         {
-            error=setApellido();
+            error=Per.setApellido();
             if(error==1)
-                return;
+                return Per;
         }
         break;
         case 3:
         {
-            error=setFecha();
+            error=Per.setFecha();
             if(error==1)
-                return;
+                return Per;
         }
         break;
         case 4:
         {
-            error=setnDoc();
+            error=Per.setnDoc();
             if(error==1)
-                return;
+                return Per;
         }
         break;
         case 5:
         {
-            error=setTelefono();
+            error=Per.setTelefono();
             if(error==1)
-                return;
+                return Per;
         }
         break;
         case 6:
         {
-            error=setEmail();
+            error=Per.setEmail();
             if (error==1)
-                return;
+                return Per;
         }
         break;
         case 0:
@@ -421,4 +421,5 @@ void MenuModificarPersona()
         }
 
     }///cierre de while
+    return Per;
 }

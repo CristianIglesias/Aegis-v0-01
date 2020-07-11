@@ -38,7 +38,7 @@ void menuPrincipal()
 };
 void menuVentas()
 {
-    int op, Tipo=1;
+    int op;
     bool salir=false;
     system("cls");
 
@@ -70,7 +70,7 @@ void menuVentas()
         {
             system("cls");
             cout<<"                 ~Nota de Crédito~                "<<endl;
-            Tipo=3;
+
             ///
         }
         break;
@@ -227,7 +227,7 @@ void abmClientes()
         case 2:
         {
             cout<<"            ~Modificar Cliente ~          "<<endl;
-            Modificar();
+            ModificarCliente();
         }
         break;
         case 3:
