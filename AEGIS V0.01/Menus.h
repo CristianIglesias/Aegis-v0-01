@@ -8,6 +8,7 @@
 #include "PrototiposGlobales.h"
 
 
+
 ///Prototipos de los Menus.
 
 
@@ -342,7 +343,7 @@ void abmProducto()
         {
             cout<<"                      ~ELIMINAR PRODUCTOS~               "<<endl;
 
-            /// pro.Eliminar();
+            pro.Eliminar();
             anykey();
         }
         break;

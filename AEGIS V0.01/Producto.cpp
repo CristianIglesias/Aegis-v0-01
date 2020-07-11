@@ -557,4 +557,30 @@ void Producto:: mostrarxID()///Muestra Por ID -
     }
 }
 
+void Producto::Eliminar()
+{
+    int codigo,error;
+    mostrarxID();
+    cout<<"PARA ELIMINAR INGRESE EL CODIGO 999"<<endl;
+    cin>>codigo;
+    if(codigo==999)
+    {
+        cout<<"ELIMINADO REGISTRO"<<endl;
+        this->Estado=false;
+        error=guardarProducto();
+         if(error!=0)
+        {
+            cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+        else
+        {
+            cout<<"Cliente Eliminado del Archivo con Exito!"<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+    }
+
+}
 
