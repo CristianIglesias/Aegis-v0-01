@@ -15,7 +15,7 @@ const char *ArchivoProducto ="Producto.dat";
 
 void Producto::cargar()
 {
-    Estado=false;
+    Estado=true;
     int error;
 
     error=setCodigoproducto();
@@ -281,6 +281,8 @@ int Producto::setStockActual()
 
 void Producto::mostrar()
 {
+    if (Estado==true)
+    {
     cout<<"-------------------------------"<<endl;
     cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
     cout<<"NOMBRE:"<<NombreItem<<endl;
@@ -291,6 +293,12 @@ void Producto::mostrar()
     cout<<"STOCK MINIMO:"<<StockMin<<endl;
     cout<<"STOCK ACTUAL:"<<StockActual<<endl;
     cout<<"-------------------------------"<<endl;
+    }
+    else{
+             setColor(RED);
+        cout<<"REGISTRO NO DISPONIBLE"<<endl;
+     setColor(GREEN);
+    }
 }
 
 ///GUARDAR EN DISCO

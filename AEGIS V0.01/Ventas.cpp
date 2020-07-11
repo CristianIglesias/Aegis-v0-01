@@ -81,8 +81,6 @@ int Venta:: SetIdCliente()
     return error;
 };
 
-
-
 int GenerarIdVenta()
 {
     int id, cantRegistros=0;

@@ -82,7 +82,9 @@ void  Cliente:: mostrar()
     }
     else
     {
+        setColor(RED);
         cout<<"El Registro no está disponible."<<endl;
+        setColor(WHITE);
     }
 };
 

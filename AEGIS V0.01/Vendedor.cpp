@@ -209,7 +209,7 @@ void ModificarVendedor()
     Vendedor ven;
     ven.mostrarxID();
     anykey();
-///    menuModificarVendedor(&ven,pos);
+    menuModificarVendedor(&ven,pos);
 
 };
 

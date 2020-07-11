@@ -199,7 +199,6 @@ void listarProveedores()
     cout<<endl;
     while(prov.leerProveedor(i))
     {
-
         prov.mostrar();
         cout<<endl;
         i++;
