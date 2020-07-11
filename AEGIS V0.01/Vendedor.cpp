@@ -215,11 +215,11 @@ void ModificarVendedor()
 
 void menuModificarVendedor(Vendedor *ven, int pos)
 {
-    int op,error=-1;
+    int op,error=-1,Cambios[5]={0};
     bool salir=false;
 
     while(!salir)
-    {
+    { int Cambios[5]={0};
         Persona aux;
         int error;
         setColor(GREEN);
@@ -239,8 +239,8 @@ void menuModificarVendedor(Vendedor *ven, int pos)
         {
         case 1:
         {
-            MenuModificarPersona();///NO ME TOMA EL MODIFICAR PERSONA.
-            ven->SetPersona(aux);
+            MenuModificarPersona(Cambios);
+            ven->SetPersona(Cambios,aux);
             error=ven->GuardarVendedorEnDisco(ven->getlegajo());
             if(error!=0)
             {
