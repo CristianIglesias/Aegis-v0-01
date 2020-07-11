@@ -32,14 +32,12 @@ public:
     }
     int  setPorcentajeComision();
     int setVentaDiaria();
-    int setLegajo();
-
-
+    int setLegajo(int );
 };
 
 void ModificarVendedor();
 void menuModificarVendedor(Vendedor *ven,int pos);
-int GenerarIdVendedor()
+int GenerarIdVendedor();
 
 
 #endif // VENDEDOR_H_INCLUDED
