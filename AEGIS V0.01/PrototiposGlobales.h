@@ -42,6 +42,8 @@ int ValidarEnteros( const char *Telefono);
 
 int ValidarFloats(float);
 
+int validarEntero(int c);
+
 
 void ListarClientes();
 void listarProductos();

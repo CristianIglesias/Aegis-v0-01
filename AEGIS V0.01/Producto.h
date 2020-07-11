@@ -15,22 +15,21 @@ private:
     bool Estado;
 public:
 
+    ///METDOOS;
     void cargar();
     void mostrar();
-    int buscarcodigo(const char *codigo);///funcion para validar ingreso de id igual, arreglar
-
+    int buscarcodigo(const char *codigo);///funcion para validar ingreso de id que no sea igual; arreglar
     int guardarNuevoProducto();///guardar en disco
     int guardarProducto();
     int ObtenerPosicionProducto(char *codigo);
     bool leerProductos(int pos);///leer en disco
     void modificar_producto();
-    int validarEntero(int c);
     bool  LeerxID(char *id);
     void mostrarxID ();
     void Eliminar();
 
 
-
+   ///gets;
     const char * getCodigoProducto()
     {
         return CodigoProducto;
@@ -63,32 +62,14 @@ public:
     {
         return StockActual;
     }
-
-
-    ///sets de producto;
-
-
-
+    ///sets;
     int setCodigoproducto();
-
     int setCodigoProveedor();
-
-
     int setNombreItem();
-
-
     int setCostoCompra();
-
-
     int setPorcentajeRentabilidad();
-
-
     int setPrecioVenta(float costo, int porcentaje);
-
-
     int setStockMin();
-
-
     int setStockActual();
 
 };
