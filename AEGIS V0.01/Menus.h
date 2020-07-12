@@ -397,7 +397,7 @@ void abmProveedor()
         case 2:
         {
             cout<<"            ~ Modificar Proveedor ~          "<<endl;
-            prove.Modificar();
+            ModificarProveedor();
             anykey();
 
         }
