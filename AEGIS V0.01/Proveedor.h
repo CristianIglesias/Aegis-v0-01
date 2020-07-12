@@ -14,14 +14,14 @@ public:
     void cargar();
     void mostrar();
     int guardarProveedor();
+     int GuardarProveedorEnDisco(int ID);
     bool leerProveedor(int pos);
-    int buscarcodigoproveedor(const char *codigo);
+    int buscarcodigoproveedor(char *codigo);
     int validarFloat(float c);
     bool LeerxID(char *id);
     void mostrarxID ();
-    void Modificar();
-    void menuModificarProveedor();
     void EliminarProveedor();
+
 
     float getPorcentajeRentabiliad()
     {
@@ -43,7 +43,8 @@ public:
     int setCodigoProveedor();
 
 };
-
+    void ModificarProveedor();
+    void menuModificarProveedor(Proveedor *pro, int pos);
 
 
 #endif // PROVEEDOR_H_INCLUDED

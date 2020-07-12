@@ -11,7 +11,7 @@ using namespace std;
 using namespace rlutil;
 const char *ArchivoProveedor ="Proveedor.dat";
 
-int Proveedor::buscarcodigoproveedor(const char *codigo)
+int Proveedor::buscarcodigoproveedor(char *codigo)
 {
     Proveedor aux;
     FILE *p;
@@ -126,7 +126,7 @@ int Proveedor::setCodigoProveedor()
     {
         cout<<"Ingrese el codigo de proveedor: ";
         gets(CodigoProveedor);
-        error=buscarcodigoproveedor(this->getCodigoProveedor());
+        ///error=buscarcodigoproveedor(this->getCodigoProveedor());
         if (error!=0)
         {
             if (error==1)
@@ -163,6 +163,28 @@ int Proveedor::guardarProveedor()
     fclose(p);
     return 0;
 
+}
+
+int Proveedor :: GuardarProveedorEnDisco(int ID)///Buscar posición y sobreescribir.
+{
+    FILE *P;
+    if(ID>1)
+    {
+        ID--;
+    }
+    P=fopen(ArchivoProveedor,"rb+");
+    if(P==NULL)
+    {
+        return -1;
+    }
+    fseek(P,sizeof(Proveedor)*ID,SEEK_SET);
+    if(fwrite(this,sizeof(Proveedor),1,P)==1)
+    {
+        fclose (P);
+        return 0;
+    }
+    fclose(P);
+    return -1;
 }
 void Proveedor::mostrar()
 {
@@ -255,29 +277,32 @@ void Proveedor:: mostrarxID ()///Muestra Por ID -
     }
 }
 
-void Proveedor::Modificar()
+void ModificarProveedor()
 {
-    mostrarxID();
+    int pos;
+    Proveedor pro;
+    pro.mostrarxID();
     anykey();
-    menuModificarProveedor();
+    menuModificarProveedor(&pro,pos);
 
 };
 
-void Proveedor :: menuModificarProveedor()
+void menuModificarProveedor(Proveedor *prov, int pos)
 {
-    int op,error=-1;
+    int op,error=-1,Cambios[5]={0};
     bool salir=false;
 
     while(!salir)
-    {
+    { int Cambios[5]={0};
+        Persona aux;
         int error;
         setColor(GREEN);
         system("cls");
         cout<<"                Qué Campo desea Modificar del Proveedor?"<<endl;
         cout<<"                  _________________________________ "<<endl;
         cout<<"                 |-1-->Campos Base.               -|"<<endl;
-        cout<<"                 |-2-->Tipo De Pago.              -|"<<endl;
-        cout<<"                 |-3-->Preferencia de Factura.    -|"<<endl;
+        cout<<"                 |-2-->.% Rentabilidad                -|"<<endl;
+        cout<<"                 |-3-->.Estado de cuenta              -|"<<endl;
         cout<<"                 |-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-|"<<endl;
         cout<<"                 |-0-->VOLVER                     -|"<<endl;
         cout<<"                  -------Ingrese una opcion-------- "<<endl;
@@ -288,8 +313,9 @@ void Proveedor :: menuModificarProveedor()
         {
         case 1:
         {
-            ///     MenuModificarPersona();
-            error=guardarProveedor();
+            MenuModificarPersona(Cambios);
+            prov->SetPersona(Cambios,aux);
+           /// error=prov->GuardarProveedorEnDisco(prov->getCodigoProveedor());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Proveedor en el Archivo."<<endl;
@@ -308,20 +334,20 @@ void Proveedor :: menuModificarProveedor()
 
         case 2:
         {
-            error=setPorcentajeRentabiliad();
+            error=prov->setPorcentajeRentabiliad();
             if(error==1)
                 return;
             else
-                error=guardarProveedor();
+                error=prov->GuardarProveedorEnDisco(prov->getPorcentajeRentabiliad());
             if(error!=0)
             {
-                cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+                cout<<"Hubo un error Guardando el Proveedor en el Archivo."<<endl;
                 cout<<"Ingrese cualquier tecla para continuar"<<endl;
                 anykey();
             }
             else
             {
-                cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Proveedor Guardado en el Archivo con Exito!"<<endl;
                 cout<<"Ingrese cualquier tecla para continuar"<<endl;
                 anykey();
             }
@@ -329,20 +355,20 @@ void Proveedor :: menuModificarProveedor()
         break;
         case 3:
         {
-            error=setEstadoCuenta();
+            error=prov->setEstadoCuenta();
             if(error==1)
                 return;
             else
-                error=guardarProveedor();
+                error =prov->GuardarProveedorEnDisco(prov->getEstadoCuenta());
             if(error!=0)
             {
-                cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+                cout<<"Hubo un error Guardando el Proveedor en el Archivo."<<endl;
                 cout<<"Ingrese cualquier tecla para continuar"<<endl;
                 anykey();
             }
             else
             {
-                cout<<"Cliente Guardado en el Archivo con Exito!"<<endl;
+                cout<<"Proveedor Guardado en el Archivo con Exito!"<<endl;
                 cout<<"Ingrese cualquier tecla para continuar"<<endl;
                 anykey();
             }
