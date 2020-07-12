@@ -215,11 +215,12 @@ void ModificarVendedor()
 
 void menuModificarVendedor(Vendedor *ven, int pos)
 {
-    int op,error=-1,Cambios[5]={0};
+    int op,error=-1,Cambios[5]= {0};
     bool salir=false;
 
     while(!salir)
-    { int Cambios[5]={0};
+    {
+        int Cambios[5]= {0};
         Persona aux;
         int error;
         setColor(GREEN);
