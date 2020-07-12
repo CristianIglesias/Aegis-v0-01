@@ -32,9 +32,7 @@ void  Cliente:: cargar()///Carga Cliente.
     {
         if(error==1)
         {
-            cout<<"Operación Cancelada."<<endl;
-            cout<<"Ingrese cualquier tecla para continuar"<<endl;
-            anykey();
+            error_msj(error,i);
         }
     }
     error=SetPrefFact();
@@ -42,9 +40,7 @@ void  Cliente:: cargar()///Carga Cliente.
     {
         if(error==1)
         {
-            cout<<"Operación Cancelada."<<endl;
-            cout<<"Ingrese cualquier tecla para continuar"<<endl;
-            anykey();
+            error_msj(error,i);
         }
     }
     Deuda=0;

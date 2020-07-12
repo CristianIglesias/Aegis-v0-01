@@ -17,6 +17,15 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
 {
     switch(cod)
     {
+
+
+    case 1:
+        cout<<"Salida Voluntaria!."<<endl;
+        cout<<"Operacion Cancelada. Presione cualquier Tecla para continuar."<<endl;
+        anykey();
+        return
+        break;
+
     case -1:
         cout<<"Error Validando, Este Campo SOLO permite Letras, Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
@@ -103,7 +112,7 @@ void ListarVendedores()
     anykey();
 }
 
-int ValidarEnteros( const char *Telefono)///valida que acepte solo numeros
+int ValidarEnteros( const char *Telefono)///valida cadenas de enteros
 {
     int i, TAM;
     bool flag=true;
