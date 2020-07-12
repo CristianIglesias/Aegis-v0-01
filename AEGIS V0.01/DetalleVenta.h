@@ -7,7 +7,7 @@ class DetalleVenta
 public:
     int CargarDetalle(Venta *obj);
     int setIdProducto();
-
+    int setCantidad();
 
 
 

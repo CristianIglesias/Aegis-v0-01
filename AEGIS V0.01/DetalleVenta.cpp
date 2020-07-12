@@ -44,5 +44,8 @@ int DetalleVenta::setIdProducto()
 int DetalleVenta :: setCantidad()
 {
     int cantidad;
-    cout<<"
+    cout<<"Ingrese la Cantidad de Unidades del Producto que va a Comprar"<<endl;
+    cin>>cantidad;
+    ValidarEntero(cantidad);
+
 };

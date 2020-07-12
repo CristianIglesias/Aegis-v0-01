@@ -19,7 +19,6 @@ void Venta:: GenerarVenta()
 {
     int error=-1;
     SetID(GenerarIdVenta());
-
     error=SetIdVendedor();
     if(error==1)
         return;
@@ -29,7 +28,7 @@ void Venta:: GenerarVenta()
     DetalleVenta Det;
     while(Det.CargarDetalle(this)==0)
     {
-        setImporteTotal(Det.getImporteTotal)
+    setImporteTotal(Det.getImporteTotal)
     }
 
 };
@@ -50,7 +49,7 @@ int Venta:: SetIdVendedor()
         cout<<"Ingrese el ID del vendedor a cargo de esta venta:"<<endl;
         cout<<"ID VENDEDOR: ";
         cin>>IdVendedor;
-        error=Vend.LeerxID(IdVendedor);
+        error=Vend.LeerxID(getIdVendedor());
         if(error==1)
             return 1;
         if(error==0)
@@ -71,8 +70,7 @@ int Venta:: SetIdCliente()
         cout<<"Ingrese el ID del Cliente  que quiere comprar:"<<endl;
         cout<<"ID Cliente: ";
         cin>>IdCliente;
-
-        error=Cli.LeerxPos(IdCliente);
+        error=Cli.LeerxPos(getIdCliente());
         if(error==1)
             return 1;
         if(error==0)

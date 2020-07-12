@@ -12,15 +12,15 @@ public:
     void GenerarVenta();
     int SetIdVendedor();
     int SetIdCliente();
-    int GetIdVendedor()
+    int getIdVendedor()
     {
         return IdVendedor;
     };
-    int GetIdCliente()
+    int getIdCliente()
     {
         return IdCliente;
     };
-    setImporteTotal(float ImporteDetalle);
+    void setImporteTotal(float ImporteDetalle);
 protected:
 
     int IdVendedor;
