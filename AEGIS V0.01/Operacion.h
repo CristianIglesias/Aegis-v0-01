@@ -18,7 +18,10 @@ public:
     }
     float setImporteTotal();
     int setFechaActual();
-
+    int getID()
+    {
+        return ID;
+    };
 protected:
     int ID;
     Fecha fechaOperacion;

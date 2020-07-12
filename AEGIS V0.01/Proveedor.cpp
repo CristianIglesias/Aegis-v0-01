@@ -168,16 +168,17 @@ void Proveedor::mostrar()
 {
     if(Estado==true)
     {
-          Persona::Mostrar();
-    cout<<"CODIGO: " <<CodigoProveedor<<endl;
-    cout<<"ESTADO DE CUENTA: "<<EstadoCuenta<<endl;
-    cout<<"% RENTABILIDAD: "<< PorcentajeRentabilidad<<endl;
+        Persona::Mostrar();
+        cout<<"CODIGO: " <<CodigoProveedor<<endl;
+        cout<<"ESTADO DE CUENTA: "<<EstadoCuenta<<endl;
+        cout<<"% RENTABILIDAD: "<< PorcentajeRentabilidad<<endl;
     }
-  else{
-    setColor(RED);
-    cout<<"REGISTRO NO DISPONIBLE"<<endl;
-    setColor(GREEN);
-  }
+    else
+    {
+        setColor(RED);
+        cout<<"REGISTRO NO DISPONIBLE"<<endl;
+        setColor(GREEN);
+    }
 }
 
 bool Proveedor::leerProveedor(int pos)

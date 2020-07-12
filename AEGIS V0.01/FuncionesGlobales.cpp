@@ -23,7 +23,6 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         cout<<"Salida Voluntaria!."<<endl;
         cout<<"Operacion Cancelada. Presione cualquier Tecla para continuar."<<endl;
         anykey();
-        return
         break;
 
     case -1:
@@ -51,7 +50,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -4:
-        cout<<"Error Validando, Este campo solo permite Números Enteros.. Intente Nuevamente."<<endl;
+        cout<<"Error Validando, Este campo solo permite Números Enteros. Intente Nuevamente."<<endl;
         cout<<"Intento Numero "<<i<<"."<<endl;
         if(i>3)
         {

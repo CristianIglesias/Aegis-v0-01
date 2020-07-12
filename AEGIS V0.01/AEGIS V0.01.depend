@@ -33,7 +33,7 @@
 	"Vendedor.h"
 	"PrototiposGlobales.h"
 
-1594505408 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1594580735 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
@@ -51,14 +51,14 @@
 1592247705 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1594505664 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
+1594509194 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\persona.cpp
 	<iostream>
 	<cstring>
 	"rlutil.h"
 	"PrototiposGlobales.h"
 	"Persona.h"
 
-1594505664 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.cpp
+1594580736 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -72,7 +72,7 @@
 1594330343 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.h
 	"Persona.h"
 
-1594507922 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
+1594580736 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
 	<iostream>
 	<cstdio>
 	<cstring>
@@ -84,7 +84,7 @@
 1594507814 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
 	"Persona.h"
 
-1594508076 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1594580736 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -108,12 +108,12 @@
 	"Ventas.h"
 	"DetalleVenta.h"
 
-1594503172 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
+1594581175 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
 	"Operacion.h"
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1594505663 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
+1594580585 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -312,7 +312,7 @@
 	"Ventas.h"
 	"DetalleVenta.h"
 
-1594503172 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\operacion.h
+1594580736 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\operacion.h
 	"Producto.h"
 	"PrototiposGlobales.h"
 

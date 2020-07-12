@@ -30,17 +30,14 @@ void  Cliente:: cargar()///Carga Cliente.
     error = SetTipoPago();
     if(error!=0)
     {
-        if(error==1)
-        {
-            error_msj(error,i);
-        }
+        return;
     }
     error=SetPrefFact();
     if (error!=0)
     {
         if(error==1)
         {
-            error_msj(error,i);
+            return;
         }
     }
     Deuda=0;
@@ -85,8 +82,9 @@ void  Cliente:: mostrar()
 };
 
 int Cliente:: LeerxPos(int id)
-{   if(id==-999)
-return 1;
+{
+    if(id==-999)
+        return 1;
     if(id>=1)
     {
         id--;
@@ -198,7 +196,8 @@ void menuModificarCliente(Cliente *Cli, int pos)
     bool salir=false;
 
     while(!salir)
-    {   Persona aux;
+    {
+        Persona aux;
         int error;
         setColor(GREEN);
         system("cls");
@@ -216,7 +215,8 @@ void menuModificarCliente(Cliente *Cli, int pos)
         switch(op)
         {
         case 1:
-        {   int Cambios[5]={0};
+        {
+            int Cambios[5]= {0};
             aux=MenuModificarPersona(Cambios);
             Cli->SetPersona(Cambios, aux);
             error=Cli->GuardarClienteEnDisco(Cli->GetidCliente());
@@ -338,17 +338,13 @@ int Cliente:: SetTipoPago()
         error=ValidarTipoPago();
         if(error==1)
         {
-            return error;
+            error_msj(error,i);
         }
         if(error<0)
         {
             i++;
-            cout<<"Error Validando Tipo Pago.  -Nro "<<error<<" Intente Nuevamente."<<endl;
-            cout<<"Intento Numero "<<i<<"/3"<<endl;
-            if(i>=3)
-            {
-                cout<<"Si querés salir, cancelando la carga ingresá 99"<<endl;
-            }
+            error_msj(-4,i);
+
         }
     }///Cierra el While
     return error;
@@ -362,7 +358,7 @@ int Cliente :: ValidarTipoPago()
         error=0;
         return error;
     }
-    if(TipodePago==99)///Salida Voluntaria
+    if(TipodePago==-999)///Salida Voluntaria
     {
         error=1;
         return error;
@@ -394,12 +390,8 @@ int Cliente :: SetPrefFact()
     if(error<0)
     {
         i++;
-        cout<<"Error Validando Tipo Pago.  -Nro "<<error<<" Intente Nuevamente."<<endl;
-        cout<<"Intento Numero "<<i<<"/3"<<endl;
-        if(i>=3)
-        {
-            cout<<"Si querés salir, cancelando la carga ingresá 99"<<endl;
-        }
+        error_msj(-4,i);
+
     }
 };
 

@@ -26,9 +26,12 @@ void Venta:: GenerarVenta()
     error=SetIdCliente();
     if(error==1)
         return;
-    ///error=DetalleVenta  Det;
-    if(error=1)
-        return;
+    DetalleVenta Det;
+    while(Det.CargarDetalle(this)==0)
+    {
+        setImporteTotal(Det.getImporteTotal)
+    }
+
 };
 void Venta:: Mostrar()
 {
@@ -97,8 +100,10 @@ int GenerarIdVenta()
     fclose(p);
     return 0;
 };
-
-
+int Venta :: setImporteTotal(float ImporteDetalle)
+{
+     ImporteTotal+=ImporteDetalle;
+}
 
 
 

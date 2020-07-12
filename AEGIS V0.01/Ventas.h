@@ -20,7 +20,7 @@ public:
     {
         return IdCliente;
     };
-
+    setImporteTotal(float ImporteDetalle);
 protected:
 
     int IdVendedor;

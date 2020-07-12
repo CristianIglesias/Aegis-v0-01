@@ -283,21 +283,22 @@ void Producto::mostrar()
 {
     if (Estado==true)
     {
-    cout<<"-------------------------------"<<endl;
-    cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
-    cout<<"NOMBRE:"<<NombreItem<<endl;
-    cout<<"CODIGO PROVEEDOR:"<<CodigoProveedor<<endl;
-    cout<<"COSTO:"<<CostodeCompra<<endl;
-    cout<<"% RENTABILIDAD:"<<PorcentajeRentabilidad<<endl;
-    cout<<"PRECIO VENTA:"<<PreciodeVenta<<endl;
-    cout<<"STOCK MINIMO:"<<StockMin<<endl;
-    cout<<"STOCK ACTUAL:"<<StockActual<<endl;
-    cout<<"-------------------------------"<<endl;
+        cout<<"-------------------------------"<<endl;
+        cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
+        cout<<"NOMBRE:"<<NombreItem<<endl;
+        cout<<"CODIGO PROVEEDOR:"<<CodigoProveedor<<endl;
+        cout<<"COSTO:"<<CostodeCompra<<endl;
+        cout<<"% RENTABILIDAD:"<<PorcentajeRentabilidad<<endl;
+        cout<<"PRECIO VENTA:"<<PreciodeVenta<<endl;
+        cout<<"STOCK MINIMO:"<<StockMin<<endl;
+        cout<<"STOCK ACTUAL:"<<StockActual<<endl;
+        cout<<"-------------------------------"<<endl;
     }
-    else{
-             setColor(RED);
+    else
+    {
+        setColor(RED);
         cout<<"REGISTRO NO DISPONIBLE"<<endl;
-     setColor(GREEN);
+        setColor(GREEN);
     }
 }
 
@@ -576,7 +577,7 @@ void Producto::Eliminar()
         cout<<"ELIMINADO REGISTRO"<<endl;
         this->Estado=false;
         error=guardarProducto();
-         if(error!=0)
+        if(error!=0)
         {
             cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
             cout<<"Ingrese cualquier tecla para continuar"<<endl;
