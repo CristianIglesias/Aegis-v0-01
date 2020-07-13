@@ -175,7 +175,7 @@ void listarProductos()
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
     cout<< left;
     cout<<setw(3)<<"CODIGO-"<<" ";
-    cout<<setw(4)<<"NOMBRE-"<<"  ";
+    cout<<setw(10)<<"NOMBRE-"<<"  ";
     cout<<setw(3)<<"PROVEEDOR-"<<"  ";
     cout<<setw(5)<<"COSTO-"<<"  ";
     cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";

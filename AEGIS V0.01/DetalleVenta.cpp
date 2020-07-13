@@ -34,6 +34,7 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
         cout<<"Desea agregar mas items a la venta? "<<endl;
         cout<<"SI :1             NO:0"<<endl;
             cin>>op;
+            cls();
             switch(op)
             {
             case 1:
@@ -41,6 +42,7 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
                 break;
             case 0:
                 error=-2;
+                return error;
                 break;
             }
     }
