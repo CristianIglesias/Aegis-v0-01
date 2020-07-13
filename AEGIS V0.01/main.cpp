@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 using namespace std;
 #include <cstdlib>
 #include <cstdio>
@@ -14,16 +15,38 @@ using namespace rlutil;
 
 int main()
 {
+    int x;
+
     setlocale(LC_ALL,"spanish");
+for(x=1;x<118;x++)
+    {
+        gotoxy(x,1);cout<<"="<<endl;
+    }
     int op=-1;
     while(op!=0)
 
     {
-        system("cls");
-        cout<<"                            *********                        "<<endl;
-        cout<<"                             *AEGIS*                         "<<endl;
-        cout<<"                            *********                        "<<endl;
-        cout<<"-->Presione la tecla enter para ingresar al menu de Principal"<<endl;
+
+        setColor(YELLOW);
+        cout<<endl;
+        cout<<endl;
+cout<<"                                       _______  _______  _______  ___   _______      "<<endl;
+cout<<"                                      |   _   ||       ||       ||   | |       |                   "<<endl;
+cout<<"                                      |  |_|  ||    ___||    ___||   | |  _____|           "<<endl;
+cout<<"                                      |       ||   |___ |   | __ |   | | |_____              "<<endl;
+cout<<"                                      |       ||    ___||   ||  ||   | |_____  |              "<<endl;
+cout<<"                                      |   _   ||   |___ |   |_| ||   |  _____| |             "<<endl;
+cout<<"                                      |__| |__||_______||_______||___| |_______|  "<<endl;
+cout<<"                                      -------------------------------------------"<<endl;
+setColor(LIGHTMAGENTA);
+cout<<"                                       --PROGRAMA DE GESTION DE LOCAL DE ROPA--"<<endl;
+setColor(YELLOW);
+cout<<"                                      -------------------------------------------"<<endl;
+
+
+
+        cout<<"                           -->Presione la tecla enter para ingresar al menu de Principal"<<endl;
+
         cin.get();
         cls();
         menuPrincipal();
@@ -69,7 +92,7 @@ int main()
         break;
         case 0:
         {
-            cout<<"  SESION FINALIZADA."<<endl;
+            cout<<"                                         FIN DE LA SESION, HASTA LUEGO!."<<endl;
 
 
         }

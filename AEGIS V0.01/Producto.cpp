@@ -8,6 +8,7 @@ using namespace std;
 #include "Proveedor.h"
 #include "PrototiposGlobales.h"
 #include "rlutil.h"
+#include <iomanip>
 using namespace rlutil;
 const char *ArchivoProducto ="Producto.dat";
 
@@ -283,21 +284,29 @@ void Producto::mostrar()
 {
     if (Estado==true)
     {
-        cout<<"-------------------------------"<<endl;
-        cout<<"CODIGO DE PRODUCTO:"<<CodigoProducto<<endl;
-        cout<<"NOMBRE:"<<NombreItem<<endl;
-        cout<<"CODIGO PROVEEDOR:"<<CodigoProveedor<<endl;
-        cout<<"COSTO:"<<CostodeCompra<<endl;
-        cout<<"% RENTABILIDAD:"<<PorcentajeRentabilidad<<endl;
-        cout<<"PRECIO VENTA:"<<PreciodeVenta<<endl;
-        cout<<"STOCK MINIMO:"<<StockMin<<endl;
-        cout<<"STOCK ACTUAL:"<<StockActual<<endl;
-        cout<<"-------------------------------"<<endl;
+
+        cout<< left;
+        cout<< setw(3)<<CodigoProducto<<"\t";
+        cout << right;
+        cout<< setw(4)<<NombreItem<<"\t   ";
+        cout<< left;
+        cout<<setw(3)<<CodigoProveedor<<"\t     ";
+
+        cout<<setw(5)<<CostodeCompra<<"\t    ";
+
+        cout<<setw(5)<<PorcentajeRentabilidad<<"\t";
+
+        cout<<setw(5)<<PreciodeVenta<<"\t    ";
+
+        cout<<setw(5)<<StockMin<<"\t     ";
+
+        cout<<setw(5)<<StockActual<<"\t"<<endl;
+        cout<<"------------------------------------------------------------------------------------------------"<<endl;
     }
     else
     {
         setColor(RED);
-        cout<<"REGISTRO NO DISPONIBLE"<<endl;
+        cout<<"REGISTRO NO DISPONIBLE ------------------------------------------------------------------------"<<endl;
         setColor(GREEN);
     }
 }
@@ -376,7 +385,7 @@ bool Producto::leerProductos(int pos)///TODO REPARAR BUSQUEDA -
 
         return false;
     }
-    if(pos!=0)
+    if(pos>=1)
     {
         fseek(p,pos * sizeof(Producto),0);
         leyo=fread(this,sizeof(Producto),1,p);
@@ -554,7 +563,19 @@ void Producto:: mostrarxID()///Muestra Por ID -
         gets (aux);
         funco=LeerxID(aux);
         if(funco)
-        {
+        {cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
+      cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+      cout<< left;
+        cout<<setw(3)<<"CODIGO-"<<" ";
+        cout<<setw(4)<<"NOMBRE-"<<"  ";
+        cout<<setw(3)<<"PROVEEDOR-"<<"  ";
+        cout<<setw(5)<<"COSTO-"<<"  ";
+        cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
+        cout<<setw(5)<<"$ VENTA-"<<"  ";
+        cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
+        cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
+        cout<<"--------------------------------------------------------------------------------------------------"<<endl;
             mostrar();
         }
         else
