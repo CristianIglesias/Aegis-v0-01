@@ -5,6 +5,7 @@
 class DetalleVenta
 {
 public:
+
     int CargarDetalle(Venta *obj);
     int setIdProducto();
     int setCantidad();
@@ -54,7 +55,7 @@ protected:
 ///si queda igual el detalle venta como el detalle compra usar detalle operación
 
 
-int GuardarDetalle();
+int GuardarDetalle(DetalleVenta *Obj);
 int AgregaraVenta(Venta Obj);///Agrega un detalle a una venta, el tema es definir las "reglas" de como va a funcionar esto."
 
 

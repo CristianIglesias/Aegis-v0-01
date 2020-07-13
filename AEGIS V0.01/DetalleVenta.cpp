@@ -9,17 +9,41 @@ using namespace rlutil;
 #include "Clientes.h"
 #include "Ventas.h"
 #include "DetalleVenta.h"
+const char *ArchivoDetalle ="DetalleVenta.dat";
 
 int DetalleVenta:: CargarDetalle(Venta *obj)
 {
-    int error=-1;
+    int error=-1,op;
     idVenta=obj->getID();
-    error=setIdProducto();
+    error=setIdProducto();///TODO ARREGLAR SET ID PRODUCTO.
     if(error==1)
         return 1;
     error=setCantidad();
-    if(error==1)
+    if(error==-1)
         return 1;
+    error=GuardarDetalle(this);
+    if(error!=0)
+    {
+        cout<<"Hubo un error Guardando el Detalle en el Archivo."<<endl;
+        cout<<"Ingrese cualquier tecla para continuar"<<endl;
+        anykey();
+    }
+    else
+    {
+        cout<<"Detalle Guardado en el Archivo con Exito!"<<endl;
+        cout<<"Desea agregar mas items a la venta? "<<endl;
+        cout<<"SI :1             NO:0"<<endl;
+            cin>>op;
+            switch(op)
+            {
+            case 1:
+                return 0;
+                break;
+            case 0:
+                error=-2;
+                break;
+            }
+    }
 
 }
 
@@ -77,7 +101,6 @@ int DetalleVenta :: setCantidad()
         if (error==0)
         {
             error=setPrecioTotal();
-
         }
         if(error==-1)
         {
@@ -102,8 +125,24 @@ int DetalleVenta::setPrecioTotal()
     }
     case 0:
     {
-        return 0;
+        return 2;
     }
 
     }
 };
+int GuardarDetalle(DetalleVenta *Obj)
+{
+    FILE *p;
+    p=fopen(ArchivoDetalle,"ab");
+    if(p==NULL)
+    {
+        return -1;
+    }
+    if(fwrite(Obj,sizeof(DetalleVenta),1, p)!=1)
+    {
+        fclose(p);
+        return -1;
+    }
+    fclose (p);
+    return 0;
+}

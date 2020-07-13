@@ -18,17 +18,32 @@ void Venta:: GenerarVenta()
 {
     int error=-1;
     SetID(GenerarIdVenta());
-    error=SetIdVendedor();
+    cout<<"ID de venta : "<<getID();
+    cin>>IdVendedor;
+    /*error=SetIdVendedor();///TODO ARREGLAR ID VENDEDORES
     if(error==1)
-        return;
+        return;*/
     error=SetIdCliente();
     if(error==1)
         return;
     DetalleVenta Det;
-    while(Det.CargarDetalle(this)==0)
-    {
+    while(error==0)
+    {   error=Det.CargarDetalle(this);
         setImporteTotal(Det.getImporteTotal());
     }
+    cout<<"El Importe final de la Operación es: "<<getImporteTotal();
+    error=GuardarVenta();
+        if(error!=0)
+    {
+        cout<<"Hubo un error Guardando la Venta en el Archivo."<<endl;
+        cout<<"Ingrese cualquier tecla para continuar"<<endl;
+        anykey();
+    }
+    else
+    {
+        cout<<"Venta Guardada en el Archivo con Exito!"<<endl;
+    }
+
 
 };
 void Venta:: Mostrar()
@@ -126,13 +141,29 @@ int GenerarIdVenta()
 
     id=cantRegistros+1;
     fclose(p);
-    return 0;
+    return id;
 };
 void Venta :: setImporteTotal(float ImporteDetalle)
 {
     ImporteTotal+=ImporteDetalle;
 }
 
+int Venta:: GuardarVenta()
+{
+    FILE *p;
+    p=fopen(ArchivoVentas,"ab");
+    if(p==NULL)
+    {
+        return -1;
+    }
+    if(fwrite(this,sizeof(Venta),1, p)!=1)
+    {
+        fclose(p);
+        return -1;
+    }
+    fclose (p);
+    return 0;
+};
 
 
 

@@ -172,17 +172,17 @@ void listarProductos()
     cls();
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
-      cout<<"-------------------------------------------------------------------------------------------------"<<endl;
-      cout<< left;
-        cout<<setw(3)<<"CODIGO-"<<" ";
-        cout<<setw(4)<<"NOMBRE-"<<"  ";
-        cout<<setw(3)<<"PROVEEDOR-"<<"  ";
-        cout<<setw(5)<<"COSTO-"<<"  ";
-        cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
-        cout<<setw(5)<<"$ VENTA-"<<"  ";
-        cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
-        cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
-        cout<<"--------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    cout<< left;
+    cout<<setw(3)<<"CODIGO-"<<" ";
+    cout<<setw(4)<<"NOMBRE-"<<"  ";
+    cout<<setw(3)<<"PROVEEDOR-"<<"  ";
+    cout<<setw(5)<<"COSTO-"<<"  ";
+    cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
+    cout<<setw(5)<<"$ VENTA-"<<"  ";
+    cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
+    cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
+    cout<<"--------------------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
     while(reg.leerProductos(i)==1)
     {
@@ -196,11 +196,11 @@ void listarProductos()
 void ListarVendedores()
 {
     Vendedor ven;
-    int i=1;
+    int i=0,CantRegs;
     cls();
     cout<<"Listado De Vendedores "<<endl;///TODO CHEQUEAR LISTADO VENDEDORES
     cout<<"--------------------"<<endl;
-    while(ven.LeerxID(i)==1)
+    while(ven.LeerxID(i))
     {
         ven.mostrar();
         cout<<endl;
@@ -217,7 +217,7 @@ void listarProveedores()
     cls();
     cout<<"________LISTADO DE PROVEEDORES__________"<<endl;///TODO CHEQUEAR LEER PROVEEDORES.
     cout<<endl;
-    while(prov.leerProveedor(i==1))
+    while(prov.leerProveedor(i))
     {
         prov.mostrar();
         cout<<endl;

@@ -22,6 +22,18 @@ void Vendedor::cargar()
     error= setVentaDiaria();///TODO CHEQUEAR VENTADIARIA.
     if(error==1)
         return;
+    error=guardar();
+    if(error!=0)
+    {
+        cout<<"Hubo un error Guardando el Vendedor en el Archivo."<<endl;
+        cout<<"Ingrese cualquier tecla para continuar"<<endl;
+        anykey();
+    }
+    else
+    {
+        cout<<"Vendedor Guardado en el Archivo con Exito!"<<endl;
+    }
+
 
 };
 
@@ -82,10 +94,6 @@ int Vendedor::setLegajo(int Leg)///TODO CHEQUEAR SI HACE FALTA BORRAR.
 {
     legajo=Leg;
 }
-
-
-
-
 int Vendedor::guardar()
 {
     FILE *p;
@@ -126,11 +134,14 @@ int Vendedor :: GuardarVendedorEnDisco(int ID)///Buscar posición y sobreescribir
 }
 
 void Vendedor::mostrar()
-{
-    Persona::Mostrar();
+{   if(Estado)
+    {
     cout<<"Legajo: " <<legajo<<endl;
+    Persona::Mostrar();
     cout<<"Venta diaria: "<<VentaDiaria<<endl;
     cout<<"% Comision: "<< PorcentajeComision<<endl;
+    }
+    else cout<<"El Registro No está activo."<<endl;
 }
 
 bool Vendedor::leerVendedor(int pos)
@@ -173,11 +184,9 @@ int Vendedor:: LeerxID(int id)
         return -1;
     }
     fseek(P,sizeof(Vendedor)*id,0);
-    if(fread(this,sizeof(Vendedor),1,P)==1)
-    {
-        leyo=0;
-        fclose (P);
-    }
+    leyo=fread(this,sizeof(Vendedor),1,P);
+    fclose (P);
+
     return leyo;
 }
 

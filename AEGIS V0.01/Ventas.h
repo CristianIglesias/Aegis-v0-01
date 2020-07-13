@@ -21,6 +21,7 @@ public:
         return IdCliente;
     };
     void setImporteTotal(float ImporteDetalle);
+    int GuardarVenta();///Agregado al archivo, tranqui.
 protected:
 
     int IdVendedor;
