@@ -168,7 +168,7 @@ void ListarClientes()
 void listarProductos()
 {
     Producto reg;
-    int i=1;
+    int i=0;
     cls();
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
@@ -193,6 +193,7 @@ void listarProductos()
     cin.ignore();
     anykey();
 }
+
 void ListarVendedores()
 {
     Vendedor ven;

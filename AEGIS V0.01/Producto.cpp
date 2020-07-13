@@ -385,7 +385,7 @@ bool Producto::leerProductos(int pos)///TODO REPARAR BUSQUEDA -
 
         return false;
     }
-    if(pos>=1)
+    if(pos>=0)
     {
         fseek(p,pos * sizeof(Producto),0);
         leyo=fread(this,sizeof(Producto),1,p);
