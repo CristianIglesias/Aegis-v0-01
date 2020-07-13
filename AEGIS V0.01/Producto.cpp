@@ -288,7 +288,7 @@ void Producto::mostrar()
         cout<< left;
         cout<< setw(3)<<CodigoProducto<<"\t";
         cout << right;
-        cout<< setw(4)<<NombreItem<<"\t   ";
+        cout<< setw(10)<<NombreItem<<"\t   ";
         cout<< left;
         cout<<setw(3)<<CodigoProveedor<<"\t     ";
 

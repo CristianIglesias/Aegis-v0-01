@@ -86,7 +86,7 @@
 1594507814 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.h
 	"Persona.h"
 
-1594673135 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1594682543 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -305,7 +305,7 @@
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1594681150 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
+1594682484 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
 	<iostream>
 	"rlutil.h"
 	"PrototiposGlobales.h"

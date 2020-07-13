@@ -168,14 +168,14 @@ void ListarClientes()
 void listarProductos()
 {
     Producto reg;
-    int i=1;
+    int i=0;
     cls();
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
     cout<< left;
     cout<<setw(3)<<"CODIGO-"<<" ";
-    cout<<setw(4)<<"NOMBRE-"<<"  ";
+    cout<<setw(10)<<"NOMBRE-"<<"  ";
     cout<<setw(3)<<"PROVEEDOR-"<<"  ";
     cout<<setw(5)<<"COSTO-"<<"  ";
     cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
