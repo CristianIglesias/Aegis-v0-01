@@ -77,39 +77,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
 }
 
 
-void ListarClientes()
-{
-    Cliente Cli;
-    int i=0;
-    cls();
-    cout<<"Listado De Clientes "<<endl;
-    cout<<"--------------------"<<endl;
-    while(Cli.LeerxPos(i))
-    {
-        Cli.mostrar();
-        cout<<endl;
-        i++;
-    }
-    cin.ignore();
-    anykey();
-}
 
-void ListarVendedores()
-{
-    Vendedor ven;
-    int i=0;
-    cls();
-    cout<<"Listado De Vendedores "<<endl;
-    cout<<"--------------------"<<endl;
-    while(ven.LeerxID(i))
-    {
-        ven.mostrar();
-        cout<<endl;
-        i++;
-    }
-    cin.ignore();
-    anykey();
-}
 
 int ValidarEnteros( const char *Telefono)///valida cadenas de enteros
 {
@@ -178,6 +146,22 @@ int ValidarEntero(int c)
         return -4;
 }
 
+void ListarClientes()
+{
+    Cliente Cli;
+    int i=0;
+    cls();
+    cout<<"Listado De Clientes "<<endl;
+    cout<<"--------------------"<<endl;
+    while(Cli.LeerxPos(i)==1)
+    {
+        Cli.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+}
 
 
 void listarProductos()
@@ -187,10 +171,26 @@ void listarProductos()
     cls();
     cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
     cout<<endl;
-    while(reg.leerProductos(i))
+    while(reg.leerProductos(i)==1)
     {
 
         reg.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+}
+void ListarVendedores()
+{
+    Vendedor ven;
+    int i=0;
+    cls();
+    cout<<"Listado De Vendedores "<<endl;///TODO CHEQUEAR LISTADO VENDEDORES
+    cout<<"--------------------"<<endl;
+    while(ven.LeerxID(i)==1)
+    {
+        ven.mostrar();
         cout<<endl;
         i++;
     }
@@ -203,9 +203,9 @@ void listarProveedores()
     Proveedor prov;
     int i=0;
     cls();
-    cout<<"________LISTADO DE PROVEEDORES__________"<<endl;
+    cout<<"________LISTADO DE PROVEEDORES__________"<<endl;///TODO CHEQUEAR LEER PROVEEDORES.
     cout<<endl;
-    while(prov.leerProveedor(i))
+    while(prov.leerProveedor(i==1))
     {
         prov.mostrar();
         cout<<endl;

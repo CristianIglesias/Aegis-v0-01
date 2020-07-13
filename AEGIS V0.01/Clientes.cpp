@@ -85,10 +85,10 @@ int Cliente:: LeerxPos(int id)
 {
     if(id==-999)
         return 1;
-    if(id>=1)
+  /*  if(id>=1)
     {
         id--;
-    }
+    }*/
     bool leyo=false;
     FILE *P;
     P=fopen(ArchivoClientes,"rb");
@@ -96,10 +96,10 @@ int Cliente:: LeerxPos(int id)
     {
         return false;
     }
-    fseek(P,sizeof(Cliente)*id,0);
-    leyo=fread(this,sizeof(Cliente),1,P)==1;
+    fseek(P,sizeof(Cliente)*id,SEEK_SET);
+    leyo=fread(this,sizeof(Cliente),1,P);
     fclose (P);
-    return leyo;
+    return 0;
 }
 
 int Cliente:: mostrarxID ()///Muestra Por ID -

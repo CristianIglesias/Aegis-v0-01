@@ -8,6 +8,16 @@ public:
     int CargarDetalle(Venta *obj);
     int setIdProducto();
     int setCantidad();
+    int setPrecioTotal();
+
+
+
+
+    ///Sets Especificos, sin validaciones ni cosas raras.
+    void setPrecioUnidad(float Precio)
+    {
+        PrecioUnidad=Precio;
+    };
 
 
 

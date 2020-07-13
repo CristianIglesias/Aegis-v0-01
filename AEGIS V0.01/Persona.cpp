@@ -213,7 +213,6 @@ int Persona :: setEmail()
     {
         cout<<"Ingrese Correo Electronico :"<<endl;
         cout<<"EMAIL :";
-        cin.ignore();
         cin.getline(Mail,50);
         error=ValidarMail(Mail);
         if(error==0)

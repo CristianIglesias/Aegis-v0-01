@@ -27,7 +27,7 @@ void Venta:: GenerarVenta()
     DetalleVenta Det;
     while(Det.CargarDetalle(this)==0)
     {
-    setImporteTotal(Det.getImporteTotal)
+        setImporteTotal(Det.getImporteTotal());
     }
 
 };
@@ -42,7 +42,7 @@ void Venta:: Mostrar()
 int Venta:: SetIdVendedor()
 {
     Vendedor Vend;
-    int error=-1,i=0;
+    int error=-1,i=0,op;
     while(error<0)
     {
         cout<<"Ingrese el ID del vendedor a cargo de esta venta:"<<endl;
@@ -51,9 +51,24 @@ int Venta:: SetIdVendedor()
         error=Vend.LeerxID(getIdVendedor());
         if(error==1)
             return 1;
-        if(error==0)
+        if(error==0)///funcion confirmar elección.
+        {
+            cout<<"El Vendedor deseado es : "<<Vend.getNombre()<<" ?"<<endl;
+            cout<<"SI :1             NO:0"<<endl;
+            cin>>op;
+            switch(op)
+            {
+            case 1:
+                return error;
+                break;
+            case 0:
+                error=-2;
+                break;
+            }
+
             return 0;
-        if(error<0)
+        }
+        if(error==-1)
             i++;
         error_msj(-5,i);
     }///Cierra while;
@@ -63,18 +78,32 @@ int Venta:: SetIdVendedor()
 int Venta:: SetIdCliente()
 {
     Cliente Cli;
-    int error=-1,i=0;
+    int error=-1,i=0,op;
     while(error<0)
     {
         cout<<"Ingrese el ID del Cliente  que quiere comprar:"<<endl;
         cout<<"ID Cliente: ";
-        cin>>IdCliente;
-        error=Cli.LeerxPos(getIdCliente());
+        cin>>op;
+        error=Cli.LeerxPos(op);
         if(error==1)
             return 1;
         if(error==0)
-            return 0;
-        if(error<0)
+        {
+            cout<<"El Cliente deseado es : "<<Cli.getNombre()<<" ?"<<endl;
+            cout<<"SI :1             NO:0"<<endl;
+            cin>>op;
+            switch(op)
+            {
+            case 1:
+                return error;
+                break;
+            case 0:
+                error=-2;
+                break;
+            }
+
+        }
+        if(error==-1)
             i++;
         error_msj(-5,i);
     }///Cierra while;
@@ -97,9 +126,9 @@ int GenerarIdVenta()
     fclose(p);
     return 0;
 };
-int Venta :: setImporteTotal(float ImporteDetalle)
+void Venta :: setImporteTotal(float ImporteDetalle)
 {
-     ImporteTotal+=ImporteDetalle;
+    ImporteTotal+=ImporteDetalle;
 }
 
 
@@ -120,29 +149,18 @@ int Venta :: setImporteTotal(float ImporteDetalle)
 
 
 //    cout<<"LEGAJO DE VENDEDOR QUE REALIZARA LA VENTA:"<<endl;
-///    cin>>Vendedor->legajo;
 
-
-
-
-
-///TODO DALE MAN MEDIA PILA.
-
-/// -ingresa legajo de vendedor, reconoce que vendedor del archivo es, muestra solo nombre y apellido.
-/// -fecha de venta se ingresa///LA SACA DEL SISTEMA. habría que usar ctime.
-/// - pide id del cliente, sino existe sugiere crear o agregar cliente?
-/// -ingresar codigo de producto, muestra el producto y pide atributos de (Venta), cantidad etc.
-/// -calculo del total con porcentaje de descuento etc..
-/// -listado de factura final.
-
-///______________________//POSIBLE FORMATO\\_____________________________
-///CALCULO DE LA VENTA:  TOTAL=Producto item * cantidad
+///_________________________________________________________________//POSIBLE FORMATO\\_____________________________
 ///                               NUMEOR DE LA VENTA:(XXX)                           FECHA(XX/XX/XXXX)
-///                               LEGAJOVENDEDOR: xxxx
-///                               IDCLIENTE: xxxx
-///                               TIPO DE PAGO / TIPO DE FACTURA / TIPO DE ENTREGA
-///                                ITEM(SUS DATOS//CODIGOPRODUCTO) + IMPORTEUNIDAD
-///                                                                                                           IMPORTE TOTTAL
-///                                                                                                          %DESCUENTO
-///                                                                                                           TOTAL $: xxxx,xx
+///                               LEGAJOVENDEDOR: xxxx                                  IDCLIENTE: xxxx
+///
+///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
+///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
+///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
+///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
+///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
+///                               TIPO DE PAGO: x / TIPO DE FACTURA: x
+///                                                                                 IMPORTE TOTTAL
+///                                                                                %DESCUENTO
+///                                                                                 TOTAL $: xxxx,xx
 ///----------------------------------------------------------------------------------------
