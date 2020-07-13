@@ -61,7 +61,7 @@ void Producto::cargar()
     Estado=true;
 }
 
-int Producto:: buscarcodigo(const char *codigo)
+int Producto:: buscarcodigo(const char *codigo)///TODO SALIDA VOLUNTARIA BUSCAR PRODUCTOS.
 {
     Producto aux;
     FILE *p;
@@ -221,8 +221,8 @@ int Producto::setPrecioVenta(float costo, int porcentaje)
     float venta;
     cin.ignore();
     cout<<"PRECIO DE VENTA: ";
-    venta=(costo*porcentaje/100)+costo;
-    cout<<venta<<endl;
+    PreciodeVenta=(costo*porcentaje/100)+costo;
+    cout<<PreciodeVenta<<endl;
 
 };
 
@@ -260,7 +260,7 @@ int Producto::setStockActual()
     while (error<0)
     {
         cout<<"Ingrese el stock actual: ";
-        cin>>CostodeCompra;
+        cin>>StockActual;
         error=ValidarEntero(getStockActual());
         if (error!=0)
         {
@@ -366,7 +366,7 @@ int Producto::guardarProducto()
 }
 
 ///LEER EN DISCO
-bool Producto::leerProductos(int pos)
+bool Producto::leerProductos(int pos)///TODO REPARAR BUSQUEDA -
 {
     bool leyo=false;
     FILE *p;
@@ -376,7 +376,7 @@ bool Producto::leerProductos(int pos)
 
         return false;
     }
-    if(pos>0)
+    if(pos!=0)
     {
         fseek(p,pos * sizeof(Producto),0);
         leyo=fread(this,sizeof(Producto),1,p);

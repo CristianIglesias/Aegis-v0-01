@@ -352,6 +352,14 @@ void abmProducto()
         {
             salir=true;
         }
+        case 99:
+        {
+            FILE *p;
+            p=fopen("Producto.dat","wb");
+            fclose(p);
+        }
+        break;
+
         }///Cierra el switch
 
     }///Cierra el while
@@ -430,6 +438,14 @@ void abmProveedor()
         {
             salir=true;
         }
+        case 99:
+        {
+            FILE *p;
+            p=fopen("Proveedor.dat","wb");
+            fclose(p);
+        }
+        break;
+
         }
 
     }
@@ -508,6 +524,14 @@ void abmVendedor()
         {
             salir=true;
         }
+        case 99:
+        {
+            FILE *p;
+            p=fopen("Vendedor.dat","wb");
+            fclose(p);
+        }
+        break;
+
         }
 
     }

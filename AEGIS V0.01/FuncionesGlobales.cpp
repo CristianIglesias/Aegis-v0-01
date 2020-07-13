@@ -149,11 +149,11 @@ int ValidarEntero(int c)
 void ListarClientes()
 {
     Cliente Cli;
-    int i=0;
+    int i=1;
     cls();
     cout<<"Listado De Clientes "<<endl;
     cout<<"--------------------"<<endl;
-    while(Cli.LeerxPos(i)==1)
+    while(Cli.LeerxPos(i)==0)
     {
         Cli.mostrar();
         cout<<endl;
@@ -167,11 +167,11 @@ void ListarClientes()
 void listarProductos()
 {
     Producto reg;
-    int i=0;
+    int i=1;
     cls();
     cout<<"________LISTADO DE PRODUCTOS__________"<<endl;
     cout<<endl;
-    while(reg.leerProductos(i)==1)
+    while(reg.leerProductos(i))
     {
 
         reg.mostrar();
@@ -184,7 +184,7 @@ void listarProductos()
 void ListarVendedores()
 {
     Vendedor ven;
-    int i=0;
+    int i=1;
     cls();
     cout<<"Listado De Vendedores "<<endl;///TODO CHEQUEAR LISTADO VENDEDORES
     cout<<"--------------------"<<endl;
@@ -201,7 +201,7 @@ void ListarVendedores()
 void listarProveedores()
 {
     Proveedor prov;
-    int i=0;
+    int i=1;
     cls();
     cout<<"________LISTADO DE PROVEEDORES__________"<<endl;///TODO CHEQUEAR LEER PROVEEDORES.
     cout<<endl;

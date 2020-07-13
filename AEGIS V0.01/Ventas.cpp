@@ -69,9 +69,11 @@ int Venta:: SetIdVendedor()
             return 0;
         }
         if(error==-1)
+        {
             i++;
-        error_msj(-5,i);
-    }///Cierra while;
+            error_msj(-5,i);
+        }
+    }///Cierra while
     return error;
 };
 

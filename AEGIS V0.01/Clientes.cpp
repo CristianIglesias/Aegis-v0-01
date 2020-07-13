@@ -98,8 +98,10 @@ int Cliente:: LeerxPos(int id)
     }
     fseek(P,sizeof(Cliente)*id,SEEK_SET);
     leyo=fread(this,sizeof(Cliente),1,P);
-    fclose (P);
-    return 0;
+    if(leyo)
+    {fclose (P);
+    return 0;}
+    else return -1;
 }
 
 int Cliente:: mostrarxID ()///Muestra Por ID -

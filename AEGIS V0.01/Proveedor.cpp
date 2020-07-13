@@ -39,7 +39,7 @@ void  Proveedor:: cargar()
     int error=0;
     Persona::Cargar();
 
-     Estado=true;
+    Estado=true;
 
     error=setPorcentajeRentabiliad();
     if(error==1)
@@ -288,11 +288,12 @@ void ModificarProveedor()
 
 void menuModificarProveedor(Proveedor *prov, int pos)
 {
-    int op,error=-1,Cambios[5]={0};
+    int op,error=-1,Cambios[5]= {0};
     bool salir=false;
 
     while(!salir)
-    { int Cambios[5]={0};
+    {
+        int Cambios[5]= {0};
         Persona aux;
         int error;
         setColor(GREEN);
@@ -314,7 +315,7 @@ void menuModificarProveedor(Proveedor *prov, int pos)
         {
             MenuModificarPersona(Cambios);
             prov->SetPersona(Cambios,aux);
-           /// error=prov->GuardarProveedorEnDisco(prov->getCodigoProveedor());
+            /// error=prov->GuardarProveedorEnDisco(prov->getCodigoProveedor());
             if(error!=0)
             {
                 cout<<"Hubo un error Guardando el Proveedor en el Archivo."<<endl;

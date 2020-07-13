@@ -58,7 +58,8 @@ int DetalleVenta::setIdProducto()
             return 0;
         }
         if(error==-1)
-        {   i++;
+        {
+            i++;
             error_msj(-5,i);
         }
     }

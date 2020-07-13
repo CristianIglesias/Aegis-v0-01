@@ -14,7 +14,7 @@ public:
     void cargar();
     void mostrar();
     int guardarProveedor();
-     int GuardarProveedorEnDisco(int ID);
+    int GuardarProveedorEnDisco(int ID);
     bool leerProveedor(int pos);
     int buscarcodigoproveedor(char *codigo);
     int validarFloat(float c);
@@ -43,8 +43,8 @@ public:
     int setCodigoProveedor();
 
 };
-    void ModificarProveedor();
-    void menuModificarProveedor(Proveedor *pro, int pos);
+void ModificarProveedor();
+void menuModificarProveedor(Proveedor *pro, int pos);
 
 
 #endif // PROVEEDOR_H_INCLUDED
