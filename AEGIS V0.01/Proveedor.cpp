@@ -39,6 +39,8 @@ void  Proveedor:: cargar()
     int error=0;
     Persona::Cargar();
 
+     Estado=true;
+
     error=setPorcentajeRentabiliad();
     if(error==1)
         return;
@@ -142,9 +144,6 @@ int Proveedor::setCodigoProveedor()
     }///cierra while
     return error;
 };
-
-
-
 
 int Proveedor::guardarProveedor()
 {

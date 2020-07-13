@@ -34,7 +34,7 @@ public:
     {
         return CodigoProducto;
     }
-    const char * getCodigoProveedor()
+    char * getCodigoProveedor()
     {
         return CodigoProveedor;
     }

@@ -113,12 +113,13 @@ int Producto::setCodigoproducto()
 int Producto::setCodigoProveedor()
 {
     cin.ignore();
+    Proveedor p;
     int i=0, error=-3;
     while (error<0)
     {
         cout<<"Ingrese codigo de proveedor: ";
         cin.getline(CodigoProveedor,10);
-        ///error=p.buscarproveedor(this->getCodigoProveedor());
+        error=p.buscarcodigoproveedor(this->getCodigoProveedor());
         if (error!=0)
         {
             if (error==1)
@@ -166,7 +167,6 @@ int Producto::setNombreItem()
 int Producto::setCostoCompra()
 {
     cin.ignore();
-
     int i=0, error=-6;
     while (error<0)
     {
@@ -305,7 +305,6 @@ void Producto::mostrar()
 ///GUARDAR EN DISCO
 int Producto::guardarNuevoProducto()
 {
-
     FILE *p;
     p=fopen(ArchivoProducto,"ab");
     if(p==NULL)
@@ -319,7 +318,6 @@ int Producto::guardarNuevoProducto()
     }
     fclose(p);
     return 0;
-
 }
 
 int Producto::ObtenerPosicionProducto(char *codigo)
@@ -420,7 +418,7 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
         else
 
         {
-            cout<<"entro"<<endl;
+
             guardarProducto();
         }
 

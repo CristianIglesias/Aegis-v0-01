@@ -49,6 +49,7 @@ void ListarClientes();
 void listarProductos();
 void listarProveedores();
 void ListarVendedores();
+void mostrarCadenas(const char *cad);
 
 
 #endif // PROTOTIPOSGLOBALES_H_INCLUDED

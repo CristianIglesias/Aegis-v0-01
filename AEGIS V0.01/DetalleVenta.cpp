@@ -26,8 +26,8 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
 
 int DetalleVenta::setIdProducto()
 {
-    char Cod[11];
-    int aux, i=0,error;
+    char Cod[10];
+    int aux, i=0,error,op;
     Producto Reg;
     while(error!=0)
     {
@@ -35,16 +35,14 @@ int DetalleVenta::setIdProducto()
         cout<<"ID PRODUCTO: ";
         cin.ignore();
         cin.getline(Cod,10);
-        error=Reg.buscarcodigo(getIdProducto());
+        error=Reg.buscarcodigo(Cod);
         if(error==1)
             return 1;
         if(error==0)
         {
-
-            cout<<"El Producto deseado es : "<<Reg.getNombreItem()<<" ?"<<endl;
+            cout<<"El Producto deseado es : "<<Reg.getNombreItem()<<cout<<" ?"<<endl;
             cout<<"El Precio del Producto es de :$"<<Reg.getPrecioVenta();
             setPrecioUnidad(Reg.getPrecioVenta());
-
             cout<<"SI :1             NO:0"<<endl;
             cin>>op;
             switch(op)
@@ -61,7 +59,7 @@ int DetalleVenta::setIdProducto()
         }
         if(error==-1)
         {   i++;
-            error_msj(-5,i)
+            error_msj(-5,i);
         }
     }
 };

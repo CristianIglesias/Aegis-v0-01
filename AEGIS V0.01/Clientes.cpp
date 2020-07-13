@@ -85,10 +85,10 @@ int Cliente:: LeerxPos(int id)
 {
     if(id==-999)
         return 1;
-  /*  if(id>=1)
+    if(id>=1)
     {
         id--;
-    }*/
+    }
     bool leyo=false;
     FILE *P;
     P=fopen(ArchivoClientes,"rb");
