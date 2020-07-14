@@ -16,27 +16,27 @@ void Vendedor::cargar()
     setLegajo(Leg);
     cout<<"Legajo Vendedor: "<<Leg<<endl;
     Persona::Cargar();
-    error=setPorcentajeComision();
-    if(error==1)
-        return;
-    error= setVentaDiaria();///TODO CHEQUEAR VENTADIARIA.
-    if(error==1)
-        return;
-    error=guardar();
-    if(error!=0)
+    if(Estado)
     {
-        cout<<"Hubo un error Guardando el Vendedor en el Archivo."<<endl;
-        cout<<"Ingrese cualquier tecla para continuar"<<endl;
-        anykey();
+        error=setPorcentajeComision();
+        if(error==1)
+            return;
+        error= setVentaDiaria();///TODO CHEQUEAR VENTADIARIA.
+        if(error==1)
+            return;
+        error=guardar();
+        if(error!=0)
+        {
+            cout<<"Hubo un error Guardando el Vendedor en el Archivo."<<endl;
+            cout<<"Ingrese cualquier tecla para continuar"<<endl;
+            anykey();
+        }
+        else
+        {
+            cout<<"Vendedor Guardado en el Archivo con Exito!"<<endl;
+        }
     }
-    else
-    {
-        cout<<"Vendedor Guardado en el Archivo con Exito!"<<endl;
-    }
-
-
 };
-
 
 int Vendedor::setPorcentajeComision()
 {
@@ -134,18 +134,23 @@ int Vendedor :: GuardarVendedorEnDisco(int ID)///Buscar posición y sobreescribir
 }
 
 void Vendedor::mostrar()
-{   if(Estado)
+{
+    if(Estado)
     {
-    cout<<"Legajo: " <<legajo<<endl;
-    Persona::Mostrar();
-    cout<<"Venta diaria: "<<VentaDiaria<<endl;
-    cout<<"% Comision: "<< PorcentajeComision<<endl;
+        cout<<"Legajo: " <<legajo<<endl;
+        Persona::Mostrar();
+        cout<<"Venta diaria: "<<VentaDiaria<<endl;
+        cout<<"% Comision: "<< PorcentajeComision<<endl;
     }
-    else cout<<"El Registro No está activo."<<endl;
+    else
+        cout<<"El Registro No está activo."<<endl;
 }
 
 bool Vendedor::leerVendedor(int pos)
 {
+      if(pos==-999)
+        return false;
+    pos--;
     bool leyo=false;
     FILE *p;
     p=fopen(ArchivoVendedor,"rb");
@@ -154,7 +159,7 @@ bool Vendedor::leerVendedor(int pos)
 
         return false;
     }
-    if(pos>=0)
+    if(pos>1)
     {
         fseek(p,pos * sizeof(Vendedor),0);
         leyo=fread(this,sizeof(Vendedor),1,p);
@@ -172,10 +177,6 @@ int Vendedor:: LeerxID(int id)
 {
     if(id==-999)
         return 1;
-    if(id>=1)
-    {
-        id--;
-    }
     int leyo=-1;
     FILE *P;
     P=fopen(ArchivoVendedor,"rb");
@@ -186,8 +187,12 @@ int Vendedor:: LeerxID(int id)
     fseek(P,sizeof(Vendedor)*id,0);
     leyo=fread(this,sizeof(Vendedor),1,P);
     fclose (P);
-
-    return leyo;
+    if(leyo)
+    {
+        return leyo;
+    }
+    else
+        return -1;
 }
 
 void Vendedor:: mostrarxID ()///Muestra Por ID -

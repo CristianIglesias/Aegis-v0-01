@@ -104,6 +104,16 @@ void menuVentas()
 
         }
         break;
+        case 99:
+        {
+            FILE *p;
+            p=fopen("Ventas.dat","wb");
+            fclose(p);
+            p=fopen("DetalleVenta.dat","wb");
+            fclose(p);
+            break;
+        }
+        break;
 
         }
         system("pause");
@@ -120,7 +130,7 @@ void menuABM()
         setColor(LIGHTMAGENTA);
         system("cls");
         cout<<"  \t""                                                    ABM                 "<<endl;
-         setColor(YELLOW);
+        setColor(YELLOW);
         cout<<"  \t""                                     _________________________________ "<<endl;
         cout<<"  \t""                                    ||-1-->Clientes                   ||"<<endl;
         cout<<"  \t""                                    ||-2-->Productos                  ||"<<endl;
@@ -292,7 +302,7 @@ void abmProducto()
 
     while(!salir)
     {
-       setColor(LIGHTMAGENTA);
+        setColor(LIGHTMAGENTA);
         system("cls");
         cout<<"                             ABM Producto          "<<endl;
         setColor(YELLOW);
@@ -358,13 +368,13 @@ void abmProducto()
         {
             salir=true;
         }
-        /*case 99:
-        {
-            FILE *p;
-            p=fopen("Producto.dat","wb");
-            fclose(p);
-        }
-        break;*/
+            /*case 99:
+            {
+                FILE *p;
+                p=fopen("Producto.dat","wb");
+                fclose(p);
+            }
+            break;*/
 
         }///Cierra el switch
 
@@ -379,7 +389,7 @@ void abmProveedor()
     Proveedor prove;
     while(!salir)
     {
-       setColor(LIGHTMAGENTA);
+        setColor(LIGHTMAGENTA);
         system("cls");
         cout<<"                             ABM Proveedor          "<<endl;
         setColor(YELLOW);
@@ -492,7 +502,6 @@ void abmVendedor()
             cout<<"            ~ Nuevo Vendedor ~          "<<endl;
 
             ven.cargar();
-            ven.guardar();
             anykey();
         }
         break;
@@ -531,14 +540,14 @@ void abmVendedor()
         case 0:
         {
             salir=true;
-        }
-        case 99:
+        }break;
+        /*case 99:
         {
             FILE *p;
             p=fopen("Vendedor.dat","wb");
             fclose(p);
         }
-        break;
+        break;*/
 
         }
 

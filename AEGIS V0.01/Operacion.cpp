@@ -14,6 +14,7 @@ Operacion::Operacion()
 {
     setFechaActual();
     ImporteTotal=0;
+    ID=0;
 }
 void Operacion::SetID(int id)
 {

@@ -15,8 +15,8 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
 {
     int error=-1,op;
     idVenta=obj->getID();
-    error=setIdProducto();///TODO ARREGLAR SET ID PRODUCTO.
-    if(error==1)
+    error=setIdProducto();
+    if(error==-2)
         return 1;
     error=setCantidad();
     if(error==-1)
@@ -33,18 +33,18 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
         cout<<"Detalle Guardado en el Archivo con Exito!"<<endl;
         cout<<"Desea agregar mas items a la venta? "<<endl;
         cout<<"SI :1             NO:0"<<endl;
-            cin>>op;
-            cls();
-            switch(op)
-            {
-            case 1:
-                return 0;
-                break;
-            case 0:
-                error=-2;
-                return error;
-                break;
-            }
+        cin>>op;
+        cls();
+        switch(op)
+        {
+        case 1:
+            return 0;
+            break;
+        case 0:
+            error=-2;
+            return error;
+            break;
+        }
     }
 
 }
@@ -62,7 +62,14 @@ int DetalleVenta::setIdProducto()
         cin.ignore();
         cin.getline(Cod,10);
         error=Reg.LeerxID(Cod);
-        if(error==0)
+        if(error==false)
+            error=-1;
+        if(error==-1)
+        {
+            i++;
+            error_msj(-5,i);
+        }
+        if(error==true)
         {
             cout<<"El Producto deseado es : " << Reg.getNombreItem()<<"?"<<endl;
             cout<<"El Precio del Producto es de :$ " << Reg.getPrecioVenta()<<endl;
@@ -81,39 +88,36 @@ int DetalleVenta::setIdProducto()
 
             return 0;
         }
-        if(error==-1)
-        {
-            i++;
-            error_msj(-5,i);
-        }
+
     }
 };
 int DetalleVenta :: setCantidad()
 {
-    int cantidad,error=-1,i=0;
+    int error=-1,i=0;
     while (error<0)
     {
         cout<<"Ingrese la Cantidad de Unidades del Producto que va a Comprar"<<endl;
-        cin>>cantidad;
-        error=ValidarEntero(cantidad);
+        cin>>Cantidad;
+        error=ValidarEntero(Cantidad);
         if(error==1)
-            return error;
-        if (error==0)
-        {
-            error=setPrecioTotal();
-        }
+            return -1;
         if(error==-1)
         {
             i++;
             error_msj(-4,i);
         }
+        if (error==0)
+        {
+            error=setPrecioTotal();
+        }
+
     }
     return error;
 };
 int DetalleVenta::setPrecioTotal()
 {
     int op;
-    cout<<"Quedaría un total de :$ "<<getImporteTotal();
+    cout<<"Quedaría un total de :$"<<getImporteTotal();
     cout<<"Desea Modificar la cantidad?"<<endl;
     cout<<"SI: 1              NO: 0"<<endl;
     cin>>op;
@@ -146,3 +150,10 @@ int GuardarDetalle(DetalleVenta *Obj)
     fclose (p);
     return 0;
 }
+DetalleVenta::DetalleVenta()
+{
+     idVenta=0;
+     PrecioUnidad=0;
+     Cantidad=0;
+     PrecioTotal=0;
+};

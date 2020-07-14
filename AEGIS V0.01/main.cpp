@@ -16,11 +16,11 @@ using namespace rlutil;
 int main()
 {
     int x;
-
     setlocale(LC_ALL,"spanish");
-for(x=1;x<118;x++)
+    for(x=1; x<118; x++)
     {
-        gotoxy(x,1);cout<<"="<<endl;
+        gotoxy(x,1);
+        cout<<"="<<endl;
     }
     int op=-1;
     while(op!=0)
@@ -30,18 +30,18 @@ for(x=1;x<118;x++)
         setColor(YELLOW);
         cout<<endl;
         cout<<endl;
-cout<<"                                       _______  _______  _______  ___   _______      "<<endl;
-cout<<"                                      |   _   ||       ||       ||   | |       |                   "<<endl;
-cout<<"                                      |  |_|  ||    ___||    ___||   | |  _____|           "<<endl;
-cout<<"                                      |       ||   |___ |   | __ |   | | |_____              "<<endl;
-cout<<"                                      |       ||    ___||   ||  ||   | |_____  |              "<<endl;
-cout<<"                                      |   _   ||   |___ |   |_| ||   |  _____| |             "<<endl;
-cout<<"                                      |__| |__||_______||_______||___| |_______|  "<<endl;
-cout<<"                                      -------------------------------------------"<<endl;
-setColor(LIGHTMAGENTA);
-cout<<"                                       --PROGRAMA DE GESTION DE LOCAL DE ROPA--"<<endl;
-setColor(YELLOW);
-cout<<"                                      -------------------------------------------"<<endl;
+        cout<<"                                       _______  _______  _______  ___   _______               "<<endl;
+        cout<<"                                      |   _   ||       ||       ||   | |       |              "<<endl;
+        cout<<"                                      |  |_|  ||    ___||    ___||   | |  _____|              "<<endl;
+        cout<<"                                      |       ||   |___ |   | __ |   | | |_____               "<<endl;
+        cout<<"                                      |       ||    ___||   ||  ||   | |_____  |              "<<endl;
+        cout<<"                                      |   _   ||   |___ |   |_| ||   |  _____| |              "<<endl;
+        cout<<"                                      |__| |__||_______||_______||___| |_______|              "<<endl;
+        cout<<"                                      ------------------------------------------              "<<endl;
+        setColor(LIGHTMAGENTA);
+        cout<<"                                       --PROGRAMA DE GESTION DE LOCAL DE ROPA--"<<endl;
+        setColor(YELLOW);
+        cout<<"                                      -------------------------------------------"<<endl;
 
 
 

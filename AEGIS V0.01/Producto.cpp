@@ -529,17 +529,14 @@ bool Producto:: LeerxID(char* id)
     {
         return false;
     }
-
     while(fread(this,sizeof(Producto),1,P)==1)
     {
-        if(strcmp(id,CodigoProducto)==0)
+        if(strcmp(id,CodigoProducto)==0&&Estado==true)
         {
             fclose (P);
             return true;
         }
-
     }
-
     fclose (P);
     return false;
 
@@ -559,19 +556,20 @@ void Producto:: mostrarxID()///Muestra Por ID -
         gets (aux);
         funco=LeerxID(aux);
         if(funco)
-        {cout<<"*________________________________________________________________________________________________*"<<endl;
-    cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
-      cout<<"-------------------------------------------------------------------------------------------------"<<endl;
-      cout<< left;
-        cout<<setw(3)<<"CODIGO-"<<" ";
-        cout<<setw(4)<<"NOMBRE-"<<"  ";
-        cout<<setw(3)<<"PROVEEDOR-"<<"  ";
-        cout<<setw(5)<<"COSTO-"<<"  ";
-        cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
-        cout<<setw(5)<<"$ VENTA-"<<"  ";
-        cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
-        cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
-        cout<<"--------------------------------------------------------------------------------------------------"<<endl;
+        {
+            cout<<"*________________________________________________________________________________________________*"<<endl;
+            cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
+            cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+            cout<< left;
+            cout<<setw(3)<<"CODIGO-"<<" ";
+            cout<<setw(4)<<"NOMBRE-"<<"  ";
+            cout<<setw(3)<<"PROVEEDOR-"<<"  ";
+            cout<<setw(5)<<"COSTO-"<<"  ";
+            cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
+            cout<<setw(5)<<"$ VENTA-"<<"  ";
+            cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
+            cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
+            cout<<"--------------------------------------------------------------------------------------------------"<<endl;
             mostrar();
         }
         else

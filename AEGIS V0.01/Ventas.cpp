@@ -18,22 +18,22 @@ void Venta:: GenerarVenta()
 {
     int error=-1;
     SetID(GenerarIdVenta());
-    cout<<"ID de venta : "<<getID();
-    cin>>IdVendedor;
+    cout<<"ID de venta : "<<getID()<<endl;
     error=SetIdVendedor();///TODO ARREGLAR ID VENDEDORES
-    if(error==1)
+    if(error!=0)
         return;
     error=SetIdCliente();
     if(error==1)
         return;
     DetalleVenta Det;
     while(error==0)
-    {   error=Det.CargarDetalle(this);
+    {
+        error=Det.CargarDetalle(this);
         setImporteTotal(Det.getImporteTotal());
     }
     cout<<"El Importe final de la Operación es: "<<getImporteTotal();
     error=GuardarVenta();
-        if(error!=0)
+    if(error!=0)
     {
         cout<<"Hubo un error Guardando la Venta en el Archivo."<<endl;
         cout<<"Ingrese cualquier tecla para continuar"<<endl;
@@ -64,10 +64,10 @@ int Venta:: SetIdVendedor()
         cout<<"Ingrese el ID del vendedor a cargo de esta venta:"<<endl;
         cout<<"ID VENDEDOR: ";
         cin>>IdVendedor;
-        error=Vend.LeerxID(IdVendedor);
-       /// if(error==1)
-       ///     return 1;
-        if(error==0)///funcion confirmar elección.
+        error=Vend.leerVendedor(IdVendedor);
+        if(error==false)
+            return -1;
+        if(error==true)///funcion confirmar elección.
         {
             cout<<"El Vendedor deseado es : "<<Vend.getNombre()<<" ?"<<endl;
             cout<<"SI :1             NO:0"<<endl;
@@ -75,7 +75,7 @@ int Venta:: SetIdVendedor()
             switch(op)
             {
             case 1:
-                return error;
+                return 0;
                 break;
             case 0:
                 error=-2;

@@ -197,7 +197,7 @@ void listarProductos()
 void ListarVendedores()
 {
     Vendedor ven;
-    int i=0,CantRegs;
+    int i=0;
     cls();
     cout<<"Listado De Vendedores "<<endl;///TODO CHEQUEAR LISTADO VENDEDORES
     cout<<"--------------------"<<endl;
