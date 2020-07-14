@@ -59,12 +59,17 @@ void  Cliente:: mostrar()
 {
     if(Estado==true)
     {
-
+        cout<<endl;
+        setColor(LIGHTBLUE);
+        cout<<"CLIENTE NUMERO : "<< idCliente <<endl;
+         setColor(YELLOW);
+        cout<<"------------------------------------------"<<endl;
         cout <<"El Cliente Numero "<<idCliente<<" se llama "<<endl;
         Persona::Mostrar();
         cout<<"Prefiere Tipo de Pago "<<TipodePago;
         cout<<" Y Tipo de Factura "<<PrefFactura;
         cout<<endl;
+        cout<<"------------------------------------------"<<endl;
 
         if(GetDeuda()<0)
         {

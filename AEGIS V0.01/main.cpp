@@ -19,8 +19,12 @@ int main()
     setlocale(LC_ALL,"spanish");
     for(x=1; x<118; x++)
     {
-        gotoxy(x,1);
-        cout<<"="<<endl;
+        gotoxy(x,1);cout<<"="<<endl;
+        if(x<=20){
+             gotoxy(1,x);cout<<"||"<<endl;
+
+        }
+
     }
     int op=-1;
     while(op!=0)
@@ -46,6 +50,18 @@ int main()
 
 
         cout<<"                           -->Presione la tecla enter para ingresar al menu de Principal"<<endl;
+
+        for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);cout<<"="<<endl;
+         if(x<=20){
+                 gotoxy(1,x);cout<<"||"<<endl;
+                 gotoxy(118,x);cout<<"||"<<endl;
+
+        }
+
+    }
+
 
         cin.get();
         cls();
@@ -92,7 +108,10 @@ int main()
         break;
         case 0:
         {
-            cout<<"                                         FIN DE LA SESION, HASTA LUEGO!."<<endl;
+            setColor(WHITE_PEN);
+            cout<<"                                        =================================="<<endl ;
+            cout<<"                                       || FIN DE LA SESION, HASTA LUEGO!.||"<<endl;
+              cout<<"                                        =================================="<<endl ;
 
 
         }

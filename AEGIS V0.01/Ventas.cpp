@@ -31,7 +31,7 @@ void Venta:: GenerarVenta()
         error=Det.CargarDetalle(this);
         setImporteTotal(Det.getImporteTotal());
     }
-    cout<<"El Importe final de la Operación es: "<<getImporteTotal();
+    cout<<"El Importe final de la Operación es: "<<getImporteTotal()<<endl;
     error=GuardarVenta();
     if(error!=0)
     {
@@ -48,11 +48,13 @@ void Venta:: GenerarVenta()
 };
 void Venta:: Mostrar()
 {
+    cout<<"--------------------------------------------------------------------"<<endl;
     cout<<"Venta nro: "<<ID<<"."<<endl;
     cout<<"Fecha de venta: "<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<endl;
-    cout<<"Realizada por el Vendedor nro: "<<IdVendedor;
-    cout<<" al Cliente "<<IdCliente<<endl;
-    cout<<"Por un importe final de $"<<ImporteTotal;
+    cout<<"Vendedor nro: "<<IdVendedor<<endl;
+    cout<<"Cliente nro "<<IdCliente<<endl;
+    cout<<"Importe final  $ : "<< ImporteTotal<<endl;
+    cout<<"--------------------------------------------------------------------"<<endl;
 
 }
 int Venta:: SetIdVendedor()
@@ -65,14 +67,14 @@ int Venta:: SetIdVendedor()
         cout<<"ID VENDEDOR: ";
         cin>>IdVendedor;
         error=Vend.leerVendedor(IdVendedor);
-        if(error==false)
+        if(error==0)
             return -1;
         if(error==-1)
         {
             i++;
             error_msj(-5,i);
         }
-        if(error==true)///funcion confirmar elección.
+        if(error==1)///funcion confirmar elección.
         {
             cout<<"El Vendedor deseado es : "<<Vend.getNombre()<<" ?"<<endl;
             cout<<"SI :1             NO:0"<<endl;
@@ -98,7 +100,7 @@ int Venta:: SetIdCliente()
     int error=-1,i=0,op;
     while(error<0)
     {
-        cout<<"Ingrese el ID del Cliente  que quiere comprar:"<<endl;
+        cout<<"Ingrese el ID del Cliente  que realiza la compra:"<<endl;
         cout<<"ID Cliente: ";
         cin>>op;
         error=Cli.LeerxPos(op);

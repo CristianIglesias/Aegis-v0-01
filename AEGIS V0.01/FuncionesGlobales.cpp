@@ -152,8 +152,9 @@ void ListarClientes()
     Cliente Cli;
     int i=1;
     cls();
-    cout<<"Listado De Clientes "<<endl;
-    cout<<"--------------------"<<endl;
+   cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE CLIENTES______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
     while(Cli.LeerxPos(i)==0)
     {
         Cli.mostrar();
@@ -170,6 +171,7 @@ void listarProductos()
     Producto reg;
     int i=0;
     cls();
+    setColor(LIGHTBLUE);
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
@@ -184,6 +186,7 @@ void listarProductos()
     cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
     cout<<"--------------------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
+    setColor(WHITE);
     while(reg.leerProductos(i)==1)
     {
         reg.mostrar();
@@ -199,8 +202,9 @@ void ListarVendedores()
     Vendedor ven;
     int i=0;
     cls();
-    cout<<"Listado De Vendedores "<<endl;///TODO CHEQUEAR LISTADO VENDEDORES
-    cout<<"--------------------"<<endl;
+   cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
     while(ven.LeerxID(i)==1)
     {
         ven.mostrar();
@@ -216,9 +220,11 @@ void listarProveedores()
     Proveedor prov;
     int i=1;
     cls();
-    cout<<"________LISTADO DE PROVEEDORES__________"<<endl;///TODO CHEQUEAR LEER PROVEEDORES.
+cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE PROVEEDORES______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
-    while(prov.leerProveedor(i))
+    while(prov.leerProveedor(i)==1)
     {
         prov.mostrar();
         cout<<endl;
@@ -227,3 +233,20 @@ void listarProveedores()
     cin.ignore();
     anykey();
 }
+
+/*void listadoDeVentas()
+{
+    cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE VENTAS______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+
+    while(ventas.leerVentas(i)==1)
+    {
+        ventas.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+}
+*/

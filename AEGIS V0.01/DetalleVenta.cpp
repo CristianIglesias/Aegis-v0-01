@@ -118,7 +118,7 @@ int DetalleVenta::setPrecioTotal()
 {
     int op;
     cout<<"Quedaría un total de :$"<<getImporteTotal();
-    cout<<" Desea Modificar la cantidad?"<<endl;
+    cout<<" ¿Desea Modificar la cantidad?"<<endl;
     cout<<"SI: 1              NO: 0"<<endl;
     cin>>op;
     switch(op)

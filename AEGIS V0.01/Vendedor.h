@@ -13,7 +13,7 @@ public:
     void cargar();
     void mostrar();
     int guardar();
-    bool leerVendedor(int pos);
+    int leerVendedor(int pos);
     int  LeerxID(int id);
     void  mostrarxID ();
     int  GuardarVendedorEnDisco(int ID);

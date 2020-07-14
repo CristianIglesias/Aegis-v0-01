@@ -11,7 +11,7 @@ using namespace std;
 using namespace rlutil;
 const char *ArchivoProveedor ="Proveedor.dat";
 
-int Proveedor::buscarcodigoproveedor(char *codigo)
+int Proveedor::buscarcodigoproveedor(char *codigo)///ARREGLAR
 {
     Proveedor aux;
     FILE *p;
@@ -128,7 +128,7 @@ int Proveedor::setCodigoProveedor()
     {
         cout<<"Ingrese el codigo de proveedor: ";
         gets(CodigoProveedor);
-        ///error=buscarcodigoproveedor(this->getCodigoProveedor());
+        error=buscarcodigoproveedor(CodigoProveedor);
         if (error!=0)
         {
             if (error==1)
@@ -189,10 +189,16 @@ void Proveedor::mostrar()
 {
     if(Estado==true)
     {
+        cout<<endl;
+        cout<<endl;
+        setColor(LIGHTBLUE);
+         cout<<"CODIGO: " <<CodigoProveedor<<endl;
+         setColor(YELLOW);
+         cout<<"----------------------------------------"<<endl;
         Persona::Mostrar();
-        cout<<"CODIGO: " <<CodigoProveedor<<endl;
         cout<<"ESTADO DE CUENTA: "<<EstadoCuenta<<endl;
         cout<<"% RENTABILIDAD: "<< PorcentajeRentabilidad<<endl;
+         cout<<"----------------------------------------"<<endl;
     }
     else
     {

@@ -49,6 +49,7 @@ void ListarClientes();
 void listarProductos();
 void listarProveedores();
 void ListarVendedores();
+///void listadoDeVentas();
 void mostrarCadenas(const char *cad);
 
 

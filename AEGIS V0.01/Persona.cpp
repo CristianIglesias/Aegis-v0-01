@@ -43,13 +43,15 @@ void Persona :: Mostrar()
     if(Estado==true)
     {
         cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<GetFechaNac().getDia()<<" del "<<GetFechaNac().getMes()<<endl;
-        cout<<"Su Número de Documento es:" <<Documento<<endl;
-        cout<<"Su Número de Teléfono es :"<<nTelefono<<endl;
-        cout<<"Su Email es :"<<Mail<<endl;
+        cout<<"Numero de documento:" <<Documento<<endl;
+        cout<<"Numero de telefono :"<<nTelefono<<endl;
+        cout<<"Email :"<<Mail<<endl;
     }
     else
     {
+        setColor(RED);
         cout<<"El Registro no está activo."<<endl;
+        setColor(YELLOW);
     }
 
 }

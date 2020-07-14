@@ -137,40 +137,46 @@ void Vendedor::mostrar()
 {
     if(Estado)
     {
-        cout<<"Legajo: " <<legajo<<endl;
+        setColor(LIGHTBLUE);
+        cout<<"LEGAJO: " <<legajo<<endl;
+        cout<<"-----------------------------------------------"<<endl;
+        setColor(YELLOW);
         Persona::Mostrar();
         cout<<"Venta diaria: "<<VentaDiaria<<endl;
         cout<<"% Comision: "<< PorcentajeComision<<endl;
+        cout<<"-----------------------------------------------"<<endl;
     }
     else
+    {
+         setColor(RED);
         cout<<"El Registro No está activo."<<endl;
+    setColor(WHITE);
+    }
+
 }
 
-bool Vendedor::leerVendedor(int pos)
+int Vendedor::leerVendedor(int pos)
 {
-      if(pos==-999)
-        return false;
-    pos--;
+    if(pos==-999)
+        return 1;
+    pos--;       ///polemica
     bool leyo=false;
     FILE *p;
     p=fopen(ArchivoVendedor,"rb");
     if(p==NULL)
     {
 
-        return false;
+        return -1;
     }
-    if(pos>1)
+    fseek(p,pos * sizeof(Vendedor),0);
+    leyo=fread(this,sizeof(Vendedor),1,p);
+    if(this->getlegajo()==pos)
     {
-        fseek(p,pos * sizeof(Vendedor),0);
-        leyo=fread(this,sizeof(Vendedor),1,p);
-    }
-    else
-    {
-        leyo=fread(this,sizeof(Vendedor),1,p);
+        fclose(p);
+        return 0;
     }
     fclose(p);
-    return leyo;
-
+    return 1;
 }
 
 int Vendedor:: LeerxID(int id)

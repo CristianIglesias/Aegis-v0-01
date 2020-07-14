@@ -280,7 +280,7 @@ void Producto::mostrar()
 {
     if (Estado==true)
     {
-
+     setColor(WHITE);
         cout<< left;
         cout<< setw(3)<<CodigoProducto<<"\t";
         cout << right;
@@ -303,7 +303,7 @@ void Producto::mostrar()
     {
         setColor(RED);
         cout<<"REGISTRO NO DISPONIBLE ------------------------------------------------------------------------"<<endl;
-        setColor(GREEN);
+        setColor(WHITE);
     }
 }
 

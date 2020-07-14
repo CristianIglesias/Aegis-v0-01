@@ -26,7 +26,20 @@ void abmVendedor();
 ///Menus Completos
 void menuPrincipal()
 {
+    int x;
+      for(x=1; x<118; x++)
+    {
+        gotoxy(x,1);cout<<"="<<endl;
+        if(x<=20){
+             gotoxy(1,x);cout<<"||"<<endl;
+
+        }
+
+    }
+
     setColor(LIGHTMAGENTA);
+    cout<<endl;
+    cout<<endl;
     cout<<" \t" "                                          MENU PRINCIPAL                        "<<endl;
     setColor(YELLOW);
     cout<<" \t" "                               ___________________________________ "<<endl;
@@ -38,9 +51,21 @@ void menuPrincipal()
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;
     cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
+
+    for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);cout<<"="<<endl;
+         if(x<=20){
+                 gotoxy(1,x);cout<<"||"<<endl;
+                 gotoxy(118,x);cout<<"||"<<endl;
+
+        }
+
+    }
 };
 void menuVentas()
 {
+  int x;
     Venta V;
     int op;
     bool salir=false;
@@ -50,6 +75,15 @@ void menuVentas()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
+ for(x=1; x<118; x++)
+    {
+        gotoxy(x,1);cout<<"="<<endl;
+        if(x<=20){
+             gotoxy(1,x);cout<<""<<endl;
+        }
+    }
+        cout<<endl;
+        cout<<endl;
 
         cout<<"   \t""                                           VENTAS                   "<<endl;
         setColor(YELLOW);
@@ -61,6 +95,17 @@ void menuVentas()
         cout<<"   \t""                             ||-0-->VOLVER                      -||"<<endl;
         cout<<"   \t""                             ||__________________________________||"<<endl;
         cout<<"   \t""                              -------Ingrese una opcion-------- "<<endl;
+        for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);cout<<"="<<endl;
+         if(x<=20){
+                 gotoxy(1,x);cout<<"||"<<endl;
+                 gotoxy(118,x);cout<<"||"<<endl;
+
+
+        }
+
+    }
         cin>>op;
 
         switch(op)
@@ -119,16 +164,30 @@ void menuVentas()
         system("pause");
 
     }
+
 }
 void menuABM()
 {
-    int op;
+    int op,x;
     bool salir=false;
 
     while(!salir)
     {
         setColor(LIGHTMAGENTA);
         system("cls");
+
+         setColor(LIGHTMAGENTA);
+        system("cls");
+ for(x=1; x<118; x++)
+    {
+        gotoxy(x,1);cout<<"="<<endl;
+        if(x<=20){
+             gotoxy(1,x);cout<<""<<endl;
+        }
+    }
+        cout<<endl;
+        cout<<endl;
+
         cout<<"  \t""                                                    ABM                 "<<endl;
         setColor(YELLOW);
         cout<<"  \t""                                     _________________________________ "<<endl;
@@ -140,6 +199,17 @@ void menuABM()
         cout<<"  \t""                                    ||-0-->VOLVER                     ||"<<endl;
         cout<<"  \t""                                    ||________________________________||"<<endl;
         cout<<"  \t""                                     -------Ingrese una opcion-------- "<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);cout<<"="<<endl;
+         if(x<=20){
+                 gotoxy(1,x);cout<<"||"<<endl;
+                 gotoxy(118,x);cout<<"||"<<endl;
+
+
+        }
+
+    }
         cin>>op;
 
         switch(op)
@@ -211,25 +281,45 @@ void menuABM()
 void abmClientes()
 {
 
-    int op;
+    int op,x;
     bool salir=false;
 
     while(!salir)
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        cout<<"                             ABM Clientes           "<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,1);cout<<"="<<endl;
+        if(x<=20){
+             gotoxy(1,x);cout<<""<<endl;
+        }
+    }
+        cout<<endl;
+        cout<<endl;
+
+        cout<<"                                                      ABM Clientes           "<<endl;
         setColor(YELLOW);
-        cout<<"                  _________________________________ "<<endl;
-        cout<<"                 ||-1-->Nuevo Cliente.             -||"<<endl;
-        cout<<"                 ||-2-->Modificar Cliente.         -||"<<endl;
-        cout<<"                 ||-3-->Mostrar Cliente.           -||"<<endl;
-        cout<<"                 ||-4-->Mostrar Todos los Clientes.-||"<<endl;
-        cout<<"                 ||-5-->Eliminar Cliente.          -||"<<endl;
-        cout<<"                 ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
-        cout<<"                 ||-0-->VOLVER                     -||"<<endl;
-        cout<<"                 ||_________________________________||"<<endl;
-        cout<<"                  -------Ingrese una opcion-------- "<<endl;
+        cout<<"                                            _________________________________ "<<endl;
+        cout<<"                                           ||-1-->Nuevo Cliente.             ||"<<endl;
+        cout<<"                                           ||-2-->Modificar Cliente.         ||"<<endl;
+        cout<<"                                           ||-3-->Mostrar Cliente.           ||"<<endl;
+        cout<<"                                           ||-4-->Mostrar Todos los Clientes.||"<<endl;
+        cout<<"                                           ||-5-->Eliminar Cliente.          ||"<<endl;
+        cout<<"                                           ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.||"<<endl;
+        cout<<"                                           ||-0-->VOLVER                     ||"<<endl;
+        cout<<"                                           ||________________________________||"<<endl;
+        cout<<"                                            -------Ingrese una opcion-------- "<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);cout<<"="<<endl;
+         if(x<=20){
+                 gotoxy(1,x);cout<<"||"<<endl;
+                 gotoxy(118,x);cout<<"||"<<endl;
+
+        }
+
+    }
         cin>>op;
         system("cls");
         switch(op)
@@ -297,25 +387,44 @@ void abmClientes()
 void abmProducto()
 {
     Producto pro;
-    int op;
+    int op,x;
     bool salir=false;
 
     while(!salir)
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        cout<<"                             ABM Producto          "<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,1);cout<<"="<<endl;
+        if(x<=20){
+             gotoxy(1,x);cout<<""<<endl;
+        }
+    }
+        cout<<endl;
+        cout<<endl;
+        cout<<"                                                     ABM Producto          "<<endl;
         setColor(YELLOW);
-        cout<<"                  _________________________________"<<endl;
-        cout<<"                 ||-1-->Nuevo Producto.             -||"<<endl;
-        cout<<"                 ||-2-->Modificar Producto.         -||"<<endl;
-        cout<<"                 ||-3-->Mostrar Producto.           -||"<<endl;
-        cout<<"                 ||-4-->Mostrar Todos los Productos.-||"<<endl;
-        cout<<"                 ||-5-->Eliminar Producto.          -||"<<endl;
-        cout<<"                 ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
-        cout<<"                 ||-0-->VOLVER                     -||"<<endl;
-        cout<<"                 ||_________________________________||"<<endl;
-        cout<<"                  -------Ingrese una opcion--------"<<endl;
+        cout<<"                                          _________________________________"<<endl;
+        cout<<"                                         ||-1-->Nuevo Producto.            ||"<<endl;
+        cout<<"                                         ||-2-->Modificar Producto.        ||"<<endl;
+        cout<<"                                         ||-3-->Mostrar Producto.          ||"<<endl;
+        cout<<"                                         ||-4-->Mostrar Todos los Productos||"<<endl;
+        cout<<"                                         ||-5-->Eliminar Producto.         ||"<<endl;
+        cout<<"                                         ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.- ||"<<endl;
+        cout<<"                                         ||-0-->VOLVER                     ||"<<endl;
+        cout<<"                                         ||________________________________||"<<endl;
+        cout<<"                                          -------Ingrese una opcion--------"<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);cout<<"="<<endl;
+         if(x<=20){
+                 gotoxy(1,x);cout<<"||"<<endl;
+                 gotoxy(118,x);cout<<"||"<<endl;
+
+        }
+
+    }
         cin>>op;
         system("cls");
         switch(op)
@@ -384,25 +493,45 @@ void abmProducto()
 void abmProveedor()
 {
 
-    int op;
+    int op,x;
     bool salir=false;
     Proveedor prove;
     while(!salir)
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        cout<<"                             ABM Proveedor          "<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,1);cout<<"="<<endl;
+        if(x<=20){
+             gotoxy(1,x);cout<<""<<endl;
+        }
+    }
+        cout<<endl;
+        cout<<endl;
+
+        cout<<"                                                         ABM Proveedor          "<<endl;
         setColor(YELLOW);
-        cout<<"                  _________________________________"<<endl;
-        cout<<"                 ||-1-->Nuevo Proveedor.             -||"<<endl;
-        cout<<"                 ||-2-->Modificar Proveedor.         -||"<<endl;
-        cout<<"                 ||-3-->Mostrar Proveedor.           -||"<<endl;
-        cout<<"                 ||-4-->Mostrar Todos los Proveedores.-||"<<endl;
-        cout<<"                 ||-5-->Eliminar Proveedor.          -||"<<endl;
-        cout<<"                 ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
-        cout<<"                 ||-0-->VOLVER                     -||"<<endl;
-        cout<<"                 ||_________________________________||"<<endl;
-        cout<<"                  -------Ingrese una opcion--------"<<endl;
+        cout<<"                                             ____________________________________"<<endl;
+        cout<<"                                            ||-1-->Nuevo Proveedor.              ||"<<endl;
+        cout<<"                                            ||-2-->Modificar Proveedor.          ||"<<endl;
+        cout<<"                                            ||-3-->Mostrar Proveedor.            ||"<<endl;
+        cout<<"                                            ||-4-->Mostrar Todos los Proveedores.||"<<endl;
+        cout<<"                                            ||-5-->Eliminar Proveedor.           ||"<<endl;
+        cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
+        cout<<"                                            ||-0-->VOLVER                        ||"<<endl;
+        cout<<"                                            ||___________________________________||"<<endl;
+        cout<<"                                             -------Ingrese una opcion--------"<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);cout<<"="<<endl;
+         if(x<=20){
+                 gotoxy(1,x);cout<<"||"<<endl;
+                 gotoxy(118,x);cout<<"||"<<endl;
+
+        }
+
+    }
         cin>>op;
         system("cls");
         switch(op)
@@ -472,25 +601,45 @@ void abmProveedor()
 void abmVendedor()
 {
 
-    int op;
+    int op,x;
     bool salir=false;
     Vendedor ven;
     while(!salir)
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        cout<<"                             ABM Vendedor          "<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,1);cout<<"="<<endl;
+        if(x<=20){
+             gotoxy(1,x);cout<<""<<endl;
+        }
+    }
+        cout<<endl;
+        cout<<endl;
+
+        cout<<"                                                        ABM Vendedor          "<<endl;
         setColor(YELLOW);
-        cout<<"                  _________________________________"<<endl;
-        cout<<"                 ||-1-->Nuevo Vendedor.             -||"<<endl;
-        cout<<"                 ||-2-->Modificar Vendedor.         -||"<<endl;
-        cout<<"                 ||-3-->Mostrar Vendedor.           -||"<<endl;
-        cout<<"                 ||-4-->Mostrar Todos los Vendedores.-||"<<endl;
-        cout<<"                 ||-5-->Eliminar Vendedor.          -||"<<endl;
-        cout<<"                 ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
-        cout<<"                 ||-0-->VOLVER                     -||"<<endl;
-        cout<<"                 ||_________________________________||"<<endl;
-        cout<<"                  -------Ingrese una opcion--------"<<endl;
+        cout<<"                                             __________________________________"<<endl;
+        cout<<"                                            ||1-->Nuevo Vendedor.              ||"<<endl;
+        cout<<"                                            ||2-->Modificar Vendedor.          ||"<<endl;
+        cout<<"                                            ||3-->Mostrar Vendedor.            ||"<<endl;
+        cout<<"                                            ||4-->Mostrar Todos los Vendedores.||"<<endl;
+        cout<<"                                            ||5-->Eliminar Vendedor.           ||"<<endl;
+        cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
+        cout<<"                                            ||0-->VOLVER                       ||"<<endl;
+        cout<<"                                            ||_________________________________||"<<endl;
+        cout<<"                                             -------Ingrese una opcion--------"<<endl;
+         for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);cout<<"="<<endl;
+         if(x<=20){
+                 gotoxy(1,x);cout<<"||"<<endl;
+                 gotoxy(118,x);cout<<"||"<<endl;
+
+        }
+
+    }
         cin>>op;
         system("cls");
         switch(op)
