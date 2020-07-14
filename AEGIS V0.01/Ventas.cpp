@@ -20,9 +20,9 @@ void Venta:: GenerarVenta()
     SetID(GenerarIdVenta());
     cout<<"ID de venta : "<<getID();
     cin>>IdVendedor;
-    /*error=SetIdVendedor();///TODO ARREGLAR ID VENDEDORES
+    error=SetIdVendedor();///TODO ARREGLAR ID VENDEDORES
     if(error==1)
-        return;*/
+        return;
     error=SetIdCliente();
     if(error==1)
         return;
@@ -59,14 +59,14 @@ int Venta:: SetIdVendedor()
 {
     Vendedor Vend;
     int error=-1,i=0,op;
-    while(error<0)
+    while(error!=0)
     {
         cout<<"Ingrese el ID del vendedor a cargo de esta venta:"<<endl;
         cout<<"ID VENDEDOR: ";
         cin>>IdVendedor;
-        error=Vend.LeerxID(getIdVendedor());
-        if(error==1)
-            return 1;
+        error=Vend.LeerxID(IdVendedor);
+       /// if(error==1)
+       ///     return 1;
         if(error==0)///funcion confirmar elección.
         {
             cout<<"El Vendedor deseado es : "<<Vend.getNombre()<<" ?"<<endl;

@@ -64,8 +64,8 @@ int DetalleVenta::setIdProducto()
         error=Reg.LeerxID(Cod);
         if(error==0)
         {
-            cout<<"El Producto deseado es : "<<Reg.getNombreItem()<<"?"<<endl;
-            cout<<"El Precio del Producto es de :$"<<Reg.getPrecioVenta();
+            cout<<"El Producto deseado es : " << Reg.getNombreItem()<<"?"<<endl;
+            cout<<"El Precio del Producto es de :$ " << Reg.getPrecioVenta()<<endl;
             setPrecioUnidad(Reg.getPrecioVenta());
             cout<<"SI :1             NO:0"<<endl;
             cin>>op;
@@ -113,7 +113,7 @@ int DetalleVenta :: setCantidad()
 int DetalleVenta::setPrecioTotal()
 {
     int op;
-    cout<<"Quedaría un total de :$"<<getImporteTotal();
+    cout<<"Quedaría un total de :$ "<<getImporteTotal();
     cout<<"Desea Modificar la cantidad?"<<endl;
     cout<<"SI: 1              NO: 0"<<endl;
     cin>>op;

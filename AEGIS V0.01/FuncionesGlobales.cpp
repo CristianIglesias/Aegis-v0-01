@@ -201,7 +201,7 @@ void ListarVendedores()
     cls();
     cout<<"Listado De Vendedores "<<endl;///TODO CHEQUEAR LISTADO VENDEDORES
     cout<<"--------------------"<<endl;
-    while(ven.LeerxID(i))
+    while(ven.LeerxID(i)==1)
     {
         ven.mostrar();
         cout<<endl;

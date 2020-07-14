@@ -154,7 +154,7 @@ bool Vendedor::leerVendedor(int pos)
 
         return false;
     }
-    if(pos>0)
+    if(pos>=0)
     {
         fseek(p,pos * sizeof(Vendedor),0);
         leyo=fread(this,sizeof(Vendedor),1,p);

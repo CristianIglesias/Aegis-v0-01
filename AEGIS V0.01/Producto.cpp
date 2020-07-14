@@ -284,17 +284,17 @@ void Producto::mostrar()
         cout<< left;
         cout<< setw(3)<<CodigoProducto<<"\t";
         cout << right;
-        cout<< setw(10)<<NombreItem<<"\t   ";
+        cout<< setw(10)<<NombreItem<<"\t ";
         cout<< left;
-        cout<<setw(3)<<CodigoProveedor<<"\t     ";
+        cout<<setw(3)<<CodigoProveedor<<"\t";
 
-        cout<<setw(5)<<CostodeCompra<<"\t    ";
+        cout<<setw(5)<<"$"<<CostodeCompra<<"\t";
 
-        cout<<setw(5)<<PorcentajeRentabilidad<<"\t";
+        cout<<setw(5)<<PorcentajeRentabilidad<<"%"<< "\t";
 
-        cout<<setw(5)<<PreciodeVenta<<"\t    ";
+        cout<<setw(5)<<"$"<<PreciodeVenta<<"\t    ";
 
-        cout<<setw(5)<<StockMin<<"\t     ";
+        cout<<setw(5)<<StockMin<<"\t";
 
         cout<<setw(5)<<StockActual<<"\t"<<endl;
         cout<<"------------------------------------------------------------------------------------------------"<<endl;
