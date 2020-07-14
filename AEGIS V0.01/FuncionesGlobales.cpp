@@ -11,7 +11,8 @@ using namespace rlutil;
 #include "Producto.h"
 #include "Proveedor.h"
 #include "Vendedor.h"
-
+#include "Ventas.h"
+#include "DetalleVenta.h"
 
 void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECESITE, SOLO SER A AGREGAR CASES AL SWITCH.
 /// ES UTIL PARA SIMPLIFICAR EL C DIGO.
@@ -250,3 +251,159 @@ cout<<"*________________________________________________________________________
     anykey();
 }
 */
+void ListadoVentasxFechas()
+{
+    int error=-1,CantVentas;
+    Fecha Fech1,Fech2;
+    cout<<"Ingrese las fechas entre las que quiere que se filtre el Listado"<<endl;
+    error=Fech1.CargarFecha();
+    if(error==1)
+        return;
+    error=Fech2.CargarFecha();
+    if(error==1)
+        return;
+    AsignarOrdenaFechas(&Fech1,&Fech2);
+    CantVentas=ContarRegistrosxFechas(Fech1,Fech2);
+
+
+
+};
+
+void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2)
+{
+    Fecha Aux;
+    if(reg1->getDia()<=reg2->getDia()&&reg1->getMes()<=reg2->getMes()&&reg1->getAnio()<=reg2->getAnio())
+        return;
+    if(reg1->getAnio()>reg2->getAnio()||reg1->getMes()>reg2->getMes()||(reg1->getMes()==reg2->getMes()&&reg1->getDia()>reg2->getDia()))
+    {
+    Aux.setFecha(reg1);
+    reg1->setFecha(reg2);
+    reg2->setFecha(aux);
+    return;
+    }
+///TODO SET FECHA!
+};
+
+int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2)
+{       Venta Aux;
+        int cont;
+        FILE *P;
+        P=fopen(ArchivoVentas,"rb");
+        while(fread(&Aux,sizeof(Venta),1,P)==1)
+        {
+            if(Venta.getFechaOperacion()>=Fech1||Venta.getFechaOperacion()<=Fech2);
+
+        }
+}
+
+
+void ListadoVentasxVendedor()
+{
+
+};
+
+void ListadoVentasxImporteMax()
+{
+
+};
+
+void ListadoVentasxCliente()
+{
+
+};
+
+
+
+
+int Fecha::CargarFecha()
+{
+    int error=0,i=0,aux;
+    while (error!=0||error!=1)
+    {
+        cout<<"Ingrese Fecha "<<endl;
+        cout<<"Fecha a Buscar (d/m/a):"<<endl;
+        cin>>aux;
+        setDia(aux);
+        cout<<"/";
+        cin>>aux;
+        setMes(aux);
+        cout<<"/";
+        cin>>aux;
+        setAnio(aux);
+        error=ValidarFecha(GetFecha());
+        if (error==-1)
+        {
+            i++;
+            error_msj(-2,i);
+            anykey();
+            cls();
+        }
+        else
+            break;
+    }
+    return error;
+
+};
+int Fecha :: ValidarFecha(Fecha FechaNac)
+{
+    if(FechaNac.getMes()==0&&FechaNac.getDia()==0&&FechaNac.getAnio()==0)
+        return 1;
+    if((FechaNac.getMes()>0&&FechaNac.getMes()<13)&&(FechaNac.getAnio()>1910&&FechaNac.getAnio()<=2020))
+    {
+        switch(FechaNac.getMes())
+        {
+        case  1 :
+        case  3 :
+        case  5 :
+        case  7 :
+        case  8 :
+        case 10 :
+        case 12 :
+            if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 31 )
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+        case  4 :
+        case  6 :
+        case  9 :
+        case 11 :
+            if ( (FechaNac.getDia() >= 1) && (FechaNac.getDia() <= 30) )
+            {
+
+                return 0;
+            }
+            else
+                return -1;
+        case  2 :
+            if( (FechaNac.getAnio() % 4 == 0 && FechaNac.getAnio() % 100 != 0 )|| (FechaNac.getAnio() % 400 == 0 ))
+                if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 29 )
+                {
+
+                    return 0 ;
+                }
+                else
+                {
+                    return -1;
+                }
+            else if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 28 )
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+    }
+    else
+    {
+
+        return -1;
+    }
+    return-1;
+};

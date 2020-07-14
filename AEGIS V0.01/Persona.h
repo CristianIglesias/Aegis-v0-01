@@ -21,7 +21,6 @@ public:
     int setApellido();
 
     int setFecha();
-    int ValidarFecha(Fecha FechaNacimiento);
     int setTelefono();
     int setEmail();
     int ValidarMail( char *Mail);

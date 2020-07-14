@@ -52,7 +52,7 @@ void Venta:: Mostrar()
     cout<<"Venta nro: "<<ID<<"."<<endl;
     cout<<"Fecha de venta: "<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<endl;
     cout<<"Vendedor nro: "<<IdVendedor<<endl;
-    cout<<"Cliente nro "<<IdCliente<<endl;
+    cout<<"Cliente nro "<<getIdCliente()<<endl;
     cout<<"Importe final  $ : "<< ImporteTotal<<endl;
     cout<<"--------------------------------------------------------------------"<<endl;
 
@@ -114,6 +114,7 @@ int Venta:: SetIdCliente()
             switch(op)
             {
             case 1:
+                SetIdCliente(Cli.GetidCliente());
                 return error;
                 break;
             case 0:

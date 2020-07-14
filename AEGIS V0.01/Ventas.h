@@ -12,6 +12,10 @@ public:
     void GenerarVenta();
     int SetIdVendedor();
     int SetIdCliente();
+    int SetIdCliente(int aux)
+    {
+        IdCliente=aux;
+    }
     int getIdVendedor()
     {
         return IdVendedor;

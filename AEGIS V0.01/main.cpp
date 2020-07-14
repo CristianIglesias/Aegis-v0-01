@@ -97,7 +97,7 @@ int main()
         case 4:
         {
             cout<<"~~~~~LISTADOS~~~~~"<<endl;
-
+            menuListados();
         }
         break;
 

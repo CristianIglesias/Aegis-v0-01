@@ -8,6 +8,8 @@ protected:
     int mes;
     int anio;
 public:
+    int ValidarFecha(Fecha FechaAux);
+    int CargarFecha();
     int getDia()
     {
         return dia;
@@ -19,6 +21,10 @@ public:
     int getAnio()
     {
         return anio;
+    }
+    Fecha * getFecha()
+    {
+        return this;
     }
     void setDia(int d)
     {
@@ -51,6 +57,18 @@ void listarProveedores();
 void ListarVendedores();
 ///void listadoDeVentas();
 void mostrarCadenas(const char *cad);
+
+void ListadoVentasxFechas();
+void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2);
+int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2);
+
+void ListadoVentasxVendedor();
+
+void ListadoVentasxImporteMax();
+
+void ListadoVentasxCliente();
+
+
 
 
 #endif // PROTOTIPOSGLOBALES_H_INCLUDED

@@ -141,7 +141,7 @@ int Persona :: setFecha()
         cout<<"/";
         cin>>aux;
         FechaNacimiento.setAnio(aux);
-        error=ValidarFecha(GetFechaNac());
+        error=FechaNacimiento.ValidarFecha(GetFechaNac());
         if (error==-1)
         {
             i++;
@@ -288,69 +288,7 @@ int Persona:: ValidarMail( char *Mail)///valida un Montón de cosas, listadas aba
     }
     return 0;
 }
-int Persona :: ValidarFecha(Fecha FechaNac)
-{
-    if(FechaNac.getMes()==0&&FechaNac.getDia()==0&&FechaNac.getAnio()==0)
-        return 1;
-    if((FechaNac.getMes()>0&&FechaNac.getMes()<13)&&(FechaNac.getAnio()>1910&&FechaNac.getAnio()<=2020))
-    {
-        switch(FechaNac.getMes())
-        {
-        case  1 :
-        case  3 :
-        case  5 :
-        case  7 :
-        case  8 :
-        case 10 :
-        case 12 :
-            if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 31 )
-            {
-                return 0;
-            }
-            else
-            {
-                return -1;
-            }
-        case  4 :
-        case  6 :
-        case  9 :
-        case 11 :
-            if ( (FechaNac.getDia() >= 1) && (FechaNac.getDia() <= 30) )
-            {
 
-                return 0;
-            }
-            else
-                return -1;
-        case  2 :
-            if( (FechaNac.getAnio() % 4 == 0 && FechaNac.getAnio() % 100 != 0 )|| (FechaNac.getAnio() % 400 == 0 ))
-                if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 29 )
-                {
-
-                    return 0 ;
-                }
-                else
-                {
-                    return -1;
-                }
-            else if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 28 )
-            {
-                return 0;
-            }
-            else
-            {
-                return -1;
-            }
-
-        }
-    }
-    else
-    {
-
-        return -1;
-    }
-    return-1;
-};
 
 Persona MenuModificarPersona(int *Cambios)
 {
