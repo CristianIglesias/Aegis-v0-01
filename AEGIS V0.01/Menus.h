@@ -317,7 +317,6 @@ void abmProducto()
             cout<<"            ~ Nuevo Producto ~          "<<endl;
 
             pro.cargar();
-            pro.guardarNuevoProducto();
             anykey();
 
         }
@@ -359,13 +358,13 @@ void abmProducto()
         {
             salir=true;
         }
-        case 99:
+        /*case 99:
         {
             FILE *p;
             p=fopen("Producto.dat","wb");
             fclose(p);
         }
-        break;
+        break;*/
 
         }///Cierra el switch
 

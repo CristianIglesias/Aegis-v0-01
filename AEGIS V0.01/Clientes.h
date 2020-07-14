@@ -6,11 +6,11 @@ class Cliente: public Persona
 {
 public:
 
-    void cargar();                     ///                ///carga
-    void mostrar();                    ///                ///Muestra el que la llama
-    int LeerxPos(int id);              ///   Leer por posición-(solo cambiart nombre)
-    int mostrarxID ();                ///                ///Muestra Por posicion-
-    int  GuardarClienteEnDisco();      ///                ///Agrega Clientes al final del archivo.
+    void cargar();                       ///                ///carga
+    void mostrar();                      ///                ///Muestra el que la llama
+    int LeerxPos(int id);                ///   Leer por posición-(solo cambiart nombre)
+    int mostrarxID ();                   ///                ///Muestra Por posicion-
+    int  GuardarClienteEnDisco();        ///                ///Agrega Clientes al final del archivo.
     int  GuardarClienteEnDisco(int POS); ///                ///Sobreescribe Clientes X id
 
     void EliminarCliente();            ///  NO ES METODO. ONDA SI, PERO NO ESTÁ BIEN ARMADO. (set estado false, guardar por pos)

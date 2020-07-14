@@ -48,10 +48,11 @@ void Venta:: GenerarVenta()
 };
 void Venta:: Mostrar()
 {
-    cout<<"Venta nro : "<<ID<<"."<<endl;
-    cout<<"Fecha de venta : "<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<endl;
+    cout<<"Venta nro: "<<ID<<"."<<endl;
+    cout<<"Fecha de venta: "<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<endl;
     cout<<"Realizada por el Vendedor nro: "<<IdVendedor;
     cout<<" al Cliente "<<IdCliente<<endl;
+    cout<<"Por un importe final de $"<<ImporteTotal;
 
 }
 int Venta:: SetIdVendedor()

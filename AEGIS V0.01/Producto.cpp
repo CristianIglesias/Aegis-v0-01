@@ -16,54 +16,50 @@ const char *ArchivoProducto ="Producto.dat";
 
 void Producto::cargar()
 {
-    Estado=true;
     int error;
-
     error=setCodigoproducto();
     if(error==1)
         return;
-
-
     error=setCodigoProveedor();
     if(error==1)
         return;
-
-
     error=setNombreItem();
     if(error==1)
         return;
-
-
     error=setCostoCompra();
     if(error==1)
         return;
-
-
-
     error=setPorcentajeRentabilidad();
     if(error==1)
         return;
-
-
     setPrecioVenta(CostodeCompra,PorcentajeRentabilidad);
     if(error==1)
         return;
-
-
     error=setStockMin();
     if(error==1)
         return;
-
-
     error=setStockActual();
     if(error==1)
         return;
-
     Estado=true;
+    error=guardarNuevoProducto();
+    if(error!=0)
+    {
+        cout<<"Hubo un error Guardando el Producto en el Archivo."<<endl;
+        cout<<"Ingrese cualquier tecla para continuar"<<endl;
+        anykey();
+    }
+    else
+    {
+        cout<<"Producto Guardado en el Archivo con Exito!"<<endl;
+    }
+
 }
 
 int Producto:: buscarcodigo(const char *codigo)///TODO SALIDA VOLUNTARIA BUSCAR PRODUCTOS.
 {
+    if(codigo=="-999")
+        return 1;
     Producto aux;
     FILE *p;
     p=fopen(ArchivoProducto,"rb");
@@ -312,7 +308,7 @@ void Producto::mostrar()
 }
 
 ///GUARDAR EN DISCO
-int Producto::guardarNuevoProducto()
+int Producto::guardarNuevoProducto()///Al final del archivo
 {
     FILE *p;
     p=fopen(ArchivoProducto,"ab");
@@ -320,13 +316,13 @@ int Producto::guardarNuevoProducto()
     {
         return -1;
     }
-    if(fwrite(this,sizeof(Producto),1,p)!=1);
+    if(fwrite(this,sizeof(Producto),1,p)==1);
     {
         fclose(p);
-        return -1;
+        return 0;
     }
     fclose(p);
-    return 0;
+    return -1;
 }
 
 int Producto::ObtenerPosicionProducto(char *codigo)
@@ -353,7 +349,7 @@ int Producto::ObtenerPosicionProducto(char *codigo)
 }
 
 
-int Producto::guardarProducto()
+int Producto::guardarProducto()///Modificado
 {
     int pos=0;
     pos=ObtenerPosicionProducto(this->CodigoProducto);

@@ -61,12 +61,10 @@ int DetalleVenta::setIdProducto()
         cout<<"ID PRODUCTO: ";
         cin.ignore();
         cin.getline(Cod,10);
-        error=Reg.buscarcodigo(Cod);
-        if(error==1)
-            return 1;
+        error=Reg.LeerxID(Cod);
         if(error==0)
         {
-            cout<<"El Producto deseado es : "<<Reg.getNombreItem()<<cout<<" ?"<<endl;
+            cout<<"El Producto deseado es : "<<Reg.getNombreItem()<<"?"<<endl;
             cout<<"El Precio del Producto es de :$"<<Reg.getPrecioVenta();
             setPrecioUnidad(Reg.getPrecioVenta());
             cout<<"SI :1             NO:0"<<endl;
