@@ -19,7 +19,7 @@ void Venta:: GenerarVenta()
     int error=-1;
     SetID(GenerarIdVenta());
     cout<<"ID de venta : "<<getID()<<endl;
-    error=SetIdVendedor();///TODO ARREGLAR ID VENDEDORES
+    error=SetIdVendedor();
     if(error!=0)
         return;
     error=SetIdCliente();
@@ -67,6 +67,11 @@ int Venta:: SetIdVendedor()
         error=Vend.leerVendedor(IdVendedor);
         if(error==false)
             return -1;
+        if(error==-1)
+        {
+            i++;
+            error_msj(-5,i);
+        }
         if(error==true)///funcion confirmar elección.
         {
             cout<<"El Vendedor deseado es : "<<Vend.getNombre()<<" ?"<<endl;
@@ -81,14 +86,8 @@ int Venta:: SetIdVendedor()
                 error=-2;
                 break;
             }
+        }
 
-            return 0;
-        }
-        if(error==-1)
-        {
-            i++;
-            error_msj(-5,i);
-        }
     }///Cierra while
     return error;
 };
