@@ -7,9 +7,6 @@ using namespace std;
 #include <clocale>
 #include "rlutil.h"
 using namespace rlutil;
-#include "Clientes.h"
-#include "Producto.h"
-#include "Proveedor.h"
 #include "Menus.h"
 
 

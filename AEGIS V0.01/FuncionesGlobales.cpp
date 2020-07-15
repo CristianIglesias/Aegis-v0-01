@@ -268,7 +268,7 @@ void ListadoVentasxFechas()
 
 };
 
-void AsignarOrdenaFechas(Fecha reg1,Fecha reg2)
+void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2)
 {
     Fecha Aux;
     if(reg1->getDia()<=reg2->getDia()&&reg1->getMes()<=reg2->getMes()&&reg1->getAnio()<=reg2->getAnio())
@@ -313,17 +313,12 @@ int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
     }
     while(fread(&Vec[Pos],sizeof(Venta),1,P)==1)
     {
-        if((Vec[Pos].getFechaOperacion().getDia()>=Fech1.getDia()&&Vec[Pos].getFechaOperacion().getMes()>=Fech1.getMes())||(Vec[Pos].getFechaOperacion().getDia()<=Fech2.getDia()&&Vec[Pos].getFechaOperacion().getMes()<=Fech2.getMes()));
+        if((Vec[Pos]->getFechaOperacion().getDia()>=Fech1.getDia()&&Vec[Pos]->getFechaOperacion().getMes()>=Fech1.getMes())||(Vec[Pos]->getFechaOperacion().getDia()<=Fech2.getDia()&&Vec[Pos].getFechaOperacion().getMes()<=Fech2.getMes()));
         Pos++;
     }
     fclose(P);
     return 1 ;
 }
-
-
-
-
-
 
 
 void ListadoVentasxVendedor()
@@ -449,3 +444,4 @@ Fecha Fecha:: getFecha()
     Aux.setDia(this->getDia());
         return Aux;
     }
+

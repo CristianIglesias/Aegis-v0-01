@@ -10,8 +10,9 @@ protected:
     int mes;
     int anio;
 public:
-    int ValidarFecha(Fecha FechaAux);
+  //  int ValidarFecha(Fecha FechaAux);
     int CargarFecha();
+    int ValidarFecha(Fecha FechaNac);
     void setFecha(Fecha reg);
     int getDia()
     {
@@ -25,7 +26,7 @@ public:
     {
         return anio;
     };
-    Fecha  getFecha();
+    //Fecha  getFecha();
 
     void setDia(int d)
     {
@@ -40,6 +41,7 @@ public:
         anio=a;
     };
 };
+
 
 void error_msj(int cod,int i);
 
