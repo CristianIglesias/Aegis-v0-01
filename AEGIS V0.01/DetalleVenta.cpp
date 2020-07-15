@@ -53,7 +53,7 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
 int DetalleVenta::setIdProducto()
 {
     char Cod[10];
-    int aux, i=0,error,op;
+    int i=0,error=-1,op;
     Producto Reg;
     while(error!=0)
     {

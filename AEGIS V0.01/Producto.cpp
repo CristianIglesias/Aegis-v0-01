@@ -3,12 +3,13 @@
 #include <cstdio>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iomanip>
 using namespace std;
 #include "Producto.h"
 #include "Proveedor.h"
 #include "PrototiposGlobales.h"
 #include "rlutil.h"
-#include <iomanip>
+
 using namespace rlutil;
 const char *ArchivoProducto ="Producto.dat";
 
@@ -58,7 +59,7 @@ void Producto::cargar()
 
 int Producto:: buscarcodigo(const char *codigo)///TODO SALIDA VOLUNTARIA BUSCAR PRODUCTOS.
 {
-    if(codigo=="-999")
+    if(strcmp(codigo,'-999')==0)
         return 1;
     Producto aux;
     FILE *p;

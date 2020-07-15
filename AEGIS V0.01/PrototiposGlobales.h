@@ -3,8 +3,7 @@
 #pragma once
 #include "Ventas.h"
 #include "Operacion.h"
-class Fecha
-{
+class Fecha{
 protected:
     int dia;
     int mes;

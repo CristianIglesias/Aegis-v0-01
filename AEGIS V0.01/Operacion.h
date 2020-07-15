@@ -1,13 +1,11 @@
 #ifndef OPERACION_H_INCLUDED
 #define OPERACION_H_INCLUDED
-#include "PrototiposGlobales.h"
-#include "Producto.h"
-
+#pragma once
 class Operacion
 {
 protected:
     int ID;
-    class Fecha fechaOperacion;
+    Fecha fechaOperacion;
     float ImporteTotal;
 public:
     Operacion();

@@ -3,12 +3,12 @@ using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
 #include <ctime>
-#include "PrototiposGlobales.h"
 #include "Ventas.h"
 #include "Producto.h"
 #include "Proveedor.h"
 #include "Vendedor.h"
 #include "Clientes.h"
+#include "PrototiposGlobales.h"
 
 Operacion::Operacion()
 {
@@ -20,7 +20,7 @@ void Operacion::SetID(int id)
 {
     ID=id;
 }
-int Operacion:: setFechaActual()
+void Operacion:: setFechaActual()
 {
     time_t t;
     t=time(NULL);
@@ -29,6 +29,7 @@ int Operacion:: setFechaActual()
     fechaOperacion.setAnio (fecha->tm_year+1900);
     fechaOperacion.setDia  (fecha->tm_mday);
     fechaOperacion.setMes  (fecha->tm_mon+1);
+  return;
 };
 
 
