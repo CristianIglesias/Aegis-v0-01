@@ -53,7 +53,7 @@ return error;}
 int DetalleVenta::setIdProducto()
 {
     char Cod[10];
-    int i=0,error=-1,op;
+    int aux, i=0,error,op;
     Producto Reg;
     while(error!=0)
     {

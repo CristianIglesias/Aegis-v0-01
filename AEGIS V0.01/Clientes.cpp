@@ -403,7 +403,7 @@ int Cliente :: SetPrefFact()
         error_msj(-4,i);
 
     }
-return error;};
+};
 
 int Cliente :: ValidarPrefFact()
 {
@@ -428,7 +428,6 @@ int Cliente :: ValidarPrefFact()
 
         return -2;
     }
-    return 0;
 };
 
 void Cliente :: SetDeuda()

@@ -3,13 +3,12 @@
 #include <cstdio>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iomanip>
 using namespace std;
 #include "Producto.h"
 #include "Proveedor.h"
 #include "PrototiposGlobales.h"
 #include "rlutil.h"
-
+#include <iomanip>
 using namespace rlutil;
 const char *ArchivoProducto ="Producto.dat";
 
