@@ -6,6 +6,7 @@
 #include "Producto.h"
 #include "Proveedor.h"
 #include "Vendedor.h"
+#include "Clientes.h"
 #include "PrototiposGlobales.h"
 
 

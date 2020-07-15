@@ -10,10 +10,14 @@ using namespace rlutil;
 #include "Ventas.h"
 #include "DetalleVenta.h"
 const char *ArchivoVentas ="Ventas.dat";
+
+
 /// A SABER
 /// ERROR=0-TA TODO PIOLA, SIGUE ADELANTE
 /// ERROR=1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI
 /// ERROR<0-SIGUE INTENTANDO, TRANK PALANK
+
+
 void Venta:: GenerarVenta()
 {
     int error=-1;

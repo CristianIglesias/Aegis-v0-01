@@ -15,6 +15,7 @@
 					<Add option="-Wextra" />
 					<Add option="-Wall" />
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -24,6 +25,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -55,7 +57,9 @@
 		<Unit filename="Vendedor.h" />
 		<Unit filename="Ventas.cpp" />
 		<Unit filename="Ventas.h" />
+		<Unit filename="include/Fecha.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Fecha.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
