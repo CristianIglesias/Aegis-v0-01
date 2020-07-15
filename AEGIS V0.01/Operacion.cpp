@@ -3,13 +3,7 @@ using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
 #include <ctime>
-#include "PrototiposGlobales.h"
-#include "Ventas.h"
-#include "Producto.h"
-#include "Proveedor.h"
-#include "Vendedor.h"
-#include "Clientes.h"
-
+#include "Operacion.h"
 Operacion::Operacion()
 {
     setFechaActual();

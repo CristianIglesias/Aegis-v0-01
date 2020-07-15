@@ -1,6 +1,10 @@
 #ifndef PRODUCTO_H_INCLUDED
 #define PRODUCTO_H_INCLUDED
 #pragma once
+#include "PrototiposClases.h"
+#include "PrototiposGlobales.h"
+#include "Proveedor.h"
+
 class Producto
 {
 private:

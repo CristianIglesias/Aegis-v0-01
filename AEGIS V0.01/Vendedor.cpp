@@ -4,9 +4,9 @@
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
-#include "Persona.h"
+
 #include "Vendedor.h"
-#include "PrototiposGlobales.h"
+
 const char *ArchivoVendedor ="Vendedor.dat";
 void Vendedor::cargar()
 {
@@ -380,4 +380,23 @@ int GenerarIdVendedor()
     cantRegistros=ftell(p)/sizeof(Vendedor);
     fclose(p);
     return cantRegistros+1;
+}
+
+
+void ListarVendedores()
+{
+    Vendedor ven;
+    int i=0;
+    cls();
+    cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    while(ven.LeerxID(i)==1)
+    {
+        ven.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
 }

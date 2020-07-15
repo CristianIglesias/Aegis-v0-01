@@ -2,14 +2,13 @@
 #define MENUS_H_INCLUDED
 #pragma once
 #include <conio.h>
+#include "PrototiposClases.h"
+#include "PrototiposGlobales.h"
+#include "Clientes.h"
 #include "Ventas.h"
 #include "Producto.h"
 #include "Proveedor.h"
 #include "Vendedor.h"
-#include "Clientes.h"
-#include "PrototiposGlobales.h"
-#include "Clientes.h"
-
 
 ///Prototipos de los Menus.
 

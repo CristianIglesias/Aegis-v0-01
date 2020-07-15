@@ -1,7 +1,9 @@
 #ifndef PERSONA_H_INCLUDED
 #define PERSONA_H_INCLUDED
-#include "PrototiposGlobales.h"
 #pragma once
+#include "PrototiposClases.h"
+#include "PrototiposGlobales.h"
+
 class Persona
 {
 protected:

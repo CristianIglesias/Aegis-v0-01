@@ -3,8 +3,8 @@
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
-#include "PrototiposGlobales.h"
 #include "Persona.h"
+#include "PrototiposGlobales.h"
 ///IOMANIP ///setw();
 /// A SABER
 /// ERROR=0-TA TODO PIOLA, SIGUE ADELANTE
@@ -141,7 +141,7 @@ int Persona :: setFecha()
         cout<<"/";
         cin>>aux;
         FechaNacimiento.setAnio(aux);
-        error=FechaNacimiento.ValidarFecha(GetFechaNac());
+        error=FechaNacimiento.ValidarFecha();
         if (error==-1)
         {
             i++;

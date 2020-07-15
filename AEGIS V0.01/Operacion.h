@@ -1,7 +1,9 @@
 #ifndef OPERACION_H_INCLUDED
 #define OPERACION_H_INCLUDED
 #pragma once
+#include "PrototiposClases.h"
 #include "PrototiposGlobales.h"
+#include "Fecha.h"
 #include "Producto.h"
 
 class Operacion

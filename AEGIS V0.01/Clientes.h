@@ -1,7 +1,10 @@
 #ifndef CLIENTES_H_INCLUDED
 #define CLIENTES_H_INCLUDED
 #pragma once
+#include "PrototiposClases.h"
+#include "PrototiposGlobales.h"
 #include "Persona.h"
+
 class Cliente: public Persona
 {
 public:

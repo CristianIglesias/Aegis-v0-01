@@ -4,7 +4,7 @@ using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
 #include "Clientes.h"
-#include "PrototiposGlobales.h"
+
 const char *ArchivoClientes ="Clientes.dat";
 /// A SABER
 /// ERROR==0-TA TODO PIOLA, SIGUE ADELANTE
@@ -450,3 +450,20 @@ float Cliente:: GetDeuda()
 {
     return Deuda;
 };
+void ListarClientes()
+{
+    Cliente Cli;
+    int i=1;
+    cls();
+    cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE CLIENTES______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    while(Cli.LeerxPos(i)==0)
+    {
+        Cli.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+}

@@ -1,6 +1,8 @@
 #ifndef PROVEEDOR_H_INCLUDED
 #define PROVEEDOR_H_INCLUDED
 #pragma once
+#include "PrototiposClases.h"
+#include "PrototiposGlobales.h"
 #include "Persona.h"
 
 class Proveedor:public Persona

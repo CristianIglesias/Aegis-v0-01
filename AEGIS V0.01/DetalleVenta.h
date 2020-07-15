@@ -1,7 +1,12 @@
 #ifndef DETALLEVENTA_H_INCLUDED
 #define DETALLEVENTA_H_INCLUDED
 #pragma once
-
+#include "PrototiposClases.h"
+#include "PrototiposGlobales.h"
+#include "Producto.h"
+#include "Vendedor.h"
+#include "Clientes.h"
+#include "Ventas.h"
 class DetalleVenta
 {
 public:

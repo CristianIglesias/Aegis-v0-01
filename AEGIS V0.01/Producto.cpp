@@ -4,12 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 using namespace std;
-#include "Producto.h"
-#include "Proveedor.h"
-#include "PrototiposGlobales.h"
-#include "rlutil.h"
 #include <iomanip>
+#include "rlutil.h"
 using namespace rlutil;
+
+#include "Producto.h"
+
 const char *ArchivoProducto ="Producto.dat";
 
 ///juan.agustin.gonzalez99@gmail.com
@@ -606,3 +606,33 @@ void Producto::Eliminar()
 
 }
 
+void listarProductos()
+{
+    Producto reg;
+    int i=0;
+    cls();
+    setColor(LIGHTBLUE);
+    cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    cout<< left;
+    cout<<setw(3)<<"CODIGO-"<<" ";
+    cout<<setw(10)<<"NOMBRE-"<<"  ";
+    cout<<setw(3)<<"PROVEEDOR-"<<"  ";
+    cout<<setw(5)<<"COSTO-"<<"  ";
+    cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
+    cout<<setw(5)<<"$ VENTA-"<<"  ";
+    cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
+    cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
+    cout<<"--------------------------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    setColor(WHITE);
+    while(reg.leerProductos(i)==1)
+    {
+        reg.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+}

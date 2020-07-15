@@ -4,11 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 using namespace std;
-#include "Persona.h"
-#include "Proveedor.h"
-#include "PrototiposGlobales.h"
 #include "rlutil.h"
 using namespace rlutil;
+#include "Proveedor.h"
+
 const char *ArchivoProveedor ="Proveedor.dat";
 
 int Proveedor::buscarcodigoproveedor(char *codigo)///ARREGLAR
@@ -426,4 +425,23 @@ void Proveedor :: EliminarProveedor()
         }
     }
 };
+
+void listarProveedores()
+{
+    Proveedor prov;
+    int i=1;
+    cls();
+    cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE PROVEEDORES______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    while(prov.leerProveedor(i)==1)
+    {
+        prov.mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+}
 

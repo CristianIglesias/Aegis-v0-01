@@ -2,13 +2,8 @@
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
-#include "PrototiposGlobales.h"
-#include "Producto.h"
-#include "Proveedor.h"
-#include "Vendedor.h"
-#include "Clientes.h"
 #include "Ventas.h"
-#include "DetalleVenta.h"
+
 const char *ArchivoVentas ="Ventas.dat";
 
 
@@ -173,7 +168,84 @@ int Venta:: GuardarVenta()
 };
 
 
+void ListadoVentasxFechas()
+{
+    int error=-1,CantVentas;
+    Fecha Fech1,Fech2;
+    cout<<"Ingrese las fechas entre las que quiere que se filtre el Listado"<<endl;
+    error=Fech1.CargarFecha();
+    if(error==1)
+        return;
+    error=Fech2.CargarFecha();
+    if(error==1)
+        return;
+    AsignarOrdenaFechas(&Fech1,&Fech2);
+    CantVentas=ContarRegistrosxFechas(Fech1,Fech2);
+    if(CantVentas==-1)
+        error_msj(-6,1);
+    Venta *VecDin;
+    VecDin=new Venta[CantVentas];
+    error=CargarVecVentasxFecha(VecDin,CantVentas,Fech1,Fech2);
 
+
+};
+
+
+
+
+int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2)
+{
+    Venta Aux;
+    int cont=0;
+    FILE *P;
+    P=fopen("Ventas.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Aux,sizeof(Venta),1,P)==1)
+    {
+        if((Aux.getFechaOperacion().getDia()>=Fech1.getDia()&&Aux.getFechaOperacion().getMes()>=Fech1.getMes())||(Aux.getFechaOperacion().getDia()<=Fech2.getDia()&&Aux.getFechaOperacion().getMes()<=Fech2.getMes()))
+            cont++;
+    }
+    fclose(P);
+    return 1;
+}
+int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
+{
+    int Pos=0;
+    FILE *P;
+    P=fopen("Ventas.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Vec[Pos],sizeof(Venta),1,P)==1)
+    {
+        if((Vec[Pos].getFechaOperacion().getDia()>=Fech1.getDia()&&Vec[Pos].getFechaOperacion().getMes()>=Fech1.getMes()) || (Vec[Pos].getFechaOperacion().getDia()<=Fech2.getDia() && Vec[Pos].getFechaOperacion().getMes()<=Fech2.getMes()));
+        Pos++;
+    }
+    fclose(P);
+    return 1 ;
+}
+
+
+void ListadoVentasxVendedor()
+{
+
+};
+
+void ListadoVentasxImporteMax()
+{
+
+};
+
+void ListadoVentasxCliente()
+{
+
+};
 
 
 
