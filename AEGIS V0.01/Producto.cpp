@@ -59,7 +59,7 @@ void Producto::cargar()
 
 int Producto:: buscarcodigo(const char *codigo)///TODO SALIDA VOLUNTARIA BUSCAR PRODUCTOS.
 {
-    if(strcmp(codigo,'-999')==0)
+    if(strcmp(codigo,"-999")==0)
         return 1;
     Producto aux;
     FILE *p;
@@ -317,7 +317,7 @@ int Producto::guardarNuevoProducto()///Al final del archivo
     {
         return -1;
     }
-    if(fwrite(this,sizeof(Producto),1,p)==1);
+    if(fwrite(this,sizeof(Producto),1,p)==1)
     {
         fclose(p);
         return 0;

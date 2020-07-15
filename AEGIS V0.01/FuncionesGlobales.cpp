@@ -295,7 +295,7 @@ int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2)
     }
     while(fread(&Aux,sizeof(Venta),1,P)==1)
     {
-        if((Aux.getFechaOperacion().getDia()>=Fech1.getDia()&&Aux.getFechaOperacion().getMes()>=Fech1.getMes())||(Aux.getFechaOperacion().getDia()<=Fech2.getDia()&&Aux.getFechaOperacion().getMes()<=Fech2.getMes()));
+        if((Aux.getFechaOperacion().getDia()>=Fech1.getDia()&&Aux.getFechaOperacion().getMes()>=Fech1.getMes())||(Aux.getFechaOperacion().getDia()<=Fech2.getDia()&&Aux.getFechaOperacion().getMes()<=Fech2.getMes()))
         cont++;
     }
     fclose(P);
@@ -342,14 +342,14 @@ void ListadoVentasxCliente()
 };
 
 
-void Fecha:: setFecha(Fecha reg)
+/*void Fecha:: setFecha(Fecha reg)
 {
     this->setAnio(reg.getAnio());
     this->setDia(reg.getDia());
     this->setMes(reg.getMes());
     return;
 };
-
+*/
 int Fecha::CargarFecha()
 {
     int error=0,i=0,aux;

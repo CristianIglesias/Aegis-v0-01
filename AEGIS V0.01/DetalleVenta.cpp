@@ -47,7 +47,7 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
         }
     }
 
-}
+return error;}
 
 
 int DetalleVenta::setIdProducto()
