@@ -7,11 +7,11 @@ using namespace std;
 #include <clocale>
 #include "rlutil.h"
 using namespace rlutil;
-#include "PrototiposGlobales.h"
 #include "Clientes.h"
 #include "Producto.h"
 #include "Proveedor.h"
 #include "Menus.h"
+
 
 int main()
 {
@@ -19,9 +19,12 @@ int main()
     setlocale(LC_ALL,"spanish");
     for(x=1; x<118; x++)
     {
-        gotoxy(x,1);cout<<"="<<endl;
-        if(x<=20){
-             gotoxy(1,x);cout<<"||"<<endl;
+        gotoxy(x,1);
+        cout<<"="<<endl;
+        if(x<=20)
+        {
+            gotoxy(1,x);
+            cout<<"||"<<endl;
 
         }
 
@@ -52,15 +55,19 @@ int main()
         cout<<"                           -->Presione la tecla enter para ingresar al menu de Principal"<<endl;
 
         for(x=1; x<118; x++)
-    {
-        gotoxy(x,20);cout<<"="<<endl;
-         if(x<=20){
-                 gotoxy(1,x);cout<<"||"<<endl;
-                 gotoxy(118,x);cout<<"||"<<endl;
+        {
+            gotoxy(x,20);
+            cout<<"="<<endl;
+            if(x<=20)
+            {
+                gotoxy(1,x);
+                cout<<"||"<<endl;
+                gotoxy(118,x);
+                cout<<"||"<<endl;
+
+            }
 
         }
-
-    }
 
 
         cin.get();
@@ -111,7 +118,7 @@ int main()
             setColor(WHITE_PEN);
             cout<<"                                        =================================="<<endl ;
             cout<<"                                       || FIN DE LA SESION, HASTA LUEGO!.||"<<endl;
-              cout<<"                                        =================================="<<endl ;
+            cout<<"                                        =================================="<<endl ;
 
 
         }

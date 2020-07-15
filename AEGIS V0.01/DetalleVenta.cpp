@@ -152,8 +152,8 @@ int GuardarDetalle(DetalleVenta *Obj)
 }
 DetalleVenta::DetalleVenta()
 {
-     idVenta=0;
-     PrecioUnidad=0;
-     Cantidad=0;
-     PrecioTotal=0;
+    idVenta=0;
+    PrecioUnidad=0;
+    Cantidad=0;
+    PrecioTotal=0;
 };

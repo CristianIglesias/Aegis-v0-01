@@ -62,7 +62,7 @@ void  Cliente:: mostrar()
         cout<<endl;
         setColor(LIGHTBLUE);
         cout<<"CLIENTE NUMERO : "<< idCliente <<endl;
-         setColor(YELLOW);
+        setColor(YELLOW);
         cout<<"------------------------------------------"<<endl;
         cout <<"El Cliente Numero "<<idCliente<<" se llama "<<endl;
         Persona::Mostrar();
@@ -104,9 +104,12 @@ int Cliente:: LeerxPos(int id)
     fseek(P,sizeof(Cliente)*id,SEEK_SET);
     leyo=fread(this,sizeof(Cliente),1,P);
     if(leyo)
-    {fclose (P);
-    return 0;}
-    else return -1;
+    {
+        fclose (P);
+        return 0;
+    }
+    else
+        return -1;
 }
 
 int Cliente:: mostrarxID ()///Muestra Por ID -
@@ -388,7 +391,7 @@ int Cliente :: SetPrefFact()
     cout<<"          2=Factura A."<<endl;
     cin>>PrefFactura;
     error=ValidarPrefFact();
-    if (error=0)
+    if (error==0)
         return error;
     if(error==1)
     {

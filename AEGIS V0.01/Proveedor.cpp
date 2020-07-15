@@ -192,13 +192,13 @@ void Proveedor::mostrar()
         cout<<endl;
         cout<<endl;
         setColor(LIGHTBLUE);
-         cout<<"CODIGO: " <<CodigoProveedor<<endl;
-         setColor(YELLOW);
-         cout<<"----------------------------------------"<<endl;
+        cout<<"CODIGO: " <<CodigoProveedor<<endl;
+        setColor(YELLOW);
+        cout<<"----------------------------------------"<<endl;
         Persona::Mostrar();
         cout<<"ESTADO DE CUENTA: "<<EstadoCuenta<<endl;
         cout<<"% RENTABILIDAD: "<< PorcentajeRentabilidad<<endl;
-         cout<<"----------------------------------------"<<endl;
+        cout<<"----------------------------------------"<<endl;
     }
     else
     {

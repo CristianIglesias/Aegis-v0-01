@@ -1,10 +1,14 @@
 #ifndef OPERACION_H_INCLUDED
 #define OPERACION_H_INCLUDED
-#include "Producto.h"
 #include "PrototiposGlobales.h"
+#include "Producto.h"
 
 class Operacion
 {
+protected:
+    int ID;
+    class Fecha fechaOperacion;
+    float ImporteTotal;
 public:
     Operacion();
     void SetID(int id);
@@ -22,11 +26,6 @@ public:
     {
         return ID;
     };
-protected:
-    int ID;
-    Fecha fechaOperacion;
-    float ImporteTotal;
-
 };
 
 

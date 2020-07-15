@@ -68,12 +68,7 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
         }
         break;
     case -6:
-        cout<<"Error Validando,///.No puede ser menor a 0. Intente Nuevamente."<<endl;
-        cout<<"Intento Numero "<<i<<"."<<endl;
-        if(i>3)
-        {
-            cout<<"Si no podés y querés salir, ingresá ""000""."<<endl;
-        }
+        cout<<"Error. No se pudo acceder al archivo."<<endl;
         break;
     }
 }
@@ -153,7 +148,7 @@ void ListarClientes()
     Cliente Cli;
     int i=1;
     cls();
-   cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE CLIENTES______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
     while(Cli.LeerxPos(i)==0)
@@ -203,7 +198,7 @@ void ListarVendedores()
     Vendedor ven;
     int i=0;
     cls();
-   cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
     while(ven.LeerxID(i)==1)
@@ -221,7 +216,7 @@ void listarProveedores()
     Proveedor prov;
     int i=1;
     cls();
-cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE PROVEEDORES______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
@@ -264,37 +259,71 @@ void ListadoVentasxFechas()
         return;
     AsignarOrdenaFechas(&Fech1,&Fech2);
     CantVentas=ContarRegistrosxFechas(Fech1,Fech2);
-
+    if(CantVentas==-1)
+        error_msj(-6,1);
+    Venta *VecDin;
+    VecDin=new Venta[CantVentas];
+    error=CargarVecVentasxFecha(VecDin,CantVentas,Fech1,Fech2);
 
 
 };
 
-void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2)
+void AsignarOrdenaFechas(Fecha reg1,Fecha reg2)
 {
     Fecha Aux;
     if(reg1->getDia()<=reg2->getDia()&&reg1->getMes()<=reg2->getMes()&&reg1->getAnio()<=reg2->getAnio())
         return;
     if(reg1->getAnio()>reg2->getAnio()||reg1->getMes()>reg2->getMes()||(reg1->getMes()==reg2->getMes()&&reg1->getDia()>reg2->getDia()))
     {
-    Aux.setFecha(reg1);
-    reg1->setFecha(reg2);
-    reg2->setFecha(aux);
-    return;
+        Aux.setFecha(*reg1);
+        reg1->setFecha(*reg2);
+        reg2->setFecha(Aux);
+        return;
     }
-///TODO SET FECHA!
 };
 
 int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2)
-{       Venta Aux;
-        int cont;
-        FILE *P;
-        P=fopen(ArchivoVentas,"rb");
-        while(fread(&Aux,sizeof(Venta),1,P)==1)
-        {
-            if(Venta.getFechaOperacion()>=Fech1||Venta.getFechaOperacion()<=Fech2);
-
-        }
+{
+    Venta Aux;
+    int cont=0;
+    FILE *P;
+    P=fopen("Ventas.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Aux,sizeof(Venta),1,P)==1)
+    {
+        if((Aux.getFechaOperacion().getDia()>=Fech1.getDia()&&Aux.getFechaOperacion().getMes()>=Fech1.getMes())||(Aux.getFechaOperacion().getDia()<=Fech2.getDia()&&Aux.getFechaOperacion().getMes()<=Fech2.getMes()));
+        cont++;
+    }
+    fclose(P);
+    return 1;
 }
+int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
+{
+    int Pos=0;
+    FILE *P;
+    P=fopen("Ventas.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Vec[Pos],sizeof(Venta),1,P)==1)
+    {
+        if((Vec[Pos].getFechaOperacion().getDia()>=Fech1.getDia()&&Vec[Pos].getFechaOperacion().getMes()>=Fech1.getMes())||(Vec[Pos].getFechaOperacion().getDia()<=Fech2.getDia()&&Vec[Pos].getFechaOperacion().getMes()<=Fech2.getMes()));
+        Pos++;
+    }
+    fclose(P);
+    return 1 ;
+}
+
+
+
+
+
 
 
 void ListadoVentasxVendedor()
@@ -313,7 +342,13 @@ void ListadoVentasxCliente()
 };
 
 
-
+void Fecha:: setFecha(Fecha reg)
+{
+    this->setAnio(reg.getAnio());
+    this->setDia(reg.getDia());
+    this->setMes(reg.getMes());
+    return;
+};
 
 int Fecha::CargarFecha()
 {
@@ -330,7 +365,7 @@ int Fecha::CargarFecha()
         cout<<"/";
         cin>>aux;
         setAnio(aux);
-        error=ValidarFecha(GetFecha());
+        error=ValidarFecha(getFecha());
         if (error==-1)
         {
             i++;
@@ -407,3 +442,10 @@ int Fecha :: ValidarFecha(Fecha FechaNac)
     }
     return-1;
 };
+Fecha Fecha:: getFecha()
+    {   Fecha Aux;
+    Aux.setAnio(this->getAnio());
+    Aux.setMes(this->getMes());
+    Aux.setDia(this->getDia());
+        return Aux;
+    }

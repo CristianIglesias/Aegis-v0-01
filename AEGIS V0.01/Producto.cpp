@@ -280,7 +280,7 @@ void Producto::mostrar()
 {
     if (Estado==true)
     {
-     setColor(WHITE);
+        setColor(WHITE);
         cout<< left;
         cout<< setw(3)<<CodigoProducto<<"\t";
         cout << right;

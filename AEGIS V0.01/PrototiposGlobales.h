@@ -1,6 +1,8 @@
 #ifndef PROTOTIPOSGLOBALES_H_INCLUDED
 #define PROTOTIPOSGLOBALES_H_INCLUDED
 #pragma once
+#include "Ventas.h"
+#include "Operacion.h"
 class Fecha
 {
 protected:
@@ -10,26 +12,25 @@ protected:
 public:
     int ValidarFecha(Fecha FechaAux);
     int CargarFecha();
+    void setFecha(Fecha reg);
     int getDia()
     {
         return dia;
-    }
+    };
     int getMes()
     {
         return mes;
-    }
+    };
     int getAnio()
     {
         return anio;
-    }
-    Fecha * getFecha()
-    {
-        return this;
-    }
+    };
+    Fecha  getFecha();
+
     void setDia(int d)
     {
         dia=d;
-    }
+    };
     void setMes(int m)
     {
         mes=m;
@@ -37,7 +38,7 @@ public:
     void setAnio(int a)
     {
         anio=a;
-    }
+    };
 };
 
 void error_msj(int cod,int i);
@@ -61,6 +62,9 @@ void mostrarCadenas(const char *cad);
 void ListadoVentasxFechas();
 void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2);
 int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2);
+int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2);
+
+
 
 void ListadoVentasxVendedor();
 

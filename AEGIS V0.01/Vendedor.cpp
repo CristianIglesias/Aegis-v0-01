@@ -8,7 +8,6 @@ using namespace rlutil;
 #include "Vendedor.h"
 #include "PrototiposGlobales.h"
 const char *ArchivoVendedor ="Vendedor.dat";
-
 void Vendedor::cargar()
 {
     int error=0,Leg;
@@ -148,9 +147,9 @@ void Vendedor::mostrar()
     }
     else
     {
-         setColor(RED);
+        setColor(RED);
         cout<<"El Registro No está activo."<<endl;
-    setColor(WHITE);
+        setColor(WHITE);
     }
 
 }
