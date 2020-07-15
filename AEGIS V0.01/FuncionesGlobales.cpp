@@ -301,7 +301,7 @@ int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2)
     fclose(P);
     return 1;
 }
-int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha *Fech1,Fecha *Fech2)
+int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
 {
     int Pos=0;
     FILE *P;
@@ -313,7 +313,7 @@ int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha *Fech1,Fecha *Fech2)
     }
     while(fread(&Vec[Pos],sizeof(Venta),1,P)==1)
     {
-        if((Vec[Pos]->getFechaOperacion().getDia()>=Fech1.getDia()&&Vec[Pos]->getFechaOperacion().getMes()>=Fech1.getMes())||(Vec[Pos]->getFechaOperacion().getDia()<=Fech2.getDia()&&Vec[Pos].getFechaOperacion().getMes()<=Fech2.getMes()))
+        if((Vec[Pos].getFechaOperacion().getDia()>=Fech1.getDia()&&Vec[Pos].getFechaOperacion().getMes()>=Fech1.getMes()) || (Vec[Pos].getFechaOperacion().getDia()<=Fech2.getDia() && Vec[Pos].getFechaOperacion().getMes()<=Fech2.getMes()));
         Pos++;
     }
     fclose(P);
@@ -360,7 +360,7 @@ int Fecha::CargarFecha()
         cout<<"/";
         cin>>aux;
         setAnio(aux);
-        error=ValidarFecha();
+        error=ValidarFecha(getFecha());
         if (error==-1)
         {
             i++;
@@ -374,13 +374,13 @@ int Fecha::CargarFecha()
     return error;
 
 };
-int Fecha :: ValidarFecha()
+int Fecha :: ValidarFecha(Fecha FechaNac)
 {
-    if(Mes==0&&Dia==0&&Anio==0)
+    if(FechaNac.getMes()==0&&FechaNac.getDia()==0&&FechaNac.getAnio()==0)
         return 1;
-    if((Mes>0&&Mes<13)&&(Anio>1910&&Anio<=2020))
+    if((FechaNac.getMes()>0&&FechaNac.getMes()<13)&&(FechaNac.getAnio()>1910&&FechaNac.getAnio()<=2020))
     {
-        switch(Mes)
+        switch(FechaNac.getMes())
         {
         case  1 :
         case  3 :
@@ -389,7 +389,7 @@ int Fecha :: ValidarFecha()
         case  8 :
         case 10 :
         case 12 :
-            if ( Dia >= 1 && Dia <= 31 )
+            if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 31 )
             {
                 return 0;
             }
@@ -401,7 +401,7 @@ int Fecha :: ValidarFecha()
         case  6 :
         case  9 :
         case 11 :
-            if ( (Dia >= 1) && (Dia <= 30) )
+            if ( (FechaNac.getDia() >= 1) && (FechaNac.getDia() <= 30) )
             {
 
                 return 0;
@@ -409,8 +409,8 @@ int Fecha :: ValidarFecha()
             else
                 return -1;
         case  2 :
-            if( (Anio % 4 == 0 && Anio % 100 != 0 )|| (Anio % 400 == 0 ))
-                if ( Dia >= 1 && Dia <= 29 )
+            if( (FechaNac.getAnio() % 4 == 0 && FechaNac.getAnio() % 100 != 0 )|| (FechaNac.getAnio() % 400 == 0 ))
+                if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 29 )
                 {
 
                     return 0 ;
@@ -419,7 +419,7 @@ int Fecha :: ValidarFecha()
                 {
                     return -1;
                 }
-            else if ( Dia >= 1 && Dia <= 28 )
+            else if ( FechaNac.getDia() >= 1 && FechaNac.getDia() <= 28 )
             {
                 return 0;
             }
@@ -437,6 +437,7 @@ int Fecha :: ValidarFecha()
     }
     return-1;
 };
+
 Fecha Fecha:: getFecha()
     {   Fecha Aux;
     Aux.setAnio(this->getAnio());

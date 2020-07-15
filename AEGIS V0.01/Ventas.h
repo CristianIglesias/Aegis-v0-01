@@ -4,6 +4,8 @@
 #include "Operacion.h"
 #include "Producto.h"
 #include "PrototiposGlobales.h"
+
+
 class Venta :public Operacion
 {
 

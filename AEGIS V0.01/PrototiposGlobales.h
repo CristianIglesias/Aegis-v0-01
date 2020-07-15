@@ -1,8 +1,8 @@
 #ifndef PROTOTIPOSGLOBALES_H_INCLUDED
 #define PROTOTIPOSGLOBALES_H_INCLUDED
 #pragma once
-#include "Operacion.h"
 #include "Ventas.h"
+#include "Operacion.h"
 
 class Fecha
 {
@@ -11,7 +11,7 @@ protected:
     int mes;
     int anio;
 public:
-  //  int ValidarFecha(Fecha FechaAux);
+  ///  int ValidarFecha(Fecha FechaAux);
     int CargarFecha();
     int ValidarFecha(Fecha FechaNac);
     void setFecha(Fecha reg);
@@ -42,6 +42,8 @@ public:
         anio=a;
     };
 };
+
+
 
 
 void error_msj(int cod,int i);
