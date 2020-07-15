@@ -42,6 +42,8 @@
 		<Unit filename="Compras.h" />
 		<Unit filename="DetalleVenta.cpp" />
 		<Unit filename="DetalleVenta.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="FuncionesGlobales.cpp" />
 		<Unit filename="Menus.h" />
 		<Unit filename="Operacion.cpp" />
@@ -58,9 +60,7 @@
 		<Unit filename="Vendedor.h" />
 		<Unit filename="Ventas.cpp" />
 		<Unit filename="Ventas.h" />
-		<Unit filename="include/Fecha.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Fecha.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

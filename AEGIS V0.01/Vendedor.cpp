@@ -4,7 +4,6 @@
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
-
 #include "Vendedor.h"
 
 const char *ArchivoVendedor ="Vendedor.dat";

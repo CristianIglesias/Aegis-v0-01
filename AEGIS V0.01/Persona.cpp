@@ -55,7 +55,7 @@ void Persona :: Mostrar()
     }
 
 }
-void Persona :: SetPersona(int *Cambios, Persona Per)///TODO CHEQUEAR SetPersona(Persona Per);
+void Persona :: SetPersona(int *Cambios, Persona Per)
 {
     if(Cambios[0]!=0)
         this-> setNombre  (Per.getNombre());

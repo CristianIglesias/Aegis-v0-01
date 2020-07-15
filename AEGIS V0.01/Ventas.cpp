@@ -56,6 +56,8 @@ void Venta:: Mostrar()
     cout<<"--------------------------------------------------------------------"<<endl;
 
 }
+///Mostrar detalles
+
 int Venta:: SetIdVendedor()
 {
     Vendedor Vend;
@@ -231,7 +233,6 @@ int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
     return 1 ;
 }
 
-
 void ListadoVentasxVendedor()
 {
 
@@ -246,8 +247,8 @@ void ListadoVentasxCliente()
 {
 
 };
-
-
+///TODO funcion definir fechas mayor que otra~
+///TODO LISTAR Todas las VENTAS, y después por vendedor/cliente/importe max -  MOSTRAR VENTA - Algun tipo de reporte
 
 
 
