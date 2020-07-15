@@ -1,8 +1,9 @@
 #ifndef PROTOTIPOSGLOBALES_H_INCLUDED
 #define PROTOTIPOSGLOBALES_H_INCLUDED
 #pragma once
-#include "Ventas.h"
 #include "Operacion.h"
+#include "Ventas.h"
+
 class Fecha
 {
 protected:
@@ -26,7 +27,7 @@ public:
     {
         return anio;
     };
-    //Fecha  getFecha();
+    Fecha  getFecha();
 
     void setDia(int d)
     {

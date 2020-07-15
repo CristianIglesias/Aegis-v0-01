@@ -7,7 +7,7 @@
 #include "Proveedor.h"
 #include "Vendedor.h"
 #include "PrototiposGlobales.h"
-
+#include "Clientes.h"
 
 
 ///Prototipos de los Menus.
