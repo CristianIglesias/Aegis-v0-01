@@ -316,7 +316,7 @@ int Producto::guardarNuevoProducto()///Al final del archivo
     {
         return -1;
     }
-    if(fwrite(this,sizeof(Producto),1,p)==1)
+    if(fwrite(this,sizeof(Producto),1,p)==1);
     {
         fclose(p);
         return 0;
@@ -327,7 +327,6 @@ int Producto::guardarNuevoProducto()///Al final del archivo
 
 int Producto::ObtenerPosicionProducto(char *codigo)
 {
-    cout<<"entro"<<endl;
     int c=0;
     Producto aux;
     FILE *p;
@@ -338,7 +337,6 @@ int Producto::ObtenerPosicionProducto(char *codigo)
     }
     while(fread(&aux,sizeof(Producto),1,p))
     {
-        cout<<"entro"<<endl;
         if(strcmp(aux.CodigoProducto,codigo)==0)
         {
             fclose(p);
@@ -353,7 +351,6 @@ int Producto::ObtenerPosicionProducto(char *codigo)
 
 int Producto::guardarProducto()///Modificado
 {
-    cout<<"entro"<<endl;
     int pos=0;
     pos=ObtenerPosicionProducto(this->CodigoProducto);
     if(pos<0)
@@ -366,16 +363,10 @@ int Producto::guardarProducto()///Modificado
     {
         return -1;
     }
-    if(por>0)
-    {
-         fseek(p,sizeof(Producto)*pos,SEEK_SET);
-         fwrite(this,sizeof(Producto),1,p);
-         fclose(p);
-         return 2;
-    }
-
-   fclose(p);
-   return 0;
+    fseek(p,sizeof(Producto)*pos,SEEK_SET);
+    fwrite(this,sizeof(Producto),1,p);
+    fclose(p);
+    return 0;
 
 }
 
@@ -432,8 +423,8 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
         else
 
         {
-         cout<<"entro"<<endl;
-            error=guardarProducto();
+
+            guardarProducto();
         }
 
 

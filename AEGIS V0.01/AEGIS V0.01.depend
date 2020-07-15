@@ -217,22 +217,19 @@
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1594777739 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\clientes.cpp
+1592361708 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
-	"rlutil.h"
 	"Clientes.h"
 	"PrototiposGlobales.h"
 
-1594684985 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\clientes.h
+1592339455 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\clientes.h
 	"Persona.h"
 
-1594769320 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\persona.h
-	"PrototiposGlobales.h"
+1592361708 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\persona.h
+	<cstring>
 
-1594779743 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\prototiposglobales.h
-	"Ventas.h"
-	"Operacion.h"
+1592361365 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\prototiposglobales.h
 
 1592339455 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
 	<iostream>
@@ -240,17 +237,15 @@
 	<cstring>
 	"PrototiposGlobales.h"
 
-1594777739 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\main.cpp
+1592339455 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\main.cpp
 	<iostream>
-	<conio.h>
 	<cstdlib>
 	<cstdio>
 	<cstring>
 	<clocale>
 	"rlutil.h"
+	"PrototiposGlobales.h"
 	"Clientes.h"
-	"Producto.h"
-	"Proveedor.h"
 	"Menus.h"
 
 1592263043 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\rlutil.h
@@ -267,77 +262,47 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1594777712 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\menus.h
-	<conio.h>
+1592339455 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\menus.h
+
+1592361708 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\persona.cpp
+	<iostream>
+	<cstring>
+	"PrototiposGlobales.h"
+	"Persona.h"
+
+1592365115 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\producto.cpp
+	<iostream>
+	<cstring>
+	"Producto.h"
+	<cstdio>
+
+1592364413 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\producto.h
+
+1592361365 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\proveedor.cpp
+	<iostream>
+	<cstring>
+	"Persona.h"
+	"Proveedor.h"
+
+1592339455 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\proveedor.h
+
+1592361365 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\vendedor.cpp
+	<iostream>
+	"Persona.h"
+	"Vendedor.h"
+	"PrototiposGlobales.h"
+
+1592339700 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\vendedor.h
+
+1592361365 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\ventas.cpp
+	<iostream>
+	"FuncionesGlobales.h"
 	"Ventas.h"
-	"Producto.h"
-	"Proveedor.h"
-	"Vendedor.h"
-	"PrototiposGlobales.h"
-
-1594769320 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\persona.cpp
-	<iostream>
-	<cstring>
-	"rlutil.h"
-	"PrototiposGlobales.h"
-	"Persona.h"
-
-1594777739 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\producto.cpp
-	<iostream>
-	<cstring>
-	<cstdio>
-	<stdio.h>
-	<stdlib.h>
-	"Producto.h"
-	"Proveedor.h"
-	"PrototiposGlobales.h"
-	"rlutil.h"
-	<iomanip>
-
-1594768229 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\producto.h
-
-1594777739 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\proveedor.cpp
-	<iostream>
-	<cstring>
-	<cstdio>
-	<stdio.h>
-	<stdlib.h>
-	"Persona.h"
-	"Proveedor.h"
-	"PrototiposGlobales.h"
-	"rlutil.h"
-
-1594608415 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\proveedor.h
-	"Persona.h"
-
-1594777739 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\vendedor.cpp
-	<iostream>
-	<cstdio>
-	<cstring>
-	"rlutil.h"
-	"Persona.h"
-	"Vendedor.h"
-	"PrototiposGlobales.h"
-
-1594693788 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\vendedor.h
-	"Persona.h"
-
-1594769320 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\ventas.cpp
-	<iostream>
-	"rlutil.h"
-	"PrototiposGlobales.h"
-	"Producto.h"
-	"Proveedor.h"
-	"Vendedor.h"
-	"Clientes.h"
-	"Ventas.h"
-	"DetalleVenta.h"
 
 1592263043 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\funcionesglobales.h
 	<cstring>
 
-1594777739 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\ventas.h
-	"Operacion.h"
+1592339455 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\ventas.h
 	"Producto.h"
 	"PrototiposGlobales.h"
 
@@ -383,47 +348,4 @@
 	"PrototiposGlobales.h"
 
 1594692669 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.h
-
-1594781336 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\operacion.h
-	"PrototiposGlobales.h"
-	"Producto.h"
-
-1594427644 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\compras.cpp
-	<iostream>
-	"rlutil.h"
-	"PrototiposGlobales.h"
-	"Producto.h"
-	"Proveedor.h"
-	"Vendedor.h"
-	"Operacion.h"
-	"Compras.h"
-
-1594427644 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\compras.h
-	"Operacion.h"
-	"Producto.h"
-	"PrototiposGlobales.h"
-
-1594693073 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\operacion.cpp
-	<iostream>
-	"rlutil.h"
-	<ctime>
-	"PrototiposGlobales.h"
-	"Ventas.h"
-	"Producto.h"
-	"Proveedor.h"
-	"Vendedor.h"
-	"Clientes.h"
-
-1594693073 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\detalleventa.h
-
-1594777739 source:c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\detalleventa.cpp
-	<iostream>
-	"rlutil.h"
-	"PrototiposGlobales.h"
-	"Producto.h"
-	"Proveedor.h"
-	"Vendedor.h"
-	"Clientes.h"
-	"Ventas.h"
-	"DetalleVenta.h"
 

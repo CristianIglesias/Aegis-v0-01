@@ -3,7 +3,6 @@
 #pragma once
 #include "Ventas.h"
 #include "Operacion.h"
-
 class Fecha
 {
 protected:
@@ -14,7 +13,6 @@ public:
     int ValidarFecha(Fecha FechaAux);
     int CargarFecha();
     void setFecha(Fecha reg);
-     Fecha  getFecha();
     int getDia()
     {
         return dia;
@@ -27,7 +25,7 @@ public:
     {
         return anio;
     };
-    ///Fecha  getFecha();
+    Fecha  getFecha();
 
     void setDia(int d)
     {
