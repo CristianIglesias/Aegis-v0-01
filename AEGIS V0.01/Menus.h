@@ -11,8 +11,6 @@
 #include "Vendedor.h"
 
 ///Prototipos de los Menus.
-
-
 void menuVentas();
 void menuPrincipal();
 void menuABM();

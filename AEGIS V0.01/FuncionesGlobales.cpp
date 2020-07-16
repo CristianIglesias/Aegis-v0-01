@@ -143,7 +143,7 @@ void LineasSuperior()
     for(x=1; x<118; x++)
     {
         gotoxy(x,1);
-         msleep(5);
+         msleep(3);
         cout<<"="<<endl;
         if(x<=20)
         {
@@ -163,7 +163,7 @@ void LineasInferior()
         if(x<=20)
         {
             gotoxy(1,x);
-             msleep(5);
+             msleep(3);
             cout<<"||"<<endl;
             gotoxy(118,x);
             cout<<"||"<<endl;
@@ -184,7 +184,7 @@ void LineasInferior2()
         if(x<=45)
         {
             gotoxy(1,x);
-             msleep(5);
+             msleep(3);
             cout<<"||"<<endl;
             gotoxy(118,x);
             cout<<"||"<<endl;
@@ -204,7 +204,7 @@ void LineasInferior3()
         if(x<=15)
         {
             gotoxy(1,x);
-            msleep(5);
+            msleep(3);
             cout<<"||"<<endl;
             gotoxy(118,x);
             cout<<"||"<<endl;
@@ -214,20 +214,135 @@ void LineasInferior3()
 
     }
 }
-/*void listadoDeVentas()
+
+void HeaderListadoDeVentas1()
+{
+    cout<<"          __________________________________LISTADO DE VENTAS(ascendente)_____________________________________"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Numero de venta "<<"    ";
+    cout<<"Fecha de venta "<<"\t"<<" ";
+    cout<<"Vendedor nro "<<"\t";
+    cout<<"Cliente nro "<<"\t"<<"\t";
+    cout<<"Importe final " <<"$"<<"\t"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+}
+
+void HeaderListadoDeVentas2()
+{
+    cout<<"          __________________________________LISTADO DE VENTAS(desscendente)_____________________________________"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Numero de venta "<<"    ";
+    cout<<"Fecha de venta "<<"\t"<<" ";
+    cout<<"Vendedor nro "<<"\t";
+    cout<<"Cliente nro "<<"\t"<<"\t";
+    cout<<"Importe final " <<"$"<<"\t"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+}
+
+void HeaderMostrarVentasXID()
+{
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
+    cout<< left;
+    cout<<setw(5)<<"ID VENTA-";
+    cout<<setw(5)<<"FECHA";
+    cout<< right;
+    cout<<setw(10)<<"NOMBRE CLIENTE-";
+    cout<<setw(5)<<"NOMBRE VENDEDOR-"<<endl;
+    cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
+}
+
+void MostrarDetalle()
+{
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Numero de venta "<<"    ";
+    cout<<"Fecha de venta "<<"\t"<<" ";
+    cout<<"Vendedor nro "<<"\t";
+    cout<<"Cliente nro "<<"\t"<<"\t";
+    cout<<"Importe final " <<"$"<<"\t"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+}
+
+
+void DetalleDeVentaTabla()
+{
+     cout<<"-------------------------------DETALLE DE VENTA-------------------------------"<<endl;
+    cout<<"-----------------------------------------------------------------------------------"<<endl;
+    cout<< left;
+    cout<<setw(5)<<"CODIGO-"<<" ";
+    cout<< right;
+    cout<<setw(10)<<"NOMBRE-"<<"  ";
+    cout<<setw(5)<<"IMPORTE VENTA-"<<"  ";
+    cout<<setw(5)<<"CANTIDAD-"<<"  ";
+    cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
+}
+
+void HeaderListadoClientes()
+{
+    cout<<"*      ________________________________________________________________________________________________*"<<endl;
+    cout<<"*      ______________________________________LISTADO DE CLIENTES______________________________________*"<<endl;
+    cout<<"        -------------------------------------------------------------------------------------------------"<<endl;
+    cout<<left;
+    cout<<"ID "<<"" ;
+    cout<< "Apellido "<<"\t" ;
+    cout<<"Nombre "<<"\t"<<"\t";
+    cout<<"Nacimiento"<<"\t";
+    cout<<"DNI:"<<"\t      " ;
+    cout<<"Telefono "<<"\t"<<"\t";
+    cout<<"Email "<<"\t"<<"\t";
+    cout<<"Tipo de Pago/factura "<<endl;
+    cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+}
+
+void HeaderProductos()
+{
+            cout<<"*________________________________________________________________________________________________________________________*"<<endl;
+            cout<<"*______________________________________LISTADO DE PRODUCTOS_____________________________________________________________*"<<endl;
+            cout<<"-------------------------------------------------------------------------------------------------------------------------"<<endl;
+            cout<< left;
+            cout<<setw(3)<<"  CODIGO-"<<"  ";
+            cout<<setw(4)<<"NOMBRE-"<<"   ";
+            cout<<setw(3)<<"PROVEEDOR-"<<"   ";
+            cout<<setw(5)<<"COSTO-"<<"   ";
+            cout<<setw(5)<<"% RENTABILIDAD-"<<"   ";
+            cout<<setw(5)<<"$ VENTA-"<<"   ";
+            cout<<setw(5)<<"STOCK MINIMO-"<<"   ";
+            cout<<setw(5)<<"STOCK ACTUAL"<<"   "<<endl;
+            cout<<"-----------------------------------------------------------------------------------------------------------"<<endl;
+}
+
+
+void HeaderProveedor()
 {
     cout<<"*________________________________________________________________________________________________*"<<endl;
-    cout<<"*______________________________________LISTADO DE VENTAS______________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE PROVEEDORES______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
-
-    while(ventas.leerVentas(i)==1)
-    {
-        ventas.mostrar();
-        cout<<endl;
-        i++;
-    }
-    cin.ignore();
-    anykey();
+    cout<<left;
+    cout<<"ID "<<" " ;
+    cout<< "Apellido "<<"\t" ;
+    cout<<"Nombre "<<"\t";
+    cout<<"Nacimiento"<<"\t";
+    cout<<"DNI:"<<"\t      " ;
+    cout<<"Telefono "<<"\t      ";
+    cout<<"Email :"<<"\t    ";
+    cout<<"Estado de cuenta/% Rentabilidad "<<endl;
+    cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
 }
-*/
 
+void HeaderVendedor()
+{
+     cout<<"*________________________________________________________________________________________________*"<<endl;
+            cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
+            cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+            cout<<left;
+            cout<<"Legajo "<<" " ;
+            cout<<setw(5)<< "Apellido " <<"  ";
+            cout<<"Nombre ";
+            cout<<"Nacimiento"<<"\t";
+            cout<<"DNI:"<<"\t      " ;
+            cout<<"Telefono "<<"\t      ";
+            cout<<"Email :"<<"\t    ";
+            cout<<"Venta diaria/% Comision "<<endl;
+            cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+}

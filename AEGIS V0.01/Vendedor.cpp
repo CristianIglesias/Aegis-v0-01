@@ -215,19 +215,8 @@ void Vendedor:: mostrarxID ()///Muestra Por ID -
         funco=LeerxID(aux);
         if(funco)
         {
-            cout<<"*________________________________________________________________________________________________*"<<endl;
-            cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
-            cout<<"-------------------------------------------------------------------------------------------------"<<endl;
-            cout<<left;
-            cout<<"Legajo "<<" " ;
-            cout<<setw(5)<< "Apellido " <<"  ";
-            cout<<"Nombre ";
-            cout<<"Nacimiento"<<"\t";
-            cout<<"DNI:"<<"\t      " ;
-            cout<<"Telefono "<<"\t      ";
-            cout<<"Email :"<<"\t    ";
-            cout<<"Venta diaria/% Comision "<<endl;
-            cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+            HeaderVendedor();
+
             mostrar();
         }
         else
@@ -406,19 +395,7 @@ void ListarVendedores()
     LineasSuperior();
     cout<<endl;
 
-    cout<<"*________________________________________________________________________________________________*"<<endl;
-    cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
-    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
-    cout<<left;
-    cout<<"Legajo "<<" " ;
-    cout<<setw(5)<< "Apellido " <<"  ";
-    cout<<"Nombre ";
-    cout<<"Nacimiento"<<"\t";
-    cout<<"DNI:"<<"\t      " ;
-    cout<<"Telefono "<<"\t      ";
-    cout<<"Email :"<<"\t    ";
-    cout<<"Venta diaria/% Comision "<<endl;
-    cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+    HeaderVendedor();
     cout<<endl;
 
     while(ven.LeerxID(i)==1)

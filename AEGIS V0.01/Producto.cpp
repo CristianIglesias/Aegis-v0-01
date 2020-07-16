@@ -232,7 +232,7 @@ int Producto::setPorcentajeRentabilidad()
 
 int Producto::setPrecioVenta(float costo, int porcentaje)
 {
-    float venta;
+
     cin.ignore();
     cout<<"PRECIO DE VENTA: ";
     PreciodeVenta=(costo*porcentaje/100)+costo;
@@ -365,6 +365,7 @@ int Producto::ObtenerPosicionProducto(char *codigo)
 
 int Producto::guardarProducto()///Modificado
 {
+
     int pos=0;
     pos=ObtenerPosicionProducto(this->CodigoProducto);
     if(pos<0)
@@ -572,20 +573,8 @@ void Producto:: mostrarxID()///Muestra Por ID -
         funco=LeerxID(aux);
         if(funco)
         {
+   HeaderProductos();
 
-            cout<<"*________________________________________________________________________________________________________________________*"<<endl;
-            cout<<"*______________________________________LISTADO DE PRODUCTOS_____________________________________________________________*"<<endl;
-            cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl;
-            cout<< left;
-            cout<<setw(3)<<"CODIGO-"<<" ";
-            cout<<setw(4)<<"NOMBRE-"<<"  ";
-            cout<<setw(3)<<"PROVEEDOR-"<<"  ";
-            cout<<setw(5)<<"COSTO-"<<"  ";
-            cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
-            cout<<setw(5)<<"$ VENTA-"<<"  ";
-            cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
-            cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
-            cout<<"-----------------------------------------------------------------------------------------------------------"<<endl;
             mostrar();
 
         }
@@ -630,21 +619,7 @@ void listarProductos()
     cls();
     setColor(LIGHTBLUE);
     LineasSuperior();
-    cout<<"*____________________________________________________________________________________*"<<endl;
-    cout<<"*______________________________________LISTADO DE PRODUCTOS_________________________*"<<endl;
-    cout<<"---------------------------------------------------------------------------------------"<<endl;
-    cout<< left;
-    cout<<setw(3)<<" "<<"CODIGO-"<<" ";
-    cout<<setw(10)<<"NOMBRE-"<<"  ";
-    cout<<setw(3)<<"PROVEEDOR-"<<"  ";
-    cout<<setw(5)<<"COSTO-"<<"  ";
-    cout<<setw(5)<<"% RENTABILIDAD-"<<"  ";
-    cout<<setw(5)<<"$ VENTA-"<<"  ";
-    cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
-    cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
-    cout<<"--------------------------------------------------------------------------------------------------"<<endl;
-    cout<<endl;
-
+    HeaderProductos();
     setColor(WHITE);
     while(reg.leerProductos(i)==1)
     {
