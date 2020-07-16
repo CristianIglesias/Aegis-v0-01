@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
+#include <iomanip>
 #include "rlutil.h"
 using namespace rlutil;
 #include "Persona.h"
@@ -42,10 +43,13 @@ void Persona :: Mostrar()
 {
     if(Estado==true)
     {
-        cout<< Apellido<<", "<<Nombre<<" Cumple años el "<<GetFechaNac().getDia()<<" del "<<GetFechaNac().getMes()<<endl;
-        cout<<"Numero de documento:" <<Documento<<endl;
-        cout<<"Numero de telefono :"<<nTelefono<<endl;
-        cout<<"Email :"<<Mail<<endl;
+        cout<<left;
+        cout<<setw(4)<< Apellido<<"\t";
+        cout<<setw(4)<<Nombre<<"\t";
+        cout<<setw(1)<<GetFechaNac().getDia()<<"/"<<GetFechaNac().getMes()<<"/"<<GetFechaNac().getAnio()<<"\t";
+        cout <<setw(5)<<Documento<<"\t";
+        cout<<setw(5)<<nTelefono<<"\t";
+        cout<<setw(6)<<Mail<<"\t";
     }
     else
     {

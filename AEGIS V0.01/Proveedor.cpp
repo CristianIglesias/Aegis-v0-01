@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iomanip>
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
@@ -188,21 +189,19 @@ void Proveedor::mostrar()
 {
     if(Estado==true)
     {
-        cout<<endl;
-        cout<<endl;
+       cout<<left;
         setColor(LIGHTBLUE);
-        cout<<"CODIGO: " <<CodigoProveedor<<endl;
+        cout<<CodigoProveedor<<" ";
         setColor(YELLOW);
-        cout<<"----------------------------------------"<<endl;
         Persona::Mostrar();
-        cout<<"ESTADO DE CUENTA: "<<EstadoCuenta<<endl;
-        cout<<"% RENTABILIDAD: "<< PorcentajeRentabilidad<<endl;
-        cout<<"----------------------------------------"<<endl;
+        cout<<EstadoCuenta<<"/";
+        cout<< PorcentajeRentabilidad<<"%"<<endl;
+        cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
     }
     else
     {
         setColor(RED);
-        cout<<"REGISTRO NO DISPONIBLE"<<endl;
+        cout<<"REGISTRO NO DISPONIBLE-------------------------------------------*"<<endl;
         setColor(GREEN);
     }
 }
@@ -272,6 +271,19 @@ void Proveedor:: mostrarxID ()///Muestra Por ID -
         funco=LeerxID(aux);
         if(funco)
         {
+             cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE PROVEEDORES______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    cout<<left;
+        cout<<"ID "<<" " ;
+        cout<< "Apellido "<<"\t" ;
+        cout<<"Nombre "<<"\t";
+        cout<<"Nacimiento"<<"\t";
+        cout<<"DNI:"<<"\t      " ;
+        cout<<"Telefono "<<"\t      ";
+        cout<<"Email :"<<"\t    ";
+        cout<<"Estado de cuenta/% Rentabilidad "<<endl;
+        cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
             mostrar();
         }
         else
@@ -429,12 +441,22 @@ void Proveedor :: EliminarProveedor()
 void listarProveedores()
 {
     Proveedor prov;
-    int i=1;
+    int i=0;
     cls();
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE PROVEEDORES______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
-    cout<<endl;
+    cout<<left;
+        cout<<"ID "<<" " ;
+        cout<< "Apellido "<<"\t" ;
+        cout<<"Nombre "<<"\t";
+        cout<<"Nacimiento"<<"\t";
+        cout<<"DNI:"<<"\t      " ;
+        cout<<"Telefono "<<"\t      ";
+        cout<<"Email :"<<"\t    ";
+        cout<<"Estado de cuenta/% Rentabilidad "<<endl;
+        cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+
     while(prov.leerProveedor(i)==1)
     {
         prov.mostrar();
