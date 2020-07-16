@@ -49,14 +49,14 @@ void Venta:: GenerarVenta()
 void Venta:: Mostrar()
 {
     int error=-1;
-    cout<<"--------------------------------------------------------------------"<<endl;
-    cout<<"Venta nro: "<<ID<<"."<<endl;
-    cout<<"Fecha de venta: "<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<endl;
-    cout<<"Vendedor nro: "<<IdVendedor<<endl;
-    cout<<"Cliente nro "<<getIdCliente()<<endl;
-    cout<<"Importe final  $ : "<< ImporteTotal<<endl;
-    cout<<"--------------------------------------------------------------------"<<endl;
-
+    cout<<left;
+    cout<<setw(3)<<ID<<"\t"<<"\t"<<"\t";
+    cout<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<"\t"<<"\t";
+    cout<<IdVendedor<<"\t"<<"\t";
+    cout<<left;
+    cout<<setw(3)<<getIdCliente()<<"\t";
+    cout<<"$"<< ImporteTotal<<"\t"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------"<<endl;
 }
 
 int Venta:: SetIdVendedor()
@@ -231,15 +231,14 @@ int CargarVentas(Venta *Vec,int CantRegs)
 void MostrarVentasXid(Venta *Vec,int Cant,int version)
 {
     int i=0;
-    cls();
+
     setColor(LIGHTCYAN);
-    cout<<"-----------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
     cout<< left;
-    cout<<setw(5)<<"ID VENTA-"<<" ";
+    cout<<setw(5)<<"ID VENTA-"<<"\t"<<"\t"<<"\t"<<setw(5)<<"FECHA"<<endl;
     cout<< right;
-    cout<<setw(5)<<"FECHA"<<"  ";
-    cout<<setw(10)<<"NOMBRE CLIENTE-"<<"  ";
-    cout<<setw(5)<<"NOMBRE VENDEDOR-"<<"  ";
+    cout<<setw(10)<<"NOMBRE CLIENTE-"<<"\t"<<"\t"<<"\t"<<setw(5)<<"NOMBRE VENDEDOR-"<<endl;
     cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
     cout<<"-----------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
@@ -248,8 +247,20 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     {
     case 1:
     {
+
+        cout<<endl;
+        cout<<endl;
+    cout<<"-------------------------LISTADO DE VENTAS(ascendente)------------------------------------"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Numero de venta "<<"\t";
+    cout<<"Fecha de venta "<<"\t";
+    cout<<"Vendedor nro "<<"\t";
+    cout<<"Cliente nro "<<"\t";
+    cout<<"Importe final " <<"$"<<"\t"<<endl;
+    cout<<"---------------------------------------------------------------------------------------------"<<endl;
         while(i<Cant)
         {
+            msleep(85);
             Vec[i].Mostrar();
             cout<<endl;
             i++;
@@ -261,8 +272,20 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     case 2:
     {
         i=Cant;
+
+        cout<<endl;
+        cout<<endl;
+    cout<<"----------------------------------LISTADO DE VENTAS(descendente)-----------------------------"<<endl;
+    cout<<"---------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Numero de venta "<<"\t";
+    cout<<"Fecha de venta "<<"\t";
+    cout<<"Vendedor nro "<<"\t";
+    cout<<"Cliente nro "<<"\t";
+    cout<<"Importe final " <<"$"<<"\t"<<endl;
+    cout<<"-----------------------------------------------------------------------------------------------"<<endl;
         while(i>=0)
         {
+             msleep(85);
             Vec[i].Mostrar();
             cout<<endl;
             i--;
@@ -295,18 +318,6 @@ void Venta ::MostrarTabla()
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 void ListadoVentasxFechas()

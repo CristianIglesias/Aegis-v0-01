@@ -61,6 +61,7 @@ int DetalleVenta::setIdProducto()
     Producto Reg;
     while(error!=0)
     {
+        cls();
         cout<<" Ingrese el ID del Producto a Vender."<<endl;
         cout<<"ID PRODUCTO: ";
         ///cin.ignore();
@@ -75,6 +76,7 @@ int DetalleVenta::setIdProducto()
         }
         if(error==true)
         {
+
             cout<<"El Producto deseado es : " << Reg.getNombreItem()<<"?"<<endl;
             cout<<"El Precio del Producto es de :$ " << Reg.getPrecioVenta()<<endl;
             setPrecioUnidad(Reg.getPrecioVenta());
@@ -218,27 +220,20 @@ int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
 int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
 {
     int i=0;
-
-    cls();
     setColor(LIGHTBLUE);
     cout<<endl;
-    cout<<endl;
-    cout<<"FECHA : " <<endl;
-
-    cout<<"                           -------------------------------DETALLE DE VENTA-------------------------------"<<endl;
-    cout<<"                          -----------------------------------------------------------------------------------"<<endl;
+    cout<<"-------------------------------DETALLE DE VENTA-------------------------------"<<endl;
+    cout<<"-----------------------------------------------------------------------------------"<<endl;
     cout<< left;
-    cout<<setw(5)<<"                   CODIGO-"<<" ";
+    cout<<setw(5)<<"CODIGO-"<<" ";
     cout<< right;
-    cout<<setw(10)<<"                  NOMBRE-"<<"  ";
-    cout<<setw(5)<<"                    IMPORTE VENTA-"<<"  ";
-    cout<<setw(5)<<"                    CANTIDAD-"<<"  ";
-    cout<<setw(5)<<"                    PRECIO FINAL"<<"  "<<endl;
-    cout<<"                          -----------------------------------------------------------------------------------------"<<endl;
+    cout<<setw(10)<<"NOMBRE-"<<"  ";
+    cout<<setw(5)<<"IMPORTE VENTA-"<<"  ";
+    cout<<setw(5)<<"CANTIDAD-"<<"  ";
+    cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
     setColor(WHITE);
-
-
 }
 
 void DetalleVenta :: Mostrar()
