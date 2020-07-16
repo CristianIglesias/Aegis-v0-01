@@ -143,10 +143,12 @@ void LineasSuperior()
     for(x=1; x<118; x++)
     {
         gotoxy(x,1);
+         msleep(5);
         cout<<"="<<endl;
         if(x<=20)
         {
             gotoxy(1,x);
+
             cout<<""<<endl;
         }
     }
@@ -161,6 +163,7 @@ void LineasInferior()
         if(x<=20)
         {
             gotoxy(1,x);
+             msleep(5);
             cout<<"||"<<endl;
             gotoxy(118,x);
             cout<<"||"<<endl;
@@ -181,6 +184,7 @@ void LineasInferior2()
         if(x<=45)
         {
             gotoxy(1,x);
+             msleep(5);
             cout<<"||"<<endl;
             gotoxy(118,x);
             cout<<"||"<<endl;
@@ -200,6 +204,7 @@ void LineasInferior3()
         if(x<=15)
         {
             gotoxy(1,x);
+            msleep(5);
             cout<<"||"<<endl;
             gotoxy(118,x);
             cout<<"||"<<endl;

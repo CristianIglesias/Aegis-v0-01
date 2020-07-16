@@ -648,6 +648,7 @@ void listarProductos()
     setColor(WHITE);
     while(reg.leerProductos(i)==1)
     {
+        msleep(85);
         reg.mostrar();
         cout<<endl;
         i++;

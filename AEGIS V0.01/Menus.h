@@ -671,12 +671,12 @@ void menuListados()
         break;
         case 4:
         {
-            ListadoVentasxImporteMax();
+            ListarTodasVentas();
         }
         break;
         case 5:
         {
-            ListadoVentasxCliente();
+            ///ListadoVentasxCliente();
         }
         break;
         case 0:

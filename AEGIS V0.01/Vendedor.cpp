@@ -7,6 +7,7 @@ using namespace std;
 using namespace rlutil;
 #include "Vendedor.h"
 
+
 const char *ArchivoVendedor ="Vendedor.dat";
 void Vendedor::cargar()
 {
@@ -138,7 +139,6 @@ void Vendedor::mostrar()
     {
         setColor(LIGHTBLUE);
         cout<<setw(3)<<legajo<<" ";
-
         setColor(YELLOW);
         Persona::Mostrar();
         cout<<"$"<<VentaDiaria<<"/"<<"%";
@@ -151,7 +151,7 @@ void Vendedor::mostrar()
         cout<<"Registros Inactivos.---------------------------------------------------------------------------------------"<<endl;
         setColor(WHITE);
         cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
-        system("pause");
+        anykey();
     }
 
 }
@@ -423,6 +423,7 @@ void ListarVendedores()
 
     while(ven.LeerxID(i)==1)
     {
+         msleep(85);
         ven.mostrar();
         cout<<endl;
 
