@@ -42,9 +42,9 @@ void Venta:: GenerarVenta()
     }
     else
     {
-    cout<<"Venta Guardada en el Archivo con Exito!"<<endl;
-    cout<<endl;
-    MostrarDetalle();
+        cout<<"Venta Guardada en el Archivo con Exito!"<<endl;
+        cout<<endl;
+        MostrarDetalle();
     }
 
 };
@@ -232,7 +232,7 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
 
     setColor(LIGHTCYAN);
     cout<<endl;
-   void HeaderMostrarVentasXID();
+    void HeaderMostrarVentasXID();
     cout<<endl;
     setColor(WHITE);
     switch(version)
@@ -325,8 +325,8 @@ void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
         i=Cant;
 
 
-cls();
-HeaderListadoDeVentas2();
+        cls();
+        HeaderListadoDeVentas2();
         cout<<endl;
 
         while(i>=0)
@@ -431,18 +431,20 @@ void MostrarDetallesDeVentaxID()
     Venta Aux;
     cout<<"Ingrese el ID De la venta que desea ver en detalle."<<endl;
     while(error<0)
-    {cout<<"ID: ";
-    cin>>ID;
-    error=Aux.LeerVentaxID(ID);
-    if(error<0)
-    {   i++;
-        error_msj(error,i);
-    }
-    error=MostrarDetalles(&Aux);
-    if(error<0)
     {
-        error_msj(-6,i);
-    }
+        cout<<"ID: ";
+        cin>>ID;
+        error=Aux.LeerVentaxID(ID);
+        if(error<0)
+        {
+            i++;
+            error_msj(error,i);
+        }
+        error=MostrarDetalles(&Aux);
+        if(error<0)
+        {
+            error_msj(-6,i);
+        }
 
     }
 }
@@ -532,13 +534,14 @@ void ListadoVentasxVendedor()
     Vendedor Reg;
     cout<<"Ingrese El Id/Legajo del vendedor que quiere filtrar."<<endl;
     cin>>IdAux;
-    while(error!=1)
+    while(error<1)
     {
         error=Reg.LeerxID(IdAux);
-        if(error==0)
+        if(error!=1)
+        {
             i++;
-        error_msj(-5,i);
-        return;
+            error_msj(-5,i);
+        }
     }
     CantVentas=ContarVentasxVendedor(Reg.getlegajo());
     if(CantVentas==-1)
@@ -587,7 +590,7 @@ int CargarVecVentasxVendedor(Venta *Vec,int Cant,int Legajo)
     }
     while(fread(&Vec[Pos],sizeof(Venta),1,P)==1)
     {
-        if(Vec->getIdVendedor()==Legajo)
+        if(Vec[Pos].getIdVendedor()==Legajo)
         {
             Pos++;
         }
@@ -596,12 +599,82 @@ int CargarVecVentasxVendedor(Venta *Vec,int Cant,int Legajo)
     return 1 ;
 }
 
+///
 
+void ListadoVentasxCliente()
+{
+    int error=-1,CantVentas,i=0;
+    int IdAux;
+    Cliente Reg;
+    cout<<"Ingrese El Id del Cliente que quiere filtrar."<<endl;
+    cin>>IdAux;
+    while(error!=1)
+    {
+        error=Reg.LeerxPos(IdAux);
+        if(error!=1)
+        {
+            i++;
+            error_msj(-5,i);
+        }
+    }
+    CantVentas=ContarVentasxCliente(Reg.GetidCliente());
+    if(CantVentas==-1)
+        error_msj(-6,1);
+    Venta *VecDin;
+    VecDin=new Venta[CantVentas];
+    error=CargarVecVentasxCliente(VecDin,CantVentas,Reg.GetidCliente());
+    MenuOrdenarVentas(VecDin,CantVentas);
+    free(VecDin);
 
+};
 
+int ContarVentasxCliente(int ID)
+{
+    Venta Aux;
+    int cont=0;
+    FILE *P;
+    P=fopen("Ventas.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Aux,sizeof(Venta),1,P)==1)
+    {
+        if(Aux.getIdCliente()==ID)
+        {
+            cont++;
+        }
+    }
+    fclose(P);
+    return cont;
+}
+int CargarVecVentasxCliente(Venta *Vec,int Cant,int ID)
+{
+    int Pos=0;
+    FILE *P;
+    P=fopen("Ventas.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Vec[Pos],sizeof(Venta),1,P)==1)
+    {
+        if(Vec[Pos].getIdCliente()==ID)
+        {
+            Pos++;
+        }
+    }
+    fclose(P);
+    return 1 ;
+}
 
+void ListadoVentasxCliente();
 
+int ContarVentasxCliente(int ID);
 
+int CargarVecVentasxCliente(Venta *Vec,int Cant,int ID);
 
 
 
@@ -609,12 +682,6 @@ void ListadoVentasxImporteMax()
 {
 
 };
-
-void ListadoVentasxCliente()
-{
-
-};
-
 
 
 ///TODO funcion definir fechas mayor que otra~

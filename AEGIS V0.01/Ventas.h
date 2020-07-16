@@ -51,7 +51,7 @@ int MenuOrdenarVentas(Venta *VecDin, int Cant);
 void MostrarVentasXid(Venta *VecDin,int CantRegs,int version);
 
 void OrdenarVentasxImporte(Venta *VecDin,int Cant,int version);
-void  MostrarVentasxImporte(Venta *VecDin,int Cant,int version);
+void MostrarVentasxImporte(Venta *VecDin,int Cant,int version);
 
 
 ///void ListadoVentasxFechas();
@@ -62,6 +62,7 @@ int ContarVentasxVendedor(int Legajo);
 int CargarVecVentasxVendedor(Venta *Vec,int Cant,int Legajo);
 
 void ListadoVentasxCliente();
-
+int ContarVentasxCliente(int ID);
+int CargarVecVentasxCliente(Venta *Vec,int Cant,int ID);
 
 #endif // VENTAS_H_INCLUDED

@@ -105,7 +105,7 @@ int Cliente:: LeerxPos(int id)
     if(leyo)
     {
         fclose (P);
-        return 0;
+        return true;
     }
     else
         return -1;

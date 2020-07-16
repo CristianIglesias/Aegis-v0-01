@@ -183,7 +183,11 @@ int Vendedor::leerVendedor(int pos)
 int Vendedor:: LeerxID(int id)
 {
     if(id==-999)
-        return 0;
+        return 4;
+    if(id>=1)
+    {
+        id--;
+    }
     int leyo=-1;
     FILE *P;
     P=fopen(ArchivoVendedor,"rb");
@@ -213,6 +217,7 @@ void Vendedor:: mostrarxID ()///Muestra Por ID -
         cout<<"para que se muestre por pantalla."<<endl;
         cin>>aux;
         funco=LeerxID(aux);
+
         if(funco)
         {
             HeaderVendedor();
@@ -403,7 +408,6 @@ void ListarVendedores()
         msleep(85);
         ven.mostrar();
         cout<<endl;
-
         i++;
     }
     LineasInferior2();

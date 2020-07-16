@@ -67,6 +67,8 @@ int DetalleVenta::setIdProducto()
         ///cin.ignore();
         cin.getline(Cod,10);
         error=Reg.LeerxID(Cod);
+        if(error==4)
+            return 1;
         if(error==false)
             error=-1;
         if(error==-1)

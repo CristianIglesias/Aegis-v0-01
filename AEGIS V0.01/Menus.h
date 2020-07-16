@@ -48,7 +48,7 @@ void menuPrincipal()
     cout<<" \t" "                              ||2-->COMPRAS                      ||"<<endl;
     cout<<" \t" "                              ||3-->ABM                          ||"<<endl;
     cout<<" \t" "                              ||4-->LISTADOS                     ||"<<endl;
-    cout<<" \t" "                              ||5-->CONFIGURACION                ||"<<endl;
+    cout<<" \t" "                              ||5-->REPORTES                     ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;
     cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
@@ -673,7 +673,7 @@ void menuListados()
         break;
         case 5:
         {
-            ///ListadoVentasxCliente();
+            ListadoVentasxCliente();
         }
         break;
         case 0:
