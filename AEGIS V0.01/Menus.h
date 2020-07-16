@@ -82,16 +82,7 @@ void menuVentas()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,1);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<""<<endl;
-            }
-        }
+       LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -105,21 +96,7 @@ void menuVentas()
         cout<<"   \t""                             ||-0-->VOLVER                      -||"<<endl;
         cout<<"   \t""                             ||__________________________________||"<<endl;
         cout<<"   \t""                              -------Ingrese una opcion-------- "<<endl;
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
-
-
-            }
-
-        }
+       LineasInferior();
         cin>>op;
 
         switch(op)
@@ -193,16 +170,7 @@ void menuABM()
 
         setColor(LIGHTMAGENTA);
         system("cls");
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,1);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<""<<endl;
-            }
-        }
+      LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -217,21 +185,7 @@ void menuABM()
         cout<<"  \t""                                    ||-0-->VOLVER                     ||"<<endl;
         cout<<"  \t""                                    ||________________________________||"<<endl;
         cout<<"  \t""                                     -------Ingrese una opcion-------- "<<endl;
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
-
-
-            }
-
-        }
+      LineasInferior();
         cin>>op;
 
         switch(op)
@@ -310,16 +264,7 @@ void abmClientes()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,1);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<""<<endl;
-            }
-        }
+      LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -335,20 +280,7 @@ void abmClientes()
         cout<<"                                           ||-0-->VOLVER                     ||"<<endl;
         cout<<"                                           ||________________________________||"<<endl;
         cout<<"                                            -------Ingrese una opcion-------- "<<endl;
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
-
-            }
-
-        }
+       LineasInferior();
         cin>>op;
         system("cls");
         switch(op)
@@ -423,16 +355,7 @@ void abmProducto()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,1);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<""<<endl;
-            }
-        }
+       LineasSuperior();
         cout<<endl;
         cout<<endl;
         cout<<"                                                     ABM Producto          "<<endl;
@@ -447,20 +370,7 @@ void abmProducto()
         cout<<"                                         ||-0-->VOLVER                     ||"<<endl;
         cout<<"                                         ||________________________________||"<<endl;
         cout<<"                                          -------Ingrese una opcion--------"<<endl;
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
-
-            }
-
-        }
+       LineasInferior();
         cin>>op;
         system("cls");
         switch(op)
@@ -469,7 +379,7 @@ void abmProducto()
         {
 
 
-            cout<<"            ~ Nuevo Producto ~          "<<endl;
+            cout<<"                     ~ Nuevo Producto ~          "<<endl;
 
             pro.cargar();
             anykey();
@@ -479,7 +389,9 @@ void abmProducto()
 
         case 2:
         {
-            cout<<"                      ~MODIFICAR PRODUCTOS~               "<<endl;
+            cout<<endl;
+            cout<<endl;
+            cout<<"                                                        ~MODIFICAR PRODUCTOS~               "<<endl;
 
             pro.modificar_producto() ;
             anykey();
@@ -536,16 +448,7 @@ void abmProveedor()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,1);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<""<<endl;
-            }
-        }
+       LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -561,20 +464,7 @@ void abmProveedor()
         cout<<"                                            ||-0-->VOLVER                        ||"<<endl;
         cout<<"                                            ||___________________________________||"<<endl;
         cout<<"                                             -------Ingrese una opcion--------"<<endl;
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
-
-            }
-
-        }
+       LineasInferior();
         cin>>op;
         system("cls");
         switch(op)
@@ -651,16 +541,7 @@ void abmVendedor()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,1);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<""<<endl;
-            }
-        }
+       LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -676,20 +557,7 @@ void abmVendedor()
         cout<<"                                            ||0-->VOLVER                       ||"<<endl;
         cout<<"                                            ||_________________________________||"<<endl;
         cout<<"                                             -------Ingrese una opcion--------"<<endl;
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
-
-            }
-
-        }
+        LineasInferior();
         cin>>op;
         system("cls");
         switch(op)
@@ -764,16 +632,7 @@ void menuListados()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,1);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<""<<endl;
-            }
-        }
+       LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -789,18 +648,7 @@ void menuListados()
         cout<<"                                            ||0-->VOLVER                               ||"<<endl;
         cout<<"                                            ||_________________________________________||"<<endl;
         cout<<"                                             -------Ingrese una opcion--------"<<endl;
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
-            }
-        }
+       LineasInferior();
         cin>>op;
         system("cls");
         switch(op)

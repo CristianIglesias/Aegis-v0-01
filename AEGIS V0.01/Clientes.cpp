@@ -467,6 +467,7 @@ void ListarClientes()
     Cliente Cli;
     int i=1;
     cls();
+    LineasSuperior();
     cout<<"*      ________________________________________________________________________________________________*"<<endl;
     cout<<"*      ______________________________________LISTADO DE CLIENTES______________________________________*"<<endl;
     cout<<"        -------------------------------------------------------------------------------------------------"<<endl;
@@ -488,6 +489,7 @@ void ListarClientes()
     }
     cout<<"(Tipo de pago 1=Efectivo / 2=Debito / 3=Credito )"<<endl;
     cout<<"(Preferencia de factura 1=Factura B / 2=Factura A  )"<<endl;
+    LineasInferior2();
     cin.ignore();
     anykey();
 }

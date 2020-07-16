@@ -24,7 +24,10 @@ void ListarVendedores();
 ///void listadoDeVentas();
 void mostrarCadenas(const char *cad);
 
-
+void LineasSuperior();
+void LineasInferior();
+void LineasInferior2();
+void LineasInferior3();
 
 
 

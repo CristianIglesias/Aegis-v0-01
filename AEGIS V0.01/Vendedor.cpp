@@ -403,6 +403,9 @@ void ListarVendedores()
     Vendedor ven;
     int i=0;
     cls();
+    LineasSuperior();
+    cout<<endl;
+
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
@@ -416,6 +419,7 @@ void ListarVendedores()
         cout<<"Email :"<<"\t    ";
         cout<<"Venta diaria/% Comision "<<endl;
         cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+        cout<<endl;
 
     while(ven.LeerxID(i)==1)
     {
@@ -424,6 +428,7 @@ void ListarVendedores()
 
               i++;
     }
+    LineasInferior2();
     cin.ignore();
     anykey();
 }

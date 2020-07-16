@@ -47,6 +47,7 @@ public:
         PrecioTotal=PrecioUnidad*Cantidad;
         return PrecioTotal;
     }
+
 protected:
     int idVenta;
     char idProducto [10];

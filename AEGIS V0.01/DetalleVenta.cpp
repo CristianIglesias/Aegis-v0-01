@@ -4,6 +4,8 @@ using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
 #include "DetalleVenta.h"
+#include "Fecha.h"
+
 const char *ArchivoDetalle ="DetalleVenta.dat";
 
 int DetalleVenta:: CargarDetalle(Venta *obj)
@@ -218,15 +220,20 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     int i=0;
     cls();
     setColor(LIGHTBLUE);
-    cout<<"-----------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    cout<<endl;
+    cout<<"FECHA : " <<endl;
+
+    cout<<"                           -------------------------------DETALLE DE VENTA-------------------------------"<<endl;
+    cout<<"                          -----------------------------------------------------------------------------------"<<endl;
     cout<< left;
-    cout<<setw(5)<<"CODIGO-"<<" ";
+    cout<<setw(5)<<"                   CODIGO-"<<" ";
     cout<< right;
-    cout<<setw(10)<<"NOMBRE-"<<"  ";
-    cout<<setw(5)<<"IMPORTE VENTA-"<<"  ";
-    cout<<setw(5)<<"CANTIDAD-"<<"  ";
-    cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
-    cout<<"-----------------------------------------------------------------------------------------"<<endl;
+    cout<<setw(10)<<"                  NOMBRE-"<<"  ";
+    cout<<setw(5)<<"                    IMPORTE VENTA-"<<"  ";
+    cout<<setw(5)<<"                    CANTIDAD-"<<"  ";
+    cout<<setw(5)<<"                    PRECIO FINAL"<<"  "<<endl;
+    cout<<"                          -----------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
     setColor(WHITE);
     while(i<Cant)
@@ -238,12 +245,14 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     cin.ignore();
     anykey();
 }
+
 void DetalleVenta :: Mostrar()
-{   Producto Aux;
+{
+    Producto Aux;
     Aux.LeerxID(this->idProducto);
     setColor(WHITE);
     cout<< left;
-    cout<< setw(5)<<this->getIdProducto()<<"\t";
+    cout<< setw(5)<<getIdProducto()<<"\t";
     cout << right;
     cout<< setw(10)<<Aux.getNombreItem();
     cout<< left;
