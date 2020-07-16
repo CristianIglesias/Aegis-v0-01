@@ -47,14 +47,15 @@ int ContarVentas();
 int CargarVentas(Venta *VecDin,int CantRegs);
 int MenuOrdenarVentas(Venta *VecDin, int Cant);
 void MostrarVentasXid(Venta *VecDin,int CantRegs,int version);
+void  MostrarVentasxImporte(Venta *VecDin,int Cant,int version);
 
 
-void ListadoVentasxFechas();
+///void ListadoVentasxFechas();
 int ContarVentasxFechas(Fecha Fech1,Fecha Fech2);
 int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2);
 void ListadoVentasxVendedor();
-
-void ListadoVentasxImporteMax();
+int ContarVentasxVendedor(int Legajo);
+int CargarVecVentasxVendedor(Venta *Vec,int Cant,int Legajo);
 
 void ListadoVentasxCliente();
 

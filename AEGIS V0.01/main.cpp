@@ -12,7 +12,6 @@ using namespace rlutil;
 
 int main()
 {
-    int x;
     setlocale(LC_ALL,"spanish");
     LineasSuperior();
     int op=-1;

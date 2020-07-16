@@ -661,7 +661,7 @@ void menuListados()
 
         case 2:
         {
-            ListadoVentasxFechas();
+            ///ListadoVentasxFechas();
         }
         break;
         case 3:

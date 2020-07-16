@@ -184,7 +184,6 @@ void ListarTodasVentas()
     error=CargarVentas(VecDin,CantRegs);
     if(error<0)
         error_msj(-6,0);
-    ///ver como se arma, menusito y añadir parametros?"
     while(error!=-1)
     {
         error=MenuOrdenarVentas(VecDin,CantRegs);
@@ -250,14 +249,14 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
 
         cls();
         cout<<endl;
-    cout<<"-------------------------LISTADO DE VENTAS(ascendente)------------------------------------"<<endl;
-    cout<<"-------------------------------------------------------------------------------------------"<<endl;
-    cout<<"Numero de venta "<<"\t";
-    cout<<"Fecha de venta "<<"\t";
-    cout<<"Vendedor nro "<<"\t";
-    cout<<"Cliente nro "<<"\t";
-    cout<<"Importe final " <<"$"<<"\t"<<endl;
-    cout<<"---------------------------------------------------------------------------------------------"<<endl;
+        cout<<"-------------------------LISTADO DE VENTAS(ascendente)------------------------------------"<<endl;
+        cout<<"-------------------------------------------------------------------------------------------"<<endl;
+        cout<<"Numero de venta "<<"\t";
+        cout<<"Fecha de venta "<<"\t";
+        cout<<"Vendedor nro "<<"\t";
+        cout<<"Cliente nro "<<"\t";
+        cout<<"Importe final " <<"$"<<"\t"<<endl;
+        cout<<"---------------------------------------------------------------------------------------------"<<endl;
         while(i<Cant)
         {
             msleep(85);
@@ -275,17 +274,17 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
 
         cls();
         cout<<endl;
-    cout<<"----------------------------------LISTADO DE VENTAS(descendente)-----------------------------"<<endl;
-    cout<<"---------------------------------------------------------------------------------------------"<<endl;
-    cout<<"Numero de venta "<<"\t";
-    cout<<"Fecha de venta "<<"\t";
-    cout<<"Vendedor nro "<<"\t";
-    cout<<"Cliente nro "<<"\t";
-    cout<<"Importe final " <<"$"<<"\t"<<endl;
-    cout<<"-----------------------------------------------------------------------------------------------"<<endl;
+        cout<<"----------------------------------LISTADO DE VENTAS(descendente)-----------------------------"<<endl;
+        cout<<"---------------------------------------------------------------------------------------------"<<endl;
+        cout<<"Numero de venta "<<"\t";
+        cout<<"Fecha de venta "<<"\t";
+        cout<<"Vendedor nro "<<"\t";
+        cout<<"Cliente nro "<<"\t";
+        cout<<"Importe final " <<"$"<<"\t"<<endl;
+        cout<<"-----------------------------------------------------------------------------------------------"<<endl;
         while(i>=0)
         {
-             msleep(85);
+            msleep(85);
             Vec[i].Mostrar();
             cout<<endl;
             i--;
@@ -296,6 +295,10 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     break;
 
     }
+};
+void  MostrarVentasxImporte(Venta *VecDin,int Cant,int version)
+{
+
 };
 
 
@@ -338,7 +341,6 @@ void ListadoVentasxFechas()
     Venta *VecDin;
     VecDin=new Venta[CantVentas];
     error=CargarVecVentasxFecha(VecDin,CantVentas,Fech1,Fech2);
-
 
 };
 
@@ -383,8 +385,84 @@ int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
 
 void ListadoVentasxVendedor()
 {
+    int error=-1,CantVentas,i=0;
+    int IdAux;
+    Vendedor Reg;
+    cout<<"Ingrese El Id/Legajo del vendedor que quiere filtrar."<<endl;
+    cin>>IdAux;
+    while(error!=1)
+    {
+        error=Reg.LeerxID(IdAux);
+        if(error==0)
+            i++;
+        error_msj(-5,i);
+        return;
+    }
+    CantVentas=ContarVentasxVendedor(Reg.getlegajo());
+    if(CantVentas==-1)
+        error_msj(-6,1);
+    Venta *VecDin;
+    VecDin=new Venta[CantVentas];
+    error=CargarVecVentasxVendedor(VecDin,CantVentas,Reg.getlegajo());
+    MenuOrdenarVentas(VecDin,CantVentas);
+    free(VecDin);
+
+
+
 
 };
+
+
+int ContarVentasxVendedor(int Legajo)
+{
+    Venta Aux;
+    int cont=0;
+    FILE *P;
+    P=fopen("Ventas.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Aux,sizeof(Venta),1,P)==1)
+    {
+        if(Aux.getIdVendedor()==Legajo)
+        {
+            cont++;
+        }
+    }
+    fclose(P);
+    return cont;
+}
+int CargarVecVentasxVendedor(Venta *Vec,int Cant,int Legajo)
+{
+    int Pos=0;
+    FILE *P;
+    P=fopen("Ventas.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Vec[Pos],sizeof(Venta),1,P)==1)
+    {
+        if(Vec->getIdVendedor()==Legajo)
+        {
+            Pos++;
+        }
+    }
+    fclose(P);
+    return 1 ;
+}
+
+
+
+
+
+
+
+
+
 
 void ListadoVentasxImporteMax()
 {
@@ -423,12 +501,10 @@ int MenuOrdenarVentas(Venta *VecDin, int Cant)
         cout<<"                                             __________________________________________"<<endl;
         cout<<"                                            ||1--> Por ID (Ascendente)                 ||"<<endl;
         cout<<"                                            ||2--> Por ID (Descendente)                ||"<<endl;
-        cout<<"                                            ||3--> Por Vendedor (Legajo - ascendente)  ||"<<endl;
-///     cout<<"                                            ||4--> Por Vendedor (Legajo - Descendente) ||"<<endl;
-        cout<<"                                            ||5--> Por Importes (Ascendentes)          ||"<<endl;
-///     cout<<"                                            ||6--> Por Importes (Descendentes)         ||"<<endl;
-        cout<<"                                            ||7--> Por Fechas   (Ascendentes)          ||"<<endl;
-///     cout<<"                                            ||8--> Por Fechas   (Desscendentes)        ||"<<endl;
+        cout<<"                                            ||3--> Por Importes (Ascendentes)          ||"<<endl;
+///     cout<<"                                            ||4--> Por Importes (Descendentes)         ||"<<endl;
+        cout<<"                                            ||5--> Por Fechas   (Ascendentes)          ||"<<endl;
+///     cout<<"                                            ||6--> Por Fechas   (Desscendentes)        ||"<<endl;
         cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
         cout<<"                                            ||0-->VOLVER                               ||"<<endl;
         cout<<"                                            ||_________________________________________||"<<endl;
@@ -451,6 +527,7 @@ int MenuOrdenarVentas(Venta *VecDin, int Cant)
         break;
         case 3:
         {
+            MostrarVentasxImporte(VecDin,Cant,1);
         }
         break;
         case 4:

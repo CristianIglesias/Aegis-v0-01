@@ -183,7 +183,7 @@ int Vendedor::leerVendedor(int pos)
 int Vendedor:: LeerxID(int id)
 {
     if(id==-999)
-        return 1;
+        return 0;
     int leyo=-1;
     FILE *P;
     P=fopen(ArchivoVendedor,"rb");
