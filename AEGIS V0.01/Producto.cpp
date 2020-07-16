@@ -99,9 +99,9 @@ int Producto::setCodigoproducto()
     while (error<0)
     {
 
-cout<<endl;
-cout<<endl;
-cout<<endl;
+        cout<<endl;
+        cout<<endl;
+        cout<<endl;
         cout<<"Ingrese codigo de producto: ";
         cin.getline(CodigoProducto,10);
         error=buscarcodigo(this->getCodigoProducto());

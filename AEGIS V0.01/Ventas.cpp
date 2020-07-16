@@ -47,7 +47,8 @@ void Venta:: GenerarVenta()
 
 };
 void Venta:: Mostrar()
-{   int error=-1;
+{
+    int error=-1;
     cout<<"--------------------------------------------------------------------"<<endl;
     cout<<"Venta nro: "<<ID<<"."<<endl;
     cout<<"Fecha de venta: "<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<endl;
@@ -198,7 +199,7 @@ int ContarVentas()
         fclose(P);
         return -1;
     }
-    fseek(P,0,2);
+    fseek(P,SEEK_SET,SEEK_END);
     cant=ftell(P)/sizeof(Venta);
     fclose(P);
     return cant;
@@ -208,12 +209,12 @@ int CargarVentas(Venta *Vec,int CantRegs)
     FILE *P;
     int i=0;
     P=fopen(ArchivoVentas,"rb");
-      if(P==NULL)
+    if(P==NULL)
     {
         fclose(P);
         return -1;
     }
-   if(fread(&Vec,sizeof(DetalleVenta),CantRegs,P)==CantRegs)
+    if(fread(Vec,sizeof(Venta),CantRegs,P)==CantRegs)
     {
         fclose(P);
         return 0;
@@ -259,7 +260,8 @@ void Venta ::MostrarTabla()
     cout<< left;
     cout<< setw(5)<<this->getID()<<"\t";
     cout << right;
-    cout<<setw(5);getFechaOperacion().mostrar();"\t";
+    cout<<setw(5);
+    getFechaOperacion().mostrar(); "\t";
     cout<< setw(10)<<Reg.getNombre();
     cout<< left;
     cout<<setw(5)<<Aux.getNombre()<<"\t    ";

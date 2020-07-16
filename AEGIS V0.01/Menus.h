@@ -82,7 +82,7 @@ void menuVentas()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-       LineasSuperior();
+        LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -96,7 +96,7 @@ void menuVentas()
         cout<<"   \t""                             ||-0-->VOLVER                      -||"<<endl;
         cout<<"   \t""                             ||__________________________________||"<<endl;
         cout<<"   \t""                              -------Ingrese una opcion-------- "<<endl;
-       LineasInferior();
+        LineasInferior();
         cin>>op;
 
         switch(op)
@@ -170,7 +170,7 @@ void menuABM()
 
         setColor(LIGHTMAGENTA);
         system("cls");
-      LineasSuperior();
+        LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -185,7 +185,7 @@ void menuABM()
         cout<<"  \t""                                    ||-0-->VOLVER                     ||"<<endl;
         cout<<"  \t""                                    ||________________________________||"<<endl;
         cout<<"  \t""                                     -------Ingrese una opcion-------- "<<endl;
-      LineasInferior();
+        LineasInferior();
         cin>>op;
 
         switch(op)
@@ -264,7 +264,7 @@ void abmClientes()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-      LineasSuperior();
+        LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -280,7 +280,7 @@ void abmClientes()
         cout<<"                                           ||-0-->VOLVER                     ||"<<endl;
         cout<<"                                           ||________________________________||"<<endl;
         cout<<"                                            -------Ingrese una opcion-------- "<<endl;
-       LineasInferior();
+        LineasInferior();
         cin>>op;
         system("cls");
         switch(op)
@@ -355,7 +355,7 @@ void abmProducto()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-       LineasSuperior();
+        LineasSuperior();
         cout<<endl;
         cout<<endl;
         cout<<"                                                     ABM Producto          "<<endl;
@@ -370,7 +370,7 @@ void abmProducto()
         cout<<"                                         ||-0-->VOLVER                     ||"<<endl;
         cout<<"                                         ||________________________________||"<<endl;
         cout<<"                                          -------Ingrese una opcion--------"<<endl;
-       LineasInferior();
+        LineasInferior();
         cin>>op;
         system("cls");
         switch(op)
@@ -448,7 +448,7 @@ void abmProveedor()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-       LineasSuperior();
+        LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -464,7 +464,7 @@ void abmProveedor()
         cout<<"                                            ||-0-->VOLVER                        ||"<<endl;
         cout<<"                                            ||___________________________________||"<<endl;
         cout<<"                                             -------Ingrese una opcion--------"<<endl;
-       LineasInferior();
+        LineasInferior();
         cin>>op;
         system("cls");
         switch(op)
@@ -541,7 +541,7 @@ void abmVendedor()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-       LineasSuperior();
+        LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -632,7 +632,7 @@ void menuListados()
     {
         setColor(LIGHTMAGENTA);
         system("cls");
-       LineasSuperior();
+        LineasSuperior();
         cout<<endl;
         cout<<endl;
 
@@ -648,7 +648,7 @@ void menuListados()
         cout<<"                                            ||0-->VOLVER                               ||"<<endl;
         cout<<"                                            ||_________________________________________||"<<endl;
         cout<<"                                             -------Ingrese una opcion--------"<<endl;
-       LineasInferior();
+        LineasInferior();
         cin>>op;
         system("cls");
         switch(op)

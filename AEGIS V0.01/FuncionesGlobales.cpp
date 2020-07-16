@@ -140,74 +140,74 @@ int ValidarEntero(int c)
 void LineasSuperior()
 {
     int x;
-      for(x=1; x<118; x++)
+    for(x=1; x<118; x++)
+    {
+        gotoxy(x,1);
+        cout<<"="<<endl;
+        if(x<=20)
         {
-            gotoxy(x,1);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<""<<endl;
-            }
+            gotoxy(1,x);
+            cout<<""<<endl;
         }
+    }
 }
 void LineasInferior()
 {
     int x;
-     for(x=1; x<118; x++)
+    for(x=1; x<118; x++)
+    {
+        gotoxy(x,20);
+        cout<<"="<<endl;
+        if(x<=20)
         {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
+            gotoxy(1,x);
+            cout<<"||"<<endl;
+            gotoxy(118,x);
+            cout<<"||"<<endl;
 
-
-            }
 
         }
+
+    }
 }
 
 void LineasInferior2()
 {
     int x;
-     for(x=1; x<118; x++)
+    for(x=1; x<118; x++)
+    {
+        gotoxy(x,45);
+        cout<<"="<<endl;
+        if(x<=45)
         {
-            gotoxy(x,45);
-            cout<<"="<<endl;
-            if(x<=45)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
+            gotoxy(1,x);
+            cout<<"||"<<endl;
+            gotoxy(118,x);
+            cout<<"||"<<endl;
 
-
-            }
 
         }
+
+    }
 }
 void LineasInferior3()
 {
     int x;
-     for(x=1; x<118; x++)
+    for(x=1; x<118; x++)
+    {
+        gotoxy(x,15);
+        cout<<"="<<endl;
+        if(x<=15)
         {
-            gotoxy(x,15);
-            cout<<"="<<endl;
-            if(x<=15)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
+            gotoxy(1,x);
+            cout<<"||"<<endl;
+            gotoxy(118,x);
+            cout<<"||"<<endl;
 
-
-            }
 
         }
+
+    }
 }
 /*void listadoDeVentas()
 {

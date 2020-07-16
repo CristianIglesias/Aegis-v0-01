@@ -170,7 +170,7 @@ int  MostrarDetalles(Venta *Reg)
     error=CargarDetallesVenta(VecDin,CantRegs,Reg->getID());
     if(error<0)
         error_msj(-6,0);
-     MostrarDetallesTABLA(VecDin,CantRegs);
+    MostrarDetallesTABLA(VecDin,CantRegs);
     free(VecDin);
     return 0;
 };
@@ -200,7 +200,7 @@ int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
     FILE *P;
     int i=0;
     P=fopen(ArchivoDetalle,"rb");
-      if(P==NULL)
+    if(P==NULL)
     {
         fclose(P);
         return -1;
