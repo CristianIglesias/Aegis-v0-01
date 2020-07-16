@@ -4,6 +4,7 @@ using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
 #include "Clientes.h"
+#include <iomanip>
 
 const char *ArchivoClientes ="Clientes.dat";
 /// A SABER
@@ -60,16 +61,14 @@ void  Cliente:: mostrar()
     if(Estado==true)
     {
         cout<<endl;
+        cout<<left;
         setColor(LIGHTBLUE);
-        cout<<"CLIENTE NUMERO : "<< idCliente <<endl;
+        cout<< setw(3)<<idCliente ;
         setColor(YELLOW);
-        cout<<"------------------------------------------"<<endl;
-        cout <<"El Cliente Numero "<<idCliente<<" se llama "<<endl;
         Persona::Mostrar();
-        cout<<"Prefiere Tipo de Pago "<<TipodePago;
-        cout<<" Y Tipo de Factura "<<PrefFactura;
-        cout<<endl;
-        cout<<"------------------------------------------"<<endl;
+        cout<<TipodePago<<"/";
+        cout<<PrefFactura<<endl;
+        cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
 
         if(GetDeuda()<0)
         {
@@ -81,7 +80,7 @@ void  Cliente:: mostrar()
     else
     {
         setColor(RED);
-        cout<<"El Registro no está disponible."<<endl;
+        cout<<"Registro no disponible------------------------------------------------------------*."<<endl;
         setColor(WHITE);
     }
 };
@@ -125,6 +124,19 @@ int Cliente:: mostrarxID ()///Muestra Por ID -
         funco=LeerxPos(aux);
         if(funco!=-1)
         {
+        cout<<"*      ________________________________________________________________________________________________*"<<endl;
+        cout<<"*      ______________________________________LISTADO DE CLIENTES______________________________________*"<<endl;
+        cout<<"        -------------------------------------------------------------------------------------------------"<<endl;
+        cout<<left;
+        cout<<"ID "<<"" ;
+        cout<< "Apellido "<<"\t" ;
+        cout<<"Nombre "<<"\t"<<"\t";
+        cout<<"Nacimiento"<<"\t";
+        cout<<"DNI:"<<"\t      " ;
+        cout<<"Telefono "<<"\t"<<"\t";
+        cout<<"Email "<<"\t"<<"\t";
+        cout<<"Tipo de Pago/factura "<<endl;
+        cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
             mostrar();
         }
         else
@@ -142,7 +154,7 @@ int GenerarIdCliente()///
     p=fopen(ArchivoClientes,"rb");
     if(p==NULL)
     {
-        return-1;
+        return -1;
     }
     fseek(p,SEEK_SET,SEEK_END);
     cantRegistros=ftell(p)/sizeof(Cliente);
@@ -455,15 +467,27 @@ void ListarClientes()
     Cliente Cli;
     int i=1;
     cls();
-    cout<<"*________________________________________________________________________________________________*"<<endl;
-    cout<<"*______________________________________LISTADO DE CLIENTES______________________________________*"<<endl;
-    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"*      ________________________________________________________________________________________________*"<<endl;
+    cout<<"*      ______________________________________LISTADO DE CLIENTES______________________________________*"<<endl;
+    cout<<"        -------------------------------------------------------------------------------------------------"<<endl;
+        cout<<left;
+        cout<<"ID "<<"" ;
+        cout<< "Apellido "<<"\t" ;
+        cout<<"Nombre "<<"\t"<<"\t";
+        cout<<"Nacimiento"<<"\t";
+        cout<<"DNI:"<<"\t      " ;
+        cout<<"Telefono "<<"\t"<<"\t";
+        cout<<"Email "<<"\t"<<"\t";
+        cout<<"Tipo de Pago/factura "<<endl;
+        cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
     while(Cli.LeerxPos(i)==0)
     {
         Cli.mostrar();
         cout<<endl;
         i++;
     }
+    cout<<"(Tipo de pago 1=Efectivo / 2=Debito / 3=Credito )"<<endl;
+    cout<<"(Preferencia de factura 1=Factura B / 2=Factura A  )"<<endl;
     cin.ignore();
     anykey();
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <iomanip>
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
@@ -133,22 +134,24 @@ int Vendedor :: GuardarVendedorEnDisco(int ID)///Buscar posición y sobreescribir
 
 void Vendedor::mostrar()
 {
-    if(Estado)
+    if(Estado==true)
     {
         setColor(LIGHTBLUE);
-        cout<<"LEGAJO: " <<legajo<<endl;
-        cout<<"-----------------------------------------------"<<endl;
+        cout<<setw(3)<<legajo<<" ";
+
         setColor(YELLOW);
         Persona::Mostrar();
-        cout<<"Venta diaria: "<<VentaDiaria<<endl;
-        cout<<"% Comision: "<< PorcentajeComision<<endl;
-        cout<<"-----------------------------------------------"<<endl;
+        cout<<VentaDiaria<<"/"<<"%";
+        cout<< PorcentajeComision<<"$"<<endl;
+         cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
     }
     else
     {
         setColor(RED);
-        cout<<"El Registro No está activo."<<endl;
+        cout<<"Registros Inactivos.---------------------------------------------------------------------------------------"<<endl;
         setColor(WHITE);
+        cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
+        system("pause");
     }
 
 }
@@ -157,7 +160,7 @@ int Vendedor::leerVendedor(int pos)
 {
     if(pos==-999)
         return 1;
-    pos--;       ///polemica
+    pos-- ;       ///polemica
     bool leyo=false;
     FILE *p;
     p=fopen(ArchivoVendedor,"rb");
@@ -212,6 +215,19 @@ void Vendedor:: mostrarxID ()///Muestra Por ID -
         funco=LeerxID(aux);
         if(funco)
         {
+             cout<<"*________________________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+     cout<<left;
+        cout<<"Legajo "<<" " ;
+        cout<<setw(5)<< "Apellido " <<"  ";
+        cout<<"Nombre ";
+        cout<<"Nacimiento"<<"\t";
+        cout<<"DNI:"<<"\t      " ;
+        cout<<"Telefono "<<"\t      ";
+        cout<<"Email :"<<"\t    ";
+        cout<<"Venta diaria/% Comision "<<endl;
+        cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
             mostrar();
         }
         else
@@ -373,7 +389,7 @@ int GenerarIdVendedor()
     p=fopen(ArchivoVendedor,"rb");
     if(p==NULL)
     {
-        return-1;
+        return -1;
     }
     fseek(p,SEEK_SET,SEEK_END);
     cantRegistros=ftell(p)/sizeof(Vendedor);
@@ -390,11 +406,23 @@ void ListarVendedores()
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE VENDEDORES______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+     cout<<left;
+        cout<<"Legajo "<<" " ;
+        cout<<setw(5)<< "Apellido " <<"  ";
+        cout<<"Nombre ";
+        cout<<"Nacimiento"<<"\t";
+        cout<<"DNI:"<<"\t      " ;
+        cout<<"Telefono "<<"\t      ";
+        cout<<"Email :"<<"\t    ";
+        cout<<"Venta diaria/% Comision "<<endl;
+        cout<<"-----------------------------------------------------------------------------------------------------------------------"<<endl;
+
     while(ven.LeerxID(i)==1)
     {
-        ven.mostrar();
-        cout<<endl;
-        i++;
+             ven.mostrar();
+             cout<<endl;
+
+              i++;
     }
     cin.ignore();
     anykey();

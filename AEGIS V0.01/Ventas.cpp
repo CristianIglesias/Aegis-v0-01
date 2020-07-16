@@ -137,7 +137,7 @@ int GenerarIdVenta()
     p=fopen(ArchivoVentas,"rb");
     if(p==NULL)
     {
-        return-1;
+        return -1;
     }
     fseek(p,SEEK_SET,SEEK_END);
     cantRegistros=ftell(p)/sizeof(Venta);
