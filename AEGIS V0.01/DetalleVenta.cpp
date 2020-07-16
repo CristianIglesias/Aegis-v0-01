@@ -218,6 +218,7 @@ int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
 int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
 {
     int i=0;
+
     cls();
     setColor(LIGHTBLUE);
     cout<<endl;
@@ -236,14 +237,8 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     cout<<"                          -----------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
     setColor(WHITE);
-    while(i<Cant)
-    {
-        Vec[i].Mostrar();
-        cout<<endl;
-        i++;
-    }
-    cin.ignore();
-    anykey();
+
+
 }
 
 void DetalleVenta :: Mostrar()

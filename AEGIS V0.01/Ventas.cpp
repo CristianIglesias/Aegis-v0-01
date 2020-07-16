@@ -184,7 +184,12 @@ void ListarTodasVentas()
     error=CargarVentas(VecDin,CantRegs);
     if(error<0)
         error_msj(-6,0);
-    error=MostrarVentas(VecDin,CantRegs);///ver como se arma, menusito y añadir parametros?"
+    ///ver como se arma, menusito y añadir parametros?"
+    while(error!=-1)
+    {
+        error=MenuOrdenarVentas(VecDin,CantRegs);
+    }
+
     free(VecDin);
     return ;
 };
@@ -223,7 +228,7 @@ int CargarVentas(Venta *Vec,int CantRegs)
     fclose(P);
     return -1;
 };
-int MostrarVentas(Venta *Vec,int Cant)
+void MostrarVentasXid(Venta *Vec,int Cant,int version)
 {
     int i=0;
     cls();
@@ -239,14 +244,35 @@ int MostrarVentas(Venta *Vec,int Cant)
     cout<<"-----------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
     setColor(WHITE);
-    while(i<Cant)
+    switch(version)
     {
-        Vec[i].Mostrar();
-        cout<<endl;
-        i++;
+    case 1:
+    {
+        while(i<Cant)
+        {
+            Vec[i].Mostrar();
+            cout<<endl;
+            i++;
+        }
+        cin.ignore();
+        anykey();
     }
-    cin.ignore();
-    anykey();
+    break;
+    case 2:
+    {
+        i=Cant;
+        while(i>=0)
+        {
+            Vec[i].Mostrar();
+            cout<<endl;
+            i--;
+        }
+        cin.ignore();
+        anykey();
+    }
+    break;
+
+    }
 };
 
 
@@ -362,9 +388,88 @@ void ListadoVentasxCliente()
 
 
 ///TODO funcion definir fechas mayor que otra~
-///TODO LISTAR Todas las VENTAS, y después por vendedor/cliente/importe max -  MOSTRAR VENTA - Algun tipo de reporte
+///TODO y después por vendedor/cliente/importe max -  MOSTRAR VENTA - Algun tipo de reporte
 
 
+
+
+int MenuOrdenarVentas(Venta *VecDin, int Cant)
+{
+    int op,x;
+    bool salir=false;
+    while(!salir)
+    {
+        setColor(LIGHTMAGENTA);
+        system("cls");
+        LineasSuperior();
+        cout<<endl;
+        cout<<"                                                Listado Cargado! Cómo preferís verlo?"<<endl;
+
+        cout<<endl;
+        cout<<endl;
+        cout<<"                                                      Ordenar Listado.                 "<<endl;
+        setColor(YELLOW);
+        cout<<"                                             __________________________________________"<<endl;
+        cout<<"                                            ||1--> Por ID (Ascendente)                 ||"<<endl;
+        cout<<"                                            ||2--> Por ID (Descendente)                ||"<<endl;
+        cout<<"                                            ||3--> Por Vendedor (Legajo - ascendente)  ||"<<endl;
+///     cout<<"                                            ||4--> Por Vendedor (Legajo - Descendente) ||"<<endl;
+        cout<<"                                            ||5--> Por Importes (Ascendentes)          ||"<<endl;
+///     cout<<"                                            ||6--> Por Importes (Descendentes)         ||"<<endl;
+        cout<<"                                            ||7--> Por Fechas   (Ascendentes)          ||"<<endl;
+///     cout<<"                                            ||8--> Por Fechas   (Desscendentes)        ||"<<endl;
+        cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
+        cout<<"                                            ||0-->VOLVER                               ||"<<endl;
+        cout<<"                                            ||_________________________________________||"<<endl;
+        cout<<"                                             -------Ingrese una opcion--------"<<endl;
+        LineasInferior();
+        cin>>op;
+        system("cls");
+        switch(op)
+        {
+        case 1:
+        {
+            MostrarVentasXid(VecDin,Cant,1);
+        }
+        break;
+
+        case 2:
+        {
+            MostrarVentasXid(VecDin,Cant,2);
+        }
+        break;
+        case 3:
+        {
+        }
+        break;
+        case 4:
+        {
+        }
+        break;
+        case 5:
+        {
+        }
+        break;
+        case 0:
+        {
+            system("cls");
+            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+            salir=true;
+            return -1;
+        }
+        break;
+        default:
+        {
+            system("cls");
+            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
+        }
+        break;
+
+        }
+        system("pause");
+    }
+
+};
 
 
 

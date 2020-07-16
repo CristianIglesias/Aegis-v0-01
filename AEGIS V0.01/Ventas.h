@@ -7,6 +7,7 @@
 #include "Clientes.h"
 #include "Producto.h"
 #include "DetalleVenta.h"
+
 class Venta :public Operacion
 {
 public:
@@ -44,7 +45,8 @@ int GenerarIdVenta();
 void ListarTodasVentas();
 int ContarVentas();
 int CargarVentas(Venta *VecDin,int CantRegs);
-int MostrarVentas(Venta *VecDin,int CantRegs);
+int MenuOrdenarVentas(Venta *VecDin, int Cant);
+void MostrarVentasXid(Venta *VecDin,int CantRegs,int version);
 
 
 void ListadoVentasxFechas();
