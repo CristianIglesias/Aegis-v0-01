@@ -262,14 +262,7 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
         cls();
         cout<<endl;
 
-        cout<<"          __________________________________LISTADO DE VENTAS(ascendente)_____________________________________"<<endl;
-        cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
-        cout<<"Numero de venta "<<"    ";
-        cout<<"Fecha de venta "<<"\t"<<" ";
-        cout<<"Vendedor nro "<<"\t";
-        cout<<"Cliente nro "<<"\t"<<"\t";
-        cout<<"Importe final " <<"$"<<"\t"<<endl;
-        cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+       HeaderListadoDeVentas1();
         while(i>=0)
         {
             msleep(5);
@@ -289,16 +282,7 @@ void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
     int i=0;
     OrdenarVentasxImporte(Vec,Cant,version);
     setColor(LIGHTCYAN);
-    cout<<endl;
-    cout<<"-----------------------------------------------------------------------------------------"<<endl;
-    cout<< left;
-    cout<<setw(5)<<"ID VENTA-";
-    cout<<setw(5)<<"FECHA";
-    cout<< right;
-    cout<<setw(10)<<"NOMBRE CLIENTE-";
-    cout<<setw(5)<<"NOMBRE VENDEDOR-"<<endl;
-    cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
-    cout<<"-----------------------------------------------------------------------------------------"<<endl;
+   HeaderMostrarVentasXID();
     cout<<endl;
     setColor(WHITE);
     switch(version)
