@@ -130,6 +130,7 @@ void menuVentas()
             cout<<"                   ~NUEVA VENTA~        "<<endl;
             V.GenerarVenta();
             V.Mostrar();
+            MostrarDetalles(&V);
         }
         break;
         case 2:

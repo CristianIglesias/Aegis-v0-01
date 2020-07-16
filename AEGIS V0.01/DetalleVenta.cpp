@@ -44,7 +44,13 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
     return error;
 }
 
-
+DetalleVenta::DetalleVenta()
+{
+    idVenta=0;
+    PrecioUnidad=0;
+    Cantidad=0;
+    PrecioTotal=0;
+};
 int DetalleVenta::setIdProducto()
 {
     char Cod[10];
@@ -145,10 +151,53 @@ int GuardarDetalle(DetalleVenta *Obj)
     fclose (p);
     return 0;
 }
-DetalleVenta::DetalleVenta()
+
+
+
+int  MostrarDetalles(Venta *Reg)
 {
-    idVenta=0;
-    PrecioUnidad=0;
-    Cantidad=0;
-    PrecioTotal=0;
+    int error=-1, CantRegs=0;
+    DetalleVenta *VecDin;
+    CantRegs=ContarDetallesXID(Reg->getID());///desarrollar funcion
+    VecDin=new DetalleVenta[CantRegs];
+    if(VecDin==NULL)
+        return -1;
+    error=CargarDetallesVenta(VecDin,CantRegs,Reg->getID());///desarrollar funcion
+    if(error==-1)
+        return-1;
+    MostrarDetallesTABLA(VecDin,CantRegs);///desarrollar Funcion
+    free(VecDin);
+    return 0;
 };
+
+int ContarDetallesXID(int ID)
+{
+    DetalleVenta Aux;
+    int cont=0;
+    FILE *P;
+    P=fopen("DetallesVenta.dat","rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Aux,sizeof(DetalleVenta),1,P)==1)
+    {
+            if(Aux.getIdVenta()==ID)
+            cont++;
+    }
+    fclose(P);
+    return cont;
+}
+
+int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
+{
+
+}
+
+int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
+{
+
+}
+
+

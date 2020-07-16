@@ -63,6 +63,13 @@ protected:
 int GuardarDetalle(DetalleVenta *Obj);
 int AgregaraVenta(Venta Obj);///Agrega un detalle a una venta, el tema es definir las "reglas" de como va a funcionar esto."
 
+int MostrarDetalles(Venta *Reg);
+
+int ContarDetallesXID(int ID);
+
+int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID);
+
+int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant);
 
 
 

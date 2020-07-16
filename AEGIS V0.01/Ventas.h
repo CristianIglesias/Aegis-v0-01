@@ -26,7 +26,10 @@ public:
     {
         return IdCliente;
     };
+
+
     void setImporteTotal(float ImporteDetalle);
+
     int GuardarVenta();///Agregado al archivo, tranqui.
 protected:
 
@@ -35,15 +38,13 @@ protected:
 
 
 };
-
 int GenerarIdVenta();
 
 
+
 void ListadoVentasxFechas();
-
-int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2);
+int ContarVentasxFechas(Fecha Fech1,Fecha Fech2);
 int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2);
-
 void ListadoVentasxVendedor();
 
 void ListadoVentasxImporteMax();
