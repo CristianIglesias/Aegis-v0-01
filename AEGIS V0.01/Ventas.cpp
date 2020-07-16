@@ -46,17 +46,17 @@ void Venta:: GenerarVenta()
 
 };
 void Venta:: Mostrar()
-{
+{   int error=-1;
     cout<<"--------------------------------------------------------------------"<<endl;
     cout<<"Venta nro: "<<ID<<"."<<endl;
     cout<<"Fecha de venta: "<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<endl;
     cout<<"Vendedor nro: "<<IdVendedor<<endl;
     cout<<"Cliente nro "<<getIdCliente()<<endl;
+  ///TODO  error= MostrarDetalles(this);
     cout<<"Importe final  $ : "<< ImporteTotal<<endl;
     cout<<"--------------------------------------------------------------------"<<endl;
 
 }
-///Mostrar detalles
 
 int Venta:: SetIdVendedor()
 {
@@ -182,7 +182,7 @@ void ListadoVentasxFechas()
     if(error==1)
         return;
     AsignarOrdenaFechas(&Fech1,&Fech2);
-    CantVentas=ContarRegistrosxFechas(Fech1,Fech2);
+    CantVentas=ContarVentasxFechas(Fech1,Fech2);
     if(CantVentas==-1)
         error_msj(-6,1);
     Venta *VecDin;
@@ -193,9 +193,7 @@ void ListadoVentasxFechas()
 };
 
 
-
-
-int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2)
+int ContarVentasxFechas(Fecha Fech1,Fecha Fech2)
 {
     Venta Aux;
     int cont=0;
@@ -212,7 +210,7 @@ int ContarRegistrosxFechas(Fecha Fech1,Fecha Fech2)
             cont++;
     }
     fclose(P);
-    return 1;
+    return cont;
 }
 int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
 {
