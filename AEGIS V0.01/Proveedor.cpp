@@ -436,7 +436,7 @@ void listarProveedores()
 
     while(prov.leerProveedor(i)==1)
     {
-         msleep(85);
+        msleep(85);
         prov.mostrar();
         cout<<endl;
         i++;

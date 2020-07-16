@@ -45,8 +45,6 @@ void Venta:: GenerarVenta()
     cout<<"Venta Guardada en el Archivo con Exito!"<<endl;
     cout<<endl;
     MostrarDetalle();
-
-
     }
 
 };
@@ -101,7 +99,6 @@ int Venta:: SetIdVendedor()
     }///Cierra while
     return error;
 };
-
 int Venta:: SetIdCliente()
 {
     Cliente Cli;
@@ -137,7 +134,6 @@ int Venta:: SetIdCliente()
     }///Cierra while;
     return error;
 };
-
 int GenerarIdVenta()
 {
     int id, cantRegistros=0;
@@ -158,7 +154,6 @@ void Venta :: setImporteTotal(float ImporteDetalle)
 {
     ImporteTotal+=ImporteDetalle;
 }
-
 int Venta:: GuardarVenta()
 {
     FILE *p;
@@ -175,7 +170,6 @@ int Venta:: GuardarVenta()
     fclose (p);
     return 0;
 };
-
 void ListarTodasVentas()
 {
     int error=0, CantRegs=0;
@@ -197,7 +191,6 @@ void ListarTodasVentas()
     free(VecDin);
     return ;
 };
-
 int ContarVentas()
 {
     int cant=0;
@@ -216,7 +209,7 @@ int ContarVentas()
 int CargarVentas(Venta *Vec,int CantRegs)
 {
     FILE *P;
-    int i=0;
+
     P=fopen(ArchivoVentas,"rb");
     if(P==NULL)
     {
@@ -232,6 +225,7 @@ int CargarVentas(Venta *Vec,int CantRegs)
     fclose(P);
     return -1;
 };
+
 void MostrarVentasXid(Venta *Vec,int Cant,int version)
 {
     int i=0;
@@ -249,6 +243,7 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
         cls();
         HeaderListadoDeVentas1();
         cout<<endl;
+
         while(i<Cant)
         {
             msleep(5);
@@ -264,14 +259,20 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     {
         i=Cant;
 
-cls();
-HeaderListadoDeVentas2();
+        cls();
         cout<<endl;
 
-
+        cout<<"          __________________________________LISTADO DE VENTAS(ascendente)_____________________________________"<<endl;
+        cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+        cout<<"Numero de venta "<<"    ";
+        cout<<"Fecha de venta "<<"\t"<<" ";
+        cout<<"Vendedor nro "<<"\t";
+        cout<<"Cliente nro "<<"\t"<<"\t";
+        cout<<"Importe final " <<"$"<<"\t"<<endl;
+        cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
         while(i>=0)
         {
-             msleep(5);
+            msleep(5);
             Vec[i].Mostrar();
 
             i--;
@@ -283,11 +284,168 @@ HeaderListadoDeVentas2();
 
     }
 };
-void  MostrarVentasxImporte(Venta *VecDin,int Cant,int version)
+void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
 {
+    int i=0;
+    OrdenarVentasxImporte(Vec,Cant,version);
+    setColor(LIGHTCYAN);
+    cout<<endl;
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
+    cout<< left;
+    cout<<setw(5)<<"ID VENTA-";
+    cout<<setw(5)<<"FECHA";
+    cout<< right;
+    cout<<setw(10)<<"NOMBRE CLIENTE-";
+    cout<<setw(5)<<"NOMBRE VENDEDOR-"<<endl;
+    cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    setColor(WHITE);
+    switch(version)
+    {
+    case 1:
+    {
+
+        cls();
+        cout<<endl;
+
+        while(i<Cant)
+        {
+            msleep(5);
+            Vec[i].Mostrar();
+
+            i++;
+        }
+        cin.ignore();
+        anykey();
+    }
+    break;
+    case 2:
+    {
+        i=Cant;
+
+
+cls();
+HeaderListadoDeVentas2();
+        cout<<endl;
+
+        while(i>=0)
+        {
+            msleep(5);
+            Vec[i].Mostrar();
+
+            i--;
+        }
+        cin.ignore();
+        anykey();
+    }
+    break;
+
+    }
+};
+void OrdenarVentasxImporte(Venta *VecDin,int Cant,int version)
+{
+    switch(version)
+    {
+    case 1:
+    {
+        int i,j,pos;
+        Venta aux;
+        for(i=0; i<Cant-1; i++)
+        {
+            pos=i;
+            for(j=i+1; j<Cant; j++)
+            {
+                if(VecDin[j].getImporteTotal()<VecDin[pos].getImporteTotal())
+                {
+                    pos=j;
+                }
+
+            }
+            aux=VecDin[i];
+            VecDin[i]=VecDin[pos];
+            VecDin[pos]=aux;
+        }
+    }
+    break;
+
+
+    case 2:
+    {
+        int i,j,pos;
+        Venta aux;
+        for(i=0; i<Cant-1; i++)
+        {
+            pos=i;
+            for(j=i+1; j<Cant; j++)
+            {
+                if(VecDin[j].getImporteTotal()>VecDin[pos].getImporteTotal())
+                {
+                    pos=j;
+                }
+
+            }
+            aux=VecDin[i];
+            VecDin[i]=VecDin[pos];
+            VecDin[pos]=aux;
+        }
+    }
+    break;
+    }
+
+
+
+
 
 };
 
+int Venta:: LeerVentaxID(int id)
+{
+    if(id==-999)
+        return 1;
+    if(id>=1)
+    {
+        id--;
+    }
+    bool leyo=false;
+    FILE *P;
+    P=fopen(ArchivoVentas,"rb");
+    if(P==NULL)
+    {
+        return -6;
+    }
+    fseek(P,sizeof(Venta)*id,SEEK_SET);
+    leyo=fread(this,sizeof(Venta),1,P);
+    if(leyo)
+    {
+        fclose (P);
+        return 0;
+    }
+    else
+        return -1;
+};
+
+void MostrarDetallesDeVentaxID()
+{
+    int ID,error=-1,i=0;
+    Venta Aux;
+    cout<<"Ingrese el ID De la venta que desea ver en detalle."<<endl;
+    while(error<0)
+    {cout<<"ID: ";
+    cin>>ID;
+    error=Aux.LeerVentaxID(ID);
+    if(error<0)
+    {   i++;
+        error_msj(error,i);
+    }
+    error=MostrarDetalles(&Aux);
+    if(error<0)
+    {
+        error_msj(-6,i);
+    }
+
+    }
+}
 
 void Venta ::MostrarTabla()
 {
@@ -309,7 +467,6 @@ void Venta ::MostrarTabla()
 
 };
 
-
 void ListadoVentasxFechas()
 {
     int error=-1,CantVentas;
@@ -330,7 +487,6 @@ void ListadoVentasxFechas()
     error=CargarVecVentasxFecha(VecDin,CantVentas,Fech1,Fech2);
 
 };
-
 
 int ContarVentasxFechas(Fecha Fech1,Fecha Fech2)
 {
@@ -369,7 +525,6 @@ int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
     fclose(P);
     return 1 ;
 }
-
 void ListadoVentasxVendedor()
 {
     int error=-1,CantVentas,i=0;
@@ -398,7 +553,6 @@ void ListadoVentasxVendedor()
 
 
 };
-
 
 int ContarVentasxVendedor(int Legajo)
 {
@@ -489,7 +643,7 @@ int MenuOrdenarVentas(Venta *VecDin, int Cant)
         cout<<"                                            ||1--> Por ID (Ascendente)                 ||"<<endl;
         cout<<"                                            ||2--> Por ID (Descendente)                ||"<<endl;
         cout<<"                                            ||3--> Por Importes (Ascendentes)          ||"<<endl;
-///     cout<<"                                            ||4--> Por Importes (Descendentes)         ||"<<endl;
+        cout<<"                                            ||4--> Por Importes (Descendentes)         ||"<<endl;
         cout<<"                                            ||5--> Por Fechas   (Ascendentes)          ||"<<endl;
 ///     cout<<"                                            ||6--> Por Fechas   (Desscendentes)        ||"<<endl;
         cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
@@ -519,6 +673,8 @@ int MenuOrdenarVentas(Venta *VecDin, int Cant)
         break;
         case 4:
         {
+            MostrarVentasxImporte(VecDin,Cant,2);
+
         }
         break;
         case 5:
@@ -543,6 +699,8 @@ int MenuOrdenarVentas(Venta *VecDin, int Cant)
         }
         system("pause");
     }
+
+    MostrarDetallesDeVentaxID();
 
 };
 

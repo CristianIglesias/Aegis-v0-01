@@ -57,7 +57,7 @@ DetalleVenta::DetalleVenta()
 int DetalleVenta::setIdProducto()
 {
     char Cod[10];
-    int aux, i=0,error,op;
+    int  i=0,error,op;
     Producto Reg;
     while(error!=0)
     {
@@ -225,6 +225,8 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     DetalleDeVentaTabla();
 
     cout<<endl;
+    while(i<Cant)
+        {Vec[i].Mostrar();}
     setColor(WHITE);
 }
 

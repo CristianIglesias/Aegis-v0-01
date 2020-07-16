@@ -460,7 +460,7 @@ void ListarClientes()
 
     while(Cli.LeerxPos(i)==0)
     {
-         msleep(85);
+        msleep(85);
         Cli.mostrar();
         cout<<endl;
         i++;
