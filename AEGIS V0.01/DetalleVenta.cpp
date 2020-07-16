@@ -83,6 +83,7 @@ int DetalleVenta::setIdProducto()
             switch(op)
             {
             case 1:
+                strcpy(this->idProducto,Reg.getCodigoProducto());
                 return error;
                 break;
             case 0:
