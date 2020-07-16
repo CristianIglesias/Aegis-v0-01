@@ -31,7 +31,7 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
         cout<<"Desea agregar mas items a la venta? "<<endl;
         cout<<"SI :1             NO:0"<<endl;
         cin>>op;
-        cls();
+
         switch(op)
         {
         case 1:
@@ -242,9 +242,9 @@ void DetalleVenta :: Mostrar()
     Aux.LeerxID(this->idProducto);
     setColor(WHITE);
     cout<< left;
-    cout<< setw(5)<<getIdProducto()<<"\t";
+    cout<<setw(5)<<getIdProducto()<<"\t";
     cout << right;
-    cout<< setw(10)<<Aux.getNombreItem();
+    cout<<setw(10)<<Aux.getNombreItem();
     cout<< left;
     cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
     cout<<setw(5)<<getCantidad()<<"\t";

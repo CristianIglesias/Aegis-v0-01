@@ -50,13 +50,14 @@ void Venta:: Mostrar()
 {
     int error=-1;
     cout<<left;
+    cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
     cout<<setw(3)<<ID<<"\t"<<"\t"<<"\t";
-    cout<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<"\t"<<"\t";
-    cout<<IdVendedor<<"\t"<<"\t";
+    cout<<fechaOperacion.getDia()<<"/"<<fechaOperacion.getMes()<<"/"<<fechaOperacion.getAnio()<<"\t"<<"\t"<<" ";
+    cout<<setw(5)<<IdVendedor<<"\t"<<"\t";
     cout<<left;
-    cout<<setw(3)<<getIdCliente()<<"\t";
-    cout<<"$"<< ImporteTotal<<"\t"<<endl;
-    cout<<"-------------------------------------------------------------------------------------------"<<endl;
+    cout<<setw(10)<<getIdCliente()<<"\t"<<"    ";
+    cout<<setw(5)<<"$"<< ImporteTotal<<"\t"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
 }
 
 int Venta:: SetIdVendedor()
@@ -236,9 +237,11 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     cout<<endl;
     cout<<"-----------------------------------------------------------------------------------------"<<endl;
     cout<< left;
-    cout<<setw(5)<<"ID VENTA-"<<"\t"<<"\t"<<"\t"<<setw(5)<<"FECHA"<<endl;
+    cout<<setw(5)<<"ID VENTA-";
+    cout<<setw(5)<<"FECHA";
     cout<< right;
-    cout<<setw(10)<<"NOMBRE CLIENTE-"<<"\t"<<"\t"<<"\t"<<setw(5)<<"NOMBRE VENDEDOR-"<<endl;
+    cout<<setw(10)<<"NOMBRE CLIENTE-";
+    cout<<setw(5)<<"NOMBRE VENDEDOR-"<<endl;
     cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
     cout<<"-----------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
@@ -250,17 +253,18 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
 
         cls();
         cout<<endl;
-    cout<<"-------------------------LISTADO DE VENTAS(ascendente)------------------------------------"<<endl;
-    cout<<"-------------------------------------------------------------------------------------------"<<endl;
-    cout<<"Numero de venta "<<"\t";
-    cout<<"Fecha de venta "<<"\t";
+     cout<<"          __________________________________LISTADO DE VENTAS(ascendente)_____________________________________"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Numero de venta "<<"    ";
+    cout<<"Fecha de venta "<<"\t"<<" ";
     cout<<"Vendedor nro "<<"\t";
-    cout<<"Cliente nro "<<"\t";
+    cout<<"Cliente nro "<<"\t"<<"\t";
     cout<<"Importe final " <<"$"<<"\t"<<endl;
-    cout<<"---------------------------------------------------------------------------------------------"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+
         while(i<Cant)
         {
-            msleep(85);
+            msleep(5);
             Vec[i].Mostrar();
             cout<<endl;
             i++;
@@ -273,19 +277,19 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     {
         i=Cant;
 
-        cls();
+cls();
         cout<<endl;
-    cout<<"----------------------------------LISTADO DE VENTAS(descendente)-----------------------------"<<endl;
-    cout<<"---------------------------------------------------------------------------------------------"<<endl;
-    cout<<"Numero de venta "<<"\t";
-    cout<<"Fecha de venta "<<"\t";
+    cout<<"          __________________________________LISTADO DE VENTAS(ascendente)_____________________________________"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Numero de venta "<<"    ";
+    cout<<"Fecha de venta "<<"\t"<<" ";
     cout<<"Vendedor nro "<<"\t";
-    cout<<"Cliente nro "<<"\t";
+    cout<<"Cliente nro "<<"\t"<<"\t";
     cout<<"Importe final " <<"$"<<"\t"<<endl;
-    cout<<"-----------------------------------------------------------------------------------------------"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
         while(i>=0)
         {
-             msleep(85);
+             msleep(5);
             Vec[i].Mostrar();
             cout<<endl;
             i--;

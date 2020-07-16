@@ -609,13 +609,13 @@ void Producto::Eliminar()
         error=guardarProducto();
         if(error!=0)
         {
-            cout<<"Hubo un error Guardando el Cliente en el Archivo."<<endl;
+            cout<<"Hubo un error Guardando el producto en el Archivo."<<endl;
             cout<<"Ingrese cualquier tecla para continuar"<<endl;
             anykey();
         }
         else
         {
-            cout<<"Cliente Eliminado del Archivo con Exito!"<<endl;
+            cout<<"Producto Eliminado del Archivo con Exito!"<<endl;
             cout<<"Ingrese cualquier tecla para continuar"<<endl;
             anykey();
         }
