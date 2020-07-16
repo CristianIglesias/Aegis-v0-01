@@ -156,18 +156,18 @@ int GuardarDetalle(DetalleVenta *Obj)
 
 int  MostrarDetalles(Venta *Reg)
 {
-    int error=-1, CantRegs=0;
+    int error=0, CantRegs=0;
     DetalleVenta *VecDin;
     CantRegs=ContarDetallesXID(Reg->getID());
-    if(CantRegs==-1)
-        return -1;
+    if(CantRegs<0)
+        error_msj(-6,0);
     VecDin=new DetalleVenta[CantRegs];
     if(VecDin==NULL)
-        return -1;
+        error_msj(-7,0);
     error=CargarDetallesVenta(VecDin,CantRegs,Reg->getID());
-    if(error==-1)
-        return-1;
-    MostrarDetallesTABLA(VecDin,CantRegs);
+    if(error<0)
+        error_msj(-6,0);
+     MostrarDetallesTABLA(VecDin,CantRegs);
     free(VecDin);
     return 0;
 };
@@ -177,7 +177,7 @@ int ContarDetallesXID(int ID)
     DetalleVenta Aux;
     int cont=0;
     FILE *P;
-    P=fopen("DetallesVenta.dat","rb");
+    P=fopen(ArchivoDetalle,"rb");
     if(P==NULL)
     {
         fclose(P);
@@ -217,14 +217,15 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     int i=0;
     cls();
     setColor(LIGHTBLUE);
-    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"-----------------------------------------------------------------------------------"<<endl;
     cout<< left;
     cout<<setw(5)<<"CODIGO-"<<" ";
+    cout<< right;
     cout<<setw(10)<<"NOMBRE-"<<"  ";
-    cout<<setw(5)<<"$ VENTA-"<<"  ";
+    cout<<setw(5)<<"IMPORTE VENTA-"<<"  ";
     cout<<setw(5)<<"CANTIDAD-"<<"  ";
     cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
-    cout<<"--------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
     setColor(WHITE);
     while(i<Cant)
@@ -238,12 +239,12 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
 }
 void DetalleVenta :: Mostrar()
 {   Producto Aux;
-    Aux.buscarcodigo(getIdProducto());
+    Aux.LeerxID(this->idProducto);
     setColor(WHITE);
     cout<< left;
-    cout<< setw(5)<<getIdProducto()<<"\t";
+    cout<< setw(5)<<this->getIdProducto()<<"\t";
     cout << right;
-    cout<< setw(10)<<Aux.getNombreItem()<<"\t ";
+    cout<< setw(10)<<Aux.getNombreItem();
     cout<< left;
     cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
     cout<<setw(5)<<getCantidad()<<"\t";

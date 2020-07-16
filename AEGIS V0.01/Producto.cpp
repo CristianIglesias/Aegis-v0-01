@@ -80,7 +80,11 @@ int Producto:: buscarcodigo(const char *codigo)///TODO SALIDA VOLUNTARIA BUSCAR 
     return 0;
 
 }
-
+void Producto:: MostrarNombre()
+{
+    cout<<NombreItem;
+    return;
+}
 int Producto::setCodigoproducto()
 {
     cin.ignore();

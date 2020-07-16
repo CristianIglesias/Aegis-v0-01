@@ -22,6 +22,7 @@ public:
     ///METDOOS;
     void cargar();
     void mostrar();
+    void MostrarNombre();
     int buscarcodigo(const char *codigo);///funcion para validar ingreso de id que no sea igual; arreglar
     int guardarNuevoProducto();///guardar en disco
     int guardarProducto();
