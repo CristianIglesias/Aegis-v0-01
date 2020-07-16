@@ -14,18 +14,7 @@ int main()
 {
     int x;
     setlocale(LC_ALL,"spanish");
-    for(x=1; x<118; x++)
-    {
-        gotoxy(x,1);
-        cout<<"="<<endl;
-        if(x<=20)
-        {
-            gotoxy(1,x);
-            cout<<"||"<<endl;
-
-        }
-
-    }
+    LineasSuperior();
     int op=-1;
     while(op!=0)
 
@@ -50,23 +39,7 @@ int main()
 
 
         cout<<"                           -->Presione la tecla enter para ingresar al menu de Principal"<<endl;
-
-        for(x=1; x<118; x++)
-        {
-            gotoxy(x,20);
-            cout<<"="<<endl;
-            if(x<=20)
-            {
-                gotoxy(1,x);
-                cout<<"||"<<endl;
-                gotoxy(118,x);
-                cout<<"||"<<endl;
-
-            }
-
-        }
-
-
+        LineasInferior();
         cin.get();
         cls();
         menuPrincipal();

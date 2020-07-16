@@ -7,8 +7,8 @@ using namespace std;
 #include <iomanip>
 #include "rlutil.h"
 using namespace rlutil;
-
 #include "Producto.h"
+
 
 const char *ArchivoProducto ="Producto.dat";
 
@@ -16,10 +16,13 @@ const char *ArchivoProducto ="Producto.dat";
 
 void Producto::cargar()
 {
+
     int error;
     error=setCodigoproducto();
+
     if(error==1)
         return;
+
     error=setCodigoProveedor();
     if(error==1)
         return;
@@ -85,16 +88,24 @@ void Producto:: MostrarNombre()
     cout<<NombreItem;
     return;
 }
+
 int Producto::setCodigoproducto()
 {
+
     cin.ignore();
 
     int i=0, error=-3;
+
     while (error<0)
     {
+
+cout<<endl;
+cout<<endl;
+cout<<endl;
         cout<<"Ingrese codigo de producto: ";
         cin.getline(CodigoProducto,10);
         error=buscarcodigo(this->getCodigoProducto());
+
         if (error!=0)
         {
             if (error==1)
@@ -106,8 +117,10 @@ int Producto::setCodigoproducto()
                 anykey();
                 cls();
             }
+
         }
     }///cierra while
+
     return error;
 };
 
@@ -406,11 +419,15 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
     Producto p;
     p.mostrarxID();///
     anykey();
-    cout<<"¿Que desea modificar:?"<<endl;
-    cout<<"1--> Costo de compra"<<endl;
-    cout<<"2--> Stock actual"<<endl;
-    cout<<"3--> % de rentabilidad"<<endl;
-    cout<<"9--> VOLVER"<<endl;
+
+
+    cout<<endl;
+    cout<<"                                      ¿Que desea modificar:?"<<endl;
+    cout<<"                                      1--> Costo de compra"<<endl;
+    cout<<"                                      2--> Stock actual"<<endl;
+    cout<<"                                      3--> % de rentabilidad"<<endl;
+    cout<<"                                      9--> VOLVER"<<endl;
+
     cin>>op;
     switch(op)
     {
@@ -561,6 +578,7 @@ void Producto:: mostrarxID()///Muestra Por ID -
         funco=LeerxID(aux);
         if(funco)
         {
+
             cout<<"*________________________________________________________________________________________________*"<<endl;
             cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
             cout<<"-------------------------------------------------------------------------------------------------"<<endl;
@@ -575,6 +593,7 @@ void Producto:: mostrarxID()///Muestra Por ID -
             cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
             cout<<"--------------------------------------------------------------------------------------------------"<<endl;
             mostrar();
+
         }
         else
         {
@@ -616,6 +635,7 @@ void listarProductos()
     int i=0;
     cls();
     setColor(LIGHTBLUE);
+    LineasSuperior();
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
@@ -630,6 +650,7 @@ void listarProductos()
     cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
     cout<<"--------------------------------------------------------------------------------------------------"<<endl;
     cout<<endl;
+
     setColor(WHITE);
     while(reg.leerProductos(i)==1)
     {
@@ -637,6 +658,7 @@ void listarProductos()
         cout<<endl;
         i++;
     }
+    LineasInferior2();
     cin.ignore();
     anykey();
 }

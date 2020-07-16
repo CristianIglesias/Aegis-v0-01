@@ -443,6 +443,7 @@ void listarProveedores()
     Proveedor prov;
     int i=0;
     cls();
+    LineasSuperior();
     cout<<"*________________________________________________________________________________________________*"<<endl;
     cout<<"*______________________________________LISTADO DE PROVEEDORES______________________________________*"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------"<<endl;
@@ -463,6 +464,7 @@ void listarProveedores()
         cout<<endl;
         i++;
     }
+    LineasInferior2();
     cin.ignore();
     anykey();
 }
