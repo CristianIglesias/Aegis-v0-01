@@ -123,7 +123,7 @@ int ValidarTexto(const char *cad)
 int ValidarFloats(float var)
 {
     if(var>0)
-        return 0;
+        return 2;
     else
         return -4;
 }

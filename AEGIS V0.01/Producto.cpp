@@ -182,7 +182,7 @@ int Producto::setCostoCompra()
 {
     cin.ignore();
     int i=0, error=-6;
-    while (error<0)
+    while(error<0)
     {
         cout<<"Ingrese el costo de compra: ";
         cin>>CostodeCompra;
@@ -299,27 +299,24 @@ void Producto::mostrar()
     {
         setColor(WHITE);
         cout<< left;
-        cout<< setw(3)<<CodigoProducto<<"\t";
-        cout << right;
+        cout<< setw(3)<<"  "<<CodigoProducto<<"\t";
+        cout << left;
         cout<< setw(10)<<NombreItem<<"\t ";
         cout<< left;
-        cout<<setw(3)<<CodigoProveedor<<"\t";
-
-        cout<<setw(5)<<"$"<<CostodeCompra<<"\t";
-
-        cout<<setw(5)<<PorcentajeRentabilidad<<"%"<< "\t";
-
-        cout<<setw(5)<<"$"<<PreciodeVenta<<"\t    ";
-
+        cout<<setw(3)<<CodigoProveedor<<"\t  ";
+        cout<<"$"<<CostodeCompra<<"\t     ";
+        cout<<setw(5)<<PorcentajeRentabilidad<<"%"<<"\t      ";
+        cout<<right;
+        cout<<"$"<<PreciodeVenta<<"\t"<<"   ";
+        cout<<right;
         cout<<setw(5)<<StockMin<<"\t";
-
         cout<<setw(5)<<StockActual<<"\t"<<endl;
         cout<<"------------------------------------------------------------------------------------------------"<<endl;
     }
     else
     {
         setColor(RED);
-        cout<<"REGISTRO NO DISPONIBLE ------------------------------------------------------------------------"<<endl;
+        cout<<"-------------------------------------REGISTRO NO DISPONIBLE -----------------------------------"<<endl;
         setColor(WHITE);
     }
 }
@@ -419,20 +416,16 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
     Producto p;
     p.mostrarxID();///
     anykey();
-
-
     cout<<endl;
     cout<<"                                      ¿Que desea modificar:?"<<endl;
     cout<<"                                      1--> Costo de compra"<<endl;
     cout<<"                                      2--> Stock actual"<<endl;
     cout<<"                                      3--> % de rentabilidad"<<endl;
     cout<<"                                      9--> VOLVER"<<endl;
-
     cin>>op;
     switch(op)
     {
     case 1:
-
     {
         cls();
         error=setCostoCompra();
@@ -441,7 +434,7 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
             return;
         }
 
-        else
+        else if(error==2)
 
         {
 
@@ -457,6 +450,7 @@ void Producto::modificar_producto()///arreglar solo modifica el primer producto;
         }
         else
         {
+
             cout<<"Producto Guardado en el Archivo con Exito!"<<endl;
             cout<<"Ingrese cualquier tecla para continuar"<<endl;
             anykey();
@@ -579,9 +573,9 @@ void Producto:: mostrarxID()///Muestra Por ID -
         if(funco)
         {
 
-            cout<<"*________________________________________________________________________________________________*"<<endl;
-            cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
-            cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+            cout<<"*________________________________________________________________________________________________________________________*"<<endl;
+            cout<<"*______________________________________LISTADO DE PRODUCTOS_____________________________________________________________*"<<endl;
+            cout<<"---------------------------------------------------------------------------------------------------------------------------"<<endl;
             cout<< left;
             cout<<setw(3)<<"CODIGO-"<<" ";
             cout<<setw(4)<<"NOMBRE-"<<"  ";
@@ -591,7 +585,7 @@ void Producto:: mostrarxID()///Muestra Por ID -
             cout<<setw(5)<<"$ VENTA-"<<"  ";
             cout<<setw(5)<<"STOCK MINIMO-"<<"  ";
             cout<<setw(5)<<"STOCK ACTUAL"<<"  "<<endl;
-            cout<<"--------------------------------------------------------------------------------------------------"<<endl;
+            cout<<"-----------------------------------------------------------------------------------------------------------"<<endl;
             mostrar();
 
         }
@@ -636,11 +630,11 @@ void listarProductos()
     cls();
     setColor(LIGHTBLUE);
     LineasSuperior();
-    cout<<"*________________________________________________________________________________________________*"<<endl;
-    cout<<"*______________________________________LISTADO DE PRODUCTOS______________________________________*"<<endl;
-    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"*____________________________________________________________________________________*"<<endl;
+    cout<<"*______________________________________LISTADO DE PRODUCTOS_________________________*"<<endl;
+    cout<<"---------------------------------------------------------------------------------------"<<endl;
     cout<< left;
-    cout<<setw(3)<<"CODIGO-"<<" ";
+    cout<<setw(3)<<" "<<"CODIGO-"<<" ";
     cout<<setw(10)<<"NOMBRE-"<<"  ";
     cout<<setw(3)<<"PROVEEDOR-"<<"  ";
     cout<<setw(5)<<"COSTO-"<<"  ";

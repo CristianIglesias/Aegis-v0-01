@@ -248,7 +248,7 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     case 1:
     {
 
-        cout<<endl;
+        cls();
         cout<<endl;
     cout<<"-------------------------LISTADO DE VENTAS(ascendente)------------------------------------"<<endl;
     cout<<"-------------------------------------------------------------------------------------------"<<endl;
@@ -273,7 +273,7 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     {
         i=Cant;
 
-        cout<<endl;
+        cls();
         cout<<endl;
     cout<<"----------------------------------LISTADO DE VENTAS(descendente)-----------------------------"<<endl;
     cout<<"---------------------------------------------------------------------------------------------"<<endl;

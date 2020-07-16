@@ -141,7 +141,7 @@ void Vendedor::mostrar()
 
         setColor(YELLOW);
         Persona::Mostrar();
-        cout<<VentaDiaria<<"/"<<"%";
+        cout<<"$"<<VentaDiaria<<"/"<<"%";
         cout<< PorcentajeComision<<"$"<<endl;
         cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
     }

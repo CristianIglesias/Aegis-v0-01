@@ -46,10 +46,10 @@ void menuPrincipal()
     cout<<" \t" "                                          MENU PRINCIPAL                        "<<endl;
     setColor(YELLOW);
     cout<<" \t" "                               ___________________________________ "<<endl;
-    cout<<" \t" "                              ||1-->     VENTAS- HACERLO.        ||"<<endl;
-    cout<<" \t" "                              ||2-->     COMPRAS                 ||"<<endl;
+    cout<<" \t" "                              ||1-->VENTAS                       ||"<<endl;
+    cout<<" \t" "                              ||2-->COMPRAS                      ||"<<endl;
     cout<<" \t" "                              ||3-->ABM                          ||"<<endl;
-    cout<<" \t" "                              ||4-->LISTADOS -ARMAR REPORTE VENTA||"<<endl;
+    cout<<" \t" "                              ||4-->LISTADOS                     ||"<<endl;
     cout<<" \t" "                              ||5-->CONFIGURACION                ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;

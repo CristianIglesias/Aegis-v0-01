@@ -487,8 +487,8 @@ void ListarClientes()
         cout<<endl;
         i++;
     }
-    cout<<"(Tipo de pago 1=Efectivo / 2=Debito / 3=Credito )"<<endl;
-    cout<<"(Preferencia de factura 1=Factura B / 2=Factura A  )"<<endl;
+    cout<<"\t"<<"(Tipo de pago 1=Efectivo / 2=Debito / 3=Credito )"<<endl;
+    cout<<"\t"<<"(Preferencia de factura 1=Factura B / 2=Factura A)"<<endl;
     LineasInferior2();
     cin.ignore();
     anykey();
