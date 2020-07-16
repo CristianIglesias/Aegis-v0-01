@@ -423,7 +423,7 @@ void ListarVendedores()
 
     while(ven.LeerxID(i)==1)
     {
-         msleep(85);
+        msleep(85);
         ven.mostrar();
         cout<<endl;
 

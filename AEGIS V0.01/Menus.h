@@ -72,7 +72,6 @@ void menuPrincipal()
 };
 void menuVentas()
 {
-    int x;
     Venta V;
     int op;
     bool salir=false;
@@ -160,7 +159,7 @@ void menuVentas()
 }
 void menuABM()
 {
-    int op,x;
+    int op;
     bool salir=false;
 
     while(!salir)
@@ -257,7 +256,7 @@ void menuABM()
 void abmClientes()
 {
 
-    int op,x;
+    int op;
     bool salir=false;
 
     while(!salir)
@@ -348,7 +347,7 @@ void abmClientes()
 void abmProducto()
 {
     Producto pro;
-    int op,x;
+    int op;
     bool salir=false;
 
     while(!salir)
@@ -441,7 +440,7 @@ void abmProducto()
 void abmProveedor()
 {
 
-    int op,x;
+    int op;
     bool salir=false;
     Proveedor prove;
     while(!salir)
@@ -534,7 +533,7 @@ void abmProveedor()
 void abmVendedor()
 {
 
-    int op,x;
+    int op;
     bool salir=false;
     Vendedor ven;
     while(!salir)
@@ -626,7 +625,7 @@ void menuListados()
 {
 
 
-    int op,x;
+    int op;
     bool salir=false;
     while(!salir)
     {

@@ -12,6 +12,7 @@ class Venta :public Operacion
 {
 public:
     void Mostrar();
+    int LeerVentaxID(int id);
     void MostrarTabla();
     void GenerarVenta();
     int SetIdVendedor();
@@ -41,12 +42,15 @@ protected:
 
 };
 int GenerarIdVenta();
-
 void ListarTodasVentas();
+void MostrarDetallesDeVentaxID();
+
 int ContarVentas();
 int CargarVentas(Venta *VecDin,int CantRegs);
 int MenuOrdenarVentas(Venta *VecDin, int Cant);
 void MostrarVentasXid(Venta *VecDin,int CantRegs,int version);
+
+void OrdenarVentasxImporte(Venta *VecDin,int Cant,int version);
 void  MostrarVentasxImporte(Venta *VecDin,int Cant,int version);
 
 
