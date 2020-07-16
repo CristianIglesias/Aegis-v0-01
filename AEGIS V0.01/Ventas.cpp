@@ -41,9 +41,17 @@ void Venta:: GenerarVenta()
     }
     else
     {
-        cout<<"Venta Guardada en el Archivo con Exito!"<<endl;
-    }
 
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+    cout<<"Venta Guardada en el Archivo con Exito!"<<endl;
+    cout<<"Numero de venta "<<"    ";
+    cout<<"Fecha de venta "<<"\t"<<" ";
+    cout<<"Vendedor nro "<<"\t";
+    cout<<"Cliente nro "<<"\t"<<"\t";
+    cout<<"Importe final " <<"$"<<"\t"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------------------------"<<endl;
+
+    }
 
 };
 void Venta:: Mostrar()
@@ -56,7 +64,7 @@ void Venta:: Mostrar()
     cout<<setw(5)<<IdVendedor<<"\t"<<"\t";
     cout<<left;
     cout<<setw(10)<<getIdCliente()<<"\t"<<"    ";
-    cout<<setw(5)<<"$"<< ImporteTotal<<"\t"<<endl;
+    cout<<"$"<< ImporteTotal<<"\t"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
 }
 
@@ -266,7 +274,7 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
         {
             msleep(5);
             Vec[i].Mostrar();
-            cout<<endl;
+
             i++;
         }
         cin.ignore();
@@ -291,7 +299,7 @@ cls();
         {
              msleep(5);
             Vec[i].Mostrar();
-            cout<<endl;
+
             i--;
         }
         cin.ignore();

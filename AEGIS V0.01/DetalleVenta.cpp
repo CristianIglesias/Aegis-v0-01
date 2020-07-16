@@ -242,12 +242,17 @@ void DetalleVenta :: Mostrar()
     Aux.LeerxID(this->idProducto);
     setColor(WHITE);
     cout<< left;
-    cout<<setw(5)<<getIdProducto()<<"\t";
+    cout<<setw(5)<<"CODIGO: ";
+    cout<<setw(5)<<getIdProducto()<<"\t"<<endl;;
     cout << right;
-    cout<<setw(10)<<Aux.getNombreItem();
+    cout<<setw(10)<<"NOMBRE: ";
+    cout<<setw(10)<<Aux.getNombreItem()<<endl;
     cout<< left;
-    cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
-    cout<<setw(5)<<getCantidad()<<"\t";
+    cout<<setw(5)<<"IMPORTE VENTA: ";
+    cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    "<<endl;
+    cout<<setw(5)<<"CANTIDAD: ";
+    cout<<setw(5)<<getCantidad()<<"\t"<<endl;
+    cout<<setw(5)<<"PRECIO FINAL: ";
     cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
 }
