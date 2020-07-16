@@ -9,6 +9,7 @@ protected:
     int anio;
 public:
     Fecha();
+    void mostrar();
     ///  int ValidarFecha(Fecha FechaAux);
     int CargarFecha();
     int ValidarFecha();

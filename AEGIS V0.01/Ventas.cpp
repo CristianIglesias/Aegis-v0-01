@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
@@ -82,6 +83,7 @@ int Venta:: SetIdVendedor()
             switch(op)
             {
             case 1:
+                IdVendedor=Vend.getlegajo();
                 return 0;
                 break;
             case 0:
@@ -168,6 +170,116 @@ int Venta:: GuardarVenta()
     return 0;
 };
 
+void ListarTodasVentas()
+{
+    int error=0, CantRegs=0;
+    Venta *VecDin;
+    CantRegs=ContarVentas();
+    if(CantRegs<0)
+        error_msj(-6,0);
+    VecDin=new Venta[CantRegs];
+    if(VecDin==NULL)
+        error_msj(-7,0);
+    error=CargarVentas(VecDin,CantRegs);
+    if(error<0)
+        error_msj(-6,0);
+    error=MostrarVentas(VecDin,CantRegs);///ver como se arma, menusito y añadir parametros?"
+    free(VecDin);
+    return ;
+};
+
+int ContarVentas()
+{
+    int cant=0;
+    FILE *P;
+    P=fopen(ArchivoVentas,"rb");
+    if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    fseek(P,0,2);
+    cant=ftell(P)/sizeof(Venta);
+    fclose(P);
+    return cant;
+};
+int CargarVentas(Venta *Vec,int CantRegs)
+{
+    FILE *P;
+    int i=0;
+    P=fopen(ArchivoVentas,"rb");
+      if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+   if(fread(&Vec,sizeof(DetalleVenta),CantRegs,P)==CantRegs)
+    {
+        fclose(P);
+        return 0;
+    }
+    ///Creo que haría falta alguna validación de que i==Cant, para corroborar que se cargó el vector entero :/
+    fclose(P);
+    return -1;
+};
+int MostrarVentas(Venta *Vec,int Cant)
+{
+    int i=0;
+    cls();
+    setColor(LIGHTCYAN);
+    cout<<"-----------------------------------------------------------------------------------"<<endl;
+    cout<< left;
+    cout<<setw(5)<<"ID VENTA-"<<" ";
+    cout<< right;
+    cout<<setw(5)<<"FECHA"<<"  ";
+    cout<<setw(10)<<"NOMBRE CLIENTE-"<<"  ";
+    cout<<setw(5)<<"NOMBRE VENDEDOR-"<<"  ";
+    cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
+    cout<<"-----------------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    setColor(WHITE);
+    while(i<Cant)
+    {
+        Vec[i].Mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
+};
+
+
+void Venta ::MostrarTabla()
+{
+    Vendedor Aux;
+    Cliente Reg;
+    Aux.LeerxID(this->IdVendedor);
+    Reg.LeerxPos(this->IdCliente);
+    setColor(WHITE);
+    cout<< left;
+    cout<< setw(5)<<this->getID()<<"\t";
+    cout << right;
+    cout<<setw(5);getFechaOperacion().mostrar();"\t";
+    cout<< setw(10)<<Reg.getNombre();
+    cout<< left;
+    cout<<setw(5)<<Aux.getNombre()<<"\t    ";
+    cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------"<<endl;
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void ListadoVentasxFechas()
 {
@@ -244,6 +356,9 @@ void ListadoVentasxCliente()
 {
 
 };
+
+
+
 ///TODO funcion definir fechas mayor que otra~
 ///TODO LISTAR Todas las VENTAS, y después por vendedor/cliente/importe max -  MOSTRAR VENTA - Algun tipo de reporte
 
@@ -260,17 +375,17 @@ void ListadoVentasxCliente()
 
 //    cout<<"LEGAJO DE VENDEDOR QUE REALIZARA LA VENTA:"<<endl;
 
-///_________________________________________________________________//POSIBLE FORMATO\\_____________________________
-///                               NUMEOR DE LA VENTA:(XXX)                           FECHA(XX/XX/XXXX)
-///                               LEGAJOVENDEDOR: xxxx                                  IDCLIENTE: xxxx
-///
-///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
-///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
-///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
-///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
-///                               -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T
-///                               TIPO DE PAGO: x / TIPO DE FACTURA: x
-///                                                                                 IMPORTE TOTTAL
-///                                                                                %DESCUENTO
-///                                                                                 TOTAL $: xxxx,xx
-///----------------------------------------------------------------------------------------
+///______________________________________________//POSIBLE FORMATO\\_____________________________
+///|           NUMEOR DE LA VENTA:(XXX)                           FECHA(XX/XX/XXXX)               |
+///|           LEGAJOVENDEDOR: xxxx                                  IDCLIENTE: xxxx              |
+///|                                                                                              |
+///|           -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T                            |
+///|           -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T                            |
+///|           -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T                            |
+///|           -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T                            |
+///|           -IDP-      - NOMBRE PRODUCTO -     $PU     CANT    $P T                            |
+///|           TIPO DE PAGO: x / TIPO DE FACTURA: x                                               |
+///|                                                             IMPORTE TOTAL                    |
+///|                                                            %DESCUENTO                        |
+///|                                                             TOTAL $: xxxx,xx                 |
+///------------------------------------------------------------------------------------------------

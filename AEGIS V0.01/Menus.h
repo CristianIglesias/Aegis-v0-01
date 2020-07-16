@@ -780,11 +780,11 @@ void menuListados()
         cout<<"                                                      Listados.                         "<<endl;
         setColor(YELLOW);
         cout<<"                                             __________________________________________"<<endl;
-        cout<<"                                            ||1--> Ventas Por fecha.(entre una y otra) ||"<<endl;
-        cout<<"                                            ||2--> Ventas Por Vendedor                 ||"<<endl;
-        cout<<"                                            ||3--> Ventas Por Importe Max.             ||"<<endl;
-        cout<<"                                            ||4--> Ventas Por Cliente                  ||"<<endl;
-        cout<<"                                            ||5-->                                     ||"<<endl;
+        cout<<"                                            ||1--> Mostrar Todas Las Ventas.           ||"<<endl;
+        cout<<"                                            ||2--> Ventas Por fecha.(entre una y otra) ||"<<endl;
+        cout<<"                                            ||3--> Ventas Por Vendedor.                ||"<<endl;
+        cout<<"                                            ||4--> Ventas Por Importe Max.             ||"<<endl;
+        cout<<"                                            ||5--> Ventas Por Cliente.                 ||"<<endl;
         cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
         cout<<"                                            ||0-->VOLVER                               ||"<<endl;
         cout<<"                                            ||_________________________________________||"<<endl;
@@ -807,20 +807,26 @@ void menuListados()
         {
         case 1:
         {
-            ListadoVentasxFechas();
+            ListarTodasVentas();
         }
         break;
+
         case 2:
         {
-            ListadoVentasxVendedor();
+            ListadoVentasxFechas();
         }
         break;
         case 3:
         {
-            ListadoVentasxImporteMax();
+            ListadoVentasxVendedor();
         }
         break;
         case 4:
+        {
+            ListadoVentasxImporteMax();
+        }
+        break;
+        case 5:
         {
             ListadoVentasxCliente();
         }

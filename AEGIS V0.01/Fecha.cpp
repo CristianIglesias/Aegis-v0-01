@@ -115,5 +115,8 @@ void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2)
         return;
     }
 };
-
+void Fecha:: mostrar()
+{
+    cout<<dia<<"/"<<mes<<"/"<<anio<<endl;
+};
 

@@ -11,6 +11,7 @@ class Venta :public Operacion
 {
 public:
     void Mostrar();
+    void MostrarTabla();
     void GenerarVenta();
     int SetIdVendedor();
     int SetIdCliente();
@@ -40,6 +41,10 @@ protected:
 };
 int GenerarIdVenta();
 
+void ListarTodasVentas();
+int ContarVentas();
+int CargarVentas(Venta *VecDin,int CantRegs);
+int MostrarVentas(Venta *VecDin,int CantRegs);
 
 
 void ListadoVentasxFechas();
