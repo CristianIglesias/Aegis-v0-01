@@ -328,8 +328,9 @@
 	"Producto.h"
 	"PrototiposGlobales.h"
 
-1594849680 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
+1594860498 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
 	<iostream>
+	<iomanip>
 	"rlutil.h"
 	"DetalleVenta.h"
 
@@ -361,7 +362,7 @@
 	"Operacion.h"
 	"Producto.h"
 
-1594858960 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.h
+1594860326 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.h
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
 	"Producto.h"

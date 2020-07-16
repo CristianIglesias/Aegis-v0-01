@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
@@ -60,7 +61,7 @@ int DetalleVenta::setIdProducto()
     {
         cout<<" Ingrese el ID del Producto a Vender."<<endl;
         cout<<"ID PRODUCTO: ";
-        cin.ignore();
+        ///cin.ignore();
         cin.getline(Cod,10);
         error=Reg.LeerxID(Cod);
         if(error==false)
@@ -153,19 +154,20 @@ int GuardarDetalle(DetalleVenta *Obj)
 }
 
 
-
 int  MostrarDetalles(Venta *Reg)
 {
     int error=-1, CantRegs=0;
     DetalleVenta *VecDin;
-    CantRegs=ContarDetallesXID(Reg->getID());///desarrollar funcion
+    CantRegs=ContarDetallesXID(Reg->getID());
+    if(CantRegs==-1)
+        return -1;
     VecDin=new DetalleVenta[CantRegs];
     if(VecDin==NULL)
         return -1;
-    error=CargarDetallesVenta(VecDin,CantRegs,Reg->getID());///desarrollar funcion
+    error=CargarDetallesVenta(VecDin,CantRegs,Reg->getID());
     if(error==-1)
         return-1;
-    MostrarDetallesTABLA(VecDin,CantRegs);///desarrollar Funcion
+    MostrarDetallesTABLA(VecDin,CantRegs);
     free(VecDin);
     return 0;
 };
@@ -183,7 +185,7 @@ int ContarDetallesXID(int ID)
     }
     while(fread(&Aux,sizeof(DetalleVenta),1,P)==1)
     {
-            if(Aux.getIdVenta()==ID)
+        if(Aux.getIdVenta()==ID)
             cont++;
     }
     fclose(P);
@@ -192,12 +194,60 @@ int ContarDetallesXID(int ID)
 
 int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
 {
-
+    FILE *P;
+    int i=0;
+    P=fopen(ArchivoDetalle,"rb");
+      if(P==NULL)
+    {
+        fclose(P);
+        return -1;
+    }
+    while(fread(&Vec[i],sizeof(DetalleVenta),1,P)==1)
+    {
+        if(Vec[i].getIdVenta()==ID)
+            i++;
+    }
+    ///Creo que haría falta alguna validación de que i==Cant, para corroborar que se cargó el vector entero :/
+    fclose(P);
+    return 0;
 }
 
 int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
 {
-
+    int i=0;
+    cls();
+    setColor(LIGHTBLUE);
+    cout<<"-------------------------------------------------------------------------------------------------"<<endl;
+    cout<< left;
+    cout<<setw(5)<<"CODIGO-"<<" ";
+    cout<<setw(10)<<"NOMBRE-"<<"  ";
+    cout<<setw(5)<<"$ VENTA-"<<"  ";
+    cout<<setw(5)<<"CANTIDAD-"<<"  ";
+    cout<<setw(5)<<"PRECIO FINAL"<<"  "<<endl;
+    cout<<"--------------------------------------------------------------------------------------------------"<<endl;
+    cout<<endl;
+    setColor(WHITE);
+    while(i<Cant)
+    {
+        Vec[i].Mostrar();
+        cout<<endl;
+        i++;
+    }
+    cin.ignore();
+    anykey();
 }
-
+void DetalleVenta :: Mostrar()
+{   Producto Aux;
+    Aux.buscarcodigo(getIdProducto());
+    setColor(WHITE);
+    cout<< left;
+    cout<< setw(5)<<getIdProducto()<<"\t";
+    cout << right;
+    cout<< setw(10)<<Aux.getNombreItem()<<"\t ";
+    cout<< left;
+    cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
+    cout<<setw(5)<<getCantidad()<<"\t";
+    cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------"<<endl;
+}
 

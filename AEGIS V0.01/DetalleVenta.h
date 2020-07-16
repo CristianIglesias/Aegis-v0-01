@@ -15,7 +15,7 @@ public:
     int setIdProducto();
     int setCantidad();
     int setPrecioTotal();
-
+    void Mostrar();///Muestra detalles en formato tabla (sin cabecera)
 
 
 
@@ -24,9 +24,6 @@ public:
     {
         PrecioUnidad=Precio;
     };
-
-
-
 
     ///Gets----
     int getIdVenta()
