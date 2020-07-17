@@ -33,7 +33,7 @@
 	"Proveedor.h"
 	"Vendedor.h"
 
-1594942760 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1594955544 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
@@ -107,7 +107,7 @@
 	"PrototiposGlobales.h"
 	"Proveedor.h"
 
-1594952992 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
+1594955856 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
 	<iomanip>
 	"rlutil.h"
@@ -349,7 +349,7 @@
 	"Producto.h"
 	"DetalleVenta.h"
 
-1594940912 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
+1594955856 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
 	<iostream>
 	<iomanip>
 	"rlutil.h"
@@ -440,10 +440,10 @@
 
 1594850597 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposclases.h
 
-1594953826 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\fecha.h
+1594954801 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\fecha.h
 	<iostream>
 
-1594953860 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\fecha.cpp
+1594955202 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\fecha.cpp
 	"rlutil.h"
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"

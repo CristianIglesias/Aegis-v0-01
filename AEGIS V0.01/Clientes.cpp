@@ -124,7 +124,7 @@ int Cliente:: mostrarxID ()///Muestra Por ID -
         funco=LeerxPos(aux);
         if(funco!=-1)
         {
-           HeaderListadoClientes();
+            HeaderListadoClientes();
             mostrar();
         }
         else
@@ -458,7 +458,7 @@ void ListarClientes()
     LineasSuperior();
     HeaderListadoClientes();
 
-    while(Cli.LeerxPos(i)==0)
+    while(Cli.LeerxPos(i)==1)
     {
         msleep(85);
         Cli.mostrar();

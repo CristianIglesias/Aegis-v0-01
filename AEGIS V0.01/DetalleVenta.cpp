@@ -35,7 +35,7 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
         switch(op)
         {
         case 1:
-            return 0;
+            return 1;
             break;
         case 0:
             error=-2;
@@ -228,7 +228,9 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
 
     cout<<endl;
     while(i<Cant)
-        {Vec[i].Mostrar();}
+        {Vec[i].Mostrar();
+        i++;
+        }
     setColor(WHITE);
 }
 

@@ -28,7 +28,6 @@ public:
     {
         return anio;
     };
-
     void setDia(int d)
     {
         dia=d;

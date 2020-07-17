@@ -17,10 +17,10 @@ void Venta:: GenerarVenta()
     if(error!=0)
         return;
     error=SetIdCliente();
-    if(error==1)
+    if(error!=1)
         return;
     DetalleVenta Det;
-    while(error==0)
+    while(error==1)
     {
         error=Det.CargarDetalle(this);
         setImporteTotal(Det.getImporteTotal());
@@ -99,9 +99,9 @@ int Venta:: SetIdCliente()
         cout<<"ID Cliente: ";
         cin>>op;
         error=Cli.LeerxPos(op);
-        if(error==1)
+        if(error==-1)
             return 1;
-        if(error==0)
+        if(error==1)
         {
             cout<<"El Cliente deseado es : "<<Cli.getNombre()<<" ?"<<endl;
             cout<<"SI :1             NO:0"<<endl;

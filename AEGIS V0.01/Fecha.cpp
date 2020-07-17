@@ -105,18 +105,30 @@ int Fecha :: ValidarFecha()
 void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2)
 {
     Fecha Aux;
-    if(reg1->getDia()<=reg2->getDia()&&reg1->getMes()<=reg2->getMes()&&reg1->getAnio()<=reg2->getAnio())
+    if(reg1->getAnio()<reg2->getAnio())
         return;
-    if(reg1->getAnio()>reg2->getAnio()||reg1->getMes()>reg2->getMes()||(reg1->getMes()==reg2->getMes()&&reg1->getDia()>reg2->getDia()))
+    else if(reg1->getAnio()==reg2->getAnio()&&reg1->getMes()<reg2->getMes())
+        return;
+    else if(reg1->getMes()==reg2->getMes()&&reg1->getDia()<reg2->getDia())
+        return;
+    if(reg2->getAnio()<reg1->getAnio())
     {
-     CopiarFecha(Aux,*reg1);
-     CopiarFecha(*reg1,*reg2);
-     CopiarFecha(*reg2,Aux);
-
-
-
-    return;
+    CopiarFecha(Aux,*reg1);
+    CopiarFecha(*reg1,*reg2);
+    CopiarFecha(*reg2,Aux);
     }
+    if(reg2->getAnio()==reg1->getAnio()&&reg2->getMes()<reg1->getMes())
+    {
+    CopiarFecha(Aux,*reg1);
+    CopiarFecha(*reg1,*reg2);
+    CopiarFecha(*reg2,Aux);
+    }
+    if(reg2->getMes()==reg1->getMes()&&reg2->getDia()<reg1->getDia())
+       {
+    CopiarFecha(Aux,*reg1);
+    CopiarFecha(*reg1,*reg2);
+    CopiarFecha(*reg2,Aux);
+       }
 };
 void Fecha:: mostrar()
 {
