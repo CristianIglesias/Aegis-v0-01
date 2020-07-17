@@ -1,6 +1,7 @@
 #ifndef FECHA_H
 #define FECHA_H
 #include <iostream>
+
 class Fecha
 {
 protected:
@@ -10,10 +11,11 @@ protected:
 public:
     Fecha();
     void mostrar();
-    ///  int ValidarFecha(Fecha FechaAux);
+    int ValidarFecha(Fecha FechaAux);
     int CargarFecha();
     int ValidarFecha();
-    void setFecha(Fecha reg);
+
+
     int getDia()
     {
         return dia;
@@ -39,9 +41,12 @@ public:
     {
         anio=a;
     };
+
+
 };
 void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2);
-
+int ChequeoFechas(Fecha fech1,Fecha fecha2,Venta *Aux);
+void CopiarFecha(Fecha fech1,Fecha fech2);
 
 
 #endif // FECHA_H

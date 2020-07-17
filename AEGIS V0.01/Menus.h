@@ -19,7 +19,7 @@ void abmProducto();
 void abmProveedor();
 void abmVendedor();
 void menuListados();
-
+void menuReportes();
 
 ///Menus Completos
 void menuPrincipal()
@@ -658,7 +658,7 @@ void menuListados()
 
         case 2:
         {
-            ///ListadoVentasxFechas();
+            ListadoVentasxFechas();
         }
         break;
         case 3:

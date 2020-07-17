@@ -4,7 +4,7 @@ using namespace rlutil;
 #include "PrototiposClases.h"
 #include "PrototiposGlobales.h"
 #include "Fecha.h"
-
+#include "Ventas.h"
 Fecha::Fecha()
 {
     //ctor
@@ -109,14 +109,43 @@ void AsignarOrdenaFechas(Fecha *reg1,Fecha *reg2)
         return;
     if(reg1->getAnio()>reg2->getAnio()||reg1->getMes()>reg2->getMes()||(reg1->getMes()==reg2->getMes()&&reg1->getDia()>reg2->getDia()))
     {
-///     Aux.setFecha(*reg1);
-///     reg1->setFecha(*reg2);
-///     reg2->setFecha(Aux);
-        return;
+     CopiarFecha(Aux,*reg1);
+     CopiarFecha(*reg1,*reg2);
+     CopiarFecha(*reg2,Aux);
+
+
+
+    return;
     }
 };
 void Fecha:: mostrar()
 {
     cout<<dia<<"/"<<mes<<"/"<<anio<<endl;
 };
+
+
+int ChequeoFechas(Fecha fech1,Fecha fech2,Venta *Aux)
+{
+    if(Aux->getFechaOperacion().getAnio()>=fech1.getAnio()&&Aux->getFechaOperacion().getAnio()<=fech2.getAnio())
+    {
+        if(Aux->getFechaOperacion().getMes()>=fech1.getMes()&&Aux->getFechaOperacion().getMes()<=fech2.getMes())
+        {
+            if(Aux->getFechaOperacion().getDia()>=fech1.getDia()&&Aux->getFechaOperacion().getDia()<=fech2.getDia())
+            {
+                return 0;
+            }
+        }
+    }
+    return -1;
+
+};
+
+void CopiarFecha(Fecha fech1,Fecha fech2)
+{
+    fech1.setAnio(fech2.getAnio());
+    fech1.setMes(fech2.getMes());
+    fech1.setDia(fech2.getDia());
+}
+
+
 

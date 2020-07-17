@@ -69,7 +69,6 @@ void error_msj(int cod, int i)/// A COMPLETAR, CADA UNO AGREGA ERRORES QUE NECES
 
 
 
-
 int ValidarEnteros( const char *Telefono)///valida cadenas de enteros
 {
     int i, TAM;
@@ -173,7 +172,6 @@ void LineasInferior()
 
     }
 }
-
 void LineasInferior2()
 {
     int x;

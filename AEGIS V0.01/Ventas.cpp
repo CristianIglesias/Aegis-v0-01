@@ -8,13 +8,6 @@ using namespace rlutil;
 
 const char *ArchivoVentas ="Ventas.dat";
 
-
-/// A SABER
-/// ERROR=0-TA TODO PIOLA, SIGUE ADELANTE
-/// ERROR=1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI
-/// ERROR<0-SIGUE INTENTANDO, TRANK PALANK
-
-
 void Venta:: GenerarVenta()
 {
     int error=-1;
@@ -46,7 +39,6 @@ void Venta:: GenerarVenta()
         cout<<endl;
         MostrarDetalle();
     }
-
 };
 void Venta:: Mostrar()
 {
@@ -61,7 +53,6 @@ void Venta:: Mostrar()
     cout<<"$"<< ImporteTotal<<"\t"<<endl;
     cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
 }
-
 int Venta:: SetIdVendedor()
 {
     Vendedor Vend;
@@ -95,7 +86,6 @@ int Venta:: SetIdVendedor()
                 break;
             }
         }
-
     }///Cierra while
     return error;
 };
@@ -126,7 +116,6 @@ int Venta:: SetIdCliente()
                 error=-2;
                 break;
             }
-
         }
         if(error==-1)
             i++;
@@ -145,7 +134,6 @@ int GenerarIdVenta()
     }
     fseek(p,SEEK_SET,SEEK_END);
     cantRegistros=ftell(p)/sizeof(Venta);
-
     id=cantRegistros+1;
     fclose(p);
     return id;
@@ -187,7 +175,6 @@ void ListarTodasVentas()
     {
         error=MenuOrdenarVentas(VecDin,CantRegs);
     }
-
     free(VecDin);
     return ;
 };
@@ -225,11 +212,9 @@ int CargarVentas(Venta *Vec,int CantRegs)
     fclose(P);
     return -1;
 };
-
 void MostrarVentasXid(Venta *Vec,int Cant,int version)
 {
     int i=0;
-
     setColor(LIGHTCYAN);
     cout<<endl;
     void HeaderMostrarVentasXID();
@@ -239,16 +224,13 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     {
     case 1:
     {
-
         cls();
         HeaderListadoDeVentas1();
         cout<<endl;
-
         while(i<Cant)
         {
             msleep(5);
             Vec[i].Mostrar();
-
             i++;
         }
         cin.ignore();
@@ -258,23 +240,19 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
     case 2:
     {
         i=Cant;
-
         cls();
         cout<<endl;
-
        HeaderListadoDeVentas1();
         while(i>=0)
         {
             msleep(5);
             Vec[i].Mostrar();
-
             i--;
         }
         cin.ignore();
         anykey();
     }
     break;
-
     }
 };
 void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
@@ -289,15 +267,12 @@ void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
     {
     case 1:
     {
-
         cls();
         cout<<endl;
-
         while(i<Cant)
         {
             msleep(5);
             Vec[i].Mostrar();
-
             i++;
         }
         cin.ignore();
@@ -307,24 +282,19 @@ void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
     case 2:
     {
         i=Cant;
-
-
         cls();
         HeaderListadoDeVentas2();
         cout<<endl;
-
         while(i>=0)
         {
             msleep(5);
             Vec[i].Mostrar();
-
             i--;
         }
         cin.ignore();
         anykey();
     }
     break;
-
     }
 };
 void OrdenarVentasxImporte(Venta *VecDin,int Cant,int version)
@@ -376,11 +346,6 @@ void OrdenarVentasxImporte(Venta *VecDin,int Cant,int version)
     }
     break;
     }
-
-
-
-
-
 };
 
 int Venta:: LeerVentaxID(int id)
@@ -453,6 +418,8 @@ void Venta ::MostrarTabla()
 
 };
 
+///
+
 void ListadoVentasxFechas()
 {
     int error=-1,CantVentas;
@@ -471,7 +438,8 @@ void ListadoVentasxFechas()
     Venta *VecDin;
     VecDin=new Venta[CantVentas];
     error=CargarVecVentasxFecha(VecDin,CantVentas,Fech1,Fech2);
-
+    MenuOrdenarVentas(VecDin,CantVentas);
+    free(VecDin);
 };
 
 int ContarVentasxFechas(Fecha Fech1,Fecha Fech2)
@@ -487,7 +455,7 @@ int ContarVentasxFechas(Fecha Fech1,Fecha Fech2)
     }
     while(fread(&Aux,sizeof(Venta),1,P)==1)
     {
-        if((Aux.getFechaOperacion().getDia()>=Fech1.getDia()&&Aux.getFechaOperacion().getMes()>=Fech1.getMes())||(Aux.getFechaOperacion().getDia()<=Fech2.getDia()&&Aux.getFechaOperacion().getMes()<=Fech2.getMes()))
+        if(ChequeoFechas(Fech1,Fech2,&Aux)==1);
             cont++;
     }
     fclose(P);
@@ -505,12 +473,15 @@ int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2)
     }
     while(fread(&Vec[Pos],sizeof(Venta),1,P)==1)
     {
-        if((Vec[Pos].getFechaOperacion().getDia()>=Fech1.getDia()&&Vec[Pos].getFechaOperacion().getMes()>=Fech1.getMes()) || (Vec[Pos].getFechaOperacion().getDia()<=Fech2.getDia() && Vec[Pos].getFechaOperacion().getMes()<=Fech2.getMes()));
+        if(ChequeoFechas(Fech1,Fech2,&Vec[Pos])==1);
         Pos++;
     }
     fclose(P);
     return 1 ;
 }
+
+///
+
 void ListadoVentasxVendedor()
 {
     int error=-1,CantVentas,i=0;
@@ -654,11 +625,6 @@ int CargarVecVentasxCliente(Venta *Vec,int Cant,int ID)
     return 1 ;
 }
 
-void ListadoVentasxCliente();
-
-int ContarVentasxCliente(int ID);
-
-int CargarVecVentasxCliente(Venta *Vec,int Cant,int ID);
 
 
 

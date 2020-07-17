@@ -23,7 +23,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1594942639 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1594950823 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	<conio.h>
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
@@ -33,7 +33,7 @@
 	"Proveedor.h"
 	"Vendedor.h"
 
-1594940268 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1594942760 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
@@ -49,7 +49,7 @@
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
 
-1594940268 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
+1594951813 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposglobales.h
 	"PrototiposClases.h"
 	"Fecha.h"
 
@@ -107,14 +107,14 @@
 	"PrototiposGlobales.h"
 	"Proveedor.h"
 
-1594942610 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
+1594952992 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
 	<iomanip>
 	"rlutil.h"
 	"Ventas.h"
 	"PrototiposGlobales.h"
 
-1594942534 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
+1594950824 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.h
 	"PrototiposClases.h"
 	"Operacion.h"
 	"Vendedor.h"
@@ -122,7 +122,7 @@
 	"Producto.h"
 	"DetalleVenta.h"
 
-1594940268 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
+1594951813 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\funcionesglobales.cpp
 	<iostream>
 	<iomanip>
 	<cstdlib>
@@ -440,14 +440,15 @@
 
 1594850597 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\prototiposclases.h
 
-1594868286 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\fecha.h
+1594953826 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\fecha.h
 	<iostream>
 
-1594868266 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\fecha.cpp
+1594953860 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\fecha.cpp
 	"rlutil.h"
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
 	"Fecha.h"
+	"Ventas.h"
 
 1594852501 c:\users\domin\onedrive\escritorio\tino\a segunda parte tup\laboratorio2\aegis-v0-01\aegis v0.01\prototiposclases.h
 

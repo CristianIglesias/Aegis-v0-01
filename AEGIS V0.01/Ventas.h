@@ -54,9 +54,10 @@ void OrdenarVentasxImporte(Venta *VecDin,int Cant,int version);
 void MostrarVentasxImporte(Venta *VecDin,int Cant,int version);
 
 
-///void ListadoVentasxFechas();
+void ListadoVentasxFechas();
 int ContarVentasxFechas(Fecha Fech1,Fecha Fech2);
 int CargarVecVentasxFecha(Venta *Vec,int CantVentas,Fecha Fech1,Fecha Fech2);
+
 void ListadoVentasxVendedor();
 int ContarVentasxVendedor(int Legajo);
 int CargarVecVentasxVendedor(Venta *Vec,int Cant,int Legajo);
