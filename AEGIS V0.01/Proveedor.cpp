@@ -185,13 +185,33 @@ int Proveedor :: GuardarProveedorEnDisco(int ID)///Buscar posición y sobreescrib
     fclose(P);
     return -1;
 }
+
+int Proveedor :: GuardarProveedorEnDisco2()///Eliminar.
+{
+    FILE *P;
+    P=fopen(ArchivoProveedor,"rb+");
+    if(P==NULL)
+    {
+        return -1;
+    }
+    fseek(P,SEEK_END,SEEK_SET);
+    if(fwrite(this,sizeof(Proveedor),1,P)==1)
+    {
+        fclose (P);
+        return 0;
+    }
+    fclose(P);
+    return -1;
+}
+
+
 void Proveedor::mostrar()
 {
     if(Estado==true)
     {
         cout<<left;
         setColor(LIGHTBLUE);
-        cout<<CodigoProveedor<<" ";
+        cout<<"  "<<CodigoProveedor<<" ";
         setColor(YELLOW);
         Persona::Mostrar();
         cout<<EstadoCuenta<<"/";
@@ -201,7 +221,7 @@ void Proveedor::mostrar()
     else
     {
         setColor(RED);
-        cout<<"REGISTRO NO DISPONIBLE-------------------------------------------*"<<endl;
+        cout<<"-----------------------REGISTRO NO DISPONIBLE-------------------------------------------*"<<endl;
         setColor(GREEN);
     }
 }
@@ -410,7 +430,7 @@ void Proveedor :: EliminarProveedor()
     {
         cout<<"Eliminando..."<<endl;
         this->Estado=false;
-        error=guardarProveedor();
+        error=GuardarProveedorEnDisco2();
         if(error!=0)
         {
             cout<<"Hubo un error Guardando el Proveedor en el Archivo."<<endl;

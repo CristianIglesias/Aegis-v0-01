@@ -44,12 +44,12 @@ void Persona :: Mostrar()
     if(Estado==true)
     {
         cout<<left;
-        cout<<setw(4)<< Apellido<<"\t";
-        cout<<setw(4)<<Nombre<<"\t";
-        cout<<setw(1)<<GetFechaNac().getDia()<<"/"<<GetFechaNac().getMes()<<"/"<<GetFechaNac().getAnio()<<"\t";
-        cout <<setw(5)<<Documento<<"\t";
-        cout<<setw(5)<<nTelefono<<"\t";
-        cout<<setw(6)<<Mail<<"\t";
+        cout<<setw(4)<< Apellido<<"\t"<<"  ";
+        cout<<setw(4)<<Nombre<<"\t"<<"\t";
+        cout<<setw(1)<<GetFechaNac().getDia()<<"/"<<GetFechaNac().getMes()<<"/"<<GetFechaNac().getAnio()<<"\t"<<" ";
+        cout <<setw(5)<<Documento<<"\t"<<"  ";
+        cout<<setw(5)<<nTelefono<<"\t"<<"  ";
+        cout<<setw(6)<<Mail<<"\t"<<"  ";
     }
     else
     {

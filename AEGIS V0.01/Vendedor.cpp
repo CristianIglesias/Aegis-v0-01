@@ -138,10 +138,10 @@ void Vendedor::mostrar()
     if(Estado==true)
     {
         setColor(LIGHTBLUE);
-        cout<<setw(3)<<legajo<<" ";
+        cout<<setw(3)<<legajo<<"\t";
         setColor(YELLOW);
         Persona::Mostrar();
-        cout<<"$"<<VentaDiaria<<"/"<<"%";
+        cout<<VentaDiaria<<"/"<<"%";
         cout<< PorcentajeComision<<"$"<<endl;
         cout<<"-------------------------------------------------------------------------------------------------------------------"<<endl;
     }
@@ -397,7 +397,7 @@ void ListarVendedores()
     Vendedor ven;
     int i=0;
     cls();
-    LineasSuperior();
+   /// LineasSuperior();
     cout<<endl;
 
     HeaderVendedor();
@@ -410,7 +410,7 @@ void ListarVendedores()
         cout<<endl;
         i++;
     }
-    LineasInferior2();
+   /// LineasInferior2();
     cin.ignore();
     anykey();
 }

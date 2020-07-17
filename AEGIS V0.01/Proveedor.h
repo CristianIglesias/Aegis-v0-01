@@ -17,6 +17,7 @@ public:
     void mostrar();
     int guardarProveedor();
     int GuardarProveedorEnDisco(int ID);
+    int GuardarProveedorEnDisco2();
     bool leerProveedor(int pos);
     int buscarcodigoproveedor(char *codigo);
     int validarFloat(float c);

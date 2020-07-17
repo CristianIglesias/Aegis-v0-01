@@ -22,7 +22,7 @@ void  Cliente:: cargar()///Carga Cliente.
         return;
 
     idCliente=GenerarIdCliente();
-    if(idCliente<0)
+    if(idCliente<-1)
     {
         cout<<"Hubo un error en la generación de ID Cliente, Intente Nuevamente"<<endl;
         return;
@@ -63,7 +63,7 @@ void  Cliente:: mostrar()
         cout<<endl;
         cout<<left;
         setColor(LIGHTBLUE);
-        cout<< setw(3)<<idCliente ;
+        cout<< setw(3)<<""<<idCliente <<"  ";
         setColor(YELLOW);
         Persona::Mostrar();
         cout<<TipodePago<<"/";

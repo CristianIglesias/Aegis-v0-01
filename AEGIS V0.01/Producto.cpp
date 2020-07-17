@@ -20,11 +20,11 @@ void Producto::cargar()
     int error;
     error=setCodigoproducto();
 
-    if(error==1)
+    if(error==2)
         return;
 
     error=setCodigoProveedor();
-    if(error==1)
+    if(error==2)
         return;
     error=setNombreItem();
     if(error==1)
