@@ -47,8 +47,8 @@ void menuPrincipal()
     cout<<" \t" "                              ||1-->VENTAS                       ||"<<endl;
     cout<<" \t" "                              ||2-->COMPRAS                      ||"<<endl;
     cout<<" \t" "                              ||3-->ABM                          ||"<<endl;
-    cout<<" \t" "                              ||4-->LISTADOS  ///VENTAS ENTRE FECHA A Y FECHA B, EN BASE A ESO, PODEMOS CHEQUEAR CUANTO VENDIÓ UN VENDEDOR, DENUEVO ENTRE FECHA A Y FECHA B.                  ||"<<endl;
-    cout<<" \t" "                              ||5-->REPORTES  ///CUANTO VENDIÓ CADA VENDEDOR, Y LA FUNCIÓN PARA ACTUALIZARLO                   ||"<<endl;
+    cout<<" \t" "                              ||4-->LISTADOS                     ||"<<endl;
+    cout<<" \t" "                              ||5-->REPORTES                     ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;
     cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
@@ -422,13 +422,13 @@ void abmProducto()
         {
             salir=true;
         }
-            /*case 99:
+            case 99:
             {
                 FILE *p;
                 p=fopen("Producto.dat","wb");
                 fclose(p);
             }
-            break;*/
+            break;
 
         }///Cierra el switch
 
@@ -526,7 +526,6 @@ void abmProveedor()
 
     }
 };
-
 
 void abmVendedor()
 {

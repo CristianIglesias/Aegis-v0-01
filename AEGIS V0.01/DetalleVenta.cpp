@@ -164,18 +164,18 @@ int GuardarDetalle(DetalleVenta *Obj)
 int  MostrarDetalles(Venta *Reg)
 {
     int error=0, CantRegs=0;
-    DetalleVenta *VecDin;
+    DetalleVenta *Vec;
     CantRegs=ContarDetallesXID(Reg->getID());
     if(CantRegs<0)
         error_msj(-6,0);
-    VecDin=new DetalleVenta[CantRegs];
-    if(VecDin==NULL)
+    Vec=new DetalleVenta[CantRegs];
+    if(Vec==NULL)
         error_msj(-7,0);
-    error=CargarDetallesVenta(VecDin,CantRegs,Reg->getID());
+    error=CargarDetallesVenta(Vec,CantRegs,Reg->getID());
     if(error<0)
         error_msj(-6,0);
-    MostrarDetallesTABLA(VecDin,CantRegs);
-    free(VecDin);
+    MostrarDetallesTABLA(Vec,CantRegs);
+    free(Vec);
     return 0;
 };
 
@@ -228,25 +228,34 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
 
     cout<<endl;
     while(i<Cant)
-        {Vec[i].Mostrar();
+    {
+        Vec[i].Mostrar();
         i++;
-        }
+    }
     setColor(WHITE);
 }
 
 void DetalleVenta :: Mostrar()
-{
+{   int error;
     Producto Aux;
-    Aux.LeerxID(this->idProducto);
+    error=Aux.LeerxID(this->idProducto);
+    if(error)
+    {
     setColor(WHITE);
     cout<< left;
-    cout<<setw(5)<<getIdProducto()<<"\t"<<endl;;
+    cout<<setw(5)<<getIdProducto()<<"\t";
     cout << right;
-    cout<<setw(10)<<Aux.getNombreItem()<<endl;
+    cout<<setw(10)<<Aux.getNombreItem();
     cout<< left;
-    cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    "<<endl;
-    cout<<setw(5)<<getCantidad()<<"\t"<<endl;
+    cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
+    cout<<setw(5)<<getCantidad()<<"\t";
     cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
+}
+else{
+    cout<<"Hubo un error abriendo el archivo/leyendo el registro, no sabemos como detectarlo :)"<<endl;
+    return;
+}
+
 }
 

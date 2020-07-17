@@ -8,11 +8,10 @@ using namespace rlutil;
 
 const char *ArchivoClientes ="Clientes.dat";
 /// A SABER
-/// ERROR==0-TA TODO PIOLA, SIGUE ADELANTE
-/// ERROR==1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI
-/// ERROR<=0-SIGUE INTENTANDO, TRANK PALANK
+/// ERROR==0-TA TODO PIOLA, SIGUE ADELANTE error=SigueAdelante;
+/// ERROR==1-SALIDA VOLUNTARIA, CLAVA RETURN PERRI error=SalidaVoluntaria;
+/// ERROR<=0-SIGUE INTENTANDO, TRANK PALANK error=SigueIntentando;
 
-///TODO EMBELLEZER FUNCIONES CLIENTE.
 void  Cliente:: cargar()///Carga Cliente.
 {
     int error=0;

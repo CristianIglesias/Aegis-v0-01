@@ -242,9 +242,13 @@ void MostrarVentasXid(Venta *Vec,int Cant,int version)
         i=Cant;
         cls();
         cout<<endl;
-       HeaderListadoDeVentas1();
+        HeaderListadoDeVentas1();
         while(i>=0)
         {
+            if(i==Cant)
+            {
+                i--;
+            }
             msleep(5);
             Vec[i].Mostrar();
             i--;
@@ -260,7 +264,7 @@ void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
     int i=0;
     OrdenarVentasxImporte(Vec,Cant,version);
     setColor(LIGHTCYAN);
-   HeaderMostrarVentasXID();
+    HeaderMostrarVentasXID();
     cout<<endl;
     setColor(WHITE);
     switch(version)
@@ -271,6 +275,7 @@ void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
         cout<<endl;
         while(i<Cant)
         {
+        HeaderListadoDeVentas2();
             msleep(5);
             Vec[i].Mostrar();
             i++;
@@ -281,11 +286,15 @@ void  MostrarVentasxImporte(Venta *Vec,int Cant,int version)
     break;
     case 2:
     {
+        if(i==Cant)
+        {
+            i--;
+        }
         i=Cant;
         cls();
         HeaderListadoDeVentas2();
         cout<<endl;
-        while(i>=0)
+        while(i>0)
         {
             msleep(5);
             Vec[i].Mostrar();
@@ -374,6 +383,86 @@ int Venta:: LeerVentaxID(int id)
         return -1;
 };
 
+int MenuOrdenarVentas(Venta *VecDin, int Cant)
+{
+    int op,x;
+    bool salir=false;
+    while(!salir)
+    {
+        setColor(LIGHTMAGENTA);
+        system("cls");
+        LineasSuperior();
+        cout<<endl;
+        cout<<"                                                Listado Cargado! Cómo preferís verlo?"<<endl;
+
+        cout<<endl;
+        cout<<endl;
+        cout<<"                                                      Ordenar Listado.                 "<<endl;
+        setColor(YELLOW);
+        cout<<"                                             __________________________________________"<<endl;
+        cout<<"                                            ||1--> Por ID (Ascendente)                 ||"<<endl;
+        cout<<"                                            ||2--> Por ID (Descendente)                ||"<<endl;
+        cout<<"                                            ||3--> Por Importes (Ascendentes)          ||"<<endl;
+        cout<<"                                            ||4--> Por Importes (Descendentes)         ||"<<endl;
+///     cout<<"                                            ||5--> Por Fechas   (Ascendentes)          ||"<<endl;
+///     cout<<"                                            ||6--> Por Fechas   (Desscendentes)        ||"<<endl;
+        cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
+        cout<<"                                            ||0-->VOLVER                               ||"<<endl;
+        cout<<"                                            ||_________________________________________||"<<endl;
+        cout<<"                                             -------Ingrese una opcion--------"<<endl;
+        LineasInferior();
+        cin>>op;
+        system("cls");
+        switch(op)
+        {
+        case 1:
+        {
+            MostrarVentasXid(VecDin,Cant,1);
+        }
+        break;
+        case 2:
+        {
+            MostrarVentasXid(VecDin,Cant,2);
+        }
+        break;
+        case 3:
+        {
+            MostrarVentasxImporte(VecDin,Cant,1);
+        }
+        break;
+        case 4:
+        {
+            MostrarVentasxImporte(VecDin,Cant,2);
+        }
+        break;
+        case 5:
+        {
+        }
+        break;
+        case 0:
+        {
+            system("cls");
+            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+            salir=true;
+            return -1;
+        }
+        break;
+        default:
+        {
+            system("cls");
+            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
+        }
+        break;
+
+        }
+        system("pause");
+        MostrarDetallesDeVentaxID();
+    }
+};
+
+
+
+
 void MostrarDetallesDeVentaxID()
 {
     int ID,error=-1,i=0;
@@ -394,6 +483,7 @@ void MostrarDetallesDeVentaxID()
         {
             error_msj(-6,i);
         }
+        anykey();
 
     }
 }
@@ -456,7 +546,7 @@ int ContarVentasxFechas(Fecha Fech1,Fecha Fech2)
     while(fread(&Aux,sizeof(Venta),1,P)==1)
     {
         if(ChequeoFechas(Fech1,Fech2,&Aux)==1);
-            cont++;
+        cont++;
     }
     fclose(P);
     return cont;
@@ -625,9 +715,6 @@ int CargarVecVentasxCliente(Venta *Vec,int Cant,int ID)
     return 1 ;
 }
 
-
-
-
 void ListadoVentasxImporteMax()
 {
 
@@ -635,91 +722,10 @@ void ListadoVentasxImporteMax()
 
 
 ///TODO funcion definir fechas mayor que otra~
-///TODO y después por vendedor/cliente/importe max -  MOSTRAR VENTA - Algun tipo de reporte
+///TODO y después por importe max -  MOSTRAR VENTA - Algun tipo de reporte
 
 
 
-
-int MenuOrdenarVentas(Venta *VecDin, int Cant)
-{
-    int op,x;
-    bool salir=false;
-    while(!salir)
-    {
-        setColor(LIGHTMAGENTA);
-        system("cls");
-        LineasSuperior();
-        cout<<endl;
-        cout<<"                                                Listado Cargado! Cómo preferís verlo?"<<endl;
-
-        cout<<endl;
-        cout<<endl;
-        cout<<"                                                      Ordenar Listado.                 "<<endl;
-        setColor(YELLOW);
-        cout<<"                                             __________________________________________"<<endl;
-        cout<<"                                            ||1--> Por ID (Ascendente)                 ||"<<endl;
-        cout<<"                                            ||2--> Por ID (Descendente)                ||"<<endl;
-        cout<<"                                            ||3--> Por Importes (Ascendentes)          ||"<<endl;
-        cout<<"                                            ||4--> Por Importes (Descendentes)         ||"<<endl;
-        cout<<"                                            ||5--> Por Fechas   (Ascendentes)          ||"<<endl;
-///     cout<<"                                            ||6--> Por Fechas   (Desscendentes)        ||"<<endl;
-        cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
-        cout<<"                                            ||0-->VOLVER                               ||"<<endl;
-        cout<<"                                            ||_________________________________________||"<<endl;
-        cout<<"                                             -------Ingrese una opcion--------"<<endl;
-        LineasInferior();
-        cin>>op;
-        system("cls");
-        switch(op)
-        {
-        case 1:
-        {
-            MostrarVentasXid(VecDin,Cant,1);
-        }
-        break;
-
-        case 2:
-        {
-            MostrarVentasXid(VecDin,Cant,2);
-        }
-        break;
-        case 3:
-        {
-            MostrarVentasxImporte(VecDin,Cant,1);
-        }
-        break;
-        case 4:
-        {
-            MostrarVentasxImporte(VecDin,Cant,2);
-
-        }
-        break;
-        case 5:
-        {
-        }
-        break;
-        case 0:
-        {
-            system("cls");
-            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
-            salir=true;
-            return -1;
-        }
-        break;
-        default:
-        {
-            system("cls");
-            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
-        }
-        break;
-
-        }
-        system("pause");
-    }
-
-    MostrarDetallesDeVentaxID();
-
-};
 
 
 
