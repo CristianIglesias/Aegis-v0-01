@@ -49,13 +49,10 @@ void menuPrincipal()
     cout<<" \t" "                              ||2-->COMPRAS                      ||"<<endl;
     cout<<" \t" "                              ||3-->ABM                          ||"<<endl;
     cout<<" \t" "                              ||4-->LISTADOS                     ||"<<endl;
-    cout<<"--------------------------"<<sizeof(DetalleVenta)<< "   tamaño del detale de venta"<<endl;
-     cout<<"--------------------------"<<sizeof(Venta)<< "   tamaño de venta"<<endl;
     cout<<" \t" "                              ||5-->REPORTES                     ||"<<endl;
     cout<<" \t" "                              ||6-->CONFIGURACION                ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;
-    cout<<" EN EL INGRESO DE PRODUCTO DE LA VENTA, SALIDA VOLUNTARIA - ARREGLAR LISTAR XID "<<endl;
     cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
 
     for(x=1; x<118; x++)
@@ -94,7 +91,8 @@ void menuVentas()
         cout<<"   \t""                              ___________________________________ "<<endl;
         cout<<"   \t""                             ||-1 -->Nueva Venta.               -||"<<endl;
         cout<<"   \t""                             ||-2 -->Acceso rapido a Listados   -||"<<endl;
-        ///cout<<"   \t""                             ||-3 -->Presupuestos.              -||"<<endl;
+        cout<<"   \t""                             ||-2 -->Nota de Crédito.           -||"<<endl;
+        cout<<"   \t""                             ||-3 -->Presupuestos.              -||"<<endl;
         cout<<"   \t""                             ||.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
         cout<<"   \t""                             ||-0-->VOLVER                      -||"<<endl;
         cout<<"   \t""                             ||__________________________________||"<<endl;
@@ -118,7 +116,6 @@ void menuVentas()
             system("cls");
 
             menuListados();
-
         }
         break;
         case 3:
@@ -575,6 +572,7 @@ void abmProducto()
         {
             salir=true;
 
+
         }break;
 
 
@@ -661,7 +659,9 @@ void abmProveedor()
         case 0:
         {
             salir=true;
+
         }break;
+
 
 
         }

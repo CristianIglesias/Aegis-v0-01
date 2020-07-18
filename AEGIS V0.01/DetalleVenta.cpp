@@ -93,7 +93,6 @@ int DetalleVenta::setIdProducto()
                 break;
             case 0:
                 error=-2;
-                return error;
                 break;
             }
             return 0;
@@ -202,8 +201,8 @@ int ContarDetallesXID(int ID)
 
 int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
 {
-     int i=0;
     FILE *P;
+    int i=0;
     P=fopen(ArchivoDetalle,"rb");
     if(P==NULL)
     {
@@ -226,6 +225,7 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     setColor(LIGHTBLUE);
     cout<<endl;
     DetalleDeVentaTabla();
+
     cout<<endl;
     while(i<Cant)
     {
@@ -236,34 +236,28 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
 }
 
 void DetalleVenta :: Mostrar()
-{
-    int error;
+{   int error;
     Producto Aux;
     error=Aux.LeerxID(idProducto);
     if(error==1)
     {
-        setColor(WHITE);
-        cout<< left;
-        cout<<setw(5)<<getIdProducto()<<"\t";
-        cout << right;
-        cout<<setw(10)<<Aux.getNombreItem();
-        cout<< left;
-        cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
-        cout<<setw(5)<<getCantidad()<<"\t";
-        cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
-        cout<<"------------------------------------------------------------------------------------------------"<<endl;
-        return;
-    }
-    else if(error==0)
-    {
-        error_msj(-6,1);
-        return;
-    }
-    else if(error==-1)
-    {
-        error_msj(-5,1);
-        return;
 
-    }
+    setColor(WHITE);
+    cout<< left;
+    cout<<setw(5)<<getIdProducto()<<"\t";
+    cout << right;
+    cout<<setw(10)<<Aux.getNombreItem();
+    cout<< left;
+    cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
+    cout<<setw(5)<<getCantidad()<<"\t";
+    cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
+    cout<<"------------------------------------------------------------------------------------------------"<<endl;
+}
+else{
+    cout<<"Hubo un error abriendo el archivo/leyendo el registro, no sabemos como detectarlo :)"<<endl;
+    return;
+}
+
+
 }
 
