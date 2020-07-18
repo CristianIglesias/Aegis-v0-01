@@ -85,13 +85,13 @@ void menuVentas()
 
         cout<<"   \t""                                           VENTAS                   "<<endl;
         setColor(YELLOW);
-        cout<<"   \t""                              ___________________________________ "<<endl;
-        cout<<"   \t""                             ||-1 -->Nueva Venta.               -||"<<endl;
-        cout<<"   \t""                             ||-2 -->Nota de Crédito.           -||"<<endl;
-        cout<<"   \t""                             ||-3 -->Presupuestos.              -||"<<endl;
-        cout<<"   \t""                             ||.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
-        cout<<"   \t""                             ||-0-->VOLVER                      -||"<<endl;
-        cout<<"   \t""                             ||__________________________________||"<<endl;
+        cout<<"   \t""                              ______________________________________ "<<endl;
+        cout<<"   \t""                             ||-1 -->Nueva Venta.                  -||"<<endl;
+        cout<<"   \t""                             ||-2 -->Mostrar Detales X ID de ventas-||"<<endl;
+        cout<<"   \t""                             ||-3 -->Presupuestos.                -||"<<endl;
+        cout<<"   \t""                             ||.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
+        cout<<"   \t""                             ||-0-->VOLVER                        -||"<<endl;
+        cout<<"   \t""                             ||____________________________________||"<<endl;
         cout<<"   \t""                              -------Ingrese una opcion-------- "<<endl;
         LineasInferior();
         cin>>op;
@@ -110,9 +110,9 @@ void menuVentas()
         case 2:
         {
             system("cls");
-            cout<<"                 ~Nota de Crédito~                "<<endl;
+            cout<<"                MOSTRAR DETALLE X ID DE VENTA                "<<endl;
+                           MostrarDetallesDeVentaxID();
 
-            ///
         }
         break;
         case 3:
@@ -421,14 +421,15 @@ void abmProducto()
         case 0:
         {
             salir=true;
-        }
-            case 99:
-            {
-                FILE *p;
-                p=fopen("Producto.dat","wb");
-                fclose(p);
-            }
-            break;
+        }break;
+
+         ///   case 99:
+         ///   {
+         ///       FILE *p;
+         ///       p=fopen("Producto.dat","wb");
+         ///       fclose(p);
+         ///   }
+         ///   break;
 
         }///Cierra el switch
 
@@ -513,14 +514,14 @@ void abmProveedor()
         case 0:
         {
             salir=true;
-        }
-        case 99:
-        {
-            FILE *p;
-            p=fopen("Proveedor.dat","wb");
-            fclose(p);
-        }
-        break;
+        }break;
+       /// case 99:
+       /// {
+       ///     FILE *p;
+       ///     p=fopen("Proveedor.dat","wb");
+       ///     fclose(p);
+       /// }
+       /// break;
 
         }
 

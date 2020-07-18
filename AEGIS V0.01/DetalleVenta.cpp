@@ -92,6 +92,7 @@ int DetalleVenta::setIdProducto()
                 break;
             case 0:
                 error=-2;
+                return error;
                 break;
             }
 
@@ -201,8 +202,8 @@ int ContarDetallesXID(int ID)
 
 int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
 {
+     int i=0;
     FILE *P;
-    int i=0;
     P=fopen(ArchivoDetalle,"rb");
     if(P==NULL)
     {
@@ -225,7 +226,6 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     setColor(LIGHTBLUE);
     cout<<endl;
     DetalleDeVentaTabla();
-
     cout<<endl;
     while(i<Cant)
     {
@@ -236,7 +236,8 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
 }
 
 void DetalleVenta :: Mostrar()
-{   int error;
+{
+    int error;
     Producto Aux;
     error=Aux.LeerxID(this->idProducto);
     if(error)
@@ -245,17 +246,16 @@ void DetalleVenta :: Mostrar()
     cout<< left;
     cout<<setw(5)<<getIdProducto()<<"\t";
     cout << right;
-    cout<<setw(10)<<Aux.getNombreItem();
-    cout<< left;
+    cout<<setw(10)<<Aux.getNombreItem()<<"\t";
     cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
     cout<<setw(5)<<getCantidad()<<"\t";
     cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
     cout<<"------------------------------------------------------------------------------------------------"<<endl;
-}
-else{
+    }
+    else
+    {
     cout<<"Hubo un error abriendo el archivo/leyendo el registro, no sabemos como detectarlo :)"<<endl;
     return;
-}
-
+    }
 }
 
