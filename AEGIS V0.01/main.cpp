@@ -82,6 +82,12 @@ int main()
             cout<<"~~~~~CONFIGURACION~~~~~"<<endl;
         }
         break;
+         case 6:
+        {
+            cout<<"~~~~~CONFIGURACION~~~~~"<<endl;
+            menuConfiguracion();
+        }
+        break;
         case 0:
         {
             setColor(WHITE_PEN);

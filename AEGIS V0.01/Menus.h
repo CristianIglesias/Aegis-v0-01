@@ -20,6 +20,7 @@ void abmProveedor();
 void abmVendedor();
 void menuListados();
 void menuReportes();
+void menuConfiguracion();
 
 ///Menus Completos
 void menuPrincipal()
@@ -49,6 +50,7 @@ void menuPrincipal()
     cout<<" \t" "                              ||3-->ABM                          ||"<<endl;
     cout<<" \t" "                              ||4-->LISTADOS                     ||"<<endl;
     cout<<" \t" "                              ||5-->REPORTES                     ||"<<endl;
+     cout<<" \t" "                             ||6-->CONFIGURACION                   ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;
     cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
@@ -122,7 +124,6 @@ void menuVentas()
 
         }
         break;
-
         case 0:
         {
             system("cls");
@@ -154,6 +155,140 @@ void menuVentas()
 
     }
 
+}
+void menuConfiguracion()
+{
+     int opcion;
+    bool salir=false;
+
+    while(!salir)
+    {
+        setColor(LIGHTMAGENTA);
+        system("cls");
+
+        setColor(LIGHTMAGENTA);
+        system("cls");
+        LineasSuperior();
+        cout<<endl;
+        cout<<endl;
+
+        cout<<"  \t""                                                    CONFIGURACION                "<<endl;
+        setColor(YELLOW);
+        cout<<"  \t""                                     _________________________________ "<<endl;
+        cout<<"  \t""                                    ||-1-->ELIMINAR REGISTROS                   ||"<<endl;
+         cout<<"  \t""                                   ||-2-->REALIZAR COPIA DE SEGURIDAD   ||"<<endl;
+        cout<<"  \t""                                    ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.||"<<endl;
+        cout<<"  \t""                                    ||-0-->VOLVER                     ||"<<endl;
+        cout<<"  \t""                                    ||________________________________||"<<endl;
+        cout<<"  \t""                                     -------Ingrese una opcion-------- "<<endl;
+        LineasInferior();
+        cin>>opcion;
+
+        switch(opcion)
+        {
+        case 1:
+        {
+            int opc;
+            system("cls");
+            cout<<"            ~ ELIMINAR TODOS LOS REGISTROS~          "<<endl;
+            cout<<"¿Esta seguro que quiere eliminar todos los registros?"<<endl;
+            cout<<"9-->SI"<<endl;
+            cout<<"2-->NO"<<endl;
+            cin>>opc;
+            switch(opc)
+            {
+                case 9:
+                    {
+                        cout<<"Registros eliminados"<<endl;
+            FILE *a;
+            a=fopen("Clientes.dat","wb");
+            fclose(a);
+             FILE *b;
+            b=fopen("Vendedor.dat","wb");
+            fclose(b);
+             FILE *c;
+            c=fopen("Proveedor.dat","wb");
+            fclose(c);
+             FILE *d;
+            d=fopen("Producto.dat","wb");
+            fclose(d);
+                    }break;
+                case 2:
+                    {
+                        cls();
+                        cout<<"VOLVIENDO AL MENU ANTERIOR"<<endl;
+                        salir=true;
+                        anykey();
+                    }break;
+            }
+        }
+        break;
+         case 2:
+        {
+            int op;
+            system("cls");
+            cout<<"COPIA DE SEGURIDAD"<<endl;
+            cout<<"-------------------------"<<endl;
+            cout<<"1-->Clientes              "<<endl;
+            cout<<"2-->Poductos             "<<endl;
+            cout<<"3-->Vendedores         "<<endl;
+            cout<<"4-->Proveedores        "<<endl;
+            cout<<"0-->VOLVER              "<<endl;
+            cout<<"-------------------------"<<endl;
+            cin>>op;
+            switch(op)
+            {
+            case 1:
+                {
+                    cls();
+                     cout<<"COPIA DE SEGURIDAD CLIENTES"<<endl;
+
+                }break;
+            case 2:
+                {
+                     cls();
+                     cout<<"COPIA DE SEGURIDAD PRODUCTOS"<<endl;
+
+                }break;
+                case 3:
+                {
+                     cls();
+                     cout<<"COPIA DE SEGURIDAD VENDEDORES"<<endl;
+
+                }break;
+                case 4:
+                    {
+                        cls();
+                     cout<<"COPIA DE SEGURIDAD PROVEEDORES"<<endl;
+
+                    }break;
+                case 0:
+                    {
+                        cls();
+                        cout<<"Volver al menu anterior"<<endl;
+                        salir=true;
+                    }break;
+            }
+        }
+        break;
+        case 0:
+        {
+            system("cls");
+            cout<<"TOQUE PARA VOLVER AL MENU ANTERIOR."<<endl;
+            salir=true;
+        }
+        break;
+        default:
+        {
+            system("cls");
+            cout<<"OPCION NO VALIDA, POR FAVOR INGRESE UNA OPCION DEL MENU"<<endl;
+        }
+        break;
+
+        }
+        system("pause");
+
+    }
 }
 void menuABM()
 {
@@ -328,20 +463,13 @@ void abmClientes()
             salir=true;
         }
         break;
-        case 99:
-        {
-            FILE *p;
-            p=fopen("Clientes.dat","wb");
-            fclose(p);
-        }
-        break;
 
         }///Cierra el switch
 
     }///Cierra el while
 };
 
-///abm producto:
+
 void abmProducto()
 {
     Producto pro;
@@ -422,14 +550,6 @@ void abmProducto()
         {
             salir=true;
         }break;
-
-         ///   case 99:
-         ///   {
-         ///       FILE *p;
-         ///       p=fopen("Producto.dat","wb");
-         ///       fclose(p);
-         ///   }
-         ///   break;
 
         }///Cierra el switch
 
@@ -515,13 +635,7 @@ void abmProveedor()
         {
             salir=true;
         }break;
-       /// case 99:
-       /// {
-       ///     FILE *p;
-       ///     p=fopen("Proveedor.dat","wb");
-       ///     fclose(p);
-       /// }
-       /// break;
+
 
         }
 
@@ -606,13 +720,6 @@ void abmVendedor()
             salir=true;
         }
         break;
-            /*case 99:
-            {
-                FILE *p;
-                p=fopen("Vendedor.dat","wb");
-                fclose(p);
-            }
-            break;*/
 
         }
 

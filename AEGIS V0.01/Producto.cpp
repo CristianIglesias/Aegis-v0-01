@@ -627,6 +627,7 @@ void listarProductos()
         reg.mostrar();
         cout<<endl;
         i++;
+
     }
     LineasInferior2();
     cin.ignore();
