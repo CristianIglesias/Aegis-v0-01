@@ -67,8 +67,10 @@ int Producto:: buscarcodigo(const char *codigo)///TODO SALIDA VOLUNTARIA BUSCAR 
     FILE *p;
     p=fopen(ArchivoProducto,"rb");
     if(p==NULL)
+{
 
-        return 1;
+fclose(p);
+        return 1;}
 
     while(fread(&aux,sizeof(Producto),1,p))
     {
@@ -327,7 +329,7 @@ int Producto::guardarNuevoProducto()///Al final del archivo
     FILE *p;
     p=fopen(ArchivoProducto,"ab");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     if(fwrite(this,sizeof(Producto),1,p)==1)
@@ -346,7 +348,7 @@ int Producto::ObtenerPosicionProducto(char *codigo)
     FILE *p;
     p=fopen(ArchivoProducto,"rb+");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     while(fread(&aux,sizeof(Producto),1,p))
@@ -375,7 +377,7 @@ int Producto::guardarProducto()///Modificado
     FILE *p;
     p=fopen(ArchivoProducto,"rb+");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     fseek(p,sizeof(Producto)*pos,SEEK_SET);
@@ -393,7 +395,7 @@ bool Producto::leerProductos(int pos)///TODO REPARAR BUSQUEDA -
     p=fopen(ArchivoProducto,"rb");
     if(p==NULL)
     {
-
+fclose(p);
         return false;
     }
     if(pos>=0)
@@ -543,6 +545,7 @@ bool Producto:: LeerxID(char* id)
     P=fopen(ArchivoProducto,"rb");
     if(P==NULL)
     {
+        fclose(P);
         return false;
     }
     while(fread(this,sizeof(Producto),1,P)==1)

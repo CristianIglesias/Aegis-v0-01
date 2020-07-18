@@ -97,6 +97,7 @@ int Cliente:: LeerxPos(int id)
     P=fopen(ArchivoClientes,"rb");
     if(P==NULL)
     {
+        fclose(P);
         return false;
     }
     fseek(P,sizeof(Cliente)*id,SEEK_SET);
@@ -107,7 +108,10 @@ int Cliente:: LeerxPos(int id)
         return true;
     }
     else
-        return -1;
+    {
+
+    fclose(P);
+        return -1;}
 }
 
 int Cliente:: mostrarxID ()///Muestra Por ID -
@@ -140,7 +144,7 @@ int GenerarIdCliente()///
     FILE *p;
     p=fopen(ArchivoClientes,"rb");
     if(p==NULL)
-    {
+    {   fclose(p);
         return -1;
     }
     fseek(p,SEEK_SET,SEEK_END);
@@ -174,7 +178,7 @@ int Cliente :: GuardarClienteEnDisco(int ID)///Buscar posición y sobreescribir.
     }
     P=fopen(ArchivoClientes,"rb+");
     if(P==NULL)
-    {
+    {   fclose(P);
         return -1;
     }
     fseek(P,sizeof(Cliente)*ID,SEEK_SET);

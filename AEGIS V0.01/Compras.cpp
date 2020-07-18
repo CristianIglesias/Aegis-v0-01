@@ -16,12 +16,11 @@ int GenerarIdCompra()
     FILE *p;
     p=fopen(ArchivoCompras,"rb");
     if(p==NULL)
-    {
+    {fclose(p);
         return-1;
     }
     fseek(p,SEEK_SET,SEEK_END);
     cantRegistros=ftell(p)/sizeof(Compra);
-
     id=cantRegistros+1;
     fclose(p);
     return 0;

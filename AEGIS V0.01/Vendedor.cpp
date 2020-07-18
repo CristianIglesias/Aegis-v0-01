@@ -99,7 +99,7 @@ int Vendedor::guardar()
     FILE *p;
     p=fopen(ArchivoVendedor,"ab");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     if(fwrite(this,sizeof(Vendedor),1,p)!=1)
@@ -120,7 +120,7 @@ int Vendedor :: GuardarVendedorEnDisco(int ID)///Buscar posición y sobreescribir
     }
     P=fopen(ArchivoVendedor,"rb+");
     if(P==NULL)
-    {
+    {fclose(P);
         return -1;
     }
     fseek(P,sizeof(Vendedor)*ID,SEEK_SET);
@@ -166,7 +166,7 @@ int Vendedor::leerVendedor(int pos)
     p=fopen(ArchivoVendedor,"rb");
     if(p==NULL)
     {
-
+fclose(p);
         return -1;
     }
     fseek(p,pos * sizeof(Vendedor),0);
@@ -192,7 +192,7 @@ int Vendedor:: LeerxID(int id)
     FILE *P;
     P=fopen(ArchivoVendedor,"rb");
     if(P==NULL)
-    {
+    {fclose(P);
         return -1;
     }
     fseek(P,sizeof(Vendedor)*id,0);
@@ -382,7 +382,7 @@ int GenerarIdVendedor()
     FILE *p;
     p=fopen(ArchivoVendedor,"rb");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     fseek(p,SEEK_SET,SEEK_END);

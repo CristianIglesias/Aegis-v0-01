@@ -53,6 +53,7 @@ void menuPrincipal()
     cout<<" \t" "                              ||6-->CONFIGURACION                ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;
+
     cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
 
     for(x=1; x<118; x++)
@@ -140,16 +141,6 @@ void menuVentas()
 
         }
         break;
-    case 99:
-    {
-        FILE *p;
-        p=fopen("Ventas.dat","wb");
-        fclose(p);
-        p=fopen("DetalleVenta.dat","wb");
-        fclose(p);
-        break;
-    }
-    break;
 
         }
         system("pause");

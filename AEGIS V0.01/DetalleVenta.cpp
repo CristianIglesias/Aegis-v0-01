@@ -148,7 +148,7 @@ int GuardarDetalle(DetalleVenta *Obj)
     FILE *p;
     p=fopen(ArchivoDetalle,"ab");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     if(fwrite(Obj,sizeof(DetalleVenta),1, p)!=1)
@@ -164,18 +164,18 @@ int GuardarDetalle(DetalleVenta *Obj)
 int  MostrarDetalles(Venta *Reg)
 {
     int error=0, CantRegs=0;
-    DetalleVenta *Vec;
+    DetalleVenta *VecDet;
     CantRegs=ContarDetallesXID(Reg->getID());
     if(CantRegs<0)
         error_msj(-6,0);
-    Vec=new DetalleVenta[CantRegs];
-    if(Vec==NULL)
+    VecDet=new DetalleVenta[CantRegs];
+    if(VecDet==NULL)
         error_msj(-7,0);
-    error=CargarDetallesVenta(Vec,CantRegs,Reg->getID());
+    error=CargarDetallesVenta(VecDet,CantRegs,Reg->getID());
     if(error<0)
         error_msj(-6,0);
-    MostrarDetallesTABLA(Vec,CantRegs);
-    free(Vec);
+    MostrarDetallesTABLA(VecDet,CantRegs);
+   delete(VecDet);
     return 0;
 };
 
@@ -199,7 +199,7 @@ int ContarDetallesXID(int ID)
     return cont;
 }
 
-int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
+int CargarDetallesVenta(DetalleVenta *VecD, int Cant, int ID)
 {
     FILE *P;
     int i=0;
@@ -209,9 +209,9 @@ int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
         fclose(P);
         return -1;
     }
-    while(fread(&Vec[i],sizeof(DetalleVenta),1,P)==1)
+    while(fread(&VecD[i],sizeof(DetalleVenta),1,P)==1)
     {
-        if(Vec[i].getIdVenta()==ID)
+        if(VecD[i].getIdVenta()==ID)
             i++;
     }
     ///Creo que haría falta alguna validación de que i==Cant, para corroborar que se cargó el vector entero :/
@@ -229,7 +229,7 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     cout<<endl;
     while(i<Cant)
     {
-             Vec[i].Mostrar();
+        Vec[i].Mostrar();
         i++;
     }
     setColor(WHITE);

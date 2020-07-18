@@ -17,7 +17,7 @@ int Proveedor::buscarcodigoproveedor(char *codigo)///ARREGLAR
     FILE *p;
     p=fopen(ArchivoProveedor,"rb");
     if(p==NULL)
-    {
+    {fclose(p);
         return 1;
     }
     while(fread(&aux,sizeof(Proveedor),1,p))
@@ -151,7 +151,7 @@ int Proveedor::guardarProveedor()
     FILE *p;
     p=fopen(ArchivoProveedor,"ab");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     if(fwrite(this,sizeof(Proveedor),1,p)!=1);
@@ -173,7 +173,7 @@ int Proveedor :: GuardarProveedorEnDisco(int ID)///Buscar posición y sobreescrib
     }
     P=fopen(ArchivoProveedor,"rb+");
     if(P==NULL)
-    {
+    {fclose(P);
         return -1;
     }
     fseek(P,sizeof(Proveedor)*ID,SEEK_SET);
@@ -191,7 +191,7 @@ int Proveedor :: GuardarProveedorEnDisco2()///Eliminar.
     FILE *P;
     P=fopen(ArchivoProveedor,"rb+");
     if(P==NULL)
-    {
+    {fclose(P);
         return -1;
     }
     fseek(P,SEEK_END,SEEK_SET);
@@ -232,7 +232,7 @@ bool Proveedor::leerProveedor(int pos)
     FILE *p;
     p=fopen(ArchivoProveedor,"rb");
     if(p==NULL)
-    {
+    {fclose(p);
 
         return false;
     }
@@ -257,7 +257,7 @@ bool Proveedor:: LeerxID(char *id)
     FILE *P;
     P=fopen(ArchivoProveedor,"rb");
     if(P==NULL)
-    {
+    {fclose(P);
         return false;
     }
 
