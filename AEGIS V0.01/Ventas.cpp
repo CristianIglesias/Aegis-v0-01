@@ -598,10 +598,6 @@ void ListadoVentasxVendedor()
     error=CargarVecVentasxVendedor(VecDin,CantVentas,Reg.getlegajo());
     MenuOrdenarVentas(VecDin,CantVentas);
     free(VecDin);
-
-
-
-
 };
 
 int ContarVentasxVendedor(int Legajo)
