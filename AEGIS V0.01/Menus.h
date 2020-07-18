@@ -111,6 +111,7 @@ void menuVentas()
         case 2:
         {
             system("cls");
+
             menuListados();
 
         }
@@ -423,12 +424,13 @@ void abmProducto()
             salir=true;
         }
             break;
-///            case 99:
-///            {
-///                FILE *p;
-///                p=fopen("Producto.dat","wb");
-///                fclose(p);
-///            }
+         ///   case 99:
+         ///   {
+         ///       FILE *p;
+         ///       p=fopen("Producto.dat","wb");
+         ///       fclose(p);
+         ///   }
+         ///   break;
 
         }///Cierra el switch
 
@@ -513,8 +515,7 @@ void abmProveedor()
         case 0:
         {
             salir=true;
-        }
-        break;
+        }break;
 
       ///  case 99:
       ///  {

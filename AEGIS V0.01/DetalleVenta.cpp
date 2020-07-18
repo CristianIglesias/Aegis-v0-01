@@ -88,6 +88,8 @@ int DetalleVenta::setIdProducto()
                 break;
             case 0:
                 error=-2;
+                return error;
+                break;
             }
             return 0;
         }
@@ -195,8 +197,8 @@ int ContarDetallesXID(int ID)
 
 int CargarDetallesVenta(DetalleVenta *Vec, int Cant, int ID)
 {
+     int i=0;
     FILE *P;
-    int i=0;
     P=fopen(ArchivoDetalle,"rb");
     if(P==NULL)
     {
@@ -219,7 +221,6 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     setColor(LIGHTBLUE);
     cout<<endl;
     DetalleDeVentaTabla();
-
     cout<<endl;
     while(i<Cant)
     {
@@ -236,6 +237,7 @@ void DetalleVenta :: Mostrar()
     error=Aux.LeerxgetID(getIdProducto());
     if(error==1)
     {
+
         setColor(WHITE);
         cout<< left;
         cout<<setw(5)<<getIdProducto()<<"\t";
@@ -257,6 +259,7 @@ void DetalleVenta :: Mostrar()
     {
         error_msj(-5,1);
         return;
+
     }
 }
 
