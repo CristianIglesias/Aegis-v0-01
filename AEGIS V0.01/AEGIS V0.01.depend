@@ -23,7 +23,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1595081818 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1595097631 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	<conio.h>
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
@@ -33,7 +33,7 @@
 	"Proveedor.h"
 	"Vendedor.h"
 
-1595082162 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1595103059 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
@@ -64,7 +64,7 @@
 	"Persona.h"
 	"PrototiposGlobales.h"
 
-1595018916 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.cpp
+1595103059 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\proveedor.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -79,7 +79,7 @@
 	"PrototiposGlobales.h"
 	"Persona.h"
 
-1595018916 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
+1595103059 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\vendedor.cpp
 	<iostream>
 	<cstdio>
 	<cstring>
@@ -92,7 +92,7 @@
 	"PrototiposGlobales.h"
 	"Persona.h"
 
-1595073116 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1595103059 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -107,7 +107,7 @@
 	"PrototiposGlobales.h"
 	"Proveedor.h"
 
-1595031910 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
+1595103826 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
 	<iomanip>
 	"rlutil.h"
@@ -350,7 +350,7 @@
 	"Producto.h"
 	"DetalleVenta.h"
 
-1595081561 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
+1595103059 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
 	<iostream>
 	<iomanip>
 	"rlutil.h"
@@ -369,7 +369,7 @@
 	<ctime>
 	"Operacion.h"
 
-1594340154 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\compras.cpp
+1595102986 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\compras.cpp
 	<iostream>
 	"rlutil.h"
 	"PrototiposGlobales.h"

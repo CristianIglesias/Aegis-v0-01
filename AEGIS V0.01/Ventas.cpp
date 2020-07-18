@@ -131,7 +131,7 @@ int GenerarIdVenta()
     FILE *p;
     p=fopen(ArchivoVentas,"rb");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     fseek(p,SEEK_SET,SEEK_END);
@@ -149,7 +149,7 @@ int Venta:: GuardarVenta()
     FILE *p;
     p=fopen(ArchivoVentas,"ab");
     if(p==NULL)
-    {
+    {fclose(p);
         return -1;
     }
     if(fwrite(this,sizeof(Venta),1, p)!=1)
@@ -177,7 +177,7 @@ void ListarTodasVentas()
     {
         error=MenuOrdenarVentas(VecDin,CantRegs);
     }
-    free(VecDin);
+    delete(VecDin);
     return ;
 };
 int ContarVentas()
@@ -371,7 +371,7 @@ int Venta:: LeerVentaxID(int id)
     FILE *P;
     P=fopen(ArchivoVentas,"rb");
     if(P==NULL)
-    {
+    {fclose(P);
         return -6;
     }
     fseek(P,sizeof(Venta)*id,SEEK_SET);
@@ -531,7 +531,7 @@ void ListadoVentasxFechas()
     VecDin=new Venta[CantVentas];
     error=CargarVecVentasxFecha(VecDin,CantVentas,Fech1,Fech2);
     MenuOrdenarVentas(VecDin,CantVentas);
-    free(VecDin);
+    delete(VecDin);
 };
 
 int ContarVentasxFechas(Fecha Fech1,Fecha Fech2)
@@ -597,7 +597,7 @@ void ListadoVentasxVendedor()
     VecDin=new Venta[CantVentas];
     error=CargarVecVentasxVendedor(VecDin,CantVentas,Reg.getlegajo());
     MenuOrdenarVentas(VecDin,CantVentas);
-    free(VecDin);
+    delete(VecDin);
 
 
 
@@ -671,7 +671,7 @@ void ListadoVentasxCliente()
     VecDin=new Venta[CantVentas];
     error=CargarVecVentasxCliente(VecDin,CantVentas,Reg.GetidCliente());
     MenuOrdenarVentas(VecDin,CantVentas);
-    free(VecDin);
+    delete(VecDin);
 
 };
 
