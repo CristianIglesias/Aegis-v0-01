@@ -63,15 +63,20 @@ int DetalleVenta::setIdProducto()
         cls();
         cout<<" Ingrese el ID del Producto a Vender."<<endl;
         cout<<"ID PRODUCTO: ";
-        cin.ignore();
+        ///cin.ignore();
         cin.getline(Cod,10);
+         if(strcmp(Cod,"-999")==0)
+            return -2;
         error=Reg.LeerxID(Cod);
         if(error==false)
-        {
-            i++;
+        {   if(i>1)
+            {
             error_msj(-5,i);
-            error=-1;
             anykey();
+            }
+            i++;
+            error=-1;
+
         }
         if(error==1)
         {
@@ -234,7 +239,7 @@ void DetalleVenta :: Mostrar()
 {
     int error;
     Producto Aux;
-    error=Aux.LeerxgetID(getIdProducto());
+    error=Aux.LeerxID(idProducto);
     if(error==1)
     {
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1594937246 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\main.cpp
+1595073116 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\main.cpp
 	<iostream>
 	<conio.h>
 	<cstdlib>
@@ -23,7 +23,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1595031987 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1595081818 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	<conio.h>
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
@@ -33,7 +33,7 @@
 	"Proveedor.h"
 	"Vendedor.h"
 
-1595019103 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
+1595082162 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\clientes.cpp
 	<iostream>
 	<cstdio>
 	"rlutil.h"
@@ -92,7 +92,7 @@
 	"PrototiposGlobales.h"
 	"Persona.h"
 
-1595032455 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
+1595073116 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.cpp
 	<iostream>
 	<cstring>
 	<cstdio>
@@ -102,7 +102,7 @@
 	"rlutil.h"
 	"Producto.h"
 
-1595028509 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
+1595035691 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\producto.h
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
 	"Proveedor.h"
@@ -350,7 +350,7 @@
 	"Producto.h"
 	"DetalleVenta.h"
 
-1595032609 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
+1595081561 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
 	<iostream>
 	<iomanip>
 	"rlutil.h"
@@ -385,7 +385,7 @@
 	"Operacion.h"
 	"Producto.h"
 
-1595030749 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.h
+1595035691 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.h
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
 	"Producto.h"
