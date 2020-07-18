@@ -599,7 +599,7 @@ void ListadoVentasxVendedor()
     MenuOrdenarVentas(VecDin,CantVentas);
 
     delete(VecDin);
-
+}
 int ContarVentasxVendedor(int Legajo)
 {
     Venta Aux;

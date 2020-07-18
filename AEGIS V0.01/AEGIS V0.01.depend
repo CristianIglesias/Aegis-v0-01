@@ -23,7 +23,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1595097631 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
+1595106442 c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\menus.h
 	<conio.h>
 	"PrototiposClases.h"
 	"PrototiposGlobales.h"
@@ -107,7 +107,7 @@
 	"PrototiposGlobales.h"
 	"Proveedor.h"
 
-1595103826 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
+1595106386 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\ventas.cpp
 	<iostream>
 	<iomanip>
 	"rlutil.h"
@@ -350,7 +350,7 @@
 	"Producto.h"
 	"DetalleVenta.h"
 
-1595103059 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
+1595105903 source:c:\users\cristian\documents\github\aegis-v0-01\aegis v0.01\detalleventa.cpp
 	<iostream>
 	<iomanip>
 	"rlutil.h"

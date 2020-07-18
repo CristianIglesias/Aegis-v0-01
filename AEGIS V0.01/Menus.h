@@ -49,14 +49,11 @@ void menuPrincipal()
     cout<<" \t" "                              ||2-->COMPRAS                      ||"<<endl;
     cout<<" \t" "                              ||3-->ABM                          ||"<<endl;
     cout<<" \t" "                              ||4-->LISTADOS                     ||"<<endl;
-    cout<<"--------------------------"<<sizeof(DetalleVenta)<< "   tamaño del detale de venta"<<endl;
-     cout<<"--------------------------"<<sizeof(Venta)<< "   tamaño de venta"<<endl;
     cout<<" \t" "                              ||5-->REPORTES                     ||"<<endl;
     cout<<" \t" "                              ||6-->CONFIGURACION                ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;
-    cout<<" EN EL INGRESO DE PRODUCTO DE LA VENTA, SALIDA VOLUNTARIA - ARREGLAR LISTAR XID "<<endl;
-    cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
+   cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
 
     for(x=1; x<118; x++)
     {
