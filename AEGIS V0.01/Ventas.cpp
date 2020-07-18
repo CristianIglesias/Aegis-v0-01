@@ -597,12 +597,8 @@ void ListadoVentasxVendedor()
     VecDin=new Venta[CantVentas];
     error=CargarVecVentasxVendedor(VecDin,CantVentas,Reg.getlegajo());
     MenuOrdenarVentas(VecDin,CantVentas);
+
     delete(VecDin);
-
-
-
-
-};
 
 int ContarVentasxVendedor(int Legajo)
 {

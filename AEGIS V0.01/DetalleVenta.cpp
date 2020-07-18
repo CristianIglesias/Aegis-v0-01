@@ -229,7 +229,7 @@ int MostrarDetallesTABLA(DetalleVenta *Vec, int Cant)
     cout<<endl;
     while(i<Cant)
     {
-        Vec[i].Mostrar();
+             Vec[i].Mostrar();
         i++;
     }
     setColor(WHITE);
