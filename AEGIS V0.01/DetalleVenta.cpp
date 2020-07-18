@@ -31,7 +31,6 @@ int DetalleVenta:: CargarDetalle(Venta *obj)
         cout<<"Desea agregar mas items a la venta? "<<endl;
         cout<<"SI :1             NO:0"<<endl;
         cin>>op;
-
         switch(op)
         {
         case 1:
@@ -57,29 +56,27 @@ DetalleVenta::DetalleVenta()
 int DetalleVenta::setIdProducto()
 {
     char Cod[10];
-    int  i=0,error,op;
+    int  i=0,error=-1,op;
     Producto Reg;
     while(error!=0)
     {
         cls();
         cout<<" Ingrese el ID del Producto a Vender."<<endl;
         cout<<"ID PRODUCTO: ";
-        ///cin.ignore();
+        cin.ignore();
         cin.getline(Cod,10);
         error=Reg.LeerxID(Cod);
-        if(error==4)
-            return 1;
         if(error==false)
-            error=-1;
-        if(error==-1)
         {
             i++;
             error_msj(-5,i);
+            error=-1;
+            anykey();
         }
-        if(error==true)
+        if(error==1)
         {
-
-            cout<<"El Producto deseado es : " << Reg.getNombreItem()<<"?"<<endl;
+            strcpy(this->idProducto,Reg.getCodigoProducto());
+            cout<<"El Producto deseado es : " << Reg.getNombreItem()<<" ?"<<endl;
             cout<<"El Precio del Producto es de :$ " << Reg.getPrecioVenta()<<endl;
             setPrecioUnidad(Reg.getPrecioVenta());
             cout<<"SI :1             NO:0"<<endl;
@@ -87,7 +84,6 @@ int DetalleVenta::setIdProducto()
             switch(op)
             {
             case 1:
-                strcpy(this->idProducto,Reg.getCodigoProducto());
                 return error;
                 break;
             case 0:
@@ -95,7 +91,6 @@ int DetalleVenta::setIdProducto()
                 return error;
                 break;
             }
-
             return 0;
         }
 
@@ -239,23 +234,32 @@ void DetalleVenta :: Mostrar()
 {
     int error;
     Producto Aux;
-    error=Aux.LeerxID(this->idProducto);
-    if(error)
+    error=Aux.LeerxgetID(getIdProducto());
+    if(error==1)
     {
-    setColor(WHITE);
-    cout<< left;
-    cout<<setw(5)<<getIdProducto()<<"\t";
-    cout << right;
-    cout<<setw(10)<<Aux.getNombreItem()<<"\t";
-    cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
-    cout<<setw(5)<<getCantidad()<<"\t";
-    cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
-    cout<<"------------------------------------------------------------------------------------------------"<<endl;
+
+        setColor(WHITE);
+        cout<< left;
+        cout<<setw(5)<<getIdProducto()<<"\t";
+        cout << right;
+        cout<<setw(10)<<Aux.getNombreItem();
+        cout<< left;
+        cout<<setw(5)<<"$"<<getPrecioUnidad()<<"\t    ";
+        cout<<setw(5)<<getCantidad()<<"\t";
+        cout<<setw(5)<<getImporteTotal()<<"\t"<<endl;
+        cout<<"------------------------------------------------------------------------------------------------"<<endl;
+        return;
     }
-    else
+    else if(error==-2)
     {
-    cout<<"Hubo un error abriendo el archivo/leyendo el registro, no sabemos como detectarlo :)"<<endl;
-    return;
+        error_msj(-6,1);
+        return;
+    }
+    else if(error==-1)
+    {
+        error_msj(-5,1);
+        return;
+
     }
 }
 

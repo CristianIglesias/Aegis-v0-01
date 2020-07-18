@@ -53,6 +53,7 @@ void menuPrincipal()
      cout<<" \t" "                             ||6-->CONFIGURACION                   ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
     cout<<" \t" "                              ||_________________________________||"<<endl;
+    cout<<" EN EL INGRESO DE PRODUCTO DE LA VENTA, SALIDA VOLUNTARIA - ARREGLAR LISTAR XID "<<endl;
     cout<<" \t" "                                -------Ingrese una opcion--------   "<<endl;
 
     for(x=1; x<118; x++)
@@ -87,13 +88,13 @@ void menuVentas()
 
         cout<<"   \t""                                           VENTAS                   "<<endl;
         setColor(YELLOW);
-        cout<<"   \t""                              ______________________________________ "<<endl;
-        cout<<"   \t""                             ||-1 -->Nueva Venta.                  -||"<<endl;
-        cout<<"   \t""                             ||-2 -->Mostrar Detales X ID de ventas-||"<<endl;
-        cout<<"   \t""                             ||-3 -->Presupuestos.                -||"<<endl;
-        cout<<"   \t""                             ||.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
-        cout<<"   \t""                             ||-0-->VOLVER                        -||"<<endl;
-        cout<<"   \t""                             ||____________________________________||"<<endl;
+        cout<<"   \t""                              ___________________________________ "<<endl;
+        cout<<"   \t""                             ||-1 -->Nueva Venta.               -||"<<endl;
+        cout<<"   \t""                             ||-2 -->Acceso rapido a Listados   -||"<<endl;
+        ///cout<<"   \t""                             ||-3 -->Presupuestos.              -||"<<endl;
+        cout<<"   \t""                             ||.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
+        cout<<"   \t""                             ||-0-->VOLVER                      -||"<<endl;
+        cout<<"   \t""                             ||__________________________________||"<<endl;
         cout<<"   \t""                              -------Ingrese una opcion-------- "<<endl;
         LineasInferior();
         cin>>op;
@@ -112,8 +113,8 @@ void menuVentas()
         case 2:
         {
             system("cls");
-            cout<<"                MOSTRAR DETALLE X ID DE VENTA                "<<endl;
-                           MostrarDetallesDeVentaxID();
+
+            menuListados();
 
         }
         break;
@@ -139,16 +140,16 @@ void menuVentas()
 
         }
         break;
-        case 99:
-        {
-            FILE *p;
-            p=fopen("Ventas.dat","wb");
-            fclose(p);
-            p=fopen("DetalleVenta.dat","wb");
-            fclose(p);
-            break;
-        }
+    case 99:
+    {
+        FILE *p;
+        p=fopen("Ventas.dat","wb");
+        fclose(p);
+        p=fopen("DetalleVenta.dat","wb");
+        fclose(p);
         break;
+    }
+    break;
 
         }
         system("pause");
@@ -464,6 +465,7 @@ void abmClientes()
         }
         break;
 
+
         }///Cierra el switch
 
     }///Cierra el while
@@ -549,7 +551,9 @@ void abmProducto()
         case 0:
         {
             salir=true;
+
         }break;
+
 
         }///Cierra el switch
 
@@ -638,7 +642,6 @@ void abmProveedor()
 
 
         }
-
     }
 };
 
@@ -749,7 +752,10 @@ void menuListados()
         cout<<"                                            ||4--> Ventas Por Importe Max.             ||"<<endl;
         cout<<"                                            ||5--> Ventas Por Cliente.                 ||"<<endl;
         cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
+        cout<<"                                            ||6--> Mostrar detalles de Venta x ID      ||"<<endl;
+        cout<<"                                            ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-||"<<endl;
         cout<<"                                            ||0-->VOLVER                               ||"<<endl;
+
         cout<<"                                            ||_________________________________________||"<<endl;
         cout<<"                                             -------Ingrese una opcion--------"<<endl;
         LineasInferior();
@@ -782,6 +788,12 @@ void menuListados()
         {
             ListadoVentasxCliente();
         }
+        break;
+
+        case 6:
+            {
+                MostrarDetallesDeVentaxID();
+            }
         break;
         case 0:
         {

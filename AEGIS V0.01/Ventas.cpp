@@ -62,6 +62,8 @@ int Venta:: SetIdVendedor()
         cout<<"Ingrese el ID del vendedor a cargo de esta venta:"<<endl;
         cout<<"ID VENDEDOR: ";
         cin>>IdVendedor;
+        if(IdVendedor==-999)
+            return 1;
         error=Vend.leerVendedor(IdVendedor);
         if(error==0)
             return -1;
@@ -456,7 +458,7 @@ int MenuOrdenarVentas(Venta *VecDin, int Cant)
 
         }
         system("pause");
-        MostrarDetallesDeVentaxID();
+      if(op>0&&op<5)  MostrarDetallesDeVentaxID();
     }
 };
 
