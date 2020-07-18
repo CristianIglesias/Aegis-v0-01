@@ -49,6 +49,8 @@ void menuPrincipal()
     cout<<" \t" "                              ||2-->COMPRAS                      ||"<<endl;
     cout<<" \t" "                              ||3-->ABM                          ||"<<endl;
     cout<<" \t" "                              ||4-->LISTADOS                     ||"<<endl;
+    cout<<"--------------------------"<<sizeof(DetalleVenta)<< "   tamaño del detale de venta"<<endl;
+     cout<<"--------------------------"<<sizeof(Venta)<< "   tamaño de venta"<<endl;
     cout<<" \t" "                              ||5-->REPORTES                     ||"<<endl;
     cout<<" \t" "                              ||6-->CONFIGURACION                ||"<<endl;
     cout<<" \t" "                              ||0-->SALIR                        ||"<<endl;
@@ -71,6 +73,7 @@ void menuPrincipal()
 
     }
 };
+
 void menuVentas()
 {
     Venta V;
@@ -173,21 +176,26 @@ void menuConfiguracion()
         cout<<endl;
         cout<<endl;
 
-        cout<<"  \t""                                                    CONFIGURACION                "<<endl;
+        cout<<"  \t""                                              CONFIGURACION                "<<endl;
         setColor(YELLOW);
-        cout<<"  \t""                                     _________________________________ "<<endl;
-        cout<<"  \t""                                    ||-1-->ELIMINAR REGISTROS                   ||"<<endl;
-         cout<<"  \t""                                   ||-2-->REALIZAR COPIA DE SEGURIDAD   ||"<<endl;
-        cout<<"  \t""                                    ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.||"<<endl;
-        cout<<"  \t""                                    ||-0-->VOLVER                     ||"<<endl;
-        cout<<"  \t""                                    ||________________________________||"<<endl;
+        cout<<"  \t""                                     ___________________________________"<<endl;
+        cout<<"  \t""                                    ||-99-->ELIMINAR TODOS LOS REGISTROS ||"<<endl;
+         cout<<" \t""                                    ||-1-->Eliminar registro Clientes  ||"<<endl;
+         cout<<" \t""                                    ||-2-->Eliminar registro Productos ||"<<endl;
+         cout<<" \t""                                    ||-3-->Eliminar registro Proveedores  ||"<<endl;
+         cout<<" \t""                                    ||-4-->Eliminar registro Vendedores  ||"<<endl;
+         cout<<" \t""                                    ||-5-->Eliminar registro Ventas  ||"<<endl;
+         cout<<" \t""                                    ||-6-->Eliminar registro Detalles  ||"<<endl;
+        cout<<"  \t""                                    ||-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.||"<<endl;
+        cout<<"  \t""                                    ||-0-->VOLVER                       ||"<<endl;
+        cout<<"  \t""                                    ||__________________________________||"<<endl;
         cout<<"  \t""                                     -------Ingrese una opcion-------- "<<endl;
         LineasInferior();
         cin>>opcion;
 
         switch(opcion)
         {
-        case 1:
+        case 99:
         {
             int opc;
             system("cls");
@@ -204,15 +212,27 @@ void menuConfiguracion()
             FILE *a;
             a=fopen("Clientes.dat","wb");
             fclose(a);
+
              FILE *b;
             b=fopen("Vendedor.dat","wb");
             fclose(b);
+
              FILE *c;
             c=fopen("Proveedor.dat","wb");
             fclose(c);
+
              FILE *d;
             d=fopen("Producto.dat","wb");
             fclose(d);
+
+            FILE *v;
+            v=fopen("Ventas.dat","wb");
+            fclose(v);
+
+             FILE *dv;
+            dv=fopen("DetalleVenta.dat","wb");
+            fclose(dv);
+
                     }break;
                 case 2:
                     {
@@ -224,54 +244,57 @@ void menuConfiguracion()
             }
         }
         break;
-         case 2:
+         case 1:
         {
-            int op;
-            system("cls");
-            cout<<"COPIA DE SEGURIDAD"<<endl;
-            cout<<"-------------------------"<<endl;
-            cout<<"1-->Clientes              "<<endl;
-            cout<<"2-->Poductos             "<<endl;
-            cout<<"3-->Vendedores         "<<endl;
-            cout<<"4-->Proveedores        "<<endl;
-            cout<<"0-->VOLVER              "<<endl;
-            cout<<"-------------------------"<<endl;
-            cin>>op;
-            switch(op)
-            {
-            case 1:
-                {
-                    cls();
-                     cout<<"COPIA DE SEGURIDAD CLIENTES"<<endl;
+           cout<<" Eliminar registro clientes  "<<endl;
+            FILE *a;
+            a=fopen("Clientes.dat","wb");
+            fclose(a);
 
-                }break;
-            case 2:
-                {
-                     cls();
-                     cout<<"COPIA DE SEGURIDAD PRODUCTOS"<<endl;
+        }break;
+          case 2:
+        {
+           cout<<" Eliminar registro Productos  "<<endl;
 
-                }break;
-                case 3:
-                {
-                     cls();
-                     cout<<"COPIA DE SEGURIDAD VENDEDORES"<<endl;
+             FILE *d;
+            d=fopen("Producto.dat","wb");
+            fclose(d);
 
-                }break;
-                case 4:
-                    {
-                        cls();
-                     cout<<"COPIA DE SEGURIDAD PROVEEDORES"<<endl;
+        }break;
+          case 3:
+        {
+           cout<<" Eliminar registro Proveedores  "<<endl;
 
-                    }break;
-                case 0:
-                    {
-                        cls();
-                        cout<<"Volver al menu anterior"<<endl;
-                        salir=true;
-                    }break;
-            }
-        }
-        break;
+             FILE *c;
+            c=fopen("Proveedor.dat","wb");
+            fclose(c);
+
+        }break;
+        case 4:
+        {
+           cout<<" Eliminar registro Vendedores  "<<endl;
+           FILE *b;
+            b=fopen("Vendedor.dat","wb");
+            fclose(b);
+
+        }break;
+         case 5:
+        {
+           cout<<" Eliminar registro Ventas  "<<endl;
+            FILE *v;
+            v=fopen("Ventas.dat","wb");
+            fclose(v);
+
+        }break;
+        case 6:
+        {
+           cout<<" Eliminar registro Detalles  "<<endl;
+
+             FILE *dv;
+            dv=fopen("DetalleVenta.dat","wb");
+            fclose(dv);
+
+        }break;
         case 0:
         {
             system("cls");

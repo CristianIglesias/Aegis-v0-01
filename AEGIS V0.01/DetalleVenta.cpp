@@ -242,7 +242,6 @@ void DetalleVenta :: Mostrar()
     error=Aux.LeerxID(idProducto);
     if(error==1)
     {
-
         setColor(WHITE);
         cout<< left;
         cout<<setw(5)<<getIdProducto()<<"\t";
@@ -255,7 +254,7 @@ void DetalleVenta :: Mostrar()
         cout<<"------------------------------------------------------------------------------------------------"<<endl;
         return;
     }
-    else if(error==-2)
+    else if(error==0)
     {
         error_msj(-6,1);
         return;

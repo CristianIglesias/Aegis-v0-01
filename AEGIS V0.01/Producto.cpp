@@ -547,7 +547,7 @@ bool Producto:: LeerxID(char* id)
     }
     while(fread(this,sizeof(Producto),1,P)==1)
     {
-        if(strcmp(id,CodigoProducto)==0&&Estado==true)
+        if(strcmp(id,CodigoProducto)==0)
         {
             fclose (P);
             return true;
